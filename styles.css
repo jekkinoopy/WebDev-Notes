@@ -385,6 +385,23 @@ section {
     line-height: 1.6;
 }
 
+.note-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+/* 程式碼標籤樣式 */
+.note-item code {
+    background: var(--gray-100, #f3f4f6);
+    color: var(--color-danger, #ef4444); /* 突出顯示標籤 */
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Poppins', monospace;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
 .tag-list {
     display: flex;
     flex-wrap: wrap;

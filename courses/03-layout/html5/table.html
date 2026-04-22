@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-            background-color: #f9f9f9;
+            background-color: #694444;
             color: var(--text-color);
             /* 使用你的應援主色作為文字顏色 */
             padding: 20px;
@@ -66,32 +66,55 @@
             font-size: 0.95em;
         }
 
-        /* 重點標記 */
+        /* 強調文字樣式 */
         mark {
-            background: linear-gradient(to top, var(--yellow) 40%, transparent 40%);
-            padding: 0 2px;
-            font-weight: bold;
+            background-color: #fef08a;
+            /* 淺黃色高亮 */
+            color: #854d0e;
+            padding: 0 4px;
+            border-radius: 2px;
         }
 
-        .note-item span {
-            color: var(--text-color);
-        }
-
+        /* --- 表格通用樣式 (Table) --- */
         table {
-            /* 合併邊框 */
-            border-collapse: collapse;
-            background: rgba(255, 255, 255, 0.1);
-            /* 半透明白 */
             width: 100%;
-            margin: auto;
-            text-align: center;
-            font-size: 1.2rem;
+            border-collapse: collapse;
+            /* 重要：讓邊框合併 */
+            margin-bottom: 2.5rem;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            /* 配合圓角 */
         }
 
-        th,
-        td {
-            border: 3px solid black;
-            padding: 15px;
+        table td,
+        table th {
+            border: 1px solid var(--gray-200, #e5e7eb);
+            padding: 12px 15px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* 課表的第一列或標頭 */
+        .course-schedule-notes tr:first-child td,
+        .course-schedule-notes th {
+            background-color: var(--gray-50, #f9fafb);
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* 九宮格練習專用效果 */
+        .grid-table td {
+            width: 33.33%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* 滑過表格列的效果 */
+        table tr:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+            /* 淡淡的主色背景 */
         }
     </style>
 </head>
@@ -100,13 +123,18 @@
     <header class="header">
         <nav class="navbar">
             <div class="nav-container">
-                <div class="logo"><h1>WebDev Notes</h1></div>
+                <div class="logo">
+                    <span class="logo-icon">📊</span>
+                    <h1>WebDev Notes</h1>
+                </div>
                 <ul class="nav-links">
-                    <li><a href="index.html">返回 HTML 首頁</a></li>
+                    <li><a href="../index.html">首頁</a></li>
+                    <li><a href="index.html">HTML 課程</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
     <div class="note-card">
         <h3>九宮格表格結構</h3>
         <div class="note-content">
@@ -173,8 +201,8 @@
         </tr>
     </table>
     <div class="note-card">
-        <h3>課表結構：合併邏輯拆解</h3>
-        <div class="note-content">
+        <h3>SECHSKIES 偶像養成課表：合併邏輯拆解</h3>
+        <div class="note-content ">
             <div class="note-item">
                 <code>colspan="5"</code>
                 <span>早自習與午休：橫跨週一至週五，佔據 <mark>5 欄</mark>。</span>
@@ -189,7 +217,7 @@
             </div>
         </div>
     </div>
-    <table>
+    <table class="course-schedule-notes">
         <tr>
             <td>節數</td>
             <td>一</td>
@@ -200,7 +228,7 @@
         </tr>
         <tr>
             <td>早自習<br>0750~0830</td>
-            <td colspan="5"></td>
+            <td colspan="5">應援練習，由<mark>全體成員</mark>參與。</td>
             <!-- <td>3</td>
                 <td>4</td>
                 <td>5</td>
@@ -208,34 +236,34 @@
         </tr>
         <tr>
             <td>第一節<br>0840~0920</td>
-            <td rowspan="2">國語<br>劉展華</td>
-            <td colspan="3">數學<br>劉展華</td>
+            <td rowspan="2">舞蹈<br>金在德</td>
+            <td colspan="3">聲樂<br>姜成勳</td>
             <!-- <td>10</td>
                 <td>11</td> -->
-            <td>國語<br>劉展華</td>
+            <td>舞蹈<br>金在德</td>
         </tr>
         <tr>
             <td>第二節<br>0930~1010</td>
             <!-- <td>14</td> -->
-            <td>自然<br>黃新民</td>
-            <td>音樂<br>萬巧如</td>
-            <td>國語<br>劉展華</td>
-            <td>彈性<br>劉展華</td>
+            <td>詞曲<br>殷志源</td>
+            <td>理財<br>高志溶</td>
+            <td>舞蹈<br>金在德</td>
+            <td>餐飲<br>張水院</td>
         </tr>
         <tr>
             <td>第三節<br>1030~1110</td>
-            <td>數學<br>劉展華</td>
-            <td>健康<br>潘文欽</td>
-            <td>國語<br>劉展華</td>
-            <td>鄉土<br>魏士欽</td>
-            <td rowspan="2">自然<br>黃新民</td>
+            <td>聲樂<br>姜成勳</td>
+            <td>爵士鼓<br>殷志源</td>
+            <td>舞蹈<br>金在德</td>
+            <td>演技<br>張水院</td>
+            <td rowspan="2">詞曲<br>殷志源</td>
         </tr>
         <tr>
             <td>第四節<br>1120~1200</td>
-            <td>英語<br>黃定宜</td>
-            <td>彈性<br>劉展華</td>
-            <td>社會<br>劉展華</td>
-            <td>英語<br>黃定宜</td>
+            <td>英文<br>殷志源</td>
+            <td>吉他<br>金在德</td>
+            <td>電玩<br>殷志源</td>
+            <td>英文<br>殷志源</td>
             <!-- <td>30</td> -->
         </tr>
         <tr>
@@ -248,27 +276,27 @@
         </tr>
         <tr>
             <td>第五節<br>1330~1410</td>
-            <td>社會<br>劉展華</td>
-            <td rowspan="2">美勞<br>許文杰</td>
+            <td>商業<br>高志溶</td>
+            <td rowspan="2">繪畫<br>李宰鎮</td>
             <td rowspan="3"></td>
-            <td rowspan="3">綜合<br>劉展華</td>
-            <td>體育<br>潘文欽</td>
+            <td rowspan="3">藝能<br>殷志源</td>
+            <td>健身<br>李宰鎮</td>
         </tr>
         <tr>
             <td>第六節<br>1420~1500</td>
-            <td>體育<br>潘文欽</td>
+            <td>健身<br>李宰鎮</td>
             <!-- <td>45</td> -->
             <!-- <td>46</td> -->
             <!-- <td>47</td> -->
-            <td>國語<br>劉展華</td>
+            <td>舞蹈<br>金在德</td>
         </tr>
         <tr>
             <td>第七節<br>1520~1600</td>
-            <td colspan="2">彈性<br>劉展華</td>
+            <td colspan="2">演技<br>張水院</td>
             <!-- <td>51</td> -->
             <!-- <td>52</td> -->
             <!-- <td>53</td> -->
-            <td>社會<br>劉展華</td>
+            <td>日文<br>李宰鎮</td>
         </tr>
     </table>
 
