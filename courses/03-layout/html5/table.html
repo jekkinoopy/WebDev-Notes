@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table 練習 - WebDev Notes</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            /* 使用你的應援主色作為文字顏色 */
+            padding: 20px;
+        }
+
+        /* 筆記外框 */
+        .note-card {
+            background: #ffffff;
+            border-left: 5px solid var(--yellow);
+            /* 使用你的應援黃色 */
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* 標題樣式 */
+        .note-card h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--black);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .note-card h3::before {
+            content: "📌";
+            margin-right: 8px;
+        }
+
+        /* 內容區塊 */
+        .note-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .note-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 模擬代碼外觀 */
+        code {
+            background-color: #f0f0f0;
+            color: #d63384;
+            /* 經典的程式碼粉紅色 */
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Cascadia Code', 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        /* 重點標記 */
+        mark {
+            background: linear-gradient(to top, var(--yellow) 40%, transparent 40%);
+            padding: 0 2px;
+            font-weight: bold;
+        }
+
+        .note-item span {
+            color: var(--text-color);
+        }
+
+        table {
+            /* 合併邊框 */
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.1);
+            /* 半透明白 */
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        th,
+        td {
+            border: 3px solid black;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo"><h1>WebDev Notes</h1></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">返回 HTML 首頁</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="note-card">
+        <h3>九宮格表格結構</h3>
+        <div class="note-content">
+            <div class="note-item">
+                <code>&lt;tr&gt;</code>
+                <span>代表橫向的<mark>列</mark> (Row)</span>
+            </div>
+            <div class="note-item">
+                <code>&lt;td&gt;</code>
+                <span>代表格內的<mark>欄</mark> (Column/Data)</span>
+            </div>
+            <div class="note-item">
+                <code>border-collapse</code>
+                <span>將表格邊框<mark>合併</mark>為單一線條</span>
+            </div>
+        </div>
+    </div>
+    <table class="grid-table">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+
+    <div class="note-card">
+        <h3>合併儲存格</h3>
+        <div class="note-content">
+            <div class="note-item">
+                <code>rowspan="2"</code>
+                <span>將儲存格向<mark>下</mark>合併兩列</span>
+            </div>
+            <div class="note-item">
+                <code>colspan="2"</code>
+                <span>將儲存格向<mark>右</mark>合併兩欄</span>
+            </div>
+        </div>
+    </div>
+    <table>
+        <tr>
+            <td colspan="2">1<br>colspan="2"</td>
+            <!-- <td>2</td> -->
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td rowspan="2">6<br>rowspan="2"</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <!-- <td>9</td> -->
+        </tr>
+    </table>
+    <div class="note-card">
+        <h3>課表結構：合併邏輯拆解</h3>
+        <div class="note-content">
+            <div class="note-item">
+                <code>colspan="5"</code>
+                <span>早自習與午休：橫跨週一至週五，佔據 <mark>5 欄</mark>。</span>
+            </div>
+            <div class="note-item">
+                <code>rowspan="2"</code>
+                <span>週一國語、週五自然：連續兩節課，佔據 <mark>2 列</mark>。</span>
+            </div>
+            <div class="note-item">
+                <code>rowspan="3"</code>
+                <span>週三空白、週四綜合：佔據下午三節課，跨越 <mark>3 列</mark>。</span>
+            </div>
+        </div>
+    </div>
+    <table>
+        <tr>
+            <td>節數</td>
+            <td>一</td>
+            <td>二</td>
+            <td>三</td>
+            <td>四</td>
+            <td>五</td>
+        </tr>
+        <tr>
+            <td>早自習<br>0750~0830</td>
+            <td colspan="5"></td>
+            <!-- <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td> -->
+        </tr>
+        <tr>
+            <td>第一節<br>0840~0920</td>
+            <td rowspan="2">國語<br>劉展華</td>
+            <td colspan="3">數學<br>劉展華</td>
+            <!-- <td>10</td>
+                <td>11</td> -->
+            <td>國語<br>劉展華</td>
+        </tr>
+        <tr>
+            <td>第二節<br>0930~1010</td>
+            <!-- <td>14</td> -->
+            <td>自然<br>黃新民</td>
+            <td>音樂<br>萬巧如</td>
+            <td>國語<br>劉展華</td>
+            <td>彈性<br>劉展華</td>
+        </tr>
+        <tr>
+            <td>第三節<br>1030~1110</td>
+            <td>數學<br>劉展華</td>
+            <td>健康<br>潘文欽</td>
+            <td>國語<br>劉展華</td>
+            <td>鄉土<br>魏士欽</td>
+            <td rowspan="2">自然<br>黃新民</td>
+        </tr>
+        <tr>
+            <td>第四節<br>1120~1200</td>
+            <td>英語<br>黃定宜</td>
+            <td>彈性<br>劉展華</td>
+            <td>社會<br>劉展華</td>
+            <td>英語<br>黃定宜</td>
+            <!-- <td>30</td> -->
+        </tr>
+        <tr>
+            <td>午休時間<br>1200~1320</td>
+            <td colspan="5"></td>
+            <!-- <td>33</td>
+                <td>34</td>
+                <td>35</td>
+                <td>36</td> -->
+        </tr>
+        <tr>
+            <td>第五節<br>1330~1410</td>
+            <td>社會<br>劉展華</td>
+            <td rowspan="2">美勞<br>許文杰</td>
+            <td rowspan="3"></td>
+            <td rowspan="3">綜合<br>劉展華</td>
+            <td>體育<br>潘文欽</td>
+        </tr>
+        <tr>
+            <td>第六節<br>1420~1500</td>
+            <td>體育<br>潘文欽</td>
+            <!-- <td>45</td> -->
+            <!-- <td>46</td> -->
+            <!-- <td>47</td> -->
+            <td>國語<br>劉展華</td>
+        </tr>
+        <tr>
+            <td>第七節<br>1520~1600</td>
+            <td colspan="2">彈性<br>劉展華</td>
+            <!-- <td>51</td> -->
+            <!-- <td>52</td> -->
+            <!-- <td>53</td> -->
+            <td>社會<br>劉展華</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 網頁架構 - WebDev Notes</title>
+    <link rel="stylesheet" href="../../../styles.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">🌐</span>
+                    <h1>WebDev Notes</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">首頁</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">HTML 網頁架構</h2>
+            <p class="hero-subtitle">從標籤語義化到複雜的表格排版</p>
+        </div>
+    </section>
+
+    <section class="courses-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>HTML 練習專案</h2>
+                <p>點選下方卡片進入各別的練習頁面</p>
+            </div>
+
+            <div class="courses-grid">
+                <article class="course-card featured">
+                    <div class="card-header">
+                        <span class="card-icon">📊</span>
+                        <span class="card-badge">本日重點</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Table 表格</h3>
+                        <p class="hours">基礎 ~ 進階</p>
+                        <p>練習表格架構、標頭、內容、以及 colspan/rowspan 的儲存格合併。</p>
+                        <div class="tag-list">
+                            <span class="tag">Table</span>
+                            <span class="tag">Colspan</span>
+                            <span class="tag">Rowspan</span>
+                        </div>
+                    </div>
+                    <a href="table.html" class="card-link">
+                        進入表格練習 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="card-icon">📝</span>
+                        <span class="card-badge">待解鎖</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>HTML Form 表單</h3>
+                        <p class="hours">即將推出</p>
+                        <p>學習 Input, Label, Select 等互動元件。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 WebDev Notes - HTML Course</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
