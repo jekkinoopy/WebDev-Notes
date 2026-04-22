@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網頁動態技術 - WebDev Notes</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 所有顏色變數統一在 colors-config.css 中管理 -->
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">📚</span>
+                    <h1>WebDev Notes</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">首頁</a></li>
+                    <li><a href="../../index.html#courses">課程</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">網頁動態技術</h2>
+            <p class="hero-subtitle">掌握前端互動與動態效果的核心技能</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">160</span>
+                    <span class="stat-label">小時</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">技術棧</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>課程內容</h2>
+                <p>前端互動與響應式設計的完整學習路徑</p>
+            </div>
+
+            <div class="courses-grid">
+                <article class="course-card featured">
+                    <div class="card-header">
+                        <span class="card-icon">🔴</span>
+                        <span class="card-badge">基礎</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>JavaScript</h3>
+                        <p class="hours">基礎 ~ 進階</p>
+                        <p>變數、函數、DOM 操作、事件處理、非同步程式設計等</p>
+                        <div class="tag-list">
+                            <span class="tag">語言</span>
+                            <span class="tag">DOM</span>
+                            <span class="tag">異步</span>
+                        </div>
+                    </div>
+                    <a href="javascript/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="card-icon">📘</span>
+                        <span class="card-badge">庫</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>jQuery</h3>
+                        <p class="hours">進階</p>
+                        <p>簡化 DOM 操作、動畫效果、AJAX 請求、插件開發</p>
+                        <div class="tag-list">
+                            <span class="tag">jQuery</span>
+                            <span class="tag">動畫</span>
+                            <span class="tag">AJAX</span>
+                        </div>
+                    </div>
+                    <a href="jquery/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <article class="course-card featured">
+                    <div class="card-header">
+                        <span class="card-icon">🎨</span>
+                        <span class="card-badge">框架</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Bootstrap</h3>
+                        <p class="hours">基礎 ~ 進階</p>
+                        <p>元件系統、柵欄系統、響應式設計、自訂主題</p>
+                        <div class="tag-list">
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">RWD</span>
+                            <span class="tag">框架</span>
+                        </div>
+                    </div>
+                    <a href="bootstrap/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="card-icon">📱</span>
+                        <span class="card-badge">技術</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>RWD 響應式設計</h3>
+                        <p class="hours">進階</p>
+                        <p>流動佈局、彈性網格、媒體查詢、行動優先設計</p>
+                        <div class="tag-list">
+                            <span class="tag">RWD</span>
+                            <span class="tag">行動</span>
+                            <span class="tag">佈局</span>
+                        </div>
+                    </div>
+                    <a href="rwd/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <article class="course-card featured">
+                    <div class="card-header">
+                        <span class="card-icon">⚙️</span>
+                        <span class="card-badge">技術</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ajax 技術應用</h3>
+                        <p class="hours">進階</p>
+                        <p>非同步資料傳輸、XMLHttpRequest、Fetch API、實時更新</p>
+                        <div class="tag-list">
+                            <span class="tag">Ajax</span>
+                            <span class="tag">Fetch</span>
+                            <span class="tag">異步</span>
+                        </div>
+                    </div>
+                    <a href="ajax/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>網頁動態技術</h4>
+                    <p>160 小時的前端開發課程</p>
+                </div>
+                <div class="footer-section">
+                    <h4>技術棧</h4>
+                    <ul>
+                        <li><a href="javascript/index.html">JavaScript</a></li>
+                        <li><a href="bootstrap/index.html">Bootstrap</a></li>
+                        <li><a href="ajax/index.html">Ajax</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>返回</h4>
+                    <ul>
+                        <li><a href="../../index.html">主首頁</a></li>
+                        <li><a href="../../index.html#courses">課程列表</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WebDev Notes - 網頁動態技術課程</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

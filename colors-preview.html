@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色彩系統預覽 - WebDev Notes</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .color-preview {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .color-section {
+            margin-bottom: 3rem;
+        }
+        
+        .color-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        
+        .color-box {
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            transition: transform var(--transition-base);
+        }
+        
+        .color-box:hover {
+            transform: translateY(-4px);
+        }
+        
+        .color-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .color-value {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+        
+        .color-swatch {
+            width: 100%;
+            height: 100px;
+            border-radius: var(--radius-md);
+            margin-bottom: 0.5rem;
+            border: 1px solid var(--border-light);
+        }
+        
+        .hint {
+            background-color: var(--gray-100);
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+        
+        .hint strong {
+            color: var(--text-primary);
+        }
+        
+        header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        
+        header p {
+            opacity: 0.9;
+            margin: 0.5rem 0 0 0;
+        }
+        
+        footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎨 WebDev Notes 色彩系統</h1>
+        <p>所有顏色變數統一管理在 colors-config.css</p>
+    </header>
+
+    <div class="color-preview">
+        <a href="index.html" class="back-link">← 返回首頁</a>
+        
+        <div class="hint">
+            <strong>💡 提示：</strong>要改變整個網站的色系，只需編輯 <code>colors-config.css</code> 檔案中的色彩變數。所有頁面會自動應用新色系。詳見 <code>COLOR-GUIDE.md</code>
+        </div>
+
+        <!-- 主色系 -->
+        <div class="color-section">
+            <h2>🎯 主色系</h2>
+            <div class="color-grid">
+                <div class="color-box" style="background: var(--primary); color: var(--text-inverse);">
+                    <div class="color-swatch" style="background: var(--primary);"></div>
+                    <div class="color-name">主色 Primary</div>
+                    <div class="color-value">--primary</div>
+                </div>
+                <div class="color-box" style="background: var(--primary-light); color: var(--text-inverse);">
+                    <div class="color-swatch" style="background: var(--primary-light);"></div>
+                    <div class="color-name">主色淺 Light</div>
+                    <div class="color-value">--primary-light</div>
+                </div>
+                <div class="color-box" style="background: var(--primary-dark); color: var(--text-inverse);">
+                    <div class="color-swatch" style="background: var(--primary-dark);"></div>
+                    <div class="color-name">主色深 Dark</div>
+                    <div class="color-value">--primary-dark</div>
+                </div>
+                <div class="color-box" style="background: var(--secondary); color: var(--text-inverse);">
+                    <div class="color-swatch" style="background: var(--secondary);"></div>
+                    <div class="color-name">輔助色 Secondary</div>
+                    <div class="color-value">--secondary</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 狀態色 -->
+        <div class="color-section">
+            <h2>🚦 狀態色</h2>
+            <div class="color-grid">
+                <div class="color-box" style="background: var(--success); color: var(--text-inverse);">
+                    <div class="color-swatch" style="background: var(--success);"></div>
+                    <div class="color-name">成功 Success</div>
+                    <div class="color-value">--success</div>
+                </div>
+                <div class="color-box" style="background: var(--warning); color: var(--text-primary);">
+                    <div class="color-swatch" style="background: var(--warning);"></div>
+                    <div class="color-name">警告 Warning</div>
+                    <div class="color-value">--warning</div>
+                </div>
+                <div class="color-box" style="background: var(--danger); color: var(--text-inverse);">
+                    <div class="color-swatch" style="background: var(--danger);"></div>
+                    <div class="color-name">危險 Danger</div>
+                    <div class="color-value">--danger</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 灰度色 -->
+        <div class="color-section">
+            <h2>⚪ 灰度色系</h2>
+            <div class="color-grid">
+                <div class="color-box" style="background: var(--gray-50); border: 1px solid var(--border-light);">
+                    <div class="color-swatch" style="background: var(--gray-50); border: 1px solid var(--border-light);"></div>
+                    <div class="color-name">Gray 50</div>
+                    <div class="color-value">--gray-50</div>
+                </div>
+                <div class="color-box" style="background: var(--gray-100); border: 1px solid var(--border-light);">
+                    <div class="color-swatch" style="background: var(--gray-100);"></div>
+                    <div class="color-name">Gray 100</div>
+                    <div class="color-value">--gray-100</div>
+                </div>
+                <div class="color-box" style="background: var(--gray-200); border: 1px solid var(--border-light);">
+                    <div class="color-swatch" style="background: var(--gray-200);"></div>
+                    <div class="color-name">Gray 200</div>
+                    <div class="color-value">--gray-200</div>
+                </div>
+                <div class="color-box" style="background: var(--gray-300);">
+                    <div class="color-swatch" style="background: var(--gray-300);"></div>
+                    <div class="color-name">Gray 300</div>
+                    <div class="color-value">--gray-300</div>
+                </div>
+                <div class="color-box" style="background: var(--gray-400);">
+                    <div class="color-swatch" style="background: var(--gray-400);"></div>
+                    <div class="color-name">Gray 400</div>
+                    <div class="color-value">--gray-400</div>
+                </div>
+                <div class="color-box" style="background: var(--gray-500); color: var(--text-inverse);">
+                    <div class="color-swatch" style="background: var(--gray-500);"></div>
+                    <div class="color-name">Gray 500</div>
+                    <div class="color-value">--gray-500</div>
+                </div>
+                <div class="color-box" style="background: var(--gray-600); color: var(--text-inverse);">
+                    <div class="color-swatch" style="background: var(--gray-600);"></div>
+                    <div class="color-name">Gray 600</div>
+                    <div class="color-value">--gray-600</div>
+                </div>
+                <div class="color-box" style="background: var(--gray-700); color: var(--text-inverse);">
+                    <div class="color-swatch" style="background: var(--gray-700);"></div>
+                    <div class="color-name">Gray 700</div>
+                    <div class="color-value">--gray-700</div>
+                </div>
+                <div class="color-box" style="background: var(--gray-800); color: var(--text-inverse);">
+                    <div class="color-swatch" style="background: var(--gray-800);"></div>
+                    <div class="color-name">Gray 800</div>
+                    <div class="color-value">--gray-800</div>
+                </div>
+                <div class="color-box" style="background: var(--gray-900); color: var(--text-inverse);">
+                    <div class="color-swatch" style="background: var(--gray-900);"></div>
+                    <div class="color-name">Gray 900</div>
+                    <div class="color-value">--gray-900</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 文字色 -->
+        <div class="color-section">
+            <h2>📝 文字顏色</h2>
+            <div class="color-grid">
+                <div class="color-box" style="background: var(--bg-primary); border: 1px solid var(--border-light);">
+                    <div class="color-swatch" style="background: var(--text-primary);"></div>
+                    <div class="color-name">主文字</div>
+                    <div class="color-value">--text-primary</div>
+                </div>
+                <div class="color-box" style="background: var(--bg-primary); border: 1px solid var(--border-light);">
+                    <div class="color-swatch" style="background: var(--text-secondary);"></div>
+                    <div class="color-name">次文字</div>
+                    <div class="color-value">--text-secondary</div>
+                </div>
+                <div class="color-box" style="background: var(--bg-primary); border: 1px solid var(--border-light);">
+                    <div class="color-swatch" style="background: var(--text-tertiary);"></div>
+                    <div class="color-name">第三級文字</div>
+                    <div class="color-value">--text-tertiary</div>
+                </div>
+                <div class="color-box" style="background: var(--bg-primary); border: 1px solid var(--border-light);">
+                    <div class="color-swatch" style="background: var(--text-light);"></div>
+                    <div class="color-name">淡文字</div>
+                    <div class="color-value">--text-light</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 漸層色 -->
+        <div class="color-section">
+            <h2>🌅 漸層組合</h2>
+            <div class="color-grid">
+                <div class="color-box">
+                    <div class="color-swatch" style="background: var(--gradient-primary);"></div>
+                    <div class="color-name">主漸層</div>
+                    <div class="color-value">--gradient-primary</div>
+                </div>
+                <div class="color-box">
+                    <div class="color-swatch" style="background: var(--gradient-dark);"></div>
+                    <div class="color-name">深色漸層</div>
+                    <div class="color-value">--gradient-dark</div>
+                </div>
+                <div class="color-box">
+                    <div class="color-swatch" style="background: var(--gradient-light);"></div>
+                    <div class="color-name">淺色漸層</div>
+                    <div class="color-value">--gradient-light</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🎨 WebDev Notes 色彩系統 | 修改 <code>colors-config.css</code> 即可改變網站色系</p>
+        <p style="opacity: 0.8; margin-top: 1rem;">詳細指南請參閱 <code>COLOR-GUIDE.md</code></p>
+    </footer>
+</body>
+</html>

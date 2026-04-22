@@ -1,25 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP 基礎語法學習紀錄</title>
+    <title>全端開發職訓課程筆記 - WebDev Notes</title>
+    <link rel="stylesheet" href="styles.css">    <!-- 💡 所有顏色變數集中管理在 colors-config.css，修改該檔案即可改變整個網站色系 -->    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>PHP 基礎語法學習紀錄</h1>
-    <ul>
-        <li>
-            <a href="PHP Full-Stack Notes/01-basic.php">01-程式基礎概念-變數、資料型態、運算子</a>
-        </li>
-        <li>
-            <a href="PHP Full-Stack Notes/02-select.php">02-流程控制-條件判斷、迴圈</a>
-        </li>
-        <li>
-            <a href="PHP Full-Stack Notes/03-forloop.php">03-for loop 迴圈</a>
-        </li>
-        <li>
-            <a href="PHP Full-Stack Notes/04-pra01.php">04-綜合練習一</a>
-        </li>
-    </ul>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">📚</span>
+                    <h1>WebDev Notes</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">首頁</a></li>
+                    <li><a href="#courses">課程</a></li>
+                    <li><a href="#stats">統計</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">全端開發課程筆記</h2>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses-section">
+        <div class="container">
+            <div class="courses-grid">
+                <!-- Course 2: 資料庫程式設計 -->
+                <article class="course-card featured">
+                    <div class="card-header">
+                        <span class="card-icon">💾</span>
+                        <span class="card-badge">核心</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>資料庫程式設計</h3>
+                        <p>PHP、MySQL、SQL 語法、Git 版本控制、資料庫管理概念</p>
+                        <div class="tag-list">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">SQL</span>
+                        </div>
+                    </div>
+                    <a href="courses/01-database/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <!-- Course 3: 網頁動態技術 -->
+                <article class="course-card featured">
+                    <div class="card-header">
+                        <span class="card-icon">⚡</span>
+                        <span class="card-badge">核心</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>網頁動態技術</h3>
+                        <p>JavaScript、jQuery、Bootstrap、RWD 響應式、Ajax 技術應用</p>
+                        <div class="tag-list">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">jQuery</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">Ajax</span>
+                        </div>
+                    </div>
+                    <a href="courses/02-dynamic/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <!-- Course 4: 網頁排版編輯 -->
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="card-icon">🎨</span>
+                        <span class="card-badge">基礎</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>網頁排版編輯</h3>
+                        <p>HTML5、CSS3、網頁編輯器及工具使用</p>
+                        <div class="tag-list">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">編輯工具</span>
+                        </div>
+                    </div>
+                    <a href="courses/03-layout/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <!-- Course 5: 視覺影像設計 -->
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="card-icon">🖼️</span>
+                        <span class="card-badge">進階</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>視覺影像設計</h3>
+                        <p>Photoshop 數位影像處理、Illustrator 向量繪圖設計</p>
+                        <div class="tag-list">
+                            <span class="tag">Photoshop</span>
+                            <span class="tag">Illustrator</span>
+                            <span class="tag">設計</span>
+                        </div>
+                    </div>
+                    <a href="courses/04-design/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <!-- Course 6: 數位媒體應用 -->
+                <article class="course-card featured">
+                    <div class="card-header">
+                        <span class="card-icon">🚀</span>
+                        <span class="card-badge">核心</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>數位媒體應用</h3>
+                        <p>API 串接、RESTful API、MVC 開發模式、Laravel Framework</p>
+                        <div class="tag-list">
+                            <span class="tag">API</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MVC</span>
+                            <span class="tag">RESTful</span>
+                        </div>
+                    </div>
+                    <a href="courses/05-media/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <!-- Course 7: 資訊網路概論 -->
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="card-icon">🌐</span>
+                        <span class="card-badge">基礎</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>資訊網路概論</h3>
+                        <p>資訊架構及網路應用概論、網路基礎知識</p>
+                        <div class="tag-list">
+                            <span class="tag">網路</span>
+                            <span class="tag">架構</span>
+                            <span class="tag">概論</span>
+                        </div>
+                    </div>
+                    <a href="courses/06-network/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <!-- Course 8: 網頁設計實務 -->
+                <article class="course-card featured">
+                    <div class="card-header">
+                        <span class="card-icon">💼</span>
+                        <span class="card-badge">實戰</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>網頁設計實務</h3>
+                        <p>乙級檢定輔導、4 個實作專案：校園系統、社群平台、影城、電商平台</p>
+                        <div class="tag-list">
+                            <span class="tag">項目實作</span>
+                            <span class="tag">全棧應用</span>
+                            <span class="tag">檢定</span>
+                        </div>
+                    </div>
+                    <a href="courses/07-projects/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>學習進度</h2>
+                <p>課程統計與進度追蹤</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-number">1120</div>
+                    <div class="stat-text">總訓練小時數</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-number">8</div>
+                    <div class="stat-text">課程模組</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💻</div>
+                    <div class="stat-number">12+</div>
+                    <div class="stat-text">技術棧</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-number">4</div>
+                    <div class="stat-text">實作專案</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>WebDev Notes</h4>
+                    <p>全端開發職訓課程筆記平台</p>
+                </div>
+                <div class="footer-section">
+                    <h4>課程大綱</h4>
+                    <ul>
+                        <li><a href="courses/00-common/index.html">一般與共同課程</a></li>
+                        <li><a href="courses/01-database/index.html">資料庫程式設計</a></li>
+                        <li><a href="courses/02-dynamic/index.html">網頁動態技術</a></li>
+                        <li><a href="courses/07-projects/index.html">網頁設計實務</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>更多資源</h4>
+                    <p>📧 學習支援</p>
+                    <p>🌐 線上社群</p>
+                    <p>📖 知識庫</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WebDev Notes. 全端開發職訓筆記平台。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

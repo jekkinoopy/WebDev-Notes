@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資料庫程式設計 - WebDev Notes</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 此頁面使用全域變數，顏色配置在 colors-config.css */
+        .breadcrumb {
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">📚</span>
+                    <h1>WebDev Notes</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">首頁</a></li>
+                    <li><a href="../../index.html#courses">課程</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">資料庫程式設計</h2>
+            <p class="hero-subtitle">掌握 PHP、MySQL 與版本控制的核心技能</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">160</span>
+                    <span class="stat-label">小時</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">技術棧</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>課程內容</h2>
+                <p>系統化的資料庫與後端開發學習路徑</p>
+            </div>
+
+            <div class="courses-grid">
+                <!-- PHP -->
+                <article class="course-card featured">
+                    <div class="card-header">
+                        <span class="card-icon">🔤</span>
+                        <span class="card-badge">基礎</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>PHP 程式語言</h3>
+                        <p class="hours">基礎 ~ 進階</p>
+                        <p>學習 PHP 基礎語法、變數、資料型態、流程控制、函數、面向對象編程等</p>
+                        <div class="tag-list">
+                            <span class="tag">語法</span>
+                            <span class="tag">OOP</span>
+                            <span class="tag">函數</span>
+                        </div>
+                    </div>
+                    <a href="php/index.html" class="card-link">
+                        進入 PHP 課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <!-- MySQL -->
+                <article class="course-card featured">
+                    <div class="card-header">
+                        <span class="card-icon">💾</span>
+                        <span class="card-badge">核心</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>MySQL 資料庫</h3>
+                        <p class="hours">基礎 ~ 進階</p>
+                        <p>資料庫設計、表格創建、資料操作、查詢優化、備份恢復等</p>
+                        <div class="tag-list">
+                            <span class="tag">資料庫</span>
+                            <span class="tag">設計</span>
+                            <span class="tag">SQL</span>
+                        </div>
+                    </div>
+                    <a href="mysql/index.html" class="card-link">
+                        進入 MySQL 課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <!-- SQL 語法 -->
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="card-icon">📋</span>
+                        <span class="card-badge">核心</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>SQL 語法</h3>
+                        <p class="hours">進階</p>
+                        <p>SELECT、INSERT、UPDATE、DELETE、JOIN、聚合函數等</p>
+                        <div class="tag-list">
+                            <span class="tag">查詢</span>
+                            <span class="tag">操作</span>
+                            <span class="tag">JOIN</span>
+                        </div>
+                    </div>
+                    <a href="sql/index.html" class="card-link">
+                        進入 SQL 課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <!-- Git -->
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="card-icon">🔧</span>
+                        <span class="card-badge">工具</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Git 版本控制</h3>
+                        <p class="hours">基礎</p>
+                        <p>版本控制概念、Git 命令、分支管理、協作開發、GitHub 使用等</p>
+                        <div class="tag-list">
+                            <span class="tag">版本控制</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">協作</span>
+                        </div>
+                    </div>
+                    <a href="git/index.html" class="card-link">
+                        進入 Git 課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <!-- 資料庫管理 -->
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="card-icon">⚙️</span>
+                        <span class="card-badge">進階</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>資料庫管理</h3>
+                        <p class="hours">進階</p>
+                        <p>資料庫規範化、索引優化、效能調整、安全性等</p>
+                        <div class="tag-list">
+                            <span class="tag">管理</span>
+                            <span class="tag">優化</span>
+                            <span class="tag">安全</span>
+                        </div>
+                    </div>
+                    <a href="management/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <!-- XAMPP -->
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="card-icon">🛠️</span>
+                        <span class="card-badge">環境</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>XAMPP 安裝設定</h3>
+                        <p class="hours">基礎</p>
+                        <p>開發環境搭建、Apache、PHP、MySQL 的配置與使用</p>
+                        <div class="tag-list">
+                            <span class="tag">環境</span>
+                            <span class="tag">安裝</span>
+                            <span class="tag">配置</span>
+                        </div>
+                    </div>
+                    <a href="xampp/index.html" class="card-link">
+                        進入課程 <span class="arrow">→</span>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>資料庫程式設計</h4>
+                    <p>160 小時的核心課程</p>
+                </div>
+                <div class="footer-section">
+                    <h4>技術棧</h4>
+                    <ul>
+                        <li><a href="php/index.html">PHP</a></li>
+                        <li><a href="mysql/index.html">MySQL</a></li>
+                        <li><a href="git/index.html">Git</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>返回</h4>
+                    <ul>
+                        <li><a href="../../index.html">主首頁</a></li>
+                        <li><a href="../../index.html#courses">課程列表</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WebDev Notes - 資料庫程式設計課程</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
