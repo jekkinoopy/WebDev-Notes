@@ -4,66 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Loop 迴圈 - WebDev Notes</title>
-    <link rel="stylesheet" href="../../../styles.css">
-    <style>
-        .note-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .note-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #6366f1;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            padding: 0.75rem 1.5rem;
-            border: 2px solid #6366f1;
-            border-radius: 0.5rem;
-            transition: all 0.25s ease-in-out;
-        }
-        .back-link:hover {
-            background-color: #6366f1;
-            color: white;
-            transform: translateX(-4px);
-        }
-        .code-section {
-            background-color: #f9fafb;
-            border-left: 4px solid #6366f1;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .code-section h3 {
-            color: #111827;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .output-box {
-            background-color: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.375rem;
-            padding: 1rem;
-            font-family: 'Courier New', monospace;
-            color: #374151;
-            margin-top: 1rem;
-            overflow-x: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note.css">
+
 </head>
 <body>
     <header class="header">

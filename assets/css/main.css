@@ -160,7 +160,7 @@ section {
 
 .hero {
     /* background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); */
-    background-image: url(images/herobg.jpg);
+    background-image: url(../images/herobg.jpg);
     background-size: cover;
     background-position: center;
     height: 50vh;

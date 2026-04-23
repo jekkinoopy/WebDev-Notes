@@ -5,70 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form 練習 - WebDev Notes</title>
-    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note.css">
     <style>
-        body {
-            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-            background-color: var(--primary);
-            color: var(--text-color);
-            /* padding: 20px; */
-        }
-
-        .ex {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* 筆記外框 */
-        .note-card {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        /* 標題樣式 */
-        .note-card h3 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            color: var(--primary-dark);
-            font-size: 1.25rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .note-card h3::before {
-            content: "📌";
-            margin-right: 8px;
-        }
-
-        /* 內容區塊 */
-        .note-content {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .note-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* 
-
-
-        /* 強調文字樣式 */
-        mark {
-            background-color: #8af6fe;
-            /* 淺黃色高亮 */
-            color: #00205a;
-            padding: 0 4px;
-            border-radius: 2px;
-        }
-
         /* --- 表單通用樣式 (Form) --- */
         form {
             width: 80%;
