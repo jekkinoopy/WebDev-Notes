@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 練習 - WebDev Notes</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-color);
+            /* padding: 20px; */
+        }
+
+        .ex {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 筆記外框 */
+        .note-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* 標題樣式 */
+        .note-card h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .note-card h3::before {
+            content: "📌";
+            margin-right: 8px;
+        }
+
+        /* 內容區塊 */
+        .note-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .note-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 
+
+
+        /* 強調文字樣式 */
+        mark {
+            background-color: #8af6fe;
+            /* 淺黃色高亮 */
+            color: #00205a;
+            padding: 0 4px;
+            border-radius: 2px;
+        }
+
+        /* --- 表單通用樣式 (Form) --- */
+        form {
+            width: 80%;
+            /* border-collapse: collapse; */
+            /* 重要：讓邊框合併 */
+            margin: 2.5rem auto;
+            padding: 5%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            /* 配合圓角 */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            /* 增加陰影感 */
+
+        }
+
+        .grid-table td:hover,
+        td:hover {
+            background-color: #ffffff;
+            color: var(--primary-dark);
+            transform: scale(1.01);
+            /* 輕微放大 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            /* 浮起陰影 */
+            z-index: 10;
+            /* 確保放大時不會被隔壁遮住 */
+            cursor: pointer;
+            border-radius: 4px;
+            /* 浮起時給一點圓角 */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">📊</span>
+                    <h1>WebDev Notes</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../../index.html">首頁</a></li>
+                    <li><a href="index.html">HTML 課程</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="ex">
+
+        <div class="note-card">
+            <h3>HTML Forms</h3>
+            <div class="note-content">
+
+                <div class="note-item">
+                    <code>&lt;label&gt;</code>
+                    <span>定義輸入欄位的<mark>標籤文字</mark>，點擊文字可聚焦至對應欄位</span>
+                </div>
+                <div class="note-item">
+                    <code>&lt;input type="text"&gt;</code>
+                    <span>建立單行的<mark>文字輸入框</mark>，讓使用者填寫資料</span>
+                </div>
+                <div class="note-item">
+                    <code>name</code>
+                    <span>定義傳送給後端程式時的<mark>參數名稱</mark> (Key)</span>
+                </div>
+                <div class="note-item">
+                    <code>&lt;input type="submit"&gt; input:類型</code>
+                    <span>定義<mark>提交按鈕</mark>，觸發傳送表單動作</span>
+                </div>
+            </div>
+            <form action="/action_page.php">
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" name="fname" value="John"><br>
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" name="lname" value="Doe"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+
+            <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
