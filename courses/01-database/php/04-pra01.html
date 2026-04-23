@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>綜合練習一 - WebDev Notes</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../../../styles.css">
     <style>
         .note-container {
             max-width: 900px;
