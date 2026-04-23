@@ -18,18 +18,18 @@
        主色系 - 深紫藍色 (可根據需要更改)
        ========================================== */
     
-    --primary: #6366f1;              /* 主色 - 紫藍色 */
-    --primary-light: #818cf8;        /* 主色淺色 */
-    --primary-dark: #4f46e5;         /* 主色深色 */
+    --primary: #56ccf2;              /* 主色 */
+    --primary-light: #46aac9;        /* 主色淺色 */
+    --primary-dark: rgb(60, 96, 143);;         /* 主色深色 */
     
     /* ==========================================
        輔助色系
        ========================================== */
     
-    --secondary: #ec4899;            /* 粉紅色 */
-    --success: #10b981;              /* 綠色 - 成功 */
-    --warning: #f59e0b;              /* 橙色 - 警告 */
-    --danger: #ef4444;               /* 紅色 - 危險 */
+    --secondary: #d36a78;            /* 粉紅色 */
+    --success: #07dbd1;              /* 綠色 - 成功 */
+    --warning: #e7bd86;              /* 橙色 - 警告 */
+    --danger: #da6c6c;               /* 紅色 - 危險 */
     
     /* ==========================================
        中性色系 - 灰度色板
@@ -119,36 +119,3 @@
     --transition-base: 250ms ease-in-out;
     --transition-slow: 350ms ease-in-out;
 }
-
-/* ================================================
-   顏色變更快速參考
-   ================================================
-   
-   如果你想改變整個網站的色系，只需修改上面的值：
-   
-   例1：改為藍色系
-   --primary: #0ea5e9;              /* Cyan */
-   --primary-light: #06b6d4;
-   --primary-dark: #0284c7;
-   
-   例2：改為綠色系
-   --primary: #10b981;              /* Green */
-   --primary-light: #34d399;
-   --primary-dark: #059669;
-   
-   例3：改為紅色系
-   --primary: #ef4444;              /* Red */
-   --primary-light: #f87171;
-   --primary-dark: #dc2626;
-   
-   例4：改為紫色系
-   --primary: #a855f7;              /* Purple */
-   --primary-light: #d8b4fe;
-   --primary-dark: #9333ea;
-   
-   例5：改為黃色系
-   --primary: #eab308;              /* Yellow */
-   --primary-light: #facc15;
-   --primary-dark: #ca8a04;
-   
-   ================================================ */

@@ -62,7 +62,7 @@ section {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: var(--spacing-md);
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -112,7 +112,7 @@ section {
 }
 
 .logo h1 {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -394,7 +394,7 @@ section {
 /* 程式碼標籤樣式 */
 .note-item code {
     background: var(--gray-100, #f3f4f6);
-    color: var(--color-danger, #ef4444); /* 突出顯示標籤 */
+    color: var(--danger); /* 突出顯示標籤 */
     padding: 2px 6px;
     border-radius: 4px;
     font-family: 'Poppins', monospace;

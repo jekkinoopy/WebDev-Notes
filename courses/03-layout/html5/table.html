@@ -9,17 +9,20 @@
     <style>
         body {
             font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-            background-color: #694444;
+            background-color: var(--primary);
             color: var(--text-color);
-            /* 使用你的應援主色作為文字顏色 */
+            /* padding: 20px; */
+        }
+
+        .tableex {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
         }
 
         /* 筆記外框 */
         .note-card {
-            background: #ffffff;
-            border-left: 5px solid var(--yellow);
-            /* 使用你的應援黃色 */
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 8px;
             padding: 20px;
             margin: 20px 0;
@@ -30,7 +33,7 @@
         .note-card h3 {
             margin-top: 0;
             margin-bottom: 15px;
-            color: var(--black);
+            color: var(--primary-dark);
             font-size: 1.25rem;
             display: flex;
             align-items: center;
@@ -54,67 +57,78 @@
             gap: 10px;
         }
 
-        /* 模擬代碼外觀 */
-        code {
-            background-color: #f0f0f0;
-            color: #d63384;
-            /* 經典的程式碼粉紅色 */
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-family: 'Cascadia Code', 'Courier New', monospace;
-            font-weight: bold;
-            font-size: 0.95em;
-        }
+        /* 
+
 
         /* 強調文字樣式 */
         mark {
-            background-color: #fef08a;
+            background-color: #8af6fe;
             /* 淺黃色高亮 */
-            color: #854d0e;
+            color: #00205a;
             padding: 0 4px;
             border-radius: 2px;
         }
 
         /* --- 表格通用樣式 (Table) --- */
         table {
-            width: 100%;
-            border-collapse: collapse;
+            width: 80%;
+            /* border-collapse: collapse; */
             /* 重要：讓邊框合併 */
-            margin-bottom: 2.5rem;
+            border-collapse: separate;
+            /* 改為 separate 才能做出圓角與間距感 */
+            border-spacing: 0;
+            /* 讓間距歸零，保持緊湊 */
+            margin: 2.5rem auto;
             background: white;
             border-radius: 8px;
             overflow: hidden;
             /* 配合圓角 */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            /* 增加陰影感 */
+
         }
 
-        table td,
-        table th {
-            border: 1px solid var(--gray-200, #e5e7eb);
-            padding: 12px 15px;
+        table td {
+            border: 0.5px solid var(--gray-200);
+            padding: 15px;
             text-align: center;
             line-height: 1.5;
+            color: var(--gray-600);
+            transition: all 0.3s ease;
+            /* 讓動畫平滑的核心 */
+            position: relative;
         }
 
         /* 課表的第一列或標頭 */
         .course-schedule-notes tr:first-child td,
-        .course-schedule-notes th {
-            background-color: var(--gray-50, #f9fafb);
+        .course-schedule-notes tr td:first-child {
+            background-color: var(--primary-dark) !important;
+            /* 強制覆蓋 */
+            ;
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--gray-100);
         }
 
-        /* 九宮格練習專用效果 */
-        .grid-table td {
-            width: 33.33%;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
 
         /* 滑過表格列的效果 */
-        table tr:hover {
+        /* table tr:hover {
             background-color: rgba(59, 130, 246, 0.05);
-            /* 淡淡的主色背景 */
+            淡淡的主色背景
+        } */
+        /* --- 重點：單一儲存格 (td) 的動畫效果 --- */
+        .grid-table td:hover,
+        td:hover {
+            background-color: #ffffff;
+            color: var(--primary-dark);
+            transform: scale(1.01);
+            /* 輕微放大 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            /* 浮起陰影 */
+            z-index: 10;
+            /* 確保放大時不會被隔壁遮住 */
+            cursor: pointer;
+            border-radius: 4px;
+            /* 浮起時給一點圓角 */
         }
     </style>
 </head>
@@ -128,177 +142,179 @@
                     <h1>WebDev Notes</h1>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="../index.html">首頁</a></li>
+                    <li><a href="../../../index.html">首頁</a></li>
                     <li><a href="index.html">HTML 課程</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+    <div class="tableex">
 
-    <div class="note-card">
-        <h3>九宮格表格結構</h3>
-        <div class="note-content">
-            <div class="note-item">
-                <code>&lt;tr&gt;</code>
-                <span>代表橫向的<mark>列</mark> (Row)</span>
+        <div class="note-card">
+            <h3>九宮格表格結構</h3>
+            <div class="note-content">
+                <div class="note-item">
+                    <code>&lt;tr&gt;</code>
+                    <span>代表橫向的<mark>列</mark> (Row)</span>
+                </div>
+                <div class="note-item">
+                    <code>&lt;td&gt;</code>
+                    <span>代表格內的<mark>欄</mark> (Column/Data)</span>
+                </div>
+                <div class="note-item">
+                    <code>border-collapse</code>
+                    <span>將表格邊框<mark>合併</mark>為單一線條</span>
+                </div>
             </div>
-            <div class="note-item">
-                <code>&lt;td&gt;</code>
-                <span>代表格內的<mark>欄</mark> (Column/Data)</span>
-            </div>
-            <div class="note-item">
-                <code>border-collapse</code>
-                <span>將表格邊框<mark>合併</mark>為單一線條</span>
-            </div>
+            <table class="grid-table">
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+            </table>
         </div>
-    </div>
-    <table class="grid-table">
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-        </tr>
-        <tr>
+
+        <div class="note-card">
+            <h3>合併儲存格</h3>
+            <div class="note-content">
+                <div class="note-item">
+                    <code>rowspan="2"</code>
+                    <span>將儲存格向<mark>下</mark>合併兩列</span>
+                </div>
+                <div class="note-item">
+                    <code>colspan="2"</code>
+                    <span>將儲存格向<mark>右</mark>合併兩欄</span>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <td colspan="2">1<br><mark>colspan="2"</mark></td>
+                    <!-- <td>2</td> -->
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td rowspan="2">6<br><mark>rowspan="2"</mark></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <!-- <td>9</td> -->
+                </tr>
+            </table>
+        </div>
+        <div class="note-card">
+            <h3>SECHSKIES 偶像養成課表：合併邏輯拆解</h3>
+            <div class="note-content ">
+                <div class="note-item">
+                    <code>colspan="5"</code>
+                    <span>早自習與午休：橫跨週一至週五，佔據 <mark>5 欄</mark>。</span>
+                </div>
+                <div class="note-item">
+                    <code>rowspan="2"</code>
+                    <span>週一專業編舞訓練、週五詞曲深度創作：連續兩節課，佔據 <mark>2 列</mark>。</span>
+                </div>
+                <div class="note-item">
+                    <code>rowspan="3"</code>
+                    <span>週三大型舞台編舞練習、週四綜藝節奏開發：佔據下午三節課，跨越 <mark>3 列</mark>。</span>
+                </div>
+            </div>
+            <table class="course-schedule-notes">
+                <tr>
+                    <td>節數</th>
+                    <td>週一</th>
+                    <td>週二</th>
+                    <td>週三</th>
+                    <td>週四</th>
+                    <td>週五</th>
+                </tr>
+                <tr>
+                    <td>早自習<br>0750~0830</td>
+                    <td colspan="5" style="background-color: var(--gray-100);">開機中</td>
+                    <!-- <td>3</td>
             <td>4</td>
             <td>5</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-        </tr>
-    </table>
-
-    <div class="note-card">
-        <h3>合併儲存格</h3>
-        <div class="note-content">
-            <div class="note-item">
-                <code>rowspan="2"</code>
-                <span>將儲存格向<mark>下</mark>合併兩列</span>
-            </div>
-            <div class="note-item">
-                <code>colspan="2"</code>
-                <span>將儲存格向<mark>右</mark>合併兩欄</span>
-            </div>
-        </div>
-    </div>
-    <table>
-        <tr>
-            <td colspan="2">1<br>colspan="2"</td>
-            <!-- <td>2</td> -->
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>5</td>
-            <td rowspan="2">6<br>rowspan="2"</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>8</td>
-            <!-- <td>9</td> -->
-        </tr>
-    </table>
-    <div class="note-card">
-        <h3>SECHSKIES 偶像養成課表：合併邏輯拆解</h3>
-        <div class="note-content ">
-            <div class="note-item">
-                <code>colspan="5"</code>
-                <span>早自習與午休：橫跨週一至週五，佔據 <mark>5 欄</mark>。</span>
-            </div>
-            <div class="note-item">
-                <code>rowspan="2"</code>
-                <span>週一國語、週五自然：連續兩節課，佔據 <mark>2 列</mark>。</span>
-            </div>
-            <div class="note-item">
-                <code>rowspan="3"</code>
-                <span>週三空白、週四綜合：佔據下午三節課，跨越 <mark>3 列</mark>。</span>
-            </div>
-        </div>
-    </div>
-    <table class="course-schedule-notes">
-        <tr>
-            <td>節數</td>
-            <td>一</td>
-            <td>二</td>
-            <td>三</td>
-            <td>四</td>
-            <td>五</td>
-        </tr>
-        <tr>
-            <td>早自習<br>0750~0830</td>
-            <td colspan="5">應援練習，由<mark>全體成員</mark>參與。</td>
-            <!-- <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td> -->
-        </tr>
-        <tr>
-            <td>第一節<br>0840~0920</td>
-            <td rowspan="2">舞蹈<br>金在德</td>
-            <td colspan="3">聲樂<br>姜成勳</td>
-            <!-- <td>10</td>
+            <td>6</td> -->
+                </tr>
+                <tr>
+                    <td>第一節<br>0840~0920</td>
+                    <td rowspan="2">專業編舞訓練<br>金在德</td>
+                    <td colspan="3">美聲與聲樂進階<br>姜成勳</td>
+                    <!-- <td>10</td>
                 <td>11</td> -->
-            <td>舞蹈<br>金在德</td>
-        </tr>
-        <tr>
-            <td>第二節<br>0930~1010</td>
-            <!-- <td>14</td> -->
-            <td>詞曲<br>殷志源</td>
-            <td>理財<br>高志溶</td>
-            <td>舞蹈<br>金在德</td>
-            <td>餐飲<br>張水院</td>
-        </tr>
-        <tr>
-            <td>第三節<br>1030~1110</td>
-            <td>聲樂<br>姜成勳</td>
-            <td>爵士鼓<br>殷志源</td>
-            <td>舞蹈<br>金在德</td>
-            <td>演技<br>張水院</td>
-            <td rowspan="2">詞曲<br>殷志源</td>
-        </tr>
-        <tr>
-            <td>第四節<br>1120~1200</td>
-            <td>英文<br>殷志源</td>
-            <td>吉他<br>金在德</td>
-            <td>電玩<br>殷志源</td>
-            <td>英文<br>殷志源</td>
-            <!-- <td>30</td> -->
-        </tr>
-        <tr>
-            <td>午休時間<br>1200~1320</td>
-            <td colspan="5"></td>
-            <!-- <td>33</td>
+                    <td>詞曲創作專題<br>殷志源</td>
+                </tr>
+                <tr>
+                    <td>第二節<br>0930~1010</td>
+                    <!-- <td>14</td> -->
+                    <td>日文語法<br>李宰鎮</td>
+                    <td>理財管理<br>高志溶</td>
+                    <td>綜藝節奏開發<br>殷志源</td>
+                    <td>機器人演技基礎<br>張水院</td>
+                </tr>
+                <tr>
+                    <td>第三節<br>1030~1110</td>
+                    <td>詞曲創作<br>殷志源</td>
+                    <td>爵士鼓實作<br>殷志源</td>
+                    <td>舞台走位開發<br>金在德</td>
+                    <td>跨界演技實務<br>張水院</td>
+                    <td rowspan="2">詞曲深度創作<br>殷志源</td>
+                </tr>
+                <tr>
+                    <td>第四節<br>1120~1200</td>
+                    <td>商務英文會話<br>殷志源</td>
+                    <td>吉他彈唱練習<br>金在德</td>
+                    <td>電玩策略思考<br>殷志源</td>
+                    <td>高階英文口說<br>殷志源</td>
+                    <!-- <td>30</td> -->
+                </tr>
+                <tr>
+                    <td>午休時間<br>1200~1320</td>
+                    <td colspan="5" style="background-color: var(--gray-100);">人物問答：1、2、3，叮！午餐撤走。</td>
+                    <!-- <td>33</td>
                 <td>34</td>
                 <td>35</td>
                 <td>36</td> -->
-        </tr>
-        <tr>
-            <td>第五節<br>1330~1410</td>
-            <td>商業<br>高志溶</td>
-            <td rowspan="2">繪畫<br>李宰鎮</td>
-            <td rowspan="3"></td>
-            <td rowspan="3">藝能<br>殷志源</td>
-            <td>健身<br>李宰鎮</td>
-        </tr>
-        <tr>
-            <td>第六節<br>1420~1500</td>
-            <td>健身<br>李宰鎮</td>
-            <!-- <td>45</td> -->
-            <!-- <td>46</td> -->
-            <!-- <td>47</td> -->
-            <td>舞蹈<br>金在德</td>
-        </tr>
-        <tr>
-            <td>第七節<br>1520~1600</td>
-            <td colspan="2">演技<br>張水院</td>
-            <!-- <td>51</td> -->
-            <!-- <td>52</td> -->
-            <!-- <td>53</td> -->
-            <td>日文<br>李宰鎮</td>
-        </tr>
-    </table>
+                </tr>
+                <tr>
+                    <td>第五節<br>1330~1410</td>
+                    <td>商業市場分析<br>高志溶</td>
+                    <td rowspan="2">職人繪畫實習<br>李宰鎮</td>
+                    <td rowspan="3">大型舞台編舞練習</td>
+                    <td rowspan="3">綜藝節奏開發<br>殷志源</td>
+                    <td>高強度重訓<br>李宰鎮</td>
+                </tr>
+                <tr>
+                    <td>第六節<br>1420~1500</td>
+                    <td>體能核心訓練<br>李宰鎮</td>
+                    <!-- <td>45</td> -->
+                    <!-- <td>46</td> -->
+                    <!-- <td>47</td> -->
+                    <td>進階舞蹈細節<br>金在德</td>
+                </tr>
+                <tr>
+                    <td>第七節<br>1520~1600</td>
+                    <td colspan="2">情緒控制與演技進階<br>張水院</td>
+                    <!-- <td>51</td> -->
+                    <!-- <td>52</td> -->
+                    <!-- <td>53</td> -->
+                    <td>日文深度對話<br>李宰鎮</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
 </body>
 
