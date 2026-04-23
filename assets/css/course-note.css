@@ -1,120 +1,188 @@
-        body {
-            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-            background-color: var(--primary);
-            color: var(--text-color);
-            /* padding: 20px; */
-        }
+body {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background-color: var(--primary);
+  color: var(--text-color);
+  /* padding: 20px; */
+}
 
-        .ex {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.ex {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-        .note-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .note-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #6366f1;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            padding: 0.75rem 1.5rem;
-            border: 2px solid #6366f1;
-            border-radius: 0.5rem;
-            transition: all 0.25s ease-in-out;
-        }
-        .back-link:hover {
-            background-color: #6366f1;
-            color: white;
-            transform: translateX(-4px);
-        }
-        .code-section {
-            background-color: #f9fafb;
-            border-left: 4px solid #6366f1;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .code-section h3 {
-            color: #111827;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .output-box {
-            background-color: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.375rem;
-            padding: 1rem;
-            font-family: 'Courier New', monospace;
-            color: #374151;
-            margin-top: 1rem;
-            overflow-x: auto;
-        }
+.note-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
+.note-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-        /* 筆記外框 */
-        .note-card {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6366f1;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #6366f1;
+  border-radius: 0.5rem;
+  transition: all 0.25s ease-in-out;
+}
 
-        /* 標題樣式 */
-        .note-card h3 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            color: var(--primary-dark);
-            font-size: 1.25rem;
-            display: flex;
-            align-items: center;
-        }
+.back-link:hover {
+  background-color: #6366f1;
+  color: white;
+  transform: translateX(-4px);
+}
 
-        .note-card h3::before {
-            content: "📌";
-            margin-right: 8px;
-        }
+.code-section {
+  background-color: #f9fafb;
+  border-left: 4px solid #6366f1;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
 
-        /* 內容區塊 */
-        .note-content {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+.code-section h3 {
+  color: #111827;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-        .note-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.output-box {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  font-family: "Courier New", monospace;
+  color: #374151;
+  margin-top: 1rem;
+  overflow-x: auto;
+}
 
-        /* 
+/* 筆記外框 */
+.note-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
 
+/* 小標題樣式 */
+.note-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--primary-dark);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+}
 
-        /* 強調文字樣式 */
-        mark {
-            background-color: #8af6fe;
-            /* 淺黃色高亮 */
-            color: #00205a;
-            padding: 0 4px;
-            border-radius: 2px;
-        }
+.note-card h3::before {
+  content: "📌";
+  margin-right: 8px;
+}
+
+/* 內容區塊 */
+.note-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.note-item {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 1rem 0;
+}
+
+/* 說明層：負責 code 與 span 的左右排版 */
+.note-desc {
+  display: grid;
+  /* 第一欄是圖示寬度，第二欄佔滿 */
+  grid-template-columns: 28px 1fr;
+  /* 兩列：第一列給 h4，第二列給 code */
+  grid-template-rows: auto auto;
+  column-gap: 4px;
+  row-gap: 2px;
+  /* 縮短標題與 code 的垂直距離 */
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.note-desc::before {
+  content: "⚡";
+  grid-column: 1;
+  /* 讓閃電跨越兩列，守在左側 */
+  grid-row: 1 / span 2;
+  font-size: 1.1rem;
+  padding-top: 2px;
+  /* 微調對齊 h4 的高度 */
+}
+
+.note-desc h4 {
+  color: var(--primary-dark);
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.note-desc code {
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0;
+  justify-self: start;
+  /* 確保內部的 <br> 能正常換行 */
+  white-space: pre-wrap;
+}
+
+/* 針對內嵌整段代碼的樣式修正 */
+pre {
+  background-color: #2d2d2d; /* 深色背景 */
+  color: #f8f8f2;
+  padding: 15px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 10px 0;
+}
+
+/* 當 code 在 pre 裡面時，取消原本單行 code 的背景色與邊距 */
+pre code {
+  background-color: transparent !important;
+  padding: 0 !important;
+  font-family: "Consolas", monospace;
+  color: inherit;
+}
+
+form {
+  gap: 12px;
+  padding: 50px;
+}
+
+/* 強調文字樣式 */
+mark {
+  background-color: #8af6fe;
+  /* 淺黃色高亮 */
+  color: #00205a;
+  padding: 0 4px;
+  border-radius: 2px;
+}
