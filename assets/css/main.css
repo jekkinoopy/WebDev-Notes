@@ -19,6 +19,7 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;/* 基準值 */
 }
 
 body {
@@ -26,7 +27,8 @@ body {
     color: var(--gray-800);
     background-color: var(--white);
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 1rem; /* 等於 16px */
+
 }
 
 a {
