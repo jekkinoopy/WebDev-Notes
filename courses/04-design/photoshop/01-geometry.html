@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數位幾何與空間校正 - DesignDev Notes</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <style>
+        /* --- 表格通用樣式 (針對 PS 課程優化) --- */
+        table {
+            width: 80%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 2.5rem auto;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        table td {
+            border: 0.5px solid var(--gray-200);
+            padding: 15px;
+            text-align: center;
+            line-height: 1.5;
+            color: var(--gray-600);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* 標頭顏色調整為更具設計感的深色調 */
+        .course-schedule-notes tr:first-child td,
+        .course-schedule-notes tr td:first-child {
+            background-color: #2c3e50 !important;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        td:hover {
+            background-color: #ffffff;
+            color: #3498db;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        mark {
+            background-color: #e1f5fe;
+            color: #0277bd;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">📐</span>
+                    <h1>DesignDev Notes</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../../index.html">首頁</a></li>
+                    <li><a href="index.html">PS 進階課程</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="ex">
+        <div class="note-card">
+            <h3>消失點 (Vanishing Point) 柵格邏輯</h3>
+            <div class="note-content">
+                <div class="note-item">
+                    <code>Create Plane</code>
+                    <span>建立符合建築透視的<mark>虛擬平面</mark></span>
+                </div>
+                <div class="note-item">
+                    <code>Grid Size</code>
+                    <span>調整柵格大小以符合真實物體<mark>比例</mark></span>
+                </div>
+                <div class="note-item">
+                    <code>Transform</code>
+                    <span>在透視平面內進行<mark>無損縮放</mark>與移動</span>
+                </div>
+            </div>
+            <table class="grid-table">
+                <tr>
+                    <td>左側透視面</td>
+                    <td>正向平面</td>
+                    <td>右側透視面</td>
+                </tr>
+                <tr>
+                    <td>消失點 A</td>
+                    <td>地平線 (Horizon)</td>
+                    <td>消失點 B</td>
+                </tr>
+                <tr>
+                    <td>近景比例</td>
+                    <td>中景基準</td>
+                    <td>遠景壓縮</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="note-card">
+            <h3>最適化廣角 (Adaptive Wide Angle) 實戰</h3>
+            <div class="note-content">
+                <div class="note-item">
+                    <code>Constraint Tool</code>
+                    <span>拉出<mark>約束線</mark>將彎曲的水平線修正為垂直或水平</span>
+                </div>
+                <div class="note-item">
+                    <code>Focal Length</code>
+                    <span>手動補償<mark>焦距參數</mark>以優化校正結果</span>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <td colspan="2">鏡頭校正 (Lens Correction)<br><mark>自動修正桶狀與枕狀變形</mark></td>
+                    <td>邊緣暈影補償</td>
+                </tr>
+                <tr>
+                    <td>垂直透視修正</td>
+                    <td>水平透視修正</td>
+                    <td rowspan="2">最適化廣角<br><mark>處理魚眼變形專用</mark></td>
+                </tr>
+                <tr>
+                    <td>比例縮放</td>
+                    <td>延伸邊緣</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="note-card">
+            <h3>攝影作品空間校正流程表</h3>
+            <div class="note-content">
+                <div class="note-item">
+                    <code>Step 01</code>
+                    <span>使用 <mark>鏡頭校正</mark> 濾鏡消除物理光學缺陷。</span>
+                </div>
+                <div class="note-item">
+                    <code>Step 02</code>
+                    <span>針對廣角風景，使用 <mark>最適化廣角</mark> 恢復建築垂直度。</span>
+                </div>
+                <div class="note-item">
+                    <code>Step 03</code>
+                    <span>若需置入素材，利用 <mark>消失點</mark> 確保合成透視正確。</span>
+                </div>
+            </div>
+            <table class="course-schedule-notes">
+                <tr>
+                    <td>校正階段</td>
+                    <td>建築攝影</td>
+                    <td>風景攝影</td>
+                    <td>室內空間</td>
+                    <td>商業合成</td>
+                </tr>
+                <tr>
+                    <td>初期處理</td>
+                    <td colspan="4">Camera Raw 鏡頭設定檔校正</td>
+                </tr>
+                <tr>
+                    <td>核心校正</td>
+                    <td>透視彎曲<br>(Perspective Warp)</td>
+                    <td colspan="2">最適化廣角<br>(Adaptive Wide Angle)</td>
+                    <td>消失點柵格建立</td>
+                </tr>
+                <tr>
+                    <td>精細調整</td>
+                    <td>垂直線對齊</td>
+                    <td>水平線補償</td>
+                    <td>家具比例校正</td>
+                    <td>光影夾角匹配</td>
+                </tr>
+                <tr>
+                    <td>導出優化</td>
+                    <td colspan="4">裁切、補洞 (內容感知填充) 與畫質銳化</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
