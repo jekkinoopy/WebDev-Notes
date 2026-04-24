@@ -102,12 +102,10 @@
 
     /* 確保內層的 fieldset 才是視覺主體 */
     .sechskies-form fieldset {
-      background-color: #ffffff;
-      /* 只有 fieldset 內部是白的 */
       box-shadow: none;
       padding: 30px 50px;
       /* 確保這裡也沒有陰影 */
-      border: 2px solid #ffbb00;
+      border: 2px solid var(--warning);;
       /* 維持那個專業的綠色(或黃色)邊框 */
     }
 
@@ -116,8 +114,10 @@
       color: #333;
       padding: 0 15px;
       font-size: 1.2rem;
-      background: #fff;
-      /* 遮住邊框線 */
+      border-style: solid;
+      border-color: var(--warning);
+      border-width: 0 5px;
+      margin: auto;
     }
 
     /* 統一排版：標籤在上，輸入框在下 */
@@ -130,7 +130,7 @@
 
     .sechskies-form label {
       font-weight: 600;
-      color: #444;
+      /* color: #444; */
     }
 
     .sechskies-form input[type="text"],
@@ -143,19 +143,10 @@
       transition: all 0.3s;
     }
 
-    .sechskies-form input:focus {
-      outline: none;
-      border-color: #ffdc00;
-      box-shadow: 0 0 0 4px rgba(255, 220, 0, 0.2);
-    }
 
     /* 送出按鈕：置中且加大 */
     .sechskies-form input[type="submit"] {
       width: 100%;
-      background-color: #000;
-      /* 水晶男孩官方黑色 */
-      color: #ffdc00;
-      /* 水晶黃字 */
       padding: 15px;
       border: none;
       border-radius: 8px;
@@ -313,13 +304,24 @@
 <label>入坑原因 (最感動的一瞬間)</label>
 <textarea rows="10" placeholder="分享你入坑的故事"></textarea>
 </fieldset>
+<br>
+<fieldset>
+  <legend>🎤 第二階段：見面會應援調查</legend>
+    <div class="form-group">
+      <label class="main-label">本命成員</label>
+      <div class="checkbox-group">
+        <input type="checkbox">殷志源
+        <input type="checkbox">李宰鎮
+        <input type="checkbox">金在德
+        <input type="checkbox">姜成勳
+        <input type="checkbox">高志溶
+        <input type="checkbox">張水院
+      </div>
+    </div>
 
-<fieldset>🎤 第二階段：見面會應援調查
-<label for="">應援部門 (本命成員)</label>
-<input type="checkbox">
 
 <label for="">最期待聽到的歌曲</label>
-<input type="text"><label for="">
+<input type="select"><label for="">
 
 </label>希望能坐在哪個應援區<input type="text"><label for=""></label><input type="text"><label for=""></label><input type="text"><label for=""></label><input type="text">
   
