@@ -21,7 +21,9 @@
     </header>
 
     <div class="note-container">
-        <a href="../index.html" class="back-link">← 返回首頁</a>
+        <a href="../../index.html" class="back-link">← 返回首頁</a>
+        <a href="../index.html" class="back-link">← 返回資料庫</a>
+        <a href="index.html" class="back-link">← 返回PHP</a>
         <h2 class="note-title">For Loop 迴圈</h2>
         
         <div class="code-section">

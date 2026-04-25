@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>程式基礎概念 - WebDev Notes</title>
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note.css">
     <style>
-        .note-container {
+        /* .note-container {
             max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
@@ -37,33 +38,9 @@
             color: white;
             transform: translateX(-4px);
         }
-        .code-section {
-            background-color: #f9fafb;
-            border-left: 4px solid #6366f1;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .code-section h3 {
-            color: #111827;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .output-box {
-            background-color: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.375rem;
-            padding: 1rem;
-            font-family: 'Courier New', monospace;
-            color: #374151;
-            margin-top: 1rem;
-            overflow-x: auto;
-        }
-    </style>
+
+        }*/
+    </style> 
 </head>
 <body>
     <header class="header">
@@ -73,6 +50,10 @@
                     <span class="logo-icon">📚</span>
                     <h1>WebDev Notes</h1>
                 </div>
+                    <ul class="nav-links">
+                        <li><a href="../../../index.html">首頁</a></li>
+                        <li><a href="index.html">HTML 課程</a></li>
+                    </ul>
             </div>
         </nav>
     </header>
@@ -81,14 +62,24 @@
         <a href="../index.html" class="back-link">← 返回首頁</a>
         <h2 class="note-title">程式基礎概念</h2>
         
-        <div class="code-section">
-            <h3>🔤 變數交換練習</h3>
-            <div class="output-box">
-    <?php
-    $a=10;
-    $b=50;
-    echo "$a=" . $a . "<br>";
-    ?>
+        <div class="note-card">
+            <h3>變數交換練習</h3>
+            <pre><code><?php
+            $code = '<?php
+            $a = 10;
+            $b = 50;
+            echo "$a=" . $a;
+            ?>';
+
+            echo htmlspecialchars($code); 
+            ?>
+            </code></pre>
+            <div class="code-section">
+                <?php
+                $a=10;
+                $b=50;
+                echo "$a=" . $a . "<br>";
+                ?>
             </div>
         </div>
     </div>
