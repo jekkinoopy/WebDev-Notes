@@ -11,10 +11,10 @@
     <header class="header">
         <nav class="navbar">
             <div class="nav-container">
-                <div class="logo">
-                    <div class="logo-icon"></div>
-                    <h1>努比的全端筆記</h1>
-                </div>
+<a href="#" class="logo" id="siteLogo">
+    <div class="logo-icon"></div>
+    <h1>努比的全端筆記</h1>
+</a>
             </div>
         </nav>
     </header>
