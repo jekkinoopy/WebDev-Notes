@@ -173,6 +173,52 @@ section {
     width: 100%;
 }
 
+
+/* --- 下拉選單基礎設定 --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* 下拉內容容器 */
+.dropdown-content {
+    display: none;
+    /* 預設隱藏 */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 4px;
+    top: 100%;
+    /* 緊貼導覽列下方 */
+}
+
+/* 下拉內的連結樣式 */
+.dropdown-content a {
+    color: var(--text-main);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: var(--primary);
+}
+
+/* 滑鼠移入時顯示內容 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 讓按鈕在 Hover 時也有反應 */
+.dropdown:hover .dropbtn {
+    color: var(--primary);
+}
+
 /* ========================================
    Hero Section
    ======================================== */
