@@ -52,9 +52,9 @@
        漸層組合 - 預定義漸層
        ========================================== */
     
-    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
     --gradient-dark: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
-    --gradient-light: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+    --gradient-light: linear-gradient(180deg, var(--gray-50) 0%, var(--primary) 100%);
     
     /* ==========================================
        背景顏色組合
