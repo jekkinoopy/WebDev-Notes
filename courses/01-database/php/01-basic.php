@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>程式基礎概念 - WebDev Notes</title>
+    <title>程式基礎概念 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
     <style>
@@ -47,8 +47,8 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <span class="logo-icon">📚</span>
-                    <h1>WebDev Notes</h1>
+                    <div class="logo-icon"></div>
+                    <h1>努比的全端筆記</h1>
                 </div>
                     <ul class="nav-links">
                         <li><a href="../../../index.html">首頁</a></li>

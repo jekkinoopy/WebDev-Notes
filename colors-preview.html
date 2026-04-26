@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>色彩系統預覽 - WebDev Notes</title>
+    <title>色彩系統預覽 - 努比的全端筆記</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
         .color-preview {
@@ -11,23 +12,23 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .color-section {
             margin-bottom: 3rem;
         }
-        
+
         .color-section h2 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--text-primary);
         }
-        
+
         .color-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
         }
-        
+
         .color-box {
             border-radius: var(--radius-lg);
             padding: 1rem;
@@ -36,11 +37,11 @@
             cursor: pointer;
             transition: transform var(--transition-base);
         }
-        
+
         .color-box:hover {
             transform: translateY(-4px);
         }
-        
+
         .color-name {
             font-weight: 600;
             font-size: 0.875rem;
@@ -49,13 +50,13 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
+
         .color-value {
             font-family: var(--font-mono);
             font-size: 0.75rem;
             opacity: 0.8;
         }
-        
+
         .color-swatch {
             width: 100%;
             height: 100px;
@@ -63,7 +64,7 @@
             margin-bottom: 0.5rem;
             border: 1px solid var(--border-light);
         }
-        
+
         .hint {
             background-color: var(--gray-100);
             border-left: 4px solid var(--primary);
@@ -72,28 +73,28 @@
             margin-bottom: 2rem;
             color: var(--text-secondary);
         }
-        
+
         .hint strong {
             color: var(--text-primary);
         }
-        
+
         header {
             background: var(--gradient-primary);
             color: white;
             padding: 2rem;
             text-align: center;
         }
-        
+
         header h1 {
             font-size: 2rem;
             margin: 0;
         }
-        
+
         header p {
             opacity: 0.9;
             margin: 0.5rem 0 0 0;
         }
-        
+
         footer {
             background: var(--gray-900);
             color: white;
@@ -101,7 +102,7 @@
             text-align: center;
             margin-top: 3rem;
         }
-        
+
         .back-link {
             display: inline-block;
             margin-bottom: 2rem;
@@ -109,23 +110,25 @@
             text-decoration: none;
             font-weight: 600;
         }
-        
+
         .back-link:hover {
             text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1>🎨 WebDev Notes 色彩系統</h1>
+        <h1>🎨 努比的全端筆記 色彩系統</h1>
         <p>所有顏色變數統一管理在 colors-config.css</p>
     </header>
 
     <div class="color-preview">
         <a href="index.html" class="back-link">← 返回首頁</a>
-        
+
         <div class="hint">
-            <strong>💡 提示：</strong>要改變整個網站的色系，只需編輯 <code>colors-config.css</code> 檔案中的色彩變數。所有頁面會自動應用新色系。詳見 <code>COLOR-GUIDE.md</code>
+            <strong>💡 提示：</strong>要改變整個網站的色系，只需編輯 <code>colors-config.css</code> 檔案中的色彩變數。所有頁面會自動應用新色系。詳見
+            <code>COLOR-GUIDE.md</code>
         </div>
 
         <!-- 主色系 -->
@@ -182,7 +185,8 @@
             <h2>⚪ 灰度色系</h2>
             <div class="color-grid">
                 <div class="color-box" style="background: var(--gray-50); border: 1px solid var(--border-light);">
-                    <div class="color-swatch" style="background: var(--gray-50); border: 1px solid var(--border-light);"></div>
+                    <div class="color-swatch"
+                        style="background: var(--gray-50); border: 1px solid var(--border-light);"></div>
                     <div class="color-name">Gray 50</div>
                     <div class="color-value">--gray-50</div>
                 </div>
@@ -285,8 +289,9 @@
     </div>
 
     <footer>
-        <p>🎨 WebDev Notes 色彩系統 | 修改 <code>colors-config.css</code> 即可改變網站色系</p>
+        <p>🎨 努比的全端筆記 色彩系統 | 修改 <code>colors-config.css</code> 即可改變網站色系</p>
         <p style="opacity: 0.8; margin-top: 1rem;">詳細指南請參閱 <code>COLOR-GUIDE.md</code></p>
     </footer>
 </body>
+
 </html>
