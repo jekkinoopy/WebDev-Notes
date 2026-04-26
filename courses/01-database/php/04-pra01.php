@@ -9,14 +9,8 @@
 </head>
 <body>
     <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-<a href="#" class="logo" id="siteLogo">
-    <div class="logo-icon"></div>
-    <h1>努比的全端筆記</h1>
-</a>
-            </div>
-        </nav>
+        <nav class="navbar"></nav>
+<script src="/WebDev-Notes/assets/js/nav-loader.js"></script>
     </header>
 
     <div class="note-container">
