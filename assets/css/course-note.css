@@ -1,67 +1,67 @@
 body {
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   background-color: var(--primary);
-  color: var(--text-color);
   /* padding: 20px; */
 }
 
 /* --- 大標題 Hero 區塊樣式 (基於 colors-config.css) --- */
 .page-hero {
-    padding: 60px 20px 40px;
-    text-align: center;
-    background: var(--gradient-light);
-    /* border-bottom:3px solid var(--primary-light); ; */
+  padding: 60px 20px 40px;
+  text-align: center;
+  background: var(--gradient-light);
+  /* border-bottom:3px solid var(--primary-light); ; */
 }
 
 .hero-container {
-    max-width: 850px;
-    margin: 0 auto;
+  max-width: 850px;
+  margin: 0 auto;
 }
 
 /* 分類小標籤 - 使用深色調 */
 .category-tag {
-    background-color: var(--primary-dark);
-    color: var(--white);
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: var(--radius-xl);
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: var(--spacing-md);
-    display: inline-block;
+  background-color: var(--primary-dark);
+  color: var(--white);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-xl);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  display: inline-block;
 }
 
 /* 標題 - 使用主色系深色 */
 .note-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: var(--spacing-md);
-    color: var(--primary-dark); /* 回歸深紫藍色 */
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-dark);
+  /* 回歸深紫藍色 */
 }
 
 /* 副標題說明 - 使用中性次要文字 */
 .hero-desc {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto var(--spacing-lg);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
 }
 
 /* 裝飾底線 - 使用主色 */
 .hero-divider {
-    width: 50px;
-    height: 4px;
-    background-color: var(--primary-dark);
-    margin: 0 auto;
-    border-radius: var(--radius-sm);
+  width: 50px;
+  height: 4px;
+  background-color: var(--primary-dark);
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
 }
 
 /* 響應式微調 */
 @media (max-width: 768px) {
-    .note-title {
-        font-size: 2rem;
-    }
+  .note-title {
+    font-size: 2rem;
+  }
 }
 
 .ex {
@@ -220,7 +220,3 @@ mark {
   padding: 0 4px;
   border-radius: 2px;
 }
-
-
-
-

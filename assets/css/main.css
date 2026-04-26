@@ -25,7 +25,7 @@ html {
 
 body {
     font-family: var(--font-sans);
-    color: var(--gray-800);
+    color: var(--primary-dark);
     background-color: var(--white);
     line-height: 1.6;
     font-size: 1rem;

@@ -93,7 +93,6 @@
       /* 雙重保險移除背景 */
       box-shadow: none !important;
       /* 徹底移除陰影 */
-      border: none;
       /* 如果外層有框也一併移除 */
       padding: 0;
       /* 移除內距讓它回歸原始排版 */
@@ -102,21 +101,21 @@
 
     /* 確保內層的 fieldset 才是視覺主體 */
     .sechskies-form fieldset {
-      box-shadow: none;
-      padding: 30px 50px;
-      /* 確保這裡也沒有陰影 */
-      border: 2px solid var(--warning);
-      ;
-      /* 維持那個專業的綠色(或黃色)邊框 */
+      background: transparent;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      /* 引用 table 陰影 */
+      padding: 2rem;
     }
 
     legend {
       font-weight: bold;
-      color: #333;
+      color: var(--primary);
       padding: 0 15px;
       font-size: 1.2rem;
       border-style: solid;
-      border-color: var(--warning);
+      border-color: var(--primary);
       border-width: 0 5px;
       margin: auto;
     }
@@ -131,6 +130,7 @@
 
     .sechskies-form label {
       font-weight: 600;
+      padding-bottom: 3px;
       /* color: #444; */
     }
 
@@ -160,6 +160,39 @@
     .sechskies-form input[type="submit"]:hover {
       background-color: #333;
       transform: translateY(-2px);
+    }
+
+    /* 僅使用你程式碼中已出現的變數名稱進行擴展與優化 */
+
+
+
+    .sechskies-form legend {
+      color: var(--primary);
+      /* 使用現有主色變數 */
+      font-weight: 700;
+      padding: 0 10px;
+    }
+
+    /* 2. 課表狀態強化 */
+    .course-schedule-notes td {
+      border-color: var(--gray-200);
+      /* 統一邊框變數 */
+      color: var(--gray-600);
+    }
+
+    .course-schedule-notes td[colspan] {
+      background-color: var(--gray-100) !important;
+      font-weight: 500;
+    }
+
+    /* 3. 互動狀態 */
+    .grid-table td:hover,
+    td:hover {
+      background-color: #ffffff;
+      color: var(--primary-dark);
+      /* 確保與標頭主色呼應 */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--primary-dark);
     }
   </style>
 </head>
@@ -286,13 +319,13 @@
         <form action="" class="sechskies-form">
           <fieldset>
             <legend>💛 第一階段：小黃身分驗證</legend>
-            <label>應援小黃</label>
+            <label class="main-label">應援小黃</label>
             <input type="text" placeholder="輸入你的暱稱">
-            <label>聯絡信箱</label>
+            <label class="main-label">聯絡信箱</label>
             <input type="text" placeholder="請輸入你的電子郵件地址">
-            <label>入坑日期</label>
+            <label class="main-label">入坑日期</label>
             <input type="date">
-            <label>入坑原因 (最感動的一瞬間)</label>
+            <label class="main-label">入坑原因 (最感動的一瞬間)</label>
             <textarea rows="10" placeholder="分享你入坑的故事"></textarea>
           </fieldset>
           <br>
@@ -311,22 +344,16 @@
             </div>
 
 
-            <label for="">最期待聽到的歌曲</label>
-            <input type="select"><label for="">
-
-            </label>希望能坐在哪個應援區<input type="text"><label for=""></label><input type="text"><label for=""></label><input
-              type="text"><label for=""></label><input type="text">
-
-
-
-
-
-
-            見面會想參加的活動
-
-            你的尖叫分貝預測 (0-100)
-
-            入坑至今購買的專輯數量
+            <div>
+              <label for="">最期待聽到的歌曲</label><br>
+              <input type="select"><label for="">
+            </div>
+            <div>
+              <label for="">見面會想參加的活動</label><br>
+              <input type="">
+            </div>
+            <label for="">入坑至今購買的專輯數量</label><br>
+            <input type="number">
           </fieldset>
           <p>
 
