@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>畫星星 - 努比的全端筆記</title>
+    <title>瑪利歐金幣牆 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
 </head>
@@ -12,16 +12,15 @@
 <body>
     <header class="header">
         <nav class="navbar"></nav>
-        <script src="/,,/../../assets/js/nav-loader.js"></script>
+        <script src="../../../assets/js/nav-loader.js"></script>
     </header>
-    <section class="page-hero">
-        <div class="hero-container">
-            <span class="category-tag">程式基礎概念</span>
-            <h2 class="note-title">畫星星</h2>
-            <p class="hero-desc">使用 PHP 畫出不同樣式的星星</p>
-            <div class="hero-divider"></div>
-        </div>
-        </div>
+<section class="page-hero">
+    <div class="hero-container">
+        <span class="category-tag">程式基礎概念</span>
+        <h2 class="note-title">瑪利歐金幣牆</h2>
+        <p class="hero-desc">使用 PHP 巢狀迴圈建構金幣陣列</p>
+        <div class="hero-divider"></div>
+    </div>
     </section>
     <div class="note-container">
         <div class="note-card">
@@ -62,7 +61,7 @@ echo htmlspecialchars($code);
 
                 for($i=1;$i<=5;$i++){
                     for($j=1;$j<=$i;$j++){
-                        echo "$";
+                        echo "<img src='../../../assets/images/money.jpg' style='width:30px'>";
                     }
                     echo "<br>";
                 }
@@ -73,7 +72,7 @@ echo htmlspecialchars($code);
                 for($i=1;$i<=5;$i++){
                     for($j=1;$j<=5;$j++){
                         if($j<=$i){
-                            echo "$";
+                            echo "<img src='../../../assets/images/money.jpg' style='width:30px'>";
                             }
                             }
                             echo "<br>";
@@ -128,7 +127,7 @@ echo htmlspecialchars($code);
 for ($i = 5; $i > 0; $i--) {        // 外層：從第 5 行數回第 1 行
 
     for ($j = 0; $j < $i; $j++) {    // 內層：依照目前的行號 $i，決定印幾個星星
-        echo "$";
+        echo "<img src='../../../assets/images/money.jpg' style='width:30px'>";
     }
 
     echo "<br>";                    // 每一行印完星星後，執行換行
@@ -141,11 +140,66 @@ for ($i = 5; $i > 0; $i--) {        // 外層：從第 5 行數回第 1 行
             <pre><code><?php
         // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
 $code = <<<'EOD'
+<?php 
+$totalRows = 5; // 總共要畫 5 行
 
+// 外層迴圈：從第 1 行數到第 5 行 (符合人類直覺)
+for ($i = 1; $i <= $totalRows; $i++) {
+
+// 內層 1：印出左側空格
+// 規律：第 1 行要 4 個，第 5 行要 0 個 -> 公式就是 (總行數 - 目前行號)
+for ($j = 1; $j <= ($totalRows - $i); $j++) {
+    // 因為圖片比較寬，空格要給兩到三個才推得動
+    echo "&nbsp;&nbsp;&nbsp;"; 
+}
+
+// 內層 2：印出金幣圖案
+// 規律：1, 3, 5, 7, 9 -> 公式就是 (目前行號 * 2 - 1)
+for ($k = 1; $k <= (2 * $i - 1); $k++) {
+    echo "<img src='../../../assets/images/money.jpg' style='width:30px; vertical-align: middle;'>";
+}
+
+// 每一行收尾：換行
+echo "<br>";
+}
+?>
 EOD;
 echo htmlspecialchars($code); 
 ?></code></pre>
             <div class="code-section">
+                <!-- <?php
+                    for($i=5;$i>1;$i--){
+                        echo "&nbsp";
+                        for($j=0;$j<=5;$j=$j*2+1){
+                            echo "<img src='../../../assets/images/money.jpg' style='width:30px'>";
+                        }
+                    }
+                ?> -->
+                <div class="code-section" style="line-height: 1.2; background: #fff; padding: 15px; border-radius: 5px;">
+        <?php 
+        $totalRows = 5; // 總共要畫 5 行
+
+        // 外層迴圈：從第 1 行數到第 5 行 (符合人類直覺)
+        for ($i = 1; $i <= $totalRows; $i++) {
+            
+            // 內層 1：印出左側空格
+            // 規律：第 1 行要 4 個，第 5 行要 0 個 -> 公式就是 (總行數 - 目前行號)
+            for ($j = 1; $j <= ($totalRows - $i); $j++) {
+                // 因為圖片比較寬，空格要給兩到三個才推得動
+                echo "&nbsp;&nbsp;&nbsp;"; 
+            }
+
+            // 內層 2：印出金幣圖案
+            // 規律：1, 3, 5, 7, 9 -> 公式就是 (目前行號 * 2 - 1)
+            for ($k = 1; $k <= (2 * $i - 1); $k++) {
+                echo "<img src='../../../assets/images/money.jpg' style='width:30px; vertical-align: middle;'>";
+            }
+
+            // 每一行收尾：換行
+            echo "<br>";
+        }
+        ?>
+
             </div>
         </div>
         <div class="note-card">
