@@ -7,6 +7,17 @@
     <title> - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,22 +42,70 @@
                 <ol>
                     <li><img src="../../../../assets/images/php07-1.png" alt="九九乘法表需求"></li>
                     <?php
+//無表格版本 
+
+// for($j=1;$j<=9;$j++)
+//     {
+//         for($i=1;$i<=9;$i++){
+//             echo "{$i}x{$j}=" . $i*$j;
+//             }
+//             echo "<br>";
+//             }
+// ?>
+                    <?php
+echo "<table>";
 for($j=1;$j<=9;$j++)
-    {
-        for($i=1;$i<=9;$i++){
-            echo "{$i}x{$j}=" . $i*$j;
-            }
-            echo "<br>";
-            }
-?>
-
+    {echo "<tr>";
+for($i=1;$i<=9;$i++){
+    echo "<td>";
+    echo "{$i}x{$j}=" . $i*$j;
+    echo "</td>";
+    }
+    echo "</tr>";
+    }
+    echo "</table>";
+    ?>
                     <li><img src="../../../../assets/images/php07-2.png" alt="九九乘法表需求"></li>
+                    <?php
+echo "<table>";
+   echo "<tr>";
+   echo "<td>1</td>";
+   echo "<td>2</td>";
+   echo "<td>3</td>";
+   echo "<td>4</td>";
+   echo "<td>5</td>";
+   echo "<td>6</td>";
+   echo "<td>7</td>";
+   echo "<td>8</td>";
+   echo "<td>9</td>";
+   echo "</tr>";
+   for($j=1;$j<=9;$j++)
+    {echo "<tr>";
+   for($i=1;$i<=9;$i++){
+       echo "<td>";
+       echo $i*$j;
+       echo "</td>";
+       }
+       echo "</tr>";
+       }
+          echo "<tr>";
+          echo "<td>1</td>";
+          echo "<td>2</td>";
+          echo "<td>3</td>";
+          echo "<td>4</td>";
+          echo "<td>5</td>";
+          echo "<td>6</td>";
+          echo "<td>7</td>";
+          echo "<td>8</td>";
+          echo "<td>9</td>";
+          echo "</tr>";
+       ?>
                 </ol>
+            </div>
         </div>
-    </div>
-</body>
-
-</html>
+    </body>
+    
+    </html>
 </body>
 
 </html>
