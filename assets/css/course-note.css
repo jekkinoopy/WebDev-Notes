@@ -131,6 +131,12 @@ body {
   content: "📌";
   margin-right: 8px;
 }
+.note-card li{
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  
+}
 
 /* 內容區塊 */
 .note-content {

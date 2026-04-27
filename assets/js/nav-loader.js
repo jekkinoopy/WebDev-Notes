@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </a>
         <ul class="nav-links">
             <li class="dropdown">
-                <a href="${basePath}courses/01-database/index.html" class="dropbtn">資料庫</a>
+                <a href="$#" class="dropbtn">資料庫</a>
                 <div class="dropdown-content">
                     <a href="${basePath}courses/01-database/php/index.html">PHP 語言</a>
                     <a href="${basePath}courses/01-database/MySQL/index.html">MySQL 資料庫</a>

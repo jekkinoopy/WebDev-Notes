@@ -12,7 +12,7 @@
 <body>
     <header class="header">
         <nav class="navbar"></nav>
-        <script src="/WebDev-Notes/assets/js/nav-loader.js"></script>
+        <script src="../../../../assets/js/nav-loader.js"></script>
     </header>
     <section class="page-hero">
         <div class="hero-container">

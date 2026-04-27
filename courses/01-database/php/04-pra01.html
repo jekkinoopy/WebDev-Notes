@@ -1,34 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-TW">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>綜合練習一 - 努比的全端筆記</title>
-    <link rel="stylesheet" href="../../../assets/css/main.css">
-    <link rel="stylesheet" href="../../../assets/css/course-note.css">
-</head>
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
+    <link rel="stylesheet" href="../../../assets/css/course-note.css" />
+  </head>
 
-<body>
+  <body>
     <header class="header">
-        <nav class="navbar"></nav>
-        <script src="/WebDev-Notes/assets/js/nav-loader.js"></script>
+      <nav class="navbar"></nav>
+      <script src="../../../../assets/js/nav-loader.js"></script>
     </header>
 
     <section class="page-hero">
-        <div class="hero-container">
-            <span class="category-tag">程式基礎概念</span>
-            <h2 class="note-title">綜合練習一：條件判定實戰</h2>
-            <p class="hero-desc">運用 <code>if...else</code> 多重分支邏輯，實作自動化成績等級分類系統。</p>
-            <div class="hero-divider"></div>
-        </div>
+      <div class="hero-container">
+        <span class="category-tag">程式基礎概念</span>
+        <h2 class="note-title">綜合練習一：條件判定實戰</h2>
+        <p class="hero-desc">
+          運用 <code>if...else</code> 多重分支邏輯，實作自動化成績等級分類系統。
+        </p>
+        <div class="hero-divider"></div>
+      </div>
     </section>
 
     <div class="note-container">
-        <div class="note-card">
-            <h3>分配成績等級 (Logic Control)</h3>
-
-            <pre><code>$score = 71;
+      <div class="note-card">
+        <h3>分配成績等級 (Logic Control)</h3>
+        <div class="code-section">
+          <strong>題目需求：</strong><br />
+          給定一個成績數字，根據成績所在的區間，給定等級：<br />
+          0 ~ 59 => E <br />
+          60 ~ 69 => D <br />
+          70 ~ 79 => C <br />
+          80 ~ 89 => B <br />
+          90 ~ 100 => A <br />
+        </div>
+        <pre><code>$score = 71;
 $level = '';
 
 if($score >= 0 && $score < 60){
@@ -47,22 +56,18 @@ if($score >= 0 && $score < 60){
 
 echo "您的成績是: " . $score . " → 等級: " . $level;</code></pre>
 
-            <div class="code-section">
-                <strong>題目需求：</strong><br>
-                給定一個成績數字，根據成績所在的區間，給定等級：<br>
-                0 ~ 59 => E <br>
-                60 ~ 69 => D <br>
-                70 ~ 79 => C <br>
-                80 ~ 89 => B <br>
-                90 ~ 100 => A <br><br>
-
-                <div class="output-box" style="background: #f8f9fa; padding: 10px; border-left: 4px solid #28a745;">
-                    <strong>執行結果：</strong><br>
-                    您的成績是: <strong>71</strong> → 等級: <strong>C</strong>
-                </div>
-            </div>
+        <div
+          class="output-box"
+          style="
+            background: #f8f9fa;
+            padding: 10px;
+            border-left: 4px solid var(--primary);
+          "
+        >
+          <strong>執行結果：</strong><br />
+          您的成績是: <strong>71</strong> → 等級: <strong>C</strong>
         </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
