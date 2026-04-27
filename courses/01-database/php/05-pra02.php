@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>綜合練習二 - 努比的全端筆記</title>
+    <title>閏年判斷 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
 </head>
@@ -16,9 +16,9 @@
     </header>
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">程式基礎概念</span>
-            <h2 class="note-title">綜合練習二</h2>
-            <p class="hero-desc"></p>
+<span class="category-tag">程式基礎概念</span>
+            <h2 class="note-title">閏年判斷實戰</h2>
+            <p class="hero-desc">運用邏輯運算子，實作精準的閏年週期判定邏輯。</p>
             <div class="hero-divider"></div>
         </div>
         </div>
