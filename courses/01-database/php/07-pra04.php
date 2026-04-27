@@ -30,6 +30,16 @@
                 <strong>題目需求：</strong><br>
                 <ol>
                     <li><img src="../../../../assets/images/php07-1.png" alt="九九乘法表需求"></li>
+                    <?php
+for($j=1;$j<=9;$j++)
+    {
+        for($i=1;$i<=9;$i++){
+            echo "{$i}x{$j}=" . $i*$j;
+            }
+            echo "<br>";
+            }
+?>
+
                     <li><img src="../../../../assets/images/php07-2.png" alt="九九乘法表需求"></li>
                 </ol>
         </div>
