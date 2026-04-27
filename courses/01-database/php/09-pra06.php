@@ -75,7 +75,6 @@ echo htmlspecialchars($code);
                         if($j<=$i){
                             echo "$";
                             }
-                            
                             }
                             echo "<br>";
                             }
@@ -92,6 +91,11 @@ EOD;
 echo htmlspecialchars($code); 
 ?></code></pre>
             <div class="code-section">
+                <?php 
+                    for($i=5;$i<=0;$i--;){
+                        
+                    }
+                ?>
             </div>
         </div>
         <div class="note-card">
