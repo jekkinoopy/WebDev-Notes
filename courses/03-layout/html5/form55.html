@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form 練習 - 努比的全端筆記</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css" />
+  <link rel="stylesheet" href="../../../assets/css/course-note.css" />
+  <style>
+    /* --- 表單通用樣式 (Form) --- */
+    /* 表單基礎容器：移除多餘邊框，讓陰影感一致 */
+    form {
+      width: 90%;
+      min-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--gray-100);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      /* 增加陰影感 */
+    }
+
+    /* --- 輸入框美化 --- */
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--primary-dark);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      box-sizing: border-box;
+      /* 確保 padding 不會撐破寬度 */
+      margin: 5px 0 15px;
+      color: var(--primary-dark);
+      transition: all 0.2s ease;
+    }
+
+    /* 移除原本 input 全域的 scale，改放在 focus 狀態更專業 */
+    input:focus,
+    input:focus {
+      outline: none;
+      border-color: var(--primary-dark);
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      transform: translateY(-1px);
+    }
+
+    /* 標籤樣式：確保絕對換行 */
+    .main-label {
+      display: block;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    /* --- 單選與複選框特殊排版 --- */
+    .option-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      /* 選項之間的間距 */
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      /* 圓圈跟文字的間距 */
+      cursor: pointer;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: auto;
+    }
+
+    /* Fieldset 與 Legend 美化 */
+    fieldset {
+      border: 2px solid var(--primary);
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    legend {
+      font-weight: 900;
+      color: var(--primary);
+      padding: 0 15px;
+      font-size: 1.2rem;
+      border-style: solid;
+      border-color: var(--primary);
+      border-width: 0 5px;
+      margin: auto;
+    }
+
+
+    /* --- 按鈕美化 --- */
+    input[type="submit"] {
+      background-color: var(--primary);
+      color: var(--gray-100);
+      border: none;
+      padding: 15px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 50px;
+      transition: 0.2s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /*重製按鈕：改為白底藍字 (與提交相反) */
+    input[type="reset"] {
+      background-color: var(--gray-100);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 15px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      transition: 0.2s;
+    }
+
+    input[type="reset"]:hover {
+      background-color: #f0f7ff;
+    }
+
+    .sechskies-form {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: transparent !important;
+      /* 強制透明 */
+      background: none !important;
+      /* 雙重保險移除背景 */
+      box-shadow: none !important;
+      /* 徹底移除陰影 */
+      /* 如果外層有框也一併移除 */
+      padding: 0;
+      /* 移除內距讓它回歸原始排版 */
+
+    }
+
+    /* 確保內層的 fieldset 才是視覺主體 */
+    .sechskies-form fieldset {
+      background: transparent;
+    }
+
+
+    /* 統一排版：標籤在上，輸入框在下 */
+    .sechskies-form p {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .sechskies-form label {
+      font-weight: 600;
+      padding-bottom: 3px;
+    }
+
+
+
+
+    /* 送出按鈕：置中且加大 */
+    .sechskies-form input[type="submit"] {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    /* 僅使用你程式碼中已出現的變數名稱進行擴展與優化 */
+
+
+
+    .sechskies-form legend {
+      color: var(--primary);
+      /* 使用現有主色變數 */
+      font-weight: 700;
+      padding: 0 10px;
+    }
+
+    /* 2. 課表狀態強化 */
+    .course-schedule-notes td {
+      border-color: var(--gray-200);
+      /* 統一邊框變數 */
+      color: var(--gray-600);
+    }
+
+    .course-schedule-notes td[colspan] {
+      background-color: var(--gray-100) !important;
+      font-weight: 500;
+    }
+
+    /* 3. 互動狀態 */
+    .grid-table td:hover,
+    td:hover {
+      background-color: #ffffff;
+      color: var(--primary-dark);
+      /* 確保與標頭主色呼應 */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--primary-dark);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar"></nav>
+    <script src="../../../assets/js/nav-loader.js"></script>
+  </header>
+  <!-- <div class="section-header">
+        <h2>HTML Forms</h2>
+    </div> -->
+  <div class="ex">
+    <div class="note-card">
+      <h3>Form Elements</h3>
+      <div class="note-content">
+        <div class="note-item">
+          <div class="note-desc">
+            <h4>文字輸入框</h4>
+
+            <pre><code>&lt;label for="name"&gt;姓名&lt;/label&gt;
+&lt;input type="text" id="name" name="name" placeholder="請輸入您的姓名"/&gt;</code></pre>
+          </div>
+          <form action="">
+            <p>
+              <label class="main-label" for="name">姓名</label>
+              <input type="text" id="name" name="name" placeholder="請輸入您的姓名" />
+            </p>
+            <p>
+              <label class="main-label" for="phone">電話</label>
+              <input type="text" id="phone" name="phone" placeholder="請輸入您的電話" />
+            </p>
+          </form>
+        </div>
+
+        <div class="note-item">
+          <div class="note-desc">
+            <h4>單選按鈕</h4>
+            <pre><code>&lt;label&gt;性別&lt;/label&gt;<br>&lt;input type="radio"&gt;</code></pre>
+          </div>
+          <form action="">
+            <p>
+              <label class="main-label" for="gender">性別</label>
+              <input type="radio" name="gender" id="male" value="male" />男
+              <input type="radio" name="gender" id="female" value="female" />女 <input type="radio" name="gender"
+                id="保密" />保密
+            </p>
+          </form>
+
+          <div class="note-item">
+            <div class="note-desc">
+              <h4>複選框</h4>
+              <pre><code>&lt;label&gt;本命&lt;/label&gt;<br>&lt;input type="checkbox"&gt;</code></pre>
+            </div>
+          </div>
+          <form action="">
+            <label class="main-label" for="">本命</label>
+            <input type="checkbox" name="" id="" />殷志源
+            <input type="checkbox" name="" id="" />李宰鎮
+            <input type="checkbox" name="" id="" />金在德
+            <input type="checkbox" name="" id="" />姜成勳
+            <input type="checkbox" name="" id="" />高志溶
+            <input type="checkbox" name="" id="" />張水院
+          </form>
+        </div>
+
+        <div class="note-item">
+          <div class="note-desc">
+            <h4>日期選擇器</h4>
+            <pre><code>&lt;label for="birthday"&gt;出生日期&lt;/label&gt;<br>&lt;input type="date" id="birthday"&gt;</code></pre>
+          </div>
+          <form action="">
+            <label class="main-label" for="">入坑日期</label>
+            <input type="date" name="" id="" />
+          </form>
+        </div>
+
+        <div class="note-item">
+          <div class="note-desc">
+            <h4>檔案上傳</h4>
+            <pre><code>&lt;label for="resume"&gt;上傳履歷&lt;/label&gt;<br>&lt;input type="file" id="resume"&gt;</code></pre>
+          </div>
+
+          <form action="">
+            <label class="main-label" for="profile-pic">上傳照片</label>
+            <input type="file" name="profile-pic" id="profile-pic" />
+          </form>
+        </div>
+
+        <div class="note-item">
+          <div class="note-desc">
+            <h4>多行文字輸入區</h4>
+            <pre><code>&lt;label for="intro"&gt;自我介紹&lt;/label&gt;<br>&lt;textarea id="intro" rows="4" cols="50"&gt;<br>&lt;<code>textarea</code> 在 HTML 中預設都是 inline（行內元素）</code></pre>
+          </div>
+          <form action="">
+            <label class="main-label" for="intro">自我介紹</label>
+            <textarea id="intro" rows="4" cols="50"></textarea>
+          </form>
+        </div>
+
+        <div class="note-item">
+          <div class="note-desc">
+            <h4>送出按鈕</h4>
+
+            <div class="code-window">
+              <pre class="language-html"><code>&lt;input type="submit" value="送出表單"&gt;
+&lt;!-- 或者 --&gt;
+&lt;button type="submit"&gt;送出&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+          <form action="">
+            <label class="main-label" for="submit"></label>
+            <input type="submit" value="送出表單">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fieldset -->
+
+    <div class="note-card">
+      <h3>見面會申請表</h3>
+      <div class="note-content" style="background-color: transparent;">
+        <form action="" class="sechskies-form">
+          <fieldset>
+            <legend>💛 第一階段：小黃身分驗證</legend>
+            <div>
+              <label class="main-label">應援小黃</label>
+              <input type="text" placeholder="輸入你的暱稱">
+
+            </div>
+            <div>
+              <label class="main-label">聯絡信箱</label>
+              <input type="text" placeholder="請輸入你的電子郵件地址">
+            </div>
+
+            <div>
+              <label class="main-label" for="">輸入你的密碼</label>
+              <input type="password" name="" id="">
+            </div>
+
+            <div>
+              <label class="main-label">入坑日期</label>
+              <input type="date">
+            </div>
+
+            <div>
+              <label class="main-label">入坑原因 (最感動的一瞬間)</label>
+              <textarea rows="10" placeholder="分享你入坑的故事"></textarea>
+            </div>
+          </fieldset>
+          <br>
+          <fieldset>
+            <legend>🎤 第二階段：見面會應援調查</legend>
+            <!-- <div class="form-group">
+              <label class="main-label">本命成員</label>
+              <div class="option-row">
+                <input type="checkbox">殷志源
+                <input type="checkbox">李宰鎮
+                <input type="checkbox">金在德
+                <input type="checkbox">姜成勳
+                <input type="checkbox">高志溶
+                <input type="checkbox">張水院
+              </div>
+            </div> -->
+            <!-- 1. 點擊範圍的差異
+            第一段 (差)：使用者必須精準地點到那個小小的 方框 才能勾選。點擊文字「殷志源」是完全沒有反應的。
+            
+            第二段 (優)：因為 input 被 label 包起來了，整行文字都變成了 「可點擊區域」。這對手機用戶或長輩來說非常重要。
+            
+            2. 語義化與輔助功能
+            第一段：文字跟方框在代碼上是「鄰居」關係，但沒有「綁定」關係。螢幕閱讀器（給視障者使用）可能無法準確告訴使用者這個方框是代表哪位成員。
+            
+            第二段：明確告訴瀏覽器「這段文字就是這個方框的說明」。 -->
+
+            <div class="form-group">
+              <label class="main-label">本命成員</label>
+              <div class="option-row">
+                <label class="option-item"><input type="checkbox">殷志源</label>
+                <label class="option-item"><input type="checkbox">李宰鎮</label>
+                <label class="option-item"><input type="checkbox">金在德</label>
+                <label class="option-item"><input type="checkbox">姜成勳</label>
+                <label class="option-item"><input type="checkbox">高志溶</label>
+                <label class="option-item"><input type="checkbox">張水院</label>
+              </div>
+            </div>
+
+            <div>
+              <label class="main-label" for="song-select">最期待聽到的歌曲</label><br>
+              <select name="song" id="song-select">
+                <option value="">請選擇歌曲</option>
+                <optgroup label="學園別曲">
+                  <option value="">學園別曲 (학원별곡)</option>
+                  <option value="">男兒之路 (폼생폼사)</option>
+                  <option value="">背叛者 (배신감)</option>
+                  <option value="">戀情 (연정)</option>
+                  <option value="">預感 (예감)</option>
+                </optgroup>
+                <optgroup label="Welcome to the Sechskies Land">
+                  <option value="">送你走後 (너를 보내며)</option>
+                  <!-- <option value="">祈禱 (기도)</option> -->
+                  <option value="">騎士道</option>
+                  <option value="">給親愛的你</option>
+                  <!-- <option value="">預感 (예감)</option> -->
+                </optgroup>
+              </select>
+
+            </div>
+            <div>
+              <label class="main-label">最期待的見面會環節</label><br>
+              <div class="option-row">
+                <label class="option-item" for="dance"><input type="radio" name="event_poll" id="dance"
+                    value="dance">隨機舞蹈挑戰</label><br>
+                <label class="option-item" for="vs"><input type="radio" name="event_poll" id="vs"
+                    value="vs">黑白水晶對抗賽</label><br>
+                <label class="option-item" for="talk"><input type="radio" name="event_poll" id="talk"
+                    value="talk">時光膠囊對話</label><br>
+                <label class="option-item" for="unplugged"><input type="radio" name="event_poll" id="unplugged"
+                    value="unplugged">抒情版 Unplugged</label><br>
+                <label class="option-item" for="wish"><input type="radio" name="event_poll" id="wish"
+                    value="wish">Yellow
+                  Note 心願投稿</label><br>
+                <label class="option-item" for="sing"><input type="radio" name="event_poll" id="sing"
+                    value="sing">黃色氣球海大合唱</label>
+              </div>
+            </div>
+            <div>
+              <label class="main-label" for="">入坑至今購買的專輯數量</label><br>
+              <input type="number">
+            </div>
+          </fieldset>
+          <p>
+          <fieldset>
+
+            <legend>📂 第三階段：資格審核與提交</legend>
+            <div>
+              <label class="main-label" for="">上傳你的小黃應援證物 (PDF/圖片)</label>
+              <input type="file">
+
+              <div>
+                <label class="main-label" for="">喜愛程度</label>
+                <input type="range">
+              </div>
+
+              <label class="main-label" for="">推薦粉絲網址</label>
+              <input type="text">
+
+              <label class="main-label" for="">重新填寫表格</label>
+              <input type="reset">
+
+              <label class="main-label" for="">正式提交報名</label>
+              <input type="submit">
+            </div>
+          </fieldset>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</body>
+
+</html>
