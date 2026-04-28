@@ -17,7 +17,7 @@
 
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">綜合練習</span>
+            <span class="category-tag">字串處理</span>
             <h2 class="note-title">字串處理與應用</h2>
             <p class="hero-desc">掌握 PHP 內建字串函式，實現資料的靈活轉換與呈現。</p>
             <div class="hero-divider"></div>
