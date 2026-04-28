@@ -56,7 +56,39 @@ body {
   margin: 0 auto;
   border-radius: var(--radius-sm);
 }
+.custom-list {
+    /* 1. 讓點點出現在內容裡面，這樣才會跟標題對齊 */
+    list-style-position: inside; 
+    padding-left: 0;
+    margin-top: 15px;
+}
 
+.custom-list {
+  /* 1. 改回 outside，讓點點獨立在文字框外 */
+  list-style-position: outside; 
+  
+  /* 2. 這是對齊標題的關鍵：
+     標題前面有圖釘 emoji，通常需要大約 1.5rem ~ 2rem 的左邊距
+     來讓點點剛好落在圖釘下方或文字開頭處 */
+  padding-left: 1.2rem; 
+  margin-left: 0.5rem;
+  margin-top: 15px;
+}
+
+.custom-list li {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 2;
+  margin-bottom: 8px;
+  
+  /* 3. 重要：確保這裡沒有 display: flex，不然點點會不見 */
+  display: list-item; 
+}
+
+.custom-list li::marker {
+  color: var(--primary-dark);
+  font-weight: bold;
+}
 /* 響應式微調 */
 @media (max-width: 768px) {
   .note-title {
@@ -131,11 +163,11 @@ body {
   content: "📌";
   margin-right: 8px;
 }
-.note-card li{
+.note-card li {
   margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  
+  /* 刪除 display: flex; */
+  /* 刪除 align-items: center; */
+  display: list-item; /* 確保它是清單模式 */
 }
 
 /* 內容區塊 */
