@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> - 努比的全端筆記</title>
+    <title>九九乘法表 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
     <style>
@@ -36,7 +36,7 @@
     </section>
     <div class="note-container">
         <div class="note-card">
-            <h3>九九乘法表一</h3>
+            <h3>以表格排列的九九乘法表</h3>
             <div class="code-section">
                 <strong>題目需求：</strong><br>
                     <img src="images/07-1.png" alt="九九乘法表需求">
@@ -66,7 +66,7 @@
                         ?>
         </div>
         <div class="note-card">
-            <h3>九九乘法表二</h3>
+            <h3>以交叉計算結果呈現的九九乘法表</h3>
             <div class="code-section">
             <img src="images/07-2.png" alt="九九乘法表需求">
                                 <?php
