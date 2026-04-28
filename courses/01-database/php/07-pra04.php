@@ -36,72 +36,75 @@
     </section>
     <div class="note-container">
         <div class="note-card">
-            <h3>九九乘法表</h3>
+            <h3>九九乘法表一</h3>
             <div class="code-section">
                 <strong>題目需求：</strong><br>
-                <ol>
-                    <li><img src="../../../assets/images/php07-1.png" alt="九九乘法表需求"></li>
+                    <img src="images/07-1.png" alt="九九乘法表需求">
                     <?php
-//無表格版本 
+                    //無表格版本 
 
-// for($j=1;$j<=9;$j++)
-//     {
-//         for($i=1;$i<=9;$i++){
-//             echo "{$i}x{$j}=" . $i*$j;
-//             }
-//             echo "<br>";
-//             }
-// ?>
-                    <?php
-echo "<table>";
-for($j=1;$j<=9;$j++)
-    {echo "<tr>";
-for($i=1;$i<=9;$i++){
-    echo "<td>";
-    echo "{$i}x{$j}=" . $i*$j;
-    echo "</td>";
-    }
-    echo "</tr>";
-    }
-    echo "</table>";
-    ?>
-                    <li><img src="../../../assets/images/php07-2.png" alt="九九乘法表需求"></li>
-                    <?php
-echo "<table>";
-   echo "<tr>";
-   echo "<td>1</td>";
-   echo "<td>2</td>";
-   echo "<td>3</td>";
-   echo "<td>4</td>";
-   echo "<td>5</td>";
-   echo "<td>6</td>";
-   echo "<td>7</td>";
-   echo "<td>8</td>";
-   echo "<td>9</td>";
-   echo "</tr>";
-   for($j=1;$j<=9;$j++)
-    {echo "<tr>";
-   for($i=1;$i<=9;$i++){
-       echo "<td>";
-       echo $i*$j;
-       echo "</td>";
-       }
-       echo "</tr>";
-       }
-          echo "<tr>";
-          echo "<td>1</td>";
-          echo "<td>2</td>";
-          echo "<td>3</td>";
-          echo "<td>4</td>";
-          echo "<td>5</td>";
-          echo "<td>6</td>";
-          echo "<td>7</td>";
-          echo "<td>8</td>";
-          echo "<td>9</td>";
-          echo "</tr>";
-       ?>
-                </ol>
-            </div>
+                    // for($j=1;$j<=9;$j++)
+                    //     {
+                    //         for($i=1;$i<=9;$i++){
+                    //             echo "{$i}x{$j}=" . $i*$j;
+                    //             }
+                    //             echo "<br>";
+                    //             }
+                    // ?>
+                                        <?php
+                    echo "<table>";
+                    for($j=1;$j<=9;$j++)
+                        {echo "<tr>";
+                    for($i=1;$i<=9;$i++){
+                        echo "<td>";
+                        echo "{$i}x{$j}=" . $i*$j;
+                        echo "</td>";
+                        }
+                        echo "</tr>";
+                        }
+                        echo "</table>";
+                        ?>
+        </div>
+        <div class="note-card">
+            <h3>九九乘法表二</h3>
+            <div class="code-section">
+            <img src="images/07-2.png" alt="九九乘法表需求">
+                                <?php
+            echo "<table>";
+            echo "<tr>";
+            echo "<td>1</td>";
+            echo "<td>2</td>";
+            echo "<td>3</td>";
+            echo "<td>4</td>";
+            echo "<td>5</td>";
+            echo "<td>6</td>";
+            echo "<td>7</td>";
+            echo "<td>8</td>";
+            echo "<td>9</td>";
+            echo "</tr>";
+            for($j=1;$j<=9;$j++)
+                {echo "<tr>";
+            for($i=1;$i<=9;$i++){
+                echo "<td>";
+                echo $i*$j;
+                echo "</td>";
+                }
+                echo "</tr>";
+                }
+                    echo "<tr>";
+                    echo "<td>1</td>";
+                    echo "<td>2</td>";
+                    echo "<td>3</td>";
+                    echo "<td>4</td>";
+                    echo "<td>5</td>";
+                    echo "<td>6</td>";
+                    echo "<td>7</td>";
+                    echo "<td>8</td>";
+                    echo "<td>9</td>";
+                    echo "</tr>";
+                ?>
+        </div>
+                        
         </div>
     </body>
     

@@ -61,7 +61,7 @@ echo htmlspecialchars($code);
 
                 for($i=1;$i<=5;$i++){
                     for($j=1;$j<=$i;$j++){
-                        echo "<img src='../../../assets/images/money.png' style='width:30px'>";
+                        echo "<img src='images/09-1.png' style='width:30px'>";
                     }
                     echo "<br>";
                 }
@@ -72,7 +72,7 @@ echo htmlspecialchars($code);
                 for($i=1;$i<=5;$i++){
                     for($j=1;$j<=5;$j++){
                         if($j<=$i){
-                            echo "<img src='../../../assets/images/money.png' style='width:30px'>";
+                            echo "<img src='images/09-1.png' style='width:30px'>";
                             }
                             }
                             echo "<br>";
@@ -127,7 +127,7 @@ echo htmlspecialchars($code);
 for ($i = 5; $i > 0; $i--) {        // 外層：從第 5 行數回第 1 行
 
     for ($j = 0; $j < $i; $j++) {    // 內層：依照目前的行號 $i，決定印幾個星星
-        echo "<img src='../../../assets/images/money.png' style='width:30px'>";
+        echo "<img src='images/09-1.png' style='width:30px'>";
     }
 
     echo "<br>";                    // 每一行印完星星後，執行換行
@@ -156,7 +156,7 @@ for ($j = 1; $j <= ($totalRows - $i); $j++) {
 // 內層 2：印出金幣圖案
 // 規律：1, 3, 5, 7, 9 -> 公式就是 (目前行號 * 2 - 1)
 for ($k = 1; $k <= (2 * $i - 1); $k++) {
-    echo "<img src='../../../assets/images/money.png' style='width:30px; vertical-align: middle;'>";
+    echo "<img src='images/09-1.png' style='width:30px; vertical-align: middle;'>";
 }
 
 // 每一行收尾：換行
@@ -171,7 +171,7 @@ echo htmlspecialchars($code);
                     for($i=5;$i>1;$i--){
                         echo "&nbsp";
                         for($j=0;$j<=5;$j=$j*2+1){
-                            echo "<img src='../../../assets/images/money.png' style='width:30px'>";
+                            echo "<img src='images/09-1.png' style='width:30px'>";
                         }
                     }
                 ?> -->
@@ -191,7 +191,7 @@ echo htmlspecialchars($code);
             // 內層 2：印出金幣圖案
             // 規律：1, 3, 5, 7, 9 -> 公式就是 (目前行號 * 2 - 1)
             for ($k = 1; $k <= (2 * $i - 1); $k++) {
-                echo "<img src='../../../assets/images/money.png' style='width:30px; vertical-align: middle;'>";
+                echo "<img src='images/09-1.png' style='width:30px; vertical-align: middle;'>";
                 }
                 
                 // 每一行收尾：換行
@@ -238,7 +238,7 @@ echo htmlspecialchars($code);
                         echo "&nbsp;&nbsp;&nbsp;";
                         }
                         for($k=0;$k<2*$t+1;$k++){
-                            echo "<img src='../../../assets/images/money.png' style='width:30px; vertical-align: middle;'>";
+                            echo "<img src='images/09-1.png' style='width:30px; vertical-align: middle;'>";
                             }
                             echo "<br><br>";
                             }

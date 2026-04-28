@@ -33,31 +33,31 @@
                 1,3,5,7,9……n<br>
                 <pre><code><?php
             // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
-    $code = <<<'EOD'
-    <?php
-    $n=100;
-     for($i=1; $i<=$n; $i+=2){
-     echo $i . ",";}
-    ?> <br><br>
-    EOD;
-    echo htmlspecialchars($code); 
-    ?></code></pre>
-                <?php
-                $n=100;
-                for($i=1; $i<=$n; $i+=2){
-                    echo $i . ",";}
-                    ?> <br><br>
-                10,20,30,40,50,60……n<br>
-                <pre><code><?php
-            // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
-    $code = <<<'EOD'
-                <?php
-                $n=100;
-                for($i=10;$i<=$n;$i+=10){
-                    echo $i . ",";}
-                ?> <>
-    EOD;
-    echo htmlspecialchars($code); 
+$code = <<<'EOD'
+<?php
+$n=100;
+    for($i=1; $i<=$n; $i+=2){
+    echo $i . ",";}
+?> <br><br>
+EOD;
+echo htmlspecialchars($code); 
+?></code></pre>
+            <?php
+            $n=100;
+            for($i=1; $i<=$n; $i+=2){
+                echo $i . ",";}
+                ?> <br><br>
+            10,20,30,40,50,60……n<br>
+            <pre><code><?php
+        // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
+$code = <<<'EOD'
+            <?php
+            $n=100;
+            for($i=10;$i<=$n;$i+=10){
+                echo $i . ",";}
+            ?> <>
+EOD;
+echo htmlspecialchars($code); 
     ?></code></pre>
                 <?php
                 $n=100;
@@ -76,7 +76,7 @@
                         }
                     }
                 }
-            </div>
+
         </div>
     </div>
 </body>
