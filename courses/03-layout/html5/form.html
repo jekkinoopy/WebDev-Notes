@@ -22,66 +22,102 @@
     }
 
     /* --- 輸入框美化 --- */
+    /* --- 第一段定義的主樣式 (全域套用) --- */
     input[type="text"],
     input[type="password"],
     input[type="date"],
     input[type="number"],
     select,
     textarea {
-      padding: 10px 12px;
-      border: 1px solid #d1d5da;
-      border-radius: 6px;
-      font-size: 14px;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--primary-dark);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      box-sizing: border-box;
+      /* 確保 padding 不會撐破寬度 */
+      margin: 5px 0 15px;
       color: var(--primary-dark);
       transition: all 0.2s ease;
-      width: 100%;
-      box-sizing: border-box;
     }
 
-    /* 移除你原本 input 全域的 scale，改放在 focus 狀態更專業 */
-    input[type="text"]:focus,
-    input[type="date"]:focus {
+    /* 移除原本 input 全域的 scale，改放在 focus 狀態更專業 */
+    input:focus,
+    input:focus {
       outline: none;
-      border-color: #4a90e2;
+      border-color: var(--primary-dark);
       box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
       transform: translateY(-1px);
     }
 
+    /* 標籤樣式：確保絕對換行 */
+    .main-label {
+      display: block;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
     /* --- 單選與複選框特殊排版 --- */
-    /* 針對性別和成員選擇，我們讓它們橫排 */
-    .option-group {
+    .option-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
       align-items: center;
-      flex-direction: row !important;
-      /* 強制橫排 */
+      gap: 15px;
+      /* 選項之間的間距 */
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      /* 圓圈跟文字的間距 */
+      cursor: pointer;
     }
 
     input[type="radio"],
     input[type="checkbox"] {
       width: auto;
-      cursor: pointer;
-      margin-right: 4px;
     }
 
-    /* --- 送出按鈕 --- */
-    input[type="submit"],
-    button[type="submit"] {
-      background-color: var(--primary-dark);
-      color: white;
-      padding: 10px 20px;
+    /* Fieldset 與 Legend 美化 */
+    fieldset {
+      border: 2px solid var(--primary);
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    legend {
+      font-weight: 900;
+      color: var(--primary);
+      padding: 0 15px;
+      font-size: 1.2rem;
+      border-style: solid;
+      border-color: var(--primary);
+      border-width: 0 5px;
+      margin: auto;
+    }
+
+
+    /* --- 按鈕美化 --- */
+    input[type="submit"] {
+      background-color: var(--primary);
+      color: var(--gray-100);
       border: none;
-      border-radius: 6px;
+      padding: 15px 20px;
+      border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 10px;
+      width: 100%;
+      margin-top: 50px;
+      transition: 0.2s;
     }
 
     input[type="submit"]:hover {
-      background-color: var(--primary-light);
-      /* color: var(--primary-dark); */
+      background-color: var(--primary-dark);
     }
 
     .sechskies-form {
@@ -102,23 +138,8 @@
     /* 確保內層的 fieldset 才是視覺主體 */
     .sechskies-form fieldset {
       background: transparent;
-      border: 2px solid var(--primary);
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      /* 引用 table 陰影 */
-      padding: 2rem;
     }
 
-    legend {
-      font-weight: bold;
-      color: var(--primary);
-      padding: 0 15px;
-      font-size: 1.2rem;
-      border-style: solid;
-      border-color: var(--primary);
-      border-width: 0 5px;
-      margin: auto;
-    }
 
     /* 統一排版：標籤在上，輸入框在下 */
     .sechskies-form p {
@@ -131,18 +152,9 @@
     .sechskies-form label {
       font-weight: 600;
       padding-bottom: 3px;
-      /* color: #444; */
     }
 
-    .sechskies-form input[type="text"],
-    .sechskies-form input[type="date"],
-    .sechskies-form select,
-    .sechskies-form textarea {
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      transition: all 0.3s;
-    }
+
 
 
     /* 送出按鈕：置中且加大 */
@@ -155,11 +167,6 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s;
-    }
-
-    .sechskies-form input[type="submit"]:hover {
-      background-color: #333;
-      transform: translateY(-2px);
     }
 
     /* 僅使用你程式碼中已出現的變數名稱進行擴展與優化 */
@@ -347,18 +354,38 @@
           <br>
           <fieldset>
             <legend>🎤 第二階段：見面會應援調查</legend>
-            <div class="form-group">
-              <label class="main-label" 本命成員</label>
-                <div class="checkbox-group">
-                  <input type="checkbox">殷志源
-                  <input type="checkbox">李宰鎮
-                  <input type="checkbox">金在德
-                  <input type="checkbox">姜成勳
-                  <input type="checkbox">高志溶
-                  <input type="checkbox">張水院
-                </div>
-            </div>
+            <!-- <div class="form-group">
+              <label class="main-label">本命成員</label>
+              <div class="option-row">
+                <input type="checkbox">殷志源
+                <input type="checkbox">李宰鎮
+                <input type="checkbox">金在德
+                <input type="checkbox">姜成勳
+                <input type="checkbox">高志溶
+                <input type="checkbox">張水院
+              </div>
+            </div> -->
+            <!-- 1. 點擊範圍的差異
+            第一段 (差)：使用者必須精準地點到那個小小的 方框 才能勾選。點擊文字「殷志源」是完全沒有反應的。
+            
+            第二段 (優)：因為 input 被 label 包起來了，整行文字都變成了 「可點擊區域」。這對手機用戶或長輩來說非常重要。
+            
+            2. 語義化與輔助功能
+            第一段：文字跟方框在代碼上是「鄰居」關係，但沒有「綁定」關係。螢幕閱讀器（給視障者使用）可能無法準確告訴使用者這個方框是代表哪位成員。
+            
+            第二段：明確告訴瀏覽器「這段文字就是這個方框的說明」。 -->
 
+            <div class="form-group">
+              <label class="main-label">本命成員</label>
+              <div class="option-row">
+                <label class="option-item"><input type="checkbox">殷志源</label>
+                <label class="option-item"><input type="checkbox">李宰鎮</label>
+                <label class="option-item"><input type="checkbox">金在德</label>
+                <label class="option-item"><input type="checkbox">姜成勳</label>
+                <label class="option-item"><input type="checkbox">高志溶</label>
+                <label class="option-item"><input type="checkbox">張水院</label>
+              </div>
+            </div>
 
             <div>
               <label class="main-label" for="song-select">最期待聽到的歌曲</label><br>
@@ -383,24 +410,21 @@
             </div>
             <div>
               <label class="main-label">最期待的見面會環節</label><br>
-
-              <input type="radio" name="event_poll" id="dance" value="dance">
-              <label class="main-label" for="dance">隨機舞蹈挑戰</label><br>
-
-              <input type="radio" name="event_poll" id="vs" value="vs">
-              <label class="main-label" for="vs">黑白水晶對抗賽</label><br>
-
-              <input type="radio" name="event_poll" id="talk" value="talk">
-              <label class="main-label" for="talk">時光膠囊對話</label><br>
-
-              <input type="radio" name="event_poll" id="unplugged" value="unplugged">
-              <label class="main-label" for="unplugged">抒情版 Unplugged</label><br>
-
-              <input type="radio" name="event_poll" id="wish" value="wish">
-              <label class="main-label" for="wish">Yellow Note 心願投稿</label><br>
-
-              <input type="radio" name="event_poll" id="sing" value="sing">
-              <label class="main-label" for="sing">黃色氣球海大合唱</label>
+              <div class="option-row">
+                <label class="option-item" for="dance"><input type="radio" name="event_poll" id="dance"
+                    value="dance">隨機舞蹈挑戰</label><br>
+                <label class="option-item" for="vs"><input type="radio" name="event_poll" id="vs"
+                    value="vs">黑白水晶對抗賽</label><br>
+                <label class="option-item" for="talk"><input type="radio" name="event_poll" id="talk"
+                    value="talk">時光膠囊對話</label><br>
+                <label class="option-item" for="unplugged"><input type="radio" name="event_poll" id="unplugged"
+                    value="unplugged">抒情版 Unplugged</label><br>
+                <label class="option-item" for="wish"><input type="radio" name="event_poll" id="wish"
+                    value="wish">Yellow
+                  Note 心願投稿</label><br>
+                <label class="option-item" for="sing"><input type="radio" name="event_poll" id="sing"
+                    value="sing">黃色氣球海大合唱</label>
+              </div>
             </div>
             <div>
               <label class="main-label" for="">入坑至今購買的專輯數量</label><br>
