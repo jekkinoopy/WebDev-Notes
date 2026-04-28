@@ -9,23 +9,23 @@
   <link rel="stylesheet" href="../../../assets/css/course-note.css" />
   <style>
     /* --- 表單通用樣式 (Form) --- */
+    /* 表單基礎容器：移除多餘邊框，讓陰影感一致 */
     form {
-      width: 80%;
-      /* border-collapse: collapse; */
-      /* 重要：讓邊框合併 */
-      margin: 0 auto;
-      padding: 5%;
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      /* 配合圓角 */
+      width: 90%;
+      min-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--gray-100);
+      border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
       /* 增加陰影感 */
     }
 
     /* --- 輸入框美化 --- */
     input[type="text"],
+    input[type="password"],
     input[type="date"],
+    input[type="number"],
     select,
     textarea {
       padding: 10px 12px;
@@ -218,11 +218,11 @@
           </div>
           <form action="">
             <p>
-              <label for="name">姓名</label>
+              <label class="main-label" for="name">姓名</label>
               <input type="text" id="name" name="name" placeholder="請輸入您的姓名" />
             </p>
             <p>
-              <label for="phone">電話</label>
+              <label class="main-label" for="phone">電話</label>
               <input type="text" id="phone" name="phone" placeholder="請輸入您的電話" />
             </p>
           </form>
@@ -235,7 +235,7 @@
           </div>
           <form action="">
             <p>
-              <label for="gender">性別</label>
+              <label class="main-label" for="gender">性別</label>
               <input type="radio" name="gender" id="male" value="male" />男
               <input type="radio" name="gender" id="female" value="female" />女 <input type="radio" name="gender"
                 id="保密" />保密
@@ -249,7 +249,7 @@
             </div>
           </div>
           <form action="">
-            <label for="">本命</label>
+            <label class="main-label" for="">本命</label>
             <input type="checkbox" name="" id="" />殷志源
             <input type="checkbox" name="" id="" />李宰鎮
             <input type="checkbox" name="" id="" />金在德
@@ -265,7 +265,7 @@
             <pre><code>&lt;label for="birthday"&gt;出生日期&lt;/label&gt;<br>&lt;input type="date" id="birthday"&gt;</code></pre>
           </div>
           <form action="">
-            <label for="">入坑日期</label>
+            <label class="main-label" for="">入坑日期</label>
             <input type="date" name="" id="" />
           </form>
         </div>
@@ -277,7 +277,7 @@
           </div>
 
           <form action="">
-            <label for="profile-pic">上傳照片</label>
+            <label class="main-label" for="profile-pic">上傳照片</label>
             <input type="file" name="profile-pic" id="profile-pic" />
           </form>
         </div>
@@ -288,7 +288,7 @@
             <pre><code>&lt;label for="intro"&gt;自我介紹&lt;/label&gt;<br>&lt;textarea id="intro" rows="4" cols="50"&gt;<br>&lt;<code>textarea</code> 在 HTML 中預設都是 inline（行內元素）</code></pre>
           </div>
           <form action="">
-            <label for="intro">自我介紹</label>
+            <label class="main-label" for="intro">自我介紹</label>
             <textarea id="intro" rows="4" cols="50"></textarea>
           </form>
         </div>
@@ -304,7 +304,7 @@
             </div>
           </div>
           <form action="">
-            <label for="submit"></label>
+            <label class="main-label" for="submit"></label>
             <input type="submit" value="送出表單">
           </form>
         </div>
@@ -314,61 +314,122 @@
     <!-- Fieldset -->
 
     <div class="note-card">
-      <h3>Fieldset</h3>
+      <h3>見面會申請表</h3>
       <div class="note-content" style="background-color: transparent;">
         <form action="" class="sechskies-form">
           <fieldset>
             <legend>💛 第一階段：小黃身分驗證</legend>
-            <label class="main-label">應援小黃</label>
-            <input type="text" placeholder="輸入你的暱稱">
-            <label class="main-label">聯絡信箱</label>
-            <input type="text" placeholder="請輸入你的電子郵件地址">
-            <label class="main-label">入坑日期</label>
-            <input type="date">
-            <label class="main-label">入坑原因 (最感動的一瞬間)</label>
-            <textarea rows="10" placeholder="分享你入坑的故事"></textarea>
+            <div>
+              <label class="main-label">應援小黃</label>
+              <input type="text" placeholder="輸入你的暱稱">
+
+            </div>
+            <div>
+              <label class="main-label">聯絡信箱</label>
+              <input type="text" placeholder="請輸入你的電子郵件地址">
+            </div>
+
+            <div>
+              <label class="main-label" for="">輸入你的密碼</label>
+              <input type="password" name="" id="">
+            </div>
+
+            <div>
+              <label class="main-label">入坑日期</label>
+              <input type="date">
+            </div>
+
+            <div>
+              <label class="main-label">入坑原因 (最感動的一瞬間)</label>
+              <textarea rows="10" placeholder="分享你入坑的故事"></textarea>
+            </div>
           </fieldset>
           <br>
           <fieldset>
             <legend>🎤 第二階段：見面會應援調查</legend>
             <div class="form-group">
-              <label class="main-label">本命成員</label>
-              <div class="checkbox-group">
-                <input type="checkbox">殷志源
-                <input type="checkbox">李宰鎮
-                <input type="checkbox">金在德
-                <input type="checkbox">姜成勳
-                <input type="checkbox">高志溶
-                <input type="checkbox">張水院
-              </div>
+              <label class="main-label" 本命成員</label>
+                <div class="checkbox-group">
+                  <input type="checkbox">殷志源
+                  <input type="checkbox">李宰鎮
+                  <input type="checkbox">金在德
+                  <input type="checkbox">姜成勳
+                  <input type="checkbox">高志溶
+                  <input type="checkbox">張水院
+                </div>
             </div>
 
 
             <div>
-              <label for="">最期待聽到的歌曲</label><br>
-              <input type="select"><label for="">
+              <label class="main-label" for="song-select">最期待聽到的歌曲</label><br>
+              <select name="song" id="song-select">
+                <option value="">請選擇歌曲</option>
+                <optgroup label="學園別曲">
+                  <option value="">學園別曲 (학원별곡)</option>
+                  <option value="">男兒之路 (폼생폼사)</option>
+                  <option value="">背叛者 (배신감)</option>
+                  <option value="">戀情 (연정)</option>
+                  <option value="">預感 (예감)</option>
+                </optgroup>
+                <optgroup label="Welcome to the Sechskies Land">
+                  <option value="">送你走後 (너를 보내며)</option>
+                  <!-- <option value="">祈禱 (기도)</option> -->
+                  <option value="">騎士道</option>
+                  <option value="">給親愛的你</option>
+                  <!-- <option value="">預感 (예감)</option> -->
+                </optgroup>
+              </select>
+
             </div>
             <div>
-              <label for="">見面會想參加的活動</label><br>
-              <input type="">
+              <label class="main-label">最期待的見面會環節</label><br>
+
+              <input type="radio" name="event_poll" id="dance" value="dance">
+              <label class="main-label" for="dance">隨機舞蹈挑戰</label><br>
+
+              <input type="radio" name="event_poll" id="vs" value="vs">
+              <label class="main-label" for="vs">黑白水晶對抗賽</label><br>
+
+              <input type="radio" name="event_poll" id="talk" value="talk">
+              <label class="main-label" for="talk">時光膠囊對話</label><br>
+
+              <input type="radio" name="event_poll" id="unplugged" value="unplugged">
+              <label class="main-label" for="unplugged">抒情版 Unplugged</label><br>
+
+              <input type="radio" name="event_poll" id="wish" value="wish">
+              <label class="main-label" for="wish">Yellow Note 心願投稿</label><br>
+
+              <input type="radio" name="event_poll" id="sing" value="sing">
+              <label class="main-label" for="sing">黃色氣球海大合唱</label>
             </div>
-            <label for="">入坑至今購買的專輯數量</label><br>
-            <input type="number">
+            <div>
+              <label class="main-label" for="">入坑至今購買的專輯數量</label><br>
+              <input type="number">
+            </div>
           </fieldset>
           <p>
+          <fieldset>
 
-            📂 第三階段：資格審核與提交
-            上傳你的小黃應援證物 (PDF/圖片)
+            <legend>📂 第三階段：資格審核與提交</legend>
+            <div>
+              <label class="main-label" for="">上傳你的小黃應援證物 (PDF/圖片)</label>
+              <input type="file">
 
-            預計入坑時長 (設定鬧鐘用)
+              <div>
+                <label class="main-label" for="">喜愛程度</label>
+                <input type="range">
+              </div>
 
-            輸入你的粉絲專屬密碼
+              <label class="main-label" for="">推薦粉絲網址</label>
+              <input type="text">
 
-            粉絲頁面推薦網址
+              <label class="main-label" for="">重新填寫表格</label>
+              <input type="reset">
 
-            重新填寫表格
-
-            正式提交報名
+              <label class="main-label" for="">正式提交報名</label>
+              <input type="submit">
+            </div>
+          </fieldset>
           </p>
         </form>
       </div>

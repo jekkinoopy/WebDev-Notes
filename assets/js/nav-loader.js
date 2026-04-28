@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const basePath = "/WebDev-Notes/";
+    // 自動判斷現在需不需要加 /WebDev-Notes/
+    const basePath = window.location.pathname.includes('/WebDev-Notes/')
+        ? '/WebDev-Notes/'
+        : '/';
     const navHTML = `
     <div class="nav-container">
         <a href="${basePath}index.html" class="logo" id="main-logo">
