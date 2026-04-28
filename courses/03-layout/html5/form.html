@@ -22,7 +22,7 @@
     }
 
     /* --- 輸入框美化 --- */
-    /* --- 第一段定義的主樣式 (全域套用) --- */
+
     input[type="text"],
     input[type="password"],
     input[type="date"],
@@ -118,6 +118,24 @@
 
     input[type="submit"]:hover {
       background-color: var(--primary-dark);
+    }
+
+    /*重製按鈕：改為白底藍字 (與提交相反) */
+    input[type="reset"] {
+      background-color: var(--gray-100);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 15px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      transition: 0.2s;
+    }
+
+    input[type="reset"]:hover {
+      background-color: #f0f7ff;
     }
 
     .sechskies-form {
