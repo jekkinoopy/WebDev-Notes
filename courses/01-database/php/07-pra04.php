@@ -40,7 +40,7 @@
             <div class="code-section">
                 <strong>題目需求：</strong><br>
                 <ol>
-                    <li><img src="../../../../assets/images/php07-1.png" alt="九九乘法表需求"></li>
+                    <li><img src="../../../assets/images/php07-1.png" alt="九九乘法表需求"></li>
                     <?php
 //無表格版本 
 
@@ -65,7 +65,7 @@ for($i=1;$i<=9;$i++){
     }
     echo "</table>";
     ?>
-                    <li><img src="../../../../assets/images/php07-2.png" alt="九九乘法表需求"></li>
+                    <li><img src="../../../assets/images/php07-2.png" alt="九九乘法表需求"></li>
                     <?php
 echo "<table>";
    echo "<tr>";

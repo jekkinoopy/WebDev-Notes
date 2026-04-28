@@ -258,6 +258,18 @@ EOD;
 echo htmlspecialchars($code); 
 ?></code></pre>
             <div class="code-section">
+                <?php 
+                // 只有第一行和最後一行都有其餘都只有兩顆
+                $n=9;
+                    for($i=0;$i<$n;$i++){
+                        if($i==0 || $i == ($n - 1)){
+                            echo "$";
+                        }
+                        else{
+                            echo "&nbsp;";
+                        }
+                    };
+                ?>
             </div>
         </div>
         <div class="note-card">
