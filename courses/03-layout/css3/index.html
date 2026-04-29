@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 核心技術 - 努比的全端筆記</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar"></nav>
+        <script src="../../../assets/js/nav-loader.js"></script>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">CSS 視覺美學</h2>
+            <p class="hero-subtitle">從基礎屬性到現代排版布局的深度探索</p>
+        </div>
+    </section>
+
+    <div class="nav-breadcrumb" style="padding: 10px 5%; background: #f4f4f4; min-height: 20px;">
+        CSS 學習路徑</div>
+
+    <section class="courses-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>CSS 核心筆記</h2>
+                <p>點選下方卡片進入各別的筆記與練習頁面</p>
+            </div>
+
+            <div class="courses-grid">
+                <article class="note-card">
+                    <div class="card-header">
+                        <span class="card-icon">📦</span>
+                        <span class="card-badge">筆記</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Box Model 盒模型</h3>
+                        <p>理解 Margin, Border, Padding 與 Content。掌握 box-sizing: border-box 在佈局中的關鍵作用。</p>
+                        <div class="tag-list">
+                            <span class="tag">Spacing</span>
+                            <span class="tag">Sizing</span>
+                            <span class="tag">Border</span>
+                        </div>
+                    </div>
+                    <a href="css/box-model.html" class="card-link">
+                        查看筆記 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <article class="note-card">
+                    <div class="card-header">
+                        <span class="card-icon">🏗️</span>
+                        <span class="card-badge">筆記</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Flexbox 彈性佈局</h3>
+                        <p>一維排版的核心，掌握主軸與交叉軸對齊，輕鬆實現物件的水平與垂直置中。</p>
+                        <div class="tag-list">
+                            <span class="tag">Flex</span>
+                            <span class="tag">Alignment</span>
+                            <span class="tag">Gap</span>
+                        </div>
+                    </div>
+                    <a href="css/flexbox.html" class="card-link">
+                        查看筆記 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <article class="note-card">
+                    <div class="card-header">
+                        <span class="card-icon">🏁</span>
+                        <span class="card-badge">筆記</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Grid 網格系統</h3>
+                        <p>現代二維佈局，定義軌道與區域，處理複雜網頁架構的最強排版工具。</p>
+                        <div class="tag-list">
+                            <span class="tag">Grid</span>
+                            <span class="tag">Layout</span>
+                            <span class="tag">Template</span>
+                        </div>
+                    </div>
+                    <a href="css/grid.html" class="card-link">
+                        查看筆記 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <article class="note-card">
+                    <div class="card-header">
+                        <span class="card-icon">📍</span>
+                        <span class="card-badge">筆記</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Position 定位技術</h3>
+                        <p>理解 Relative、Absolute 與 Fixed 的空間脫離關係，實作漂浮按鈕與固定選單。</p>
+                        <div class="tag-list">
+                            <span class="tag">Relative</span>
+                            <span class="tag">Absolute</span>
+                            <span class="tag">Z-index</span>
+                        </div>
+                    </div>
+                    <a href="css/position.html" class="card-link">
+                        查看筆記 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <article class="note-card">
+                    <div class="card-header">
+                        <span class="card-icon">🎯</span>
+                        <span class="card-badge">筆記</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Selectors 選擇器權重</h3>
+                        <p>掌握偽類、偽元素與後代選擇器，理解 CSS 權重計算規則，精準覆蓋樣式。</p>
+                        <div class="tag-list">
+                            <span class="tag">Pseudo</span>
+                            <span class="tag">Weight</span>
+                            <span class="tag">Cascade</span>
+                        </div>
+                    </div>
+                    <a href="css/selectors.html" class="card-link">
+                        查看筆記 <span class="arrow">→</span>
+                    </a>
+                </article>
+
+                <article class="note-card">
+                    <div class="card-header">
+                        <span class="card-icon">🎨</span>
+                        <span class="card-badge">筆記</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>CSS Variables 變數</h3>
+                        <p>利用 :root 管理色票與間距設定。提升代碼複用性，實作主題切換的設計系統。</p>
+                        <div class="tag-list">
+                            <span class="tag">Variables</span>
+                            <span class="tag">Root</span>
+                            <span class="tag">Design</span>
+                        </div>
+                    </div>
+                    <a href="css/variables.html" class="card-link">
+                        查看筆記 <span class="arrow">→</span>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 努比的全端筆記 - CSS Course</p>
+            </div>

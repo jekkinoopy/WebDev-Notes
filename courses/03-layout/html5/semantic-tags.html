@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 語意化標籤 - 努比的全端筆記</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar"></nav>
+        <script src="../../../assets/js/nav-loader.js"></script>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-container">
+            <span class="category-tag">HTML 語意化</span>
+            <h2 class="note-title">視覺標籤 vs 語意標籤</h2>
+            <p class="hero-desc">區分 1. b 與 strong 2. i 與 em 3. small 的語意與用途。</p>
+            </article>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <div class="note-container">
+        <article class="note-card">
+            <h3 class="note-subtitle">總結：為什麼要用語意標籤？</h3>
+            <p>1. <strong>SEO 友善</strong>：搜尋引擎能看懂重點。<br>
+                2. <strong>無障礙（Accessibility）</strong>：螢幕閱讀器會用不同語氣讀出 <code>strong</code> 和 <code>em</code>。<br>
+                3. <strong>代碼維護</strong>：明確傳達內容的意義，而不僅是長相。</p>
+            <div class="tag-list" style="margin-top: 15px;">
+                <span class="tag">Semantic</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">Accessibility</span>
+            </div>
+            <article class="note-card">
+                <h3 class="note-subtitle">粗體顯示：&lt;b&gt; vs &lt;strong&gt;</h3>
+                <ul class="custom-list">
+                    <li><b>&lt;b&gt;</b>：純粹視覺上的<b>粗體</b>（Bring Attention）。</li>
+                    <li><strong>&lt;strong&gt;</strong>：代表內容具有<strong>重要性、嚴重性</strong>（Importance）。</li>
+                </ul>
+            </article>
+
+            <article class="note-card">
+                <h3 class="note-subtitle">斜體顯示：&lt;i&gt; vs &lt;em&gt;</h3>
+                <ul class="custom-list">
+                    <li><i>&lt;i&gt;</i>：視覺上的<i>斜體</i>，常用於學名、外來語、專有名詞。</li>
+                    <li><em>&lt;em&gt;</em>：代表<em>語氣上的強調</em>（Stress Emphasis），會改變句子重心。</li>
+                </ul>
+            </article>
+
+            <article class="note-card">
+                <h3 class="note-subtitle">附屬細則：&lt;small&gt;</h3>
+                <ul class="custom-list">
+                    <li><small>&lt;small&gt; (Small print)</small>：在 HTML5 中代表附屬資訊。</li>
+                    <li>常用於：版權聲明、法律條款、補充說明。</li>
+                </ul>
+                <div class="code-section">
+                    <p>範例：<small>&copy; 2026 努比全端筆記。保留所有權利。</small></p>
+                </div>
+            </article>
+
+
+            <article class="note-card">
+                <h3 class="note-subtitle">重點高亮：&lt;mark&gt;</h3>
+                <ul class="custom-list">
+                    <li><mark>&lt;mark&gt;</mark>：代表為了引用或醒目而<strong>標記出的重點</strong>（如同螢光筆）。</li>
+                    <li>用途：搜尋結果中的關鍵字高亮、強調段落中的特定字詞。</li>
+                </ul>
+                <div class="code-section">
+                    <p>範例：SECHSKIES 於 <mark>1997年4月15日</mark> 正式出道。</p>
+                </div>
+            </article>
+
+            <article class="note-card">
+                <h3 class="note-subtitle">修訂標記：&lt;del&gt; vs &lt;ins&gt;</h3>
+                <ul class="custom-list">
+                    <li><del>&lt;del&gt; (Deleted)</del>：代表<strong>已刪除</strong>的內容，通常帶有刪除線。</li>
+                    <li><ins>&lt;ins&gt; (Inserted)</ins>：代表<strong>新插入</strong>的內容，通常帶有下劃線。</li>
+                    <li>常用於：文件改版、合約修訂、電商特價顯示。</li>
+                </ul>
+                <div class="code-section">
+                    <p>電商範例：原價 <del>$6,000</del>，特價 <ins>$3,000</ins>！</p>
+                    <p>修訂範例：會議時間從 <del>14:00</del> 改為 <ins>15:00</ins>。</p>
+                </div>
+            </article>
+    </div>
+</body>
+
+</html>

@@ -14,9 +14,9 @@
             min-width: 800px;
             margin: 2rem auto;
             padding: 2rem;
-            background: var(--gray-100);
+            background: transparent;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); */
         }
 
         /* 2. 核心：統一所有標題與內容的距離 (Label 5px Input) */
@@ -131,6 +131,7 @@
         /* 7. Fieldset & Legend (左右藍線) */
         fieldset {
             border: 2px solid var(--primary);
+            background-color: transparent;
             border-radius: 50px;
             padding: 2.5rem;
             margin-bottom: 3rem;
@@ -263,7 +264,14 @@
         <nav class="navbar"></nav>
         <script src="../../../assets/js/nav-loader.js"></script>
     </header>
-
+    <section class="page-hero">
+        <div class="hero-container">
+            <span class="category-tag">HTML/CSS 實戰</span>
+            <h2 class="note-title">Form 表單綜合練習</h2>
+            <p class="hero-desc">實作具備美感與分層邏輯的應援調查表單。</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
     <div class="ex">
         <div class="note-card">
             <div class="note-content">
