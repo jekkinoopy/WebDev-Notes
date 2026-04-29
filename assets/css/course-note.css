@@ -160,7 +160,7 @@ body {
 }
 
 .note-card h3::before {
-  content: "📌";
+  content: "💎";
   margin-right: 8px;
 }
 .note-card li {
