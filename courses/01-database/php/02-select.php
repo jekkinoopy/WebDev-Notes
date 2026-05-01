@@ -19,52 +19,68 @@
         <div class="hero-container">
             <span class="category-tag">PHP 基礎</span>
             <h2 class="note-title">流程控制實作練習</h2>
-            <p class="hero-desc">在此處練習選擇結構，保持代碼區塊空白以供現場撰寫。</p>
+            <p class="hero-desc">PHP 條件分支與多重選擇結構實作。</p>
             <div class="hero-divider"></div>
         </div>
     </section>
 
-    <div class="note-container">
-        <!-- 練習一：選擇結構 -->
-        <div class="note-card">
-            <h3 class="note-subtitle">選擇結構練習 (If...Else)</h3>
-            <ul class="custom-list">
-                <li>目標：實作成績判定邏輯。</li>
-            </ul>
-            <pre><code><?php
-// 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
-$code = <<<'EOD'
-// 在此處實作練習邏輯
-EOD;
-echo htmlspecialchars($code);
-?></code></pre>
-            <div class="code-section">
-                <?php
-                    // 執行結果預留位置
-                ?>
-            </div>
+<div class="note-container">
+    <!-- 練習一：If...Else 判定 -->
+    <div class="note-card">
+        <h3 class="note-subtitle">選擇結構練習</h3>
+        
+        <!-- 1. 執行結果 -->
+        <div class="code-section">
+            <span class="section-label">【 執行結果預留 】</span>
+            <?php // 執行結果預留位置 ?>
         </div>
 
-        <!-- 練習二：多選結構 -->
-        <div class="note-card" style="margin-top: 30px;">
-            <h3 class="note-subtitle">多選結構練習 (Switch Case)</h3>
-            <ul class="custom-list">
-                <li>目標：實作等級評語邏輯。</li>
-            </ul>
-            <pre><code><?php
-// 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
+        <!-- 2. 程式碼練習 -->
+        <pre><code><?php
 $code = <<<'EOD'
 // 在此處實作練習邏輯
 EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
-            <div class="code-section">
-                <?php
-                    // 執行結果預留位置
-                ?>
-            </div>
+
+        <!-- 3. 學習重點 (使用妳優化後的獨立區塊) -->
+        <div class="learning-point-box">
+            <p class="learning-point-title">學習重點</p>
+            <ul class="custom-list">
+                <li>在此紀錄關鍵函式或邏輯思維</li>
+                <li>標記需要特別注意的語法細節</li>
+            </ul>
         </div>
     </div>
+
+    <!-- 練習二：Switch Case 多選 -->
+    <div class="note-card" style="margin-top: 30px;">
+        <h3 class="note-subtitle">多選結構練習</h3>
+        
+        <!-- 1. 執行結果 -->
+        <div class="code-section">
+            <span class="section-label">【 執行結果預留 】</span>
+            <?php // 執行結果預留位置 ?>
+        </div>
+
+        <!-- 2. 程式碼練習 -->
+        <pre><code><?php
+$code = <<<'EOD'
+// 在此處實作練習邏輯
+EOD;
+echo htmlspecialchars($code);
+?></code></pre>
+
+        <!-- 3. 學習重點 -->
+        <div class="learning-point-box">
+            <p class="learning-point-title">學習重點</p>
+            <ul class="custom-list">
+                <li>在此紀錄關鍵函式或邏輯思維</li>
+                <li>標記需要特別注意的語法細節</li>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

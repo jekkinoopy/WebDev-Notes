@@ -56,21 +56,22 @@ body {
   margin: 0 auto;
   border-radius: var(--radius-sm);
 }
+
 .custom-list {
-    /* 1. 讓點點出現在內容裡面，這樣才會跟標題對齊 */
-    list-style-position: inside; 
-    padding-left: 0;
-    margin-top: 15px;
+  /* 1. 讓點點出現在內容裡面，這樣才會跟標題對齊 */
+  list-style-position: inside;
+  padding-left: 0;
+  margin-top: 15px;
 }
 
 .custom-list {
   /* 1. 改回 outside，讓點點獨立在文字框外 */
-  list-style-position: outside; 
-  
+  list-style-position: outside;
+
   /* 2. 這是對齊標題的關鍵：
      標題前面有圖釘 emoji，通常需要大約 1.5rem ~ 2rem 的左邊距
      來讓點點剛好落在圖釘下方或文字開頭處 */
-  padding-left: 1.2rem; 
+  padding-left: 1.2rem;
   margin-left: 0.5rem;
   margin-top: 15px;
 }
@@ -80,15 +81,16 @@ body {
   font-size: 1rem;
   line-height: 2;
   margin-bottom: 8px;
-  
+
   /* 3. 重要：確保這裡沒有 display: flex，不然點點會不見 */
-  display: list-item; 
+  display: list-item;
 }
 
 .custom-list li::marker {
   color: var(--primary-dark);
   font-weight: bold;
 }
+
 /* 響應式微調 */
 @media (max-width: 768px) {
   .note-title {
@@ -163,11 +165,13 @@ body {
   content: "💎";
   margin-right: 8px;
 }
+
 .note-card li {
   margin-bottom: 8px;
   /* 刪除 display: flex; */
   /* 刪除 align-items: center; */
-  display: list-item; /* 確保它是清單模式 */
+  display: list-item;
+  /* 確保它是清單模式 */
 }
 
 /* 內容區塊 */
@@ -175,6 +179,75 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+/* 學習重點獨立區塊優化 */
+.learning-point-box {
+  margin-top: 25px;
+  padding: 15px 20px;
+  background-color: rgba(74, 111, 165, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  /* 專業感深藍左邊框 */
+}
+
+.learning-point-title {
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: bold;
+  /* margin-bottom: 10px; */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 確保區塊內的列表縮排與整體對齊 */
+.learning-point-box .custom-list {
+  margin: 0;
+  padding-left: 5px;
+}
+
+
+/* 執行結果區塊強化 */
+/* 1. 執行結果區塊 - 帶虛線邊框 */
+.code-section {
+  background: #f8f9fa;
+  border: 1px dashed #dee2e6;
+  padding: 20px;
+  margin-top: 1rem;
+  margin-bottom: 25px;
+  border-radius: 8px;
+}
+
+.section-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #adb5bd;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* 重點筆記區塊 */
+.note-highlight {
+  background-color: #fff9db;
+  /* 溫暖的淺黃色 */
+  border-left: 5px solid #fab005;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.highlight-title {
+  color: #f08c00;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.highlight-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: #495057;
 }
 
 .note-item {
@@ -257,4 +330,41 @@ mark {
   color: #00205a;
   padding: 0 4px;
   border-radius: 2px;
+}
+
+/* 2. 學習重點區塊 - 妳要求的獨立藍色區塊 */
+.learning-point-box {
+  margin-top: 25px;
+  padding: 15px 20px;
+  background-color: var(--white);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  /* 藍色粗邊框 */
+}
+
+.learning-point-title {
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 3. 清單縮排與點點顏色 */
+.custom-list {
+  list-style-position: outside;
+  padding-left: 1.2rem;
+  margin-left: 0.5rem;
+}
+
+.custom-list li {
+  color: var(--text-secondary);
+  display: list-item;
+}
+
+.custom-list li::marker {
+  color: var(--primary);
+  /* 點點顏色跟著重點區塊走 */
 }
