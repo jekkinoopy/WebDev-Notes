@@ -43,15 +43,10 @@ echo htmlspecialchars($code);
                 <?php
 
                     for($i=1;$i<=9;$i++){
-
-                        echo "$i";
-
                         for($j=1;$j<=9;$j++){
-
-                            echo "$i * $j";
-
+                            echo "$i*$j" . "=" . $i*$j . "&nbsp&nbsp&nbsp";
                         }
-
+                        echo "<br>";
                     };
 
 
