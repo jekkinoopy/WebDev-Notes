@@ -55,7 +55,7 @@ $code = <<<'EOD'
             $n=100;
             for($i=10;$i<=$n;$i+=10){
                 echo $i . ",";}
-            ?> <>
+            ?> 
 EOD;
 echo htmlspecialchars($code); 
     ?></code></pre>
@@ -79,9 +79,6 @@ echo htmlspecialchars($code);
 
         </div>
     </div>
-</body>
-
-</html>
 </body>
 
 </html>

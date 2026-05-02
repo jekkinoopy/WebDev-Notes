@@ -46,8 +46,14 @@ echo htmlspecialchars($code);
         <div class="code-section">
             <span class="section-label">【 執行結果 】</span>
             <?php // 執行結果預留位置
-                $year = 1997;
-                $result = "";
+                // $year=2020;
+                // if($year % 4 != 0;){
+                //     echo "平年";
+                //     else($year % 4)
+                // }
+
+
+
 
                 // 我想的
                 // if($year % 4==0){
