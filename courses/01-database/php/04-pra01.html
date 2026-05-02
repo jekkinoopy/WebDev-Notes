@@ -23,56 +23,57 @@
       <div class="hero-divider"></div>
     </div>
   </section>
+
   <div class="note-container">
     <div class="note-card">
       <h3>分配成績等級</h3>
-      <pre><code><?php
-        // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
-$code = <<<'EOD'
+
+      <!-- 1. 程式碼練習：優化視覺縮排，移除顯示用輔助語法 -->
+      <pre><code>&lt;?php
 $score = 71;
 $level = '';
-if($score >=0 && $score <60){
+
+if ($score >= 0 && $score < 60) {
     $level = 'E';
-}else if($score >=60 && $score <70){
+} else if ($score >= 60 && $score < 70) {
     $level = 'D';
-}else if($score >=70 && $score <80){
-    $level ='C';
-}else if($score >=80 && $score <90){
+} else if ($score >= 70 && $score < 80) {
+    $level = 'C';
+} else if ($score >= 80 && $score < 90) {
     $level = 'B';
-}else if($score >=90 && $score <=100){
+} else if ($score >= 90 && $score <= 100) {
     $level = 'A';
-}else{
+} else {
     $level = '成績輸入錯誤';
 }
-echo "您的成績是: <strong>" . $score . "</strong> → 等級: <strong>" . $level . "</strong>";
-EOD;
-echo htmlspecialchars($code); 
-?></code></pre>
+
+echo "您的成績是: &lt;strong&gt;" . $score . "&lt;/strong&gt; → 等級: &lt;strong&gt;" . $level . "&lt;/strong&gt;";
+?&gt;</code></pre>
+
+      <!-- 2. 執行結果：靜態化模擬 PHP 運算結果 -->
       <div class="code-section">
+        <span class="section-label">【 執行結果 】</span><br>
         給定一個成績數字，根據成績所在的區間，給定等級：<br>
         0 ~ 59 => E <br>
         60 ~ 69 => D <br>
         70 ~ 79 => C <br>
         80 ~ 89 => B <br>
         90 ~ 100 => A <br><br>
-        <?php
-                $score = 71;
-                $level = '';
-                if($score >=0 && $score <60){
-                    $level = 'E';
-                }else if($score >=60 && $score <70){
-                    $level = 'D';
-                }else if($score >=70 && $score <80){
-                    $level ='C';
-                }else if($score >=80 && $score <90){
-                    $level = 'B';
-                }else if($score >=90 && $score <=100){
-                    $level = 'A';
-                }else{
-                    $level = '成績輸入錯誤';
-                }
-                echo "您的成績是: <strong>" . $score . "</strong> → 等級: <strong>" . $level . "</strong>";
-                ?>
+        您的成績是: <strong>71</strong> → 等級: <strong>C</strong>
+      </div>
+
+      <!-- 3. 優化視覺：加入邏輯拆解區塊 (原有的邏輯說明視覺化) -->
+      <div class="learning-point-box">
+        <p class="learning-point-title">邏輯判斷重點</p>
+        <ul class="custom-list">
+          <li>使用 <code>&&</code> (AND) 運算子來結合兩個條件，確保數字落在正確的<strong>區間範圍</strong>內。</li>
+          <li><code>else if</code> 提供了多重選擇，當上一個條件不成立時，會依序往下判斷。</li>
+          <li>
+            <strong>區間對照表：</strong>
+            <pre><code>70 &lt;= $score &lt; 80  // 判定為 C 級</code></pre>
+          </li>
+          <li>最後的 <code>else</code> 處理異常狀況（如輸入負數或超過 100 ），增加程式的健壯性。</li>
+        </ul>
       </div>
     </div>
   </div>
