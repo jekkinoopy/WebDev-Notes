@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九九乘法表陣列 - 努比的全端筆記</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar"></nav>
+        <script src="../../../assets/js/nav-loader.js"></script>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-container">
+            <span class="category-tag">綜合練習</span>
+            <h2 class="note-title">九九乘法表：陣列產生與輸出</h2>
+            <p class="hero-desc">實作資料預處理邏輯，將運算結果封裝於陣列中以便後續調用。</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <div class="note-container">
+        <!-- 練習一：產生與偵錯 -->
+        <div class="note-card">
+            <h3 class="note-subtitle">利用程式產生陣列</h3>
+            <div class="ques-section">
+                <ul class="custom-list">
+                    <li>以迴圈的方式產生一個九九乘法表</li>
+                    <li>將九九乘法表的每個項目以字串型式存入陣列中</li>
+                    <li>使用偵錯工具觀察資料結構</li>
+                </ul>
+            </div>
+
+            <pre><code>&lt;?php
+// 建立空陣列
+$nine = [];
+
+for ($i = 1; $i <= 9; $i++) {
+    for ($j = 1; $j <= 9; $j++) {
+        // 使用花括號變數解析
+        $nine[] = "{$i}x{$j}=" . ($i * $j);
+    }
+}
+
+// 使用 pre 標籤配合 print_r 觀察陣列結構
+echo "&lt;pre&gt;";
+print_r($nine);
+echo "&lt;/pre&gt;";
+?&gt;</code></pre>
+
+            <div class="code-section">
+                <span class="section-label">【 執行結果 】</span>
+                <!-- 模擬 print_r 的輸出 -->
+                <pre
+                    style="background: transparent; color: inherit; overflow: auto; max-height: 400px; padding: 10px; border: 1px solid #ddd;">
+Array
+(
+    [0] => 1x1=1
+    [1] => 1x2=2
+    [2] => 1x3=3
+    [3] => 1x4=4
+    [4] => 1x5=5
+    [5] => 1x6=6
+    [6] => 1x7=7
+    [7] => 1x8=8
+    [8] => 1x9=9
+    [9] => 2x1=2
+    ...
+    [80] => 9x9=81
+)
+                </pre>
+            </div>
+
+            <div class="learning-point-box">
+                <p class="learning-point-title">學習重點</p>
+                <ul class="custom-list">
+                    <li><strong>變數解析：</strong><code>{$i}</code> 可以讓變數在字串中清晰定位，避免與後續字元混淆。</li>
+                    <li><strong>記憶體共享：</strong>在同一個 PHP 檔案中，不論開多少次標籤，變數記憶體都是共享的。</li>
+                    <li><strong>陣列封裝：</strong>將運算結果存入陣列，是實現<strong>「資料與顯示分離」</strong>的第一步。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 練習二：表格呈現 -->
+        <div class="note-card" style="margin-top: 40px;">
+            <h3 class="note-subtitle">表格視覺化顯示</h3>
+            <div class="ques-section">
+                <p>運用 <code>foreach</code> 拆解陣列內容，並配合 <code>%</code> 取餘數邏輯進行 HTML 表格換行。</p>
+            </div>
+
+            <pre><code>&lt;?php
+echo "&lt;table&gt;&lt;tr&gt;";
+foreach ($nine as $idx => $item) {
+    // 判斷是否需要換行：索引大於 0 且為 9 的倍數
+    if ($idx > 0 && $idx % 9 == 0) {
+        echo "&lt;/tr&gt;&lt;tr&gt;";
+    }
+    echo "&lt;td&gt;$item&lt;/td&gt;";
+}
+echo "&lt;/tr&gt;&lt;/table&gt;";
+?&gt;</code></pre>
+
+            <div class="code-section">
+                <span class="section-label">【 執行結果 】</span>
+                <table>
+                    <tr>
+                        <td>1x1=1</td>
+                        <td>1x2=2</td>
+                        <td>1x3=3</td>
+                        <td>1x4=4</td>
+                        <td>1x5=5</td>
+                        <td>1x6=6</td>
+                        <td>1x7=7</td>
+                        <td>1x8=8</td>
+                        <td>1x9=9</td>
+                    </tr>
+                    <tr>
+                        <td>2x1=2</td>
+                        <td>2x2=4</td>
+                        <td>2x3=6</td>
+                        <td>2x4=8</td>
+                        <td>2x5=10</td>
+                        <td>2x6=12</td>
+                        <td>2x7=14</td>
+                        <td>2x8=16</td>
+                        <td>2x9=18</td>
+                    </tr>
+                    <!-- 中間略過以維持筆記簡潔，或完整呈現 1-9 列 -->
+                    <tr>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td>9x1=9</td>
+                        <td>9x2=18</td>
+                        <td>9x3=27</td>
+                        <td>9x4=36</td>
+                        <td>9x5=45</td>
+                        <td>9x6=54</td>
+                        <td>9x7=63</td>
+                        <td>9x8=72</td>
+                        <td>9x9=81</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="learning-point-box">
+                <p class="learning-point-title">學習重點</p>
+                <ul class="custom-list">
+                    <li><strong><code>foreach</code> 結構：</strong><code>$idx</code> 代表索引（0-80），<code>$item</code> 代表內容（如
+                        "1x1=1"）。</li>
+                    <li><strong>換行邏輯：</strong>利用 <code>$idx % 9 == 0</code> 來判斷每一列的結束點，這是網頁排版中非常實用的技巧。</li>
+                    <li><strong>邏輯與視圖：</strong>實現了<strong>「一次計算、多處使用」</strong>的資料共享邏輯。</li>
+                    <li>
+                        <strong>妳的換行實作：</strong>
+                        <pre><code>if ($idx > 0 && $idx % 9 == 0) {
+    echo "&lt;/tr&gt;&lt;tr&gt;"; // 滿足 9 的倍數時，先關閉舊列並開啟新列
+}</code></pre>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
