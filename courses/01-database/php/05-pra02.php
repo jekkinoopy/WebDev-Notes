@@ -24,26 +24,29 @@
         </div>
     </section>
     <div class="note-container">
-        <div class="note-card">
-            <h3>閏年判斷</h3>
-            <pre><code><?php
-        // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
+    <div class="note-card">
+        <h3 class="note-subtitle">閏年判斷</h3>
+        <div class="ques-section">
+                <strong>題目需求：</strong>
+                地球對太陽的公轉一年的真實時間大約是 365 天 5 小時 48 分 46 秒，因此以 365 天定為一年的狀況下，每年會多出近六小時的時間，所以每隔四年設置一個閏年來消除這多出來的一天。
+                <br><br>
+                1. 公元年分除以 4 不可整除，為平年。<br>
+                2. 公元年分除以 4 可整除但除以 100 不可整除，為閏年。<br>
+                3. 公元年分除以 100 可整除但除以 400 不可整除，為平年。
+            </div>
+        <!-- 1. 程式碼練習 -->
+        <pre><code><?php
 $code = <<<'EOD'
-
+// 在此處實作練習邏輯
 EOD;
-echo htmlspecialchars($code); 
+echo htmlspecialchars($code);
 ?></code></pre>
-            <div class="code-section">
-                <strong>題目需求：</strong><br>
-                閏年判斷，給定一個西元年份，判斷是否為閏年<br>
-                <br>
-                地球對太陽的公轉一年的真實時間大約是365天5小時48分46秒，因此以365天定為一年 的狀況下，每年會多出近六小時的時間，所以每隔四年設置一個閏年來消除這多出來的一天。<br>
-                公元年分除以4不可整除，為平年。<br>
-                公元年分除以4可整除但除以100不可整除，為閏年。<br>
-                公元年分除以100可整除但除以400不可整除，為平年。<br>
-                <?php
-                $year = 1997;
 
+        <!-- 2. 執行結果 -->
+        <div class="code-section">
+            <span class="section-label">【 執行結果 】</span>
+            <?php // 執行結果預留位置
+                $year = 1997;
                 $result = "";
 
                 // 我想的
@@ -70,14 +73,20 @@ echo htmlspecialchars($code);
                 // }
 
                 
-                echo "西元 $year 年是 $result";
-                ?>
-            </div>
+                //echo "西元 $year 年是 $result";
+                //
+              ?>
+        </div>
+
+        <!-- 3. 學習重點 (使用妳優化後的獨立區塊) -->
+        <div class="learning-point-box">
+            <p class="learning-point-title">學習重點</p>
+            <ul class="custom-list">
+                <li>在此紀錄關鍵函式或邏輯思維</li>
+                <li>標記需要特別注意的語法細節</li>
+            </ul>
         </div>
     </div>
-</body>
-
-</html>
 </body>
 
 </html>

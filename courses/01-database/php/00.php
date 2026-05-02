@@ -24,18 +24,12 @@
         </div>
     </section>
 
-<div class="note-container">
-    <!-- 練習一：If...Else 判定 -->
+<div class="note-container">    
     <div class="note-card">
-        <h3 class="note-subtitle">選擇結構練習</h3>
-        
-        <!-- 1. 執行結果 -->
-        <div class="code-section">
-            <span class="section-label">【 執行結果預留 】</span>
-            <?php // 執行結果預留位置 ?>
-        </div>
-
-        <!-- 2. 程式碼練習 -->
+        <h3 class="note-subtitle">閏年判斷</h3>
+        <div class="ques-section">
+            </div>
+        <!-- 1. 程式碼練習 -->
         <pre><code><?php
 $code = <<<'EOD'
 // 在此處實作練習邏輯
@@ -43,33 +37,11 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
 
-        <!-- 3. 學習重點 (使用妳優化後的獨立區塊) -->
-        <div class="learning-point-box">
-            <p class="learning-point-title">學習重點</p>
-            <ul class="custom-list">
-                <li>在此紀錄關鍵函式或邏輯思維</li>
-                <li>標記需要特別注意的語法細節</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- 練習二：Switch Case 多選 -->
-    <div class="note-card" style="margin-top: 30px;">
-        <h3 class="note-subtitle">多選結構練習</h3>
-        
-        <!-- 1. 執行結果 -->
+        <!-- 2. 執行結果 -->
         <div class="code-section">
-            <span class="section-label">【 執行結果預留 】</span>
-            <?php // 執行結果預留位置 ?>
+            <span class="section-label">【 執行結果 】</span>
+            <?php // 執行結果預留位置?>
         </div>
-
-        <!-- 2. 程式碼練習 -->
-        <pre><code><?php
-$code = <<<'EOD'
-// 在此處實作練習邏輯
-EOD;
-echo htmlspecialchars($code);
-?></code></pre>
 
         <!-- 3. 學習重點 -->
         <div class="learning-point-box">
@@ -80,7 +52,6 @@ echo htmlspecialchars($code);
             </ul>
         </div>
     </div>
-</div>
 </body>
 
 </html>

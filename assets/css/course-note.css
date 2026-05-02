@@ -57,6 +57,56 @@ body {
   border-radius: var(--radius-sm);
 }
 
+/* --- 題目需求區塊樣式 --- */
+.ques-section {
+  background-color: var(--white);
+  /* 保持乾淨背景 */
+  border-left: 4px solid var(--primary-light);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 4px 8px 8px 4px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02);
+  /* 輕微內陰影增加深度 */
+  line-height: 1.7;
+  color: var(--text-main);
+  position: relative;
+}
+
+/* 題目需求強標題 */
+.ques-section strong {
+  color: var(--primary-dark);
+  font-size: 1.05rem;
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* 題目內部的邏輯條列說明（如果有換行或文字） */
+.ques-section br+br {
+  display: block;
+  content: "";
+  margin-top: 8px;
+}
+
+/* 題目區塊內的補充文字（如：年份判斷邏輯） */
+.ques-section {
+  font-size: 0.95rem;
+  background-image: linear-gradient(to right, rgba(99, 102, 241, 0.03), transparent);
+}
+
+/* 裝飾性小標示：在右上角加入「Exercise」字樣（選用） */
+.ques-section::after {
+  content: "PRACTICE";
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: var(--primary-light);
+  opacity: 0.3;
+  letter-spacing: 1px;
+}
+
 .custom-list {
   /* 1. 讓點點出現在內容裡面，這樣才會跟標題對齊 */
   list-style-position: inside;
