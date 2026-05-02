@@ -2,16 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const navbar = document.querySelector(".navbar");
     if (!navbar) return;
 
-    // --- 核心改進：自動計算相對路徑，不再依賴固定字串 ---
-    const pathArray = window.location.pathname.split('/').filter(p => p.length > 0);
-    const isGitHubPages = window.location.pathname.includes('/WebDev-Notes/');
-    const depth = isGitHubPages ? pathArray.length - 1 : pathArray.length;
+    // 1. 自動偵測環境：如果是 GitHub，就把路徑補上專案名稱
+    const isGitHub = window.location.hostname.includes('github.io');
+    const rootPath = isGitHub ? '/Portfolio/' : '/';
 
-    // 自動生成 ../ 或 ./
-    let basePath = depth <= 0 ? './' : '../'.repeat(depth);
-    if (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html')) {
-        if (depth <= (isGitHubPages ? 1 : 0)) basePath = './';
-    }
+    // 2. 處理「施工中」的視覺邏輯 (這部分可以放在 CSS)
+    const disabledStyle = 'style="color: #999; cursor: not-allowed; pointer-events: none; opacity: 0.6;"';
 
     const navHTML = `
     <div class="nav-container">
