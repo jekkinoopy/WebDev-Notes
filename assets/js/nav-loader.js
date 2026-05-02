@@ -7,14 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // 1. 自動計算路徑前綴
-    const path = window.location.pathname;
-    let basePath = (path.endsWith('/') || path.endsWith('index.html')) ? "./" : "../../";
+    // --- 核心修正：自動切換 GitHub 與 本機 絕對路徑 ---
+    const isGitHub = window.location.hostname.includes('github.io');
+    const rootPath = isGitHub ? '/WebDev-Notes/' : '/';
 
-    // 2. 施工中樣式設定 (灰色、禁止點擊、低透明度)
     const disabledStyle = 'style="color: #bbb; cursor: not-allowed; pointer-events: none; opacity: 0.6;"';
 
-    // 3. 完整導覽資料 (在這裡修改 true/false 即可控制開關)
     const navData = [
         {
             title: "資料庫",
@@ -71,14 +69,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     ];
 
-    // 4. 渲染邏輯
     const generateNav = () => {
         return navData.map(section => `
             <li class="dropdown">
                 <a href="#" class="dropbtn">${section.title}</a>
                 <div class="dropdown-content">
                     ${section.links.map(link => `
-                        <a href="${link.isFinished ? basePath + link.url : '#'}" 
+                        <a href="${link.isFinished ? rootPath + link.url : '#'}" 
                            ${link.isFinished ? '' : disabledStyle}>
                            ${link.name}${link.isFinished ? '' : ' (WIP)'}
                         </a>
@@ -91,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
         const navHTML = `
         <div class="nav-container">
-            <a href="${basePath}index.html" class="logo" id="main-logo">
+            <a href="${rootPath}index.html" class="logo" id="main-logo">
                 <div class="logo-icon"></div>
                 <h1>努比的全端筆記</h1>
             </a>
@@ -101,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>`;
 
         navbar.innerHTML = navHTML;
-        console.log("Nav Loader: 導覽列全數渲染成功！");
+        console.log("Nav Loader: 修正版路徑渲染成功！環境：" + (isGitHub ? "GitHub" : "Local"));
     } catch (err) {
         console.error("Nav Loader 渲染過程出錯:", err);
     }
