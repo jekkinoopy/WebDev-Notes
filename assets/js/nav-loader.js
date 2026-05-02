@@ -1,15 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Nav Loader: 腳本開始執行");
-
     const navbar = document.querySelector(".navbar");
-    if (!navbar) {
-        console.error("Nav Loader: 找不到 .navbar 容器！");
-        return;
-    }
+    if (!navbar) return;
 
-    // --- 核心修正：自動切換 GitHub 與 本機 絕對路徑 ---
-    const isGitHub = window.location.hostname.includes('github.io');
-    const rootPath = isGitHub ? '/WebDev-Notes/' : '/';
+    // 取得當前頁面是否在子目錄 (判斷是否包含 courses)
+    const isSubPage = window.location.pathname.includes('/courses/');
+
+    // 如果在子目錄，所有連結前面補 ../../ 
+    // 如果在首頁，連結前面什麼都不補
+    const prefix = isSubPage ? "../../../" : "";
 
     const disabledStyle = 'style="color: #bbb; cursor: not-allowed; pointer-events: none; opacity: 0.6;"';
 
@@ -74,32 +72,34 @@ document.addEventListener("DOMContentLoaded", function () {
             <li class="dropdown">
                 <a href="#" class="dropbtn">${section.title}</a>
                 <div class="dropdown-content">
-                    ${section.links.map(link => `
-                        <a href="${link.isFinished ? rootPath + link.url : '#'}" 
-                           ${link.isFinished ? '' : disabledStyle}>
-                           ${link.name}${link.isFinished ? '' : ' (WIP)'}
-                        </a>
-                    `).join('')}
+                    ${section.links.map(link => {
+            let finalUrl = link.url;
+            if (link.isFinished && isSubPage) {
+                // 針對內頁，強制修正回根目錄起跳
+                finalUrl = prefix + link.url;
+            }
+            return `
+                            <a href="${link.isFinished ? finalUrl : '#'}" 
+                               ${link.isFinished ? '' : disabledStyle}>
+                               ${link.name}${link.isFinished ? '' : ' (WIP)'}
+                            </a>
+                        `;
+        }).join('')}
                 </div>
             </li>
         `).join('');
     };
 
-    try {
-        const navHTML = `
-        <div class="nav-container">
-            <a href="${rootPath}index.html" class="logo" id="main-logo">
-                <div class="logo-icon"></div>
-                <h1>努比的全端筆記</h1>
-            </a>
-            <ul class="nav-links">
-                ${generateNav()}
-            </ul>
-        </div>`;
+    const navHTML = `
+    <div class="nav-container">
+        <a href="${isSubPage ? prefix + 'index.html' : 'index.html'}" class="logo">
+            <div class="logo-icon"></div>
+            <h1>努比的全端筆記</h1>
+        </a>
+        <ul class="nav-links">
+            ${generateNav()}
+        </ul>
+    </div>`;
 
-        navbar.innerHTML = navHTML;
-        console.log("Nav Loader: 修正版路徑渲染成功！環境：" + (isGitHub ? "GitHub" : "Local"));
-    } catch (err) {
-        console.error("Nav Loader 渲染過程出錯:", err);
-    }
+    navbar.innerHTML = navHTML;
 });
