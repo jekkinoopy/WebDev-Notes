@@ -32,12 +32,38 @@
                 <li>完成選號後將陣列內容印出</li>
             </ul>
             <pre><code><?php
+                    $lotto=[];// 1. 初始化空陣列(從零開始)
 
+                    // 2. 進入迴圈：只要數量少於 6 就重複執行
+
+    // while(count($lotto)<6){
+    //     $tmp=rand(1,38);
+    //     // 3. 隨機取號
+    //     if(!in_array($tmp,$lotto)){
+    //         $lotto[]=$tmp;
+    //         }
+    //     }            foreach($lotto)
+                    
             ?></code></pre>
             <div class="code-section">
     
             </div>
-        </div>
+<p>
+    note:if (只執行一次)：
+    它像是一個路口警衛。當你經過時，他檢查你的證件（條件），符號就讓你進去走一次，不符合就叫你繞路走。他不會抓著你叫你重複走。
+    
+    while (重複執行直到不符)：
+    它像是一個迴圈操場。當你符合條件時，他會叫你進去跑一圈。跑完後，他會立刻把你抓回起點再檢查一次條件。只要條件還成立，你就要一直跑下去，直到你死去為止。
+    
+</p>
+<div class="note-container">
+    <!-- 加上 CSS 樣式來撐開高度 -->
+    <iframe 
+        src="https://hackmd.io/@egXmVFKSSCCUA8IhBuQ7Gw/rk9rjYX0Wl" 
+        style="width: 100%; height: 600px; border: 1px solid #ddd; border-radius: 8px;"
+        frameborder="0">
+    </iframe>
+</div>        </div>
     </div>
 </body>
 
