@@ -1,236 +1,155 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登入檢查 - 努比的全端筆記</title>
-    <link rel="stylesheet" href="../../../assets/css/main.css">
-    <link rel="stylesheet" href="../../../assets/css/course-note.css">
-    <!-- Font Awesome -->
+    <title>Bello! 訓練師登入 - 小小兵中心</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        /* 修正 1：移除原本 body 的強行居中，改回正常流向 */
+        :root {
+            --mn-yellow: #f3da60;      /* 小小兵亮黃色 */
+            --mn-blue: #4277eb;        /* 經典吊帶褲藍 */
+            --mn-black: #333333;       /* 護目鏡黑帶 */
+            --mn-gray: #9ca3af;        /* 護目鏡金屬框 */
+            --mn-white: #ffffff;
+        }
+
         body {
-            min-height: 100vh;
-            margin: 0;
-            display: block; 
-        }
-
-        /* 修正 2：建立一個專門讓卡片在內容區居中的容器 */
-        .login-wrapper {
-            display: flex;
-            justify-content: center;
-            padding: var(--spacing-xl) 0;
-            width: 100%;
-        }
-
-        .login-card {
-            background-color: var(--white);
-            width: 100%;
-            max-width: 380px; /* 稍微縮小以適應筆記寬度 */
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            margin: 0 auto;
-        }
-
-        .login-header {
-            height: 6px;
-            background: var(--gradient-primary);
-        }
-
-        .login-body {
-            padding: var(--spacing-xl);
-        }
-
-        .user-avatar {
-            width: 70px;
-            height: 70px;
-            background-color: var(--gray-50);
-            border: 2px solid var(--primary);
-            border-radius: 50%;
+            background-color: var(--mn-yellow);
+            background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.2) 0%, transparent 20%);
+            font-family: 'Noto Sans TC', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 auto var(--spacing-lg);
-            color: var(--primary);
-            font-size: 1.8rem;
+            min-height: 100vh;
+            margin: 0;
         }
 
-        .login-title {
-            text-align: center;
-            color: var(--text-primary);
-            font-size: 1.35rem;
-            margin-bottom: var(--spacing-xs);
-            font-weight: 700;
+        /* 容器：護目鏡造型 */
+        .container {
+            background: var(--mn-white);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 50px; /* 大圓角增加可愛感 */
+            box-shadow: 0 20px 0px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 10px solid var(--mn-gray);
+            position: relative;
         }
 
-        .login-subtitle {
+        /* 頂部裝飾：小小兵眼睛帶子 */
+        .header {
+            background-color: var(--mn-black);
+            padding: 30px 20px;
             text-align: center;
-            color: var(--text-tertiary);
-            font-size: 0.85rem;
-            margin-bottom: var(--spacing-xl);
+            color: var(--mn-yellow);
+            position: relative;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            margin-top: 5px;
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* 表單內容 */
+        form {
+            padding: 40px 30px;
         }
 
         .form-group {
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
-            color: var(--text-secondary);
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 0.85rem;
+            color: var(--mn-blue);
+            font-weight: 900;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
 
-        .input-wrapper {
-            position: relative;
-        }
-
-        .input-wrapper i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--primary);
-        }
-
-        .input-wrapper input {
+        .form-group input {
             width: 100%;
-            padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 45px;
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-md);
-            background-color: var(--gray-50);
-            box-sizing: border-box;
-            transition: var(--transition-fast);
-        }
-
-        .input-wrapper input:focus {
-            outline: none;
-            border-color: var(--primary);
-            background-color: var(--white);
-            box-shadow: 0 0 0 3px rgba(86, 204, 242, 0.1);
-        }
-
-        .form-options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--spacing-lg);
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        .btn-login {
-            width: 100%;
-            padding: var(--spacing-md);
-            background: var(--gradient-primary);
-            color: var(--white);
-            border: none;
-            border-radius: var(--radius-md);
+            padding: 15px;
+            border: 3px solid var(--mn-blue);
+            border-radius: 15px;
+            background-color: #fefce8;
             font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition-base);
+            box-sizing: border-box;
+            transition: 0.2s;
         }
 
-        .btn-login:hover {
-            filter: brightness(1.08);
-            transform: translateY(-1px);
+        .form-group input:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+        }
+
+        /* 登入按鈕：香蕉色 */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--mn-yellow);
+            color: var(--mn-black);
+            border: 4px solid var(--mn-black);
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05) rotate(-2deg);
+            background-color: #facc15;
+        }
+
+        .footer-link {
+            text-align: center;
+            padding-bottom: 30px;
+            color: var(--mn-blue);
+            font-weight: 700;
+        }
+
+        .footer-link a {
+            color: var(--mn-black);
+            text-decoration: underline;
         }
     </style>
 </head>
-
 <body>
-    <header class="header">
-        <nav class="navbar"></nav>
-        <script src="../../../assets/js/nav-loader.js"></script>
-    </header>
 
-    <section class="page-hero">
-        <div class="hero-container">
-            <span class="category-tag">網頁傳值練習</span>
-            <h2 class="note-title">登入驗證練習</h2>
-            <p class="hero-desc">實作基礎的帳號密碼比對邏輯，掌握表單身分驗證流程。</p>
-            <div class="hero-divider"></div>
+    <div class="container">
+        <div class="header">
+            <h1>BELLO! 登入</h1>
+            <p class="subtitle">香蕉萬歲！一起去冒險吧 🍌</p>
         </div>
-    </section>
 
-    <div class="note-container">
-        <div class="note-card">
-            <h3 class="note-subtitle">登入檢查</h3>
-            <div class="ques-section">
-                <strong>題目需求：</strong><br>
-                1. 建立一個可以輸入帳號和密碼的表單畫面。<br>
-                2. 輸入帳號密碼，按下「登入」按鈕後，在另一個頁面顯示帳號密碼是否正確。
+        <form action="h08-login-1Session.php" method="post">
+            <div class="form-group">
+                <label>帳號 (Minion ID)</label>
+                <input type="text" name="username" placeholder="請輸入帳號" required>
             </div>
 
-            <pre><code><?php
-$code = <<<'EOD'
-// 在此處實作帳號密碼驗證邏輯
-EOD;
-echo htmlspecialchars($code);
-?></code></pre>
-
-            <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
-                
-                <!-- 修正：將登入卡片包裹在 wrapper 中並放入 code-section -->
-                <div class="login-wrapper">
-                    <div class="login-card">
-                        <div class="login-header"></div>
-                        <div class="login-body">
-                            <div class="user-avatar">
-                                <i class="fa-solid fa-user-astronaut"></i>
-                            </div>
-                            <h2 class="login-title">歡迎回來</h2>
-                            <p class="login-subtitle">請輸入您的帳號密碼以進入會員中心</p>
-
-                            <form action="h05-login-1.php" method="POST">
-                                <div class="form-group">
-                                    <label>帳號 (Account)</label>
-                                    <div class="input-wrapper">
-                                        <i class="fa-solid fa-envelope"></i>
-                                        <input type="text" name="account" placeholder="請輸入帳號" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>密碼 (Password)</label>
-                                    <div class="input-wrapper">
-                                        <i class="fa-solid fa-lock"></i>
-                                        <input type="password" name="password" placeholder="請輸入密碼" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-options">
-                                    <label style="cursor:pointer;">
-                                        <input type="checkbox" name="remember"> 記住我
-                                    </label>
-                                    <a href="#" style="color:var(--primary-dark); text-decoration:none;">忘記密碼？</a>
-                                </div>
-
-                                <button type="submit" class="btn-login">
-                                    登入系統
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div> <!-- End login-wrapper -->
+            <div class="form-group">
+                <label>密碼 (Banana Password)</label>
+                <input type="password" name="password" placeholder="請輸入密碼" required>
             </div>
 
-            <div class="learning-point-box">
-                <p class="learning-point-title">學習重點</p>
-                <ul class="custom-list">
-                    <li>在此紀錄關鍵函式或邏輯思維</li>
-                    <li>標記需要特別注意的語法細節</li>
-                </ul>
-            </div>
+            <button type="submit" class="submit-btn">POOPAYE! (登入)</button>
+        </form>
+
+        <div class="footer-link">
+            還沒加入小小兵？ <a href="#">立即加入</a>
         </div>
     </div>
+
 </body>
 </html>
