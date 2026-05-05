@@ -13,8 +13,6 @@
     <style>
         /* 修正 1：移除原本 body 的強行居中，改回正常流向 */
         body {
-            background-color: var(--bg-secondary);
-            font-family: var(--font-sans);
             min-height: 100vh;
             margin: 0;
             display: block; 
@@ -192,7 +190,7 @@ echo htmlspecialchars($code);
                             <h2 class="login-title">歡迎回來</h2>
                             <p class="login-subtitle">請輸入您的帳號密碼以進入會員中心</p>
 
-                            <form action="member_center.php" method="POST">
+                            <form action="h05-login-1.php" method="POST">
                                 <div class="form-group">
                                     <label>帳號 (Account)</label>
                                     <div class="input-wrapper">
@@ -217,7 +215,7 @@ echo htmlspecialchars($code);
                                 </div>
 
                                 <button type="submit" class="btn-login">
-                                    <a href="h05-login-1.php">登入系統</a>
+                                    登入系統
                                 </button>
                             </form>
                         </div>

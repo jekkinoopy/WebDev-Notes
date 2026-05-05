@@ -10,8 +10,6 @@
     
     <style>
         body {
-            background-color: var(--bg-secondary);
-            font-family: var(--font-sans);
             margin: 0;
             padding: var(--spacing-xl);
             display: flex;
