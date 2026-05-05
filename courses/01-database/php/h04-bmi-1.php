@@ -137,7 +137,7 @@
         if(isset($_POST['height'])){
             $height=$_POST['height'];
         };
-        $bmi=$weight/(($height/100)*($height/100));
+        $bmi=round($weight/(($height/100)*($height/100)));
         if($bmi>=27){
             $status="肥胖";
             }

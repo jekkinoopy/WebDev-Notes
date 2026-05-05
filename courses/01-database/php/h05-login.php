@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入檢查 - 努比的全端筆記</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 修正 1：移除原本 body 的強行居中，改回正常流向 */
+        body {
+            background-color: var(--bg-secondary);
+            font-family: var(--font-sans);
+            min-height: 100vh;
+            margin: 0;
+            display: block; 
+        }
+
+        /* 修正 2：建立一個專門讓卡片在內容區居中的容器 */
+        .login-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: var(--spacing-xl) 0;
+            width: 100%;
+        }
+
+        .login-card {
+            background-color: var(--white);
+            width: 100%;
+            max-width: 380px; /* 稍微縮小以適應筆記寬度 */
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            margin: 0 auto;
+        }
+
+        .login-header {
+            height: 6px;
+            background: var(--gradient-primary);
+        }
+
+        .login-body {
+            padding: var(--spacing-xl);
+        }
+
+        .user-avatar {
+            width: 70px;
+            height: 70px;
+            background-color: var(--gray-50);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto var(--spacing-lg);
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .login-title {
+            text-align: center;
+            color: var(--text-primary);
+            font-size: 1.35rem;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 700;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 45px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            background-color: var(--gray-50);
+            box-sizing: border-box;
+            transition: var(--transition-fast);
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(86, 204, 242, 0.1);
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: var(--spacing-md);
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+
+        .btn-login:hover {
+            filter: brightness(1.08);
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar"></nav>
+        <script src="../../../assets/js/nav-loader.js"></script>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-container">
+            <span class="category-tag">網頁傳值練習</span>
+            <h2 class="note-title">登入驗證練習</h2>
+            <p class="hero-desc">實作基礎的帳號密碼比對邏輯，掌握表單身分驗證流程。</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <div class="note-container">
+        <div class="note-card">
+            <h3 class="note-subtitle">登入檢查</h3>
+            <div class="ques-section">
+                <strong>題目需求：</strong><br>
+                1. 建立一個可以輸入帳號和密碼的表單畫面。<br>
+                2. 輸入帳號密碼，按下「登入」按鈕後，在另一個頁面顯示帳號密碼是否正確。
+            </div>
+
+            <pre><code><?php
+$code = <<<'EOD'
+// 在此處實作帳號密碼驗證邏輯
+EOD;
+echo htmlspecialchars($code);
+?></code></pre>
+
+            <div class="code-section">
+                <span class="section-label">【 執行結果 】</span>
+                
+                <!-- 修正：將登入卡片包裹在 wrapper 中並放入 code-section -->
+                <div class="login-wrapper">
+                    <div class="login-card">
+                        <div class="login-header"></div>
+                        <div class="login-body">
+                            <div class="user-avatar">
+                                <i class="fa-solid fa-user-astronaut"></i>
+                            </div>
+                            <h2 class="login-title">歡迎回來</h2>
+                            <p class="login-subtitle">請輸入您的帳號密碼以進入會員中心</p>
+
+                            <form action="member_center.php" method="POST">
+                                <div class="form-group">
+                                    <label>帳號 (Account)</label>
+                                    <div class="input-wrapper">
+                                        <i class="fa-solid fa-envelope"></i>
+                                        <input type="text" name="account" placeholder="請輸入帳號" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>密碼 (Password)</label>
+                                    <div class="input-wrapper">
+                                        <i class="fa-solid fa-lock"></i>
+                                        <input type="password" name="password" placeholder="請輸入密碼" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-options">
+                                    <label style="cursor:pointer;">
+                                        <input type="checkbox" name="remember"> 記住我
+                                    </label>
+                                    <a href="#" style="color:var(--primary-dark); text-decoration:none;">忘記密碼？</a>
+                                </div>
+
+                                <button type="submit" class="btn-login">
+                                    <a href="h05-login-1.php">登入系統</a>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div> <!-- End login-wrapper -->
+            </div>
+
+            <div class="learning-point-box">
+                <p class="learning-point-title">學習重點</p>
+                <ul class="custom-list">
+                    <li>在此紀錄關鍵函式或邏輯思維</li>
+                    <li>標記需要特別注意的語法細節</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
