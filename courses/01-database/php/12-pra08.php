@@ -36,13 +36,13 @@
 
                     // 2. 進入迴圈：只要數量少於 6 就重複執行
 
-    // while(count($lotto)<6){
-    //     $tmp=rand(1,38);
-    //     // 3. 隨機取號
-    //     if(!in_array($tmp,$lotto)){
-    //         $lotto[]=$tmp;
-    //         }
-    //     }            foreach($lotto)
+    while(count($lotto)<6){
+        // 3. 隨機取號
+        $tmp=rand(1,38);
+        if(!in_array($tmp,$lotto)){
+            $lotto[]=$tmp;
+            }
+        }            foreach($lotto)
                     
             ?></code></pre>
             <div class="code-section">
