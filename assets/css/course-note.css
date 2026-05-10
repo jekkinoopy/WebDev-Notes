@@ -257,6 +257,12 @@ body {
   padding-left: 5px;
 }
 
+.learning-point-box .learning-sublist {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  padding-left: 1.1rem;
+}
+
 
 /* 執行結果區塊強化 */
 /* 1. 執行結果區塊 - 帶虛線邊框 */
@@ -275,6 +281,20 @@ body {
   color: #adb5bd;
   margin-bottom: 10px;
   font-weight: bold;
+}
+
+/* 執行結果區內的 <pre>：勿沿用全站「講義用」深色 pre，避免與 code-section 淺底衝突 */
+.code-section pre {
+  background: transparent !important;
+  background-color: #fff !important;
+  color: #374151 !important;
+  padding: 0.75rem 0 !important;
+  margin: 0.5rem 0 !important;
+  border-radius: 4px !important;
+  overflow-x: auto;
+  font-family: Consolas, "Courier New", monospace;
+  white-space: pre-wrap;
+  line-height: 1.45;
 }
 
 /* 重點筆記區塊 */
