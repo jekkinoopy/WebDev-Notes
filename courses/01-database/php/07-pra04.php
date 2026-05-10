@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>九九乘法表 - 努比的全端筆記</title>
+    <title>綜合練習四｜九九乘法表 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
     <style>
@@ -27,11 +27,10 @@
     </header>
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">程式基礎概念</span>
-            <h2 class="note-title">綜合練習四</h2>
-            <p class="hero-desc"></p>
+            <span class="category-tag">PHP 基礎</span>
+            <h2 class="note-title">綜合練習四：九九乘法表</h2>
+            <p class="hero-desc">製作表格版（含完整算式）與交叉乘積版兩種呈現；可對照題圖與解題參考驗證。</p>
             <div class="hero-divider"></div>
-        </div>
         </div>
     </section>
     <div class="note-container">
@@ -39,7 +38,9 @@
             <h3>以表格排列的九九乘法表</h3>
             <div class="code-section">
                 <strong class="is-bracket-heading">【題目需求】</strong><br>
-                    <img src="images/07-1.png" alt="九九乘法表需求">
+                <p>使用巢狀 for 迴圈輸出 1〜9 的<strong>九九乘法表</strong>，每一格為完整算式與結果（例如 2×4=8），並以 HTML <strong>表格（table）</strong>排列，行列對齊與對照請以題目示意圖為準。</p>
+                <p>可搭配下方的<strong>九九乘法解題參考</strong>題圖確認排版與內容是否正確。</p>
+                    <img src="images/07-1.png" alt="九九乘法表表格版題目示意">
                     <?php
                     //無表格版本 
 
@@ -68,7 +69,10 @@
         <div class="note-card">
             <h3>以交叉計算結果呈現的九九乘法表</h3>
             <div class="code-section">
-            <img src="images/07-2.png" alt="九九乘法表需求">
+            <strong class="is-bracket-heading">【題目需求】</strong><br>
+            <p>以<strong>乘積數值（交叉計算結果）</strong>呈現對照矩陣（依題意的行列方向與標頭對齊題目）；格內需為對應兩數相乘結果而非完整文字算式。</p>
+            <p>請對照下列示意圖，並可復核<strong>九九乘法解題參考</strong>以確認每一格結果。</p>
+            <img src="images/07-2.png" alt="九九乘法交叉表題目示意">
                                 <?php
             echo "<table>";
             echo "<tr>";
@@ -110,9 +114,6 @@
         <div id="note-lesson-nav-root" data-lesson-id="07-pra04"></div>
     </div>
     <script src="../../../assets/js/note-lesson-nav.js"></script>
-</body>
-    
-    </html>
 </body>
 
 </html>

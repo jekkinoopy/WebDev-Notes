@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> - 努比的全端筆記</title>
+    <title>綜合練習三｜規則數列 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
 </head>
@@ -16,11 +16,10 @@
     </header>
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">程式基礎概念</span>
-            <h2 class="note-title">綜合練習三</h2>
-            <p class="hero-desc"></p>
+            <span class="category-tag">PHP 基礎</span>
+            <h2 class="note-title">綜合練習三：規則數列（for）</h2>
+            <p class="hero-desc">以 for 迴圈產生指定規則的數列，含奇數、十的倍數與質數區間數列題型。</p>
             <div class="hero-divider"></div>
-        </div>
         </div>
     </section>
     <div class="note-container">
@@ -28,9 +27,13 @@
             <h3>綜合練習三</h3>
             <div class="code-section">
                 <strong class="is-bracket-heading">【題目需求】</strong><br>
-                使用for迴圈來產生以下的數列<br>
-                <br>
-                1,3,5,7,9……n<br>
+                <p>請使用 <strong>for 迴圈</strong>，依題意輸出下列數列類型（終點或上限可依題設為 n）；以下各段為對照區，請在對應位置撰寫與驗證程式。</p>
+                <ul class="custom-list">
+                    <li>奇數列：1，3，5，7，9……n</li>
+                    <li>十的倍數列：10，20，30，40，50，60……n</li>
+                    <li>質數區間列（示意題型）：3，5，7，11，13，17……97</li>
+                </ul>
+                <p><strong>（一）輸出奇數列 1，3，5，7，9……n</strong></p>
                 <pre><code><?php
             // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
 $code = <<<'EOD'
@@ -47,7 +50,7 @@ echo htmlspecialchars($code);
             for($i=1; $i<=$n; $i+=2){
                 echo $i . ",";}
                 ?> <br><br>
-            10,20,30,40,50,60……n<br>
+            <p><strong>（二）輸出十的倍數列 10，20，30，40，50……n</strong></p>
             <pre><code><?php
         // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
 $code = <<<'EOD'
@@ -64,7 +67,7 @@ echo htmlspecialchars($code);
                 for($i=10;$i<=$n;$i+=10){
                     echo $i . ",";}
                 ?> <br><br>
-                3,5,7,11,13,17……97<br>
+                <p><strong>（三）輸出在題目範圍內的質數區間數列示意</strong></p>
                 <?php
                 $n=100;
                 $flag =true;
