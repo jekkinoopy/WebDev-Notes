@@ -127,6 +127,10 @@ echo "$str";
             </div>
         </div>
     </div>
+    <div class="note-container note-lesson-nav-wrap">
+        <div id="note-lesson-nav-root" data-lesson-id="h01-string"></div>
+    </div>
+    <script src="../../../assets/js/note-lesson-nav.js"></script>
 </body>
 
 </html>

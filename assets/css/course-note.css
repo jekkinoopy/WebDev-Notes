@@ -194,6 +194,122 @@ body {
   padding: 2rem;
 }
 
+/* --- 筆記頁底部：上一課 / 下一課（.note-card 感半透白底 + 超圓角 pill 按鈕） --- */
+.note-container.note-lesson-nav-wrap {
+  margin-top: 1.25rem;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem 2.25rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.note-lesson-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: inherit;
+}
+
+.note-lesson-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: min(48%, 24rem);
+  box-sizing: border-box;
+  color: var(--primary-dark, #312e81);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  /* 與 .note-card 同系：半透明白 + 淡化陰影 */
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 9999px;
+  padding: 0.65rem 1.15rem;
+  margin: 0;
+  transition:
+    background-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease,
+    color 0.18s ease;
+}
+
+.note-lesson-nav-link:hover {
+  color: var(--primary-dark, #312e81);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.note-lesson-nav-link:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.note-lesson-nav-link:focus-visible {
+  outline: 2px solid var(--primary-light, #6366f1);
+  outline-offset: 3px;
+}
+
+.note-lesson-nav-link--prev {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.note-lesson-nav-link--next {
+  justify-content: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.note-lesson-nav-chevron {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--primary-light, #6366f1);
+  position: relative;
+  top: 0.06em;
+}
+
+.note-lesson-nav-link:hover .note-lesson-nav-chevron {
+  color: var(--primary-dark, #4338ca);
+}
+
+.note-lesson-nav-text {
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .note-lesson-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .note-lesson-nav-link {
+    max-width: none;
+  }
+
+  .note-lesson-nav-link--next {
+    margin-left: 0;
+  }
+}
+
 .back-link {
   display: inline-flex;
   align-items: center;

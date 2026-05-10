@@ -127,6 +127,10 @@ echo htmlspecialchars($code);
 
 
     </div>
+    <div class="note-container note-lesson-nav-wrap">
+        <div id="note-lesson-nav-root" data-lesson-id="h02-date"></div>
+    </div>
+    <script src="../../../assets/js/note-lesson-nav.js"></script>
 </body>
 
 </html>

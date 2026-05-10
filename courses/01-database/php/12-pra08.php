@@ -183,6 +183,10 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
     <script src="../../../assets/js/note-code-window.js"></script>
+    <div class="note-container note-lesson-nav-wrap">
+        <div id="note-lesson-nav-root" data-lesson-id="12-pra08"></div>
+    </div>
+    <script src="../../../assets/js/note-lesson-nav.js"></script>
 </body>
 
 </html>

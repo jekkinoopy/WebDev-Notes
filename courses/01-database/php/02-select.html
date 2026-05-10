@@ -7,6 +7,8 @@
     <title>流程控制練習 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
+    <link rel="stylesheet" href="../../../assets/css/note-code-window.css">
 </head>
 
 <body>
@@ -25,68 +27,124 @@
     </section>
 
     <div class="note-container">
-        <!-- 練習一：If...Else 判定 -->
         <div class="note-card">
             <h3 class="note-subtitle">選擇結構練習 If...Else 判定</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <ul class="custom-list">
+                    <li>依 <code>$score</code> 是否達門檻，輸出「及格」或「不及格」。</li>
+                    <li>對照上方程式碼與下方【執行結果】。</li>
+                </ul>
+            </div>
 
-            <!-- 1. 執行結果 (已為您計算 PHP 邏輯) -->
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="10">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</div>
+                    <pre class="language-php"><code class="language-php">// 【程式碼練習】
+$score = 1;
+
+echo "成績為:" . $score . "分&lt;br&gt;";
+echo "判定:";
+if ($score &gt;= 60) {
+    echo "及格";
+} else {
+    echo "不及格";
+}</code></pre>
+                </div>
+            </div>
+
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 成績為:1分<br>
                 判定:不及格
             </div>
+            </div>
 
-            <!-- 2. 程式碼練習 (移除輔助顯示語法，保留原始邏輯) -->
-            <pre><code>&lt;?php 
-$score=1;
-
-echo "成績為:" . $score . "分&lt;br&gt;";
-echo "判定:";
-if($score>=60){
-    echo "及格";
-}else{
-    echo "不及格";
-}
-?&gt;</code></pre>
-
-            <!-- 3. 學習重點 (完整保留您的原始內容) -->
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
-                    <li>在<strong>二選一</strong>的邏輯中，主要用於判斷條件為 <code>true</code> 或 <code>false</code>。</li>
-                    <li>
-                        <code>if(條件式){ ... }</code>：當條件為 <code>true</code> 時執行大括號內的代碼；若為 <code>false</code> 則完全不執行。
-                    </li>
-                    <li>
-                        <strong>標準語法結構：</strong>
-                        <pre><code>if (條件式) {
+                    <li>在二選一的邏輯中，主要用於判斷條件為 true 或 false。</li>
+                    <li><code>if(條件式){ ... }</code>：當條件為 true 時執行大括號內的代碼；若為 false 則完全不執行。</li>
+                    <li>標準語法結構：
+                        <pre class="language-php"><code class="language-php">if (條件式) {
     // 條件為 true 時要執行內容
 } else {
     // 條件為 false 時要執行內容
 }</code></pre>
                     </li>
-                    <li><code>if...else</code> 結構確保了程式在邏輯判斷後，無論結果如何都有對應的處理動作。</li>
+                    <li>if...else 結構確保了程式在邏輯判斷後，無論結果如何都有對應的處理動作。</li>
                 </ul>
             </div>
         </div>
 
-        <!-- 練習二：Switch Case 多選 -->
-        <div class="note-card" style="margin-top: 30px;">
+        <div class="note-card">
             <h3 class="note-subtitle">多選結構練習 switch…case</h3>
-
-            <!-- 1. 執行結果 (已為您計算 PHP 邏輯) -->
-            <div class="code-section">
-                <span class="section-label is-bracket-heading">【執行結果】</span>
-                學習成績為:E<br>
-                評語:換條路走吧
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <ul class="custom-list">
+                    <li>以 <code>$level</code> 的字串值對應不同評語，無符合的 <code>case</code> 時走 <code>default</code>。</li>
+                    <li>對照程式與【執行結果】。</li>
+                </ul>
             </div>
 
-            <!-- 2. 程式碼練習 (移除輔助顯示語法，保留原始邏輯) -->
-            <pre><code>&lt;?php 
-$level="E";
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="20">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</div>
+                    <pre class="language-php"><code class="language-php">// 【程式碼練習】
+$level = "E";
 echo "學習成績為:" . $level . "&lt;br&gt;";
 echo "評語:";
-switch($level){
+switch ($level) {
     case "A":
         echo "表現優良，請繼續保持";
         break;
@@ -100,34 +158,38 @@ switch($level){
         echo "需要加強基本功";
         break;
     default:
-        echo "換條路走吧";    
-}
-?&gt;</code></pre>
+        echo "換條路走吧";
+}</code></pre>
+                </div>
+            </div>
 
-            <!-- 3. 學習重點 (完整保留您的原始內容) -->
+            <div class="code-section">
+                <span class="section-label is-bracket-heading">【執行結果】</span>
+                學習成績為:E<br>
+                評語:換條路走吧
+            </div>
+            </div>
+
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
-                    <li><code>switch</code> 的條件結果必須有<strong>明確的值</strong>，才能建立選擇的依據。</li>
-                    <li><code>case</code> 只能放明確的值，<strong>不能放公式或條件式</strong>。</li>
-                    <li>
-                        <strong>語法結構優化：</strong>
-                        <pre><code>switch (條件式) {
-    case 'A':
-        // 滿足 case 'A' 時執行的程式碼
-        break; // 如果不加會產生「直通現象」一直執行下去
-    case 'B':
-        // 滿足 case 'B' 時執行的程式碼
-        break;
-    default:
-        // 結果不在所有 case 中時執行的預設程式碼
-}</code></pre>
-                    </li>
-                    <li>如果不加 <code>default</code>，則表示沒有符合的 <code>case</code> 時，直接結束該 <code>switch</code> 的執行。</li>
+                    <li><code>switch</code> 的條件結果必須有明確的值，才能建立選擇的依據</li>
+                    <li><code>case</code> 只能放明確的值，不能放公式或條件式</li>
+                    <li><code>switch (條件) { case 'A': … break; case 'B': … default: … }</code>：<code>break</code> 不加會一直往下執行（貫穿）</li>
+                    <li>若不加 <code>default</code>，表示沒有符合的 <code>case</code> 時，結束這個 <code>switch</code> 的執行</li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
+    <script src="../../../assets/js/note-code-window.js"></script>
+    <div class="note-container note-lesson-nav-wrap">
+        <div id="note-lesson-nav-root" data-lesson-id="02-select"></div>
+    </div>
+    <script src="../../../assets/js/note-lesson-nav.js"></script>
 </body>
 
 </html>

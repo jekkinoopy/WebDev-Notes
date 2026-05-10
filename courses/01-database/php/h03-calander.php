@@ -283,6 +283,10 @@ echo htmlspecialchars($code);
             </div>
         </div>
     </div>
+    <div class="note-container note-lesson-nav-wrap">
+        <div id="note-lesson-nav-root" data-lesson-id="h03-calander"></div>
+    </div>
+    <script src="../../../assets/js/note-lesson-nav.js"></script>
 </body>
 
 </html>
