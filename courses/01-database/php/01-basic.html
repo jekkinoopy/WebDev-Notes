@@ -7,52 +7,136 @@
     <title>程式基礎概念 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
+    <link rel="stylesheet" href="../../../assets/css/note-code-window.css">
 </head>
 
 <body>
+    <!--
+      由 01-basic.php 對應的靜態版：無伺服器時無法跑 PHP，
+      【執行結果】為手動預覽（順序比照原檔：先跑第一區再等第二區對調）。
+      與 .php 姊妹檔常見差異：程式改純文字（必要處 HTML 跳脫）、輸出手刻或註解說明。
+    -->
     <header class="header">
         <nav class="navbar"></nav>
         <script src="../../../assets/js/nav-loader.js"></script>
     </header>
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">程式基礎概念</span>
-            <h2 class="note-title">PHP 基礎：變數解析與交換實戰</h2>
-            <p class="hero-desc">掌握單雙引號對變數解析的差異，並透過經典「三杯水」演算法實作變數對調。</p>
+            <span class="category-tag">PHP 基礎</span>
+            <h2 class="note-title">變數、字串引號與變數交換</h2>
+            <p class="hero-desc">以範例理解單引號／雙引號與變數展開，並用「三杯水」思路交換兩變數。</p>
             <div class="hero-divider"></div>
         </div>
     </section>
     <div class="note-container">
         <div class="note-card">
-            <h3>變數：單雙引號對照</h3>
-            <pre><code>$a = 10;
+            <h3 class="note-subtitle">變數：單雙引號對照</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <ul class="custom-list">
+                    <li>觀察單引號字串是否解析變數、雙引號字串是否解析變數。</li>
+                    <li>對照上方程式碼區與下方【執行結果】輸出。</li>
+                </ul>
+            </div>
+
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="6">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter">1
+2
+3
+4
+5
+6</div>
+                    <pre class="language-php"><code class="language-php">// 【程式碼練習】
+$a = 10;
 $b = 50;
-echo '$a=' . $a; // 顯示: $a=10
-echo "$b=" . $b; // 顯示: 50=50</code></pre>
+echo '$a=' . $a . '&lt;br&gt;'; // 單引號：不解析變數，顯示 $a=10
+echo "$b=" . $b; // 雙引號：解析變數，顯示 50=50</code></pre>
+                </div>
+            </div>
 
             <div class="code-section">
-                $a=10<br>
-                50=50
+                <span class="section-label is-bracket-heading">【執行結果】</span>
+                $a=10<br>50=50
+            </div>
             </div>
         </div>
-
-        <br>
-
         <div class="note-card">
-            <h3>變數交換練習：三杯水交換法</h3>
-            <pre><code>$temp = $a;   // 備份 A 到 Temp
-$a = $b;      // 把 B 的值給 A
-$b = $temp;   // 把 Temp 備份還原給 B
+            <h3 class="note-subtitle">變數交換練習：三杯水交換法</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <ul class="custom-list">
+                    <li>沿用上一區塊的 <code>$a</code>、<code>$b</code>，以暫存變數完成兩數對調。</li>
+                    <li>確認輸出為交換後的數值。</li>
+                </ul>
+            </div>
+
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="9">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter">1
+2
+3
+4
+5
+6
+7
+8
+9</div>
+                    <pre class="language-php"><code class="language-php">// 【程式碼練習】
+$temp=$a;   // A 的值先備份到 Temp，防止數據遺失
+$a=$b;      //$b的值 (50) 賦予給$a，第一步對調將 B 的內容移至 A
+$b=$temp;   //把原本備份在$temp的 10 拿出來，放進$b 完成最後對調
+
 
 echo '$a=' . $a;
+echo '&lt;br&gt;';
 echo '$b=' . $b;</code></pre>
+                </div>
+            </div>
 
             <div class="code-section">
-                $a=50<br>
-                $b=10
+                <span class="section-label is-bracket-heading">【執行結果】</span>
+                <!-- 對應連續執行第一區後 $a=10,$b=50 再對調 -->
+                $a=50<br>$b=10
+            </div>
+            </div>
+
+            <div class="learning-point-box">
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
+                <ul class="custom-list">
+                    <li><strong>單雙引號：</strong>對照第一區：單引號字串內的 <code>$</code> 不當變數解析；雙引號內會解析，再與字串後方 <code>.</code> 串接的值一起看輸出。</li>
+                    <li><strong>變數交換：</strong>用暫存（<code>$temp</code>），避免兩邊直接互指定時覆蓋掉其中一個原值。</li>
+                </ul>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
+    <script src="../../../assets/js/note-code-window.js"></script>
 </body>
 
 </html>

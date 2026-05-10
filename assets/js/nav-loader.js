@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
             links: [
                 { name: "PHP 語言", url: "courses/01-database/php/index.html", isFinished: true },
                 { name: "MySQL 資料庫", url: "#", isFinished: false },
-                { name: "SQL 語法", url: "#", isFinished: false },
+                { name: "SQL 語法", url: "courses/01-database/sql/index.html", isFinished: true },
                 { name: "Git 控制", url: "courses/01-database/Git/index.html", isFinished: false }
             ]
         },

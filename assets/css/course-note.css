@@ -102,13 +102,19 @@ body {
   position: relative;
 }
 
-/* 題目需求強標題 */
-.ques-section strong {
+/* 【題目需求】主標題：僅 .is-bracket-heading 獨占一行（勿套用到條列內 <strong>） */
+.ques-section strong.is-bracket-heading {
+  display: block;
   color: var(--primary-dark);
   font-size: calc(var(--note-body-font-size) * 1.06);
-  display: block;
   margin-bottom: var(--note-practice-li-gap, 0.5em);
-  letter-spacing: 0.5px;
+}
+
+/* 題目條列內行內強調 — 必須維持 inline，否則會變成一字一行 */
+.ques-section .custom-list strong {
+  display: inline;
+  color: var(--primary-dark);
+  font-weight: 700;
 }
 
 /* 題目內部的邏輯條列說明（如果有換行或文字） */

@@ -7,6 +7,8 @@
     <title>流程控制練習 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
+    <link rel="stylesheet" href="../../../assets/css/note-code-window.css">
 </head>
 
 <body>
@@ -24,69 +26,153 @@
         </div>
     </section>
 
-<div class="note-container">
-    <!-- 練習一：If...Else 判定 -->
-    <div class="note-card">
-        <h3 class="note-subtitle">選擇結構練習 If...Else 判定</h3>
-        
-        <!-- 1. 執行結果 -->
-        <div class="code-section">
-            <span class="section-label is-bracket-heading">【執行結果】</span>
-            <?php 
-            $score=1;
+    <div class="note-container">
+        <div class="note-card">
+            <h3 class="note-subtitle">選擇結構練習 If...Else 判定</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <ul class="custom-list">
+                    <li>依 <code>$score</code> 是否達門檻，輸出「及格」或「不及格」。</li>
+                    <li>對照上方程式碼與下方【執行結果】。</li>
+                </ul>
+            </div>
 
-            echo "成績為:" . $score . "分<br>";
-            echo "判定:";
-            if($score>=60){
-                echo "及格";
-                }else{
-                echo "不及格";
-            }
-            ?>
-        </div>
-
-        <!-- 2. 程式碼練習 -->
-        <pre><code><?php
+            <?php
 $code = <<<'EOD'
-            <?php 
-            $score=1;
+// 【程式碼練習】
+$score = 1;
 
-            echo "成績為:" . $score . "分<br>";
-            echo "判定:";
-            if($score>=60){
-                echo "及格";
-                }else{
-                echo "不及格";
-            }
-            ?>
-            ?>
+echo "成績為:" . $score . "分<br>";
+echo "判定:";
+if ($score >= 60) {
+    echo "及格";
+} else {
+    echo "不及格";
+}
 EOD;
-echo htmlspecialchars($code);
-?></code></pre>
+$codeLineCount = substr_count($code, "\n") + 1;
+$codeGutter = implode("\n", range(1, $codeLineCount));
+?>
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                </div>
+            </div>
 
-        <!-- 3. 學習重點 (使用妳優化後的獨立區塊) -->
-        <div class="learning-point-box">
-            <p class="learning-point-title is-bracket-heading">【學習重點】</p>
-            <ul class="custom-list">
-                <li>二選一中，判斷條件true或false</li>
-                <li>if(條件式){條件<code>ture</code>時要執行....}false不執行</li>
-                <li>if(條件式){條件ture時要執行....}else{false時要執行...}</li>
-            </ul>
+            <div class="code-section">
+                <span class="section-label is-bracket-heading">【執行結果】</span>
+                <?php
+                // 【程式碼練習】
+                //
+                //
+
+                $score = 1;
+
+                echo "成績為:" . $score . "分<br>";
+                echo "判定:";
+                if ($score >= 60) {
+                    echo "及格";
+                } else {
+                    echo "不及格";
+                }
+                ?>
+            </div>
+            </div>
+
+            <div class="learning-point-box">
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
+                <ul class="custom-list">
+                    <li>在二選一的邏輯中，主要用於判斷條件為 true 或 false。</li>
+                    <li><code>if(條件式){ ... }</code>：當條件為 true 時執行大括號內的代碼；若為 false 則完全不執行。</li>
+                    <li>標準語法結構：
+                        <pre class="language-php"><code class="language-php">if (條件式) {
+    // 條件為 true 時要執行內容
+} else {
+    // 條件為 false 時要執行內容
+}</code></pre>
+                    </li>
+                    <li>if...else 結構確保了程式在邏輯判斷後，無論結果如何都有對應的處理動作。</li>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <!-- 練習二：Switch Case 多選 -->
-    <div class="note-card" style="margin-top: 30px;">
-        <h3 class="note-subtitle">多選結構練習 switch…case</h3>
-        
-        <!-- 1. 執行結果 -->
-        <div class="code-section">
-            <span class="section-label is-bracket-heading">【執行結果】</span>
-            <?php 
-                $level="E";
+        <div class="note-card">
+            <h3 class="note-subtitle">多選結構練習 switch…case</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <ul class="custom-list">
+                    <li>以 <code>$level</code> 的字串值對應不同評語，無符合的 <code>case</code> 時走 <code>default</code>。</li>
+                    <li>對照程式與【執行結果】。</li>
+                </ul>
+            </div>
+
+            <?php
+$code = <<<'EOD'
+// 【程式碼練習】
+$level = "E";
+echo "學習成績為:" . $level . "<br>";
+echo "評語:";
+switch ($level) {
+    case "A":
+        echo "表現優良，請繼續保持";
+        break;
+    case "B":
+        echo "值得肯定，還有進步空間";
+        break;
+    case "C":
+        echo "需要更多的練習";
+        break;
+    case "D":
+        echo "需要加強基本功";
+        break;
+    default:
+        echo "換條路走吧";
+}
+EOD;
+$codeLineCount = substr_count($code, "\n") + 1;
+$codeGutter = implode("\n", range(1, $codeLineCount));
+?>
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <span class="section-label is-bracket-heading">【執行結果】</span>
+                <?php
+                // 【程式碼練習】
+                //
+                //
+
+                $level = "E";
                 echo "學習成績為:" . $level . "<br>";
                 echo "評語:";
-                switch($level){
+                switch ($level) {
                     case "A":
                         echo "表現優良，請繼續保持";
                         break;
@@ -100,51 +186,27 @@ echo htmlspecialchars($code);
                         echo "需要加強基本功";
                         break;
                     default:
-                        echo "換條路走吧";    
+                        echo "換條路走吧";
                 }
-            ?>
-        </div>
+                ?>
+            </div>
+            </div>
 
-        <!-- 2. 程式碼練習 -->
-        <pre><code><?php
-$code = <<<'EOD'
-            <?php 
-                $level="E";
-                echo "學習成績為:" . $level . "<br>";
-                echo "評語:";
-                switch($level){
-                    case "A":
-                        echo "表現優良，請繼續保持";
-                        break;
-                    case "B":
-                        echo "值得肯定，還有進步空間";
-                        break;
-                    case "C":
-                        echo "需要更多的練習";
-                        break;
-                    case "D":
-                        echo "需要加強基本功";
-                        break;
-                    default:
-                        echo "換條路走吧";    
-                }
-            ?>
-EOD;
-echo htmlspecialchars($code);
-?></code></pre>
-
-        <!-- 3. 學習重點 -->
-        <div class="learning-point-box">
-            <p class="learning-point-title is-bracket-heading">【學習重點】</p>
-            <ul class="custom-list">
-                <li>switch的條件結果必須有明確的值，才能建立選擇的依據</li>
-                <li>case 只能放明確的值，不能放公式或條件式</li>
-                <li>switch(條件式){case 'A': 滿足case 'A' 時執行的程式碼(break;如果不加會一直執行下去);case 'B':滿足case 'B' 時執行的程式碼;default:結果不在case中時執行的程式碼}</li>
-                <li>如果不加default，則表示沒有符合的case 時，結束這個switch的執行</li>
-            </ul>
+            <div class="learning-point-box">
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
+                <ul class="custom-list">
+                    <li><code>switch</code> 的條件結果必須有明確的值，才能建立選擇的依據</li>
+                    <li><code>case</code> 只能放明確的值，不能放公式或條件式</li>
+                    <li><code>switch (條件) { case 'A': … break; case 'B': … default: … }</code>：<code>break</code> 不加會一直往下執行（貫穿）</li>
+                    <li>若不加 <code>default</code>，表示沒有符合的 <code>case</code> 時，結束這個 <code>switch</code> 的執行</li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
+    <script src="../../../assets/js/note-code-window.js"></script>
 </body>
 
 </html>
