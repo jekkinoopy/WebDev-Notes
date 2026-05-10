@@ -1,12 +1,14 @@
-/**
- * PHP 筆記頁底部：上一課 / 下一課（對應 courses/01-database/php/index.html 卡片順序）
- * 頁面請在 #note-lesson-nav-root 設 data-lesson-id="02-select"（檔名不含副檔名）
- */
+/** 講義底部：上一則／下一則。PHP：`data-lesson-id`；SQL：`data-lesson-scope="sql"` + `data-lesson-id`。 */
 (function () {
   function getExt() {
     var p = window.location.pathname || "";
     return /\.html$/i.test(p) ? ".html" : ".php";
   }
+
+  /** @type {{ id: string, title: string }[]} */
+  var CHAIN_SQL = [
+    { id: "01-expense-ledger", title: "每日花費流水帳（DDL／DML）" },
+  ];
 
   /** @type {{ id: string, title: string }[]} */
   var CHAIN = [
@@ -35,7 +37,8 @@
     { id: "h08-loginSession", title: "Session 會員登入實作" },
   ];
 
-  var SERIES = "[基礎課程]";
+  var SERIES_PHP = "[基礎課程]";
+  var SERIES_SQL = "[SQL]";
   var INDEX_HREF = "index.html";
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -45,7 +48,11 @@
     var lessonId = root.getAttribute("data-lesson-id");
     if (!lessonId) return;
 
-    var cur = CHAIN.findIndex(function (x) {
+    var scope = root.getAttribute("data-lesson-scope") || "php";
+    var chain = scope === "sql" ? CHAIN_SQL : CHAIN;
+    var series = scope === "sql" ? SERIES_SQL : SERIES_PHP;
+
+    var cur = chain.findIndex(function (x) {
       return x.id === lessonId;
     });
     if (cur === -1) return;
@@ -55,16 +62,25 @@
 
     parts.push('<nav class="note-lesson-nav" aria-label="單元導覽">');
 
+    var indexLabel =
+      scope === "sql" ? series + " 學習筆記目錄" : series + " 課程總覽";
+    var indexLabelPrev = indexLabel;
+    var indexLabelNext = indexLabel;
+    if (scope === "sql" && chain.length === 1) {
+      indexLabelPrev = series + " 目錄";
+      indexLabelNext = "回到 " + series + " 目錄";
+    }
+
     // 上一則
     if (cur > 0) {
-      var prev = CHAIN[cur - 1];
+      var prev = chain[cur - 1];
       var prevNum = cur;
       parts.push(
         '<a class="note-lesson-nav-link note-lesson-nav-link--prev" href="' +
           prev.id +
           ext +
           '"><span class="note-lesson-nav-chevron" aria-hidden="true">‹</span><span class="note-lesson-nav-text">' +
-          SERIES +
+          series +
           " Lesson " +
           prevNum +
           " " +
@@ -76,21 +92,21 @@
         '<a class="note-lesson-nav-link note-lesson-nav-link--prev" href="' +
           INDEX_HREF +
           '"><span class="note-lesson-nav-chevron" aria-hidden="true">‹</span><span class="note-lesson-nav-text">' +
-          SERIES +
-          " 課程總覽</span></a>"
+          indexLabelPrev +
+          "</span></a>"
       );
     }
 
     // 下一則
-    if (cur < CHAIN.length - 1) {
-      var next = CHAIN[cur + 1];
+    if (cur < chain.length - 1) {
+      var next = chain[cur + 1];
       var nextNum = cur + 2;
       parts.push(
         '<a class="note-lesson-nav-link note-lesson-nav-link--next" href="' +
           next.id +
           ext +
           '"><span class="note-lesson-nav-text">' +
-          SERIES +
+          series +
           " Lesson " +
           nextNum +
           " " +
@@ -102,8 +118,8 @@
         '<a class="note-lesson-nav-link note-lesson-nav-link--next" href="' +
           INDEX_HREF +
           '"><span class="note-lesson-nav-text">' +
-          SERIES +
-          ' 課程總覽</span><span class="note-lesson-nav-chevron" aria-hidden="true">›</span></a>'
+          indexLabelNext +
+          '</span><span class="note-lesson-nav-chevron" aria-hidden="true">›</span></a>'
       );
     }
 

@@ -12,22 +12,20 @@
 </head>
 
 <body>
-    <!--
-      程式碼區僅留白提示 — 題目來自課堂；練習完成後可再請助手補「程式碼 / 執行結果 / 學習重點」。
-      對應靜態版可另存為 01-expense-ledger.html（與 php 資料夾慣例相同）。
-    -->
     <header class="header">
         <nav class="navbar"></nav>
         <script src="../../../assets/js/nav-loader.js"></script>
     </header>
+
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">SQL · 資料庫操作</span>
+            <span class="category-tag">SQL 基礎</span>
             <h2 class="note-title">資料庫系統操作練習：每日花費流水帳</h2>
-            <p class="hero-desc">從需求與欄位設計到 DDL／DML；一頁四個重點，程式區留作課堂練習。</p>
+            <p class="hero-desc">從需求、欄位與 DDL 到測試資料與 CRUD 四段實作練習。</p>
             <div class="hero-divider"></div>
         </div>
     </section>
+
     <div class="note-container">
         <div class="note-card">
             <h3 class="note-subtitle">重點一：需求、欄位與資料型態</h3>
@@ -42,7 +40,7 @@
 
             <?php
 $code = <<<'EOD'
--- （此區留白 — 課堂自行練習；完成後再整理正式 SQL／筆記）
+-- 請依上方【題目需求】在此撰寫 SQL。
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
@@ -67,14 +65,15 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
-                <p>（練習完成後：可貼設計說明、欄位清單或工具畫面／備註。）</p>
+                <p>請整理設計說明、欄位清單或工具畫面（擇要呈現）。</p>
             </div>
             </div>
 
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
-                    <li>（待整理：與「功能 → 欄位 → 型態」對應的筆記要點。）</li>
+                    <li>先列<strong>要做什麼</strong>，再對應到<strong>要存哪些欄位</strong>與適合的<strong>資料型態</strong>（含 NULL／預設值）。</li>
+                    <li>一筆紀錄代表<strong>一件什麼事</strong>會影響欄位設計與後續查詢可否一次取得所需資訊。</li>
                 </ul>
             </div>
         </div>
@@ -91,7 +90,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
             <?php
 $code = <<<'EOD'
--- （此區留白 — 課堂自行練習；完成後再整理正式 SQL／筆記）
+-- 請依上方【題目需求】在此撰寫 SQL。
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
@@ -116,14 +115,15 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
-                <p>（練習完成後：可整理「操作清單 ↔ SQL 語句類型」對照或範例結果。）</p>
+                <p>可整理「要做的操作 ↔ 會用到的 SQL 類型」對照表，並附上簡短範例或結果示意。</p>
             </div>
             </div>
 
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
-                    <li>（待整理：與 CRUD／查詢情境對應的筆記要點。）</li>
+                    <li>常見操作含<strong>查詢／新增／修改／刪除</strong>；進階可能含<strong>統計、條件篩選、排序與分頁</strong>。</li>
+                    <li>先想清楚「對哪張表、在哪些條件下」進行動作，再對應到正確語句種類。</li>
                 </ul>
             </div>
         </div>
@@ -140,7 +140,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
             <?php
 $code = <<<'EOD'
--- （此區留白 — 課堂自行練習；完成後再整理正式 SQL／筆記）
+-- 請依上方【題目需求】在此撰寫 SQL。
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
@@ -165,14 +165,15 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
-                <p>（練習完成後：可貼 CREATE 成功訊息、DESC／SHOW 結果或截圖說明。）</p>
+                <p>可附上建立成功提示、資料表結構（如 DESCRIBE／SHOW CREATE TABLE，依環境而定）或重點截圖。</p>
             </div>
             </div>
 
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
-                    <li>（待整理：DDL 與鍵值、限制條件相關要點。）</li>
+                    <li><strong>DDL</strong> 用來建立資料庫與資料表結構；<strong>主鍵／唯一鍵／限制條件</strong>有助維護資料一致性。</li>
+                    <li>建好後請核對<strong>欄位名稱、型態、是否允許 NULL</strong>與前面規劃一致。</li>
                 </ul>
             </div>
         </div>
@@ -189,7 +190,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
             <?php
 $code = <<<'EOD'
--- （此區留白 — 課堂自行練習；完成後再整理正式 SQL／筆記）
+-- 請依上方【題目需求】在此撰寫 SQL。
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
@@ -214,14 +215,15 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
-                <p>（練習完成後：可貼 SELECT 結果集、UPDATE／DELETE 影響列數或重點截圖。）</p>
+                <p>可附上 SELECT 結果、UPDATE／DELETE 影響列數或其他可驗證操作的輸出（依環境）。</p>
             </div>
             </div>
 
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
-                    <li>（待整理：DML、WHERE、安全刪改與驗證方式等要點。）</li>
+                    <li><strong>DML</strong> 用以驗證設計是否合理；適量<strong>測試資料</strong>有助發現規劃不足之處。</li>
+                    <li><strong>UPDATE／DELETE 務必配合 WHERE</strong>；重大變更前請依環境採備份或交易等安全做法。</li>
                 </ul>
             </div>
         </div>
@@ -229,6 +231,10 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-sql.min.js"></script>
     <script src="../../../assets/js/note-code-window.js"></script>
+    <div class="note-container note-lesson-nav-wrap">
+        <div id="note-lesson-nav-root" data-lesson-scope="sql" data-lesson-id="01-expense-ledger"></div>
+    </div>
+    <script src="../../../assets/js/note-lesson-nav.js"></script>
 </body>
 
 </html>
