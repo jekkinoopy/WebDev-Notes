@@ -29,7 +29,7 @@
         <div class="note-card">
             <h3 class="note-subtitle">日期函式基本用法</h3>
             <div class="learning-point-box" style="margin-top: 0;">
-                <p class="learning-point-title">學習重點</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
                     <li><code>date_default_timezone_set()</code> - 設置程式執行期間的時區。</li>
                     <li><code>date("Y-m-d", $time)</code> - 將時間格式化輸出。</li>
@@ -41,7 +41,7 @@
         <div class="note-card">
             <h3 class="note-subtitle">給定兩個日期，計算中間間隔天數</h3>
             <div class="ques-section">
-                <strong>題目需求：</strong>實作邏輯計算兩個指定日期之間相差的天數。
+                <strong class="is-bracket-heading">【題目需求】</strong>實作邏輯計算兩個指定日期之間相差的天數。
             </div>
             <pre><code><?php
 $code = <<<'EOD'
@@ -50,7 +50,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
                 $start="2026-04-09";
                 $end="2026-05-04";
@@ -69,7 +69,7 @@ echo htmlspecialchars($code);
         <div class="note-card">
             <h3 class="note-subtitle">計算距離自己下一次生日還有幾天</h3>
             <div class="ques-section">
-                <strong>題目需求：</strong>根據當前日期，算出下一次生日的倒數天數。
+                <strong class="is-bracket-heading">【題目需求】</strong>根據當前日期，算出下一次生日的倒數天數。
             </div>
             <pre><code><?php
 $code = <<<'EOD'
@@ -78,7 +78,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 待實作 ?>
             </div>
         </div>
@@ -87,7 +87,7 @@ echo htmlspecialchars($code);
         <div class="note-card">
             <h3 class="note-subtitle">利用 date() 函式的格式化參數呈現</h3>
             <div class="ques-section">
-                <strong>題目需求：</strong><br>
+                <strong class="is-bracket-heading">【題目需求】</strong><br>
                 * 2021/10/05<br>
                 * 10月5日 Tuesday<br>
                 * 2021-10-5 12:9:5<br>
@@ -101,7 +101,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 待實作 ?>
             </div>
         </div>
@@ -110,7 +110,7 @@ echo htmlspecialchars($code);
         <div class="note-card">
             <h3 class="note-subtitle">利用迴圈來計算連續五個周一的日期</h3>
             <div class="ques-section">
-                <strong>題目需求：</strong><br>
+                <strong class="is-bracket-heading">【題目需求】</strong><br>
                 例：2021-10-04 星期一 ... 2021-11-01 星期一。
             </div>
             <pre><code><?php
@@ -120,7 +120,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 待實作 ?>
             </div>
         </div>

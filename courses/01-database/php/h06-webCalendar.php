@@ -28,7 +28,7 @@
         <div class="note-card">
             <h3 class="note-subtitle">萬年曆製作</h3>
             <div class="ques-section">
-                <strong>題目需求：</strong><br>
+                <strong class="is-bracket-heading">【題目需求】</strong><br>
                 1. 設計一個網頁版萬年曆，只需顯示西元年月日，並以月為單位顯示日期。<br>
                 2. 有上一個月，下一個月的連結來切換月份。<br>
                 3. 可以不同的顏色或樣式來強調當日或週末。
@@ -42,12 +42,12 @@ echo htmlspecialchars($code);
 ?></code></pre>
 
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 執行結果預留位置 ?>
             </div>
 
             <div class="learning-point-box">
-                <p class="learning-point-title">學習重點</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
                     <li>在此紀錄關鍵函式或邏輯思維</li>
                     <li>標記需要特別注意的語法細節</li>

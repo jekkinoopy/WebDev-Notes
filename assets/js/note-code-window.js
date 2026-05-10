@@ -1,0 +1,88 @@
+/**
+ * 程式碼視窗：Prism 上色（需先載入 prism-markup-templating + prism-php）+ 複製按鈕
+ */
+(function () {
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand("copy");
+      return Promise.resolve();
+    } finally {
+      document.body.removeChild(ta);
+    }
+  }
+
+  /** 程式少於 15 行時高度跟內容；≥15 維持 CSS 約 15 行＋卷軸 */
+  const MIN_SCROLL_LINES = 15;
+
+  function resolveLineCount(root) {
+    var fromAttr = parseInt(root.getAttribute("data-code-line-count"), 10);
+    if (Number.isFinite(fromAttr) && fromAttr >= 1) {
+      return fromAttr;
+    }
+    var code = root.querySelector("pre code[class*='language-']");
+    if (!code) return 1;
+    var raw = code.textContent || "";
+    var n = raw.split(/\r\n|\r|\n/).length;
+    return n >= 1 ? n : 1;
+  }
+
+  function syncBodyHeight(root) {
+    var body = root.querySelector(".note-code-window-body");
+    if (!body) return;
+    var lines = resolveLineCount(root);
+    if (lines < MIN_SCROLL_LINES) {
+      body.classList.add("is-auto-height");
+    } else {
+      body.classList.remove("is-auto-height");
+    }
+  }
+
+  function initCopy(root) {
+    const btn = root.querySelector(".note-code-window-copy");
+    const code = root.querySelector("pre code.language-php, pre code[class*='language-']");
+    if (!btn || !code) return;
+
+    btn.addEventListener("click", function () {
+      const raw = code.textContent || "";
+      copyText(raw).then(
+        function () {
+          btn.setAttribute("data-copied", "1");
+          btn.setAttribute("aria-label", "已複製");
+          var t = setTimeout(function () {
+            btn.removeAttribute("data-copied");
+            btn.setAttribute("aria-label", "複製程式碼");
+            clearTimeout(t);
+          }, 2000);
+        },
+        function () {
+          btn.setAttribute("aria-label", "複製失敗");
+        },
+      );
+    });
+  }
+
+  function run() {
+    if (typeof Prism !== "undefined" && typeof Prism.highlightAll === "function") {
+      Prism.highlightAll();
+    }
+    document.querySelectorAll("[data-note-code-window]").forEach(function (root) {
+      syncBodyHeight(root);
+      initCopy(root);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run);
+  } else {
+    run();
+  }
+})();

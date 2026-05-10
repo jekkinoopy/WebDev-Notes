@@ -35,7 +35,7 @@ EOD;
 echo htmlspecialchars($code); 
 ?></code></pre>
             <div class="code-section">
-                <strong>題目需求：</strong><br>
+                <strong class="is-bracket-heading">【題目需求】</strong><br>
             </div>
         </div>
     </div>

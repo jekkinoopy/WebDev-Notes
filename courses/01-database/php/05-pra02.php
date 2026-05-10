@@ -27,7 +27,7 @@
     <div class="note-card">
         <h3 class="note-subtitle">閏年判斷</h3>
         <div class="ques-section">
-                <strong>題目需求：</strong>
+                <strong class="is-bracket-heading">【題目需求】</strong>
                 地球對太陽的公轉一年的真實時間大約是 365 天 5 小時 48 分 46 秒，因此以 365 天定為一年的狀況下，每年會多出近六小時的時間，所以每隔四年設置一個閏年來消除這多出來的一天。
                 <br><br>
                 1. 公元年分除以 4 不可整除，為平年。<br>
@@ -44,7 +44,7 @@ echo htmlspecialchars($code);
 
         <!-- 2. 執行結果 -->
         <div class="code-section">
-            <span class="section-label">【 執行結果 】</span>
+            <span class="section-label is-bracket-heading">【執行結果】</span>
             <?php // 執行結果預留位置
                 // $year=2020;
                 // if($year % 4 != 0;){
@@ -86,7 +86,7 @@ echo htmlspecialchars($code);
 
         <!-- 3. 學習重點 (使用妳優化後的獨立區塊) -->
         <div class="learning-point-box">
-            <p class="learning-point-title">學習重點</p>
+            <p class="learning-point-title is-bracket-heading">【學習重點】</p>
             <ul class="custom-list">
                 <li>在此紀錄關鍵函式或邏輯思維</li>
                 <li>標記需要特別注意的語法細節</li>

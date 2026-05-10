@@ -31,7 +31,7 @@
         
         <!-- 1. 執行結果 -->
         <div class="code-section">
-            <span class="section-label">【 執行結果 】</span>
+            <span class="section-label is-bracket-heading">【執行結果】</span>
             <?php 
             $score=1;
 
@@ -66,7 +66,7 @@ echo htmlspecialchars($code);
 
         <!-- 3. 學習重點 (使用妳優化後的獨立區塊) -->
         <div class="learning-point-box">
-            <p class="learning-point-title">學習重點</p>
+            <p class="learning-point-title is-bracket-heading">【學習重點】</p>
             <ul class="custom-list">
                 <li>二選一中，判斷條件true或false</li>
                 <li>if(條件式){條件<code>ture</code>時要執行....}false不執行</li>
@@ -81,7 +81,7 @@ echo htmlspecialchars($code);
         
         <!-- 1. 執行結果 -->
         <div class="code-section">
-            <span class="section-label">【 執行結果 】</span>
+            <span class="section-label is-bracket-heading">【執行結果】</span>
             <?php 
                 $level="E";
                 echo "學習成績為:" . $level . "<br>";
@@ -135,7 +135,7 @@ echo htmlspecialchars($code);
 
         <!-- 3. 學習重點 -->
         <div class="learning-point-box">
-            <p class="learning-point-title">學習重點</p>
+            <p class="learning-point-title is-bracket-heading">【學習重點】</p>
             <ul class="custom-list">
                 <li>switch的條件結果必須有明確的值，才能建立選擇的依據</li>
                 <li>case 只能放明確的值，不能放公式或條件式</li>

@@ -28,7 +28,7 @@
         <!-- 基礎重點：日期與月曆邏輯 -->
         <div class="note-card">
             <div class="learning-point-box" style="margin-top: 0;">
-                <p class="learning-point-title">月曆實作核心邏輯</p>
+                <p class="learning-point-title is-bracket-heading">【月曆實作核心邏輯】</p>
                 <ul class="custom-list">
                     <li><strong>時區設定：</strong><code>date_default_timezone_set("Asia/Taipei")</code> 確保日期精確。</li>
                     <li><strong>關鍵資料：</strong>需取得「當月 1 號是星期幾」及「當月總共有幾天」。</li>
@@ -51,7 +51,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
                     $today=date("Y-m-d");
                     $monthDays=date("t");
@@ -114,7 +114,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
                     $today=date("Y-m-d");
                     $monthDays=date("t");
@@ -164,7 +164,7 @@ echo htmlspecialchars($code);
         </div>
         <div class="note-card">
             <div class="learning-point-box" style="margin-top: 0;">
-                <p class="learning-point-title">月曆實作核心邏輯</p>
+                <p class="learning-point-title is-bracket-heading">【月曆實作核心邏輯】</p>
                 <ul class="custom-list">
                     <li><strong>時區設定：</strong><code>date_default_timezone_set("Asia/Taipei")</code> 確保日期精確。</li>
                     <li><strong>關鍵資料：</strong>需取得「當月 1 號是星期幾」及「當月總共有幾天」。</li>
@@ -186,7 +186,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
                     $today=date("Y-m-d");
                     $monthDays=date("t");
@@ -248,7 +248,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 預留練習空間 ?>
             </div>
         </div>
@@ -270,12 +270,12 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 預留練習空間 ?>
             </div>
 
             <div class="learning-point-box">
-                <p class="learning-point-title">實作建議</p>
+                <p class="learning-point-title is-bracket-heading">【實作建議】</p>
                 <ul class="custom-list">
                     <li><strong>資料分離：</strong>可以先用陣列存儲特殊日期資料，再於顯示層比對，讓代碼更乾淨。</li>
                     <li><strong>視覺強化：</strong>利用 CSS 選擇器（如 <code>:nth-child</code>）快速標記週六、週日的顏色。</li>

@@ -7,6 +7,8 @@
     <title>威力彩選號 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
+    <link rel="stylesheet" href="../../../assets/css/note-code-window.css">
 </head>
 
 <body>
@@ -28,7 +30,7 @@
         <div class="note-card">
             <h3 class="note-subtitle">不重複電腦選號</h3>
             <div class="ques-section">
-                <strong>題目需求：</strong>
+                <strong class="is-bracket-heading">【題目需求】</strong>
                 <ul class="custom-list">
                     <li>使用亂數函式 rand($a, $b) 來產生號碼</li>
                     <li>將產生的號碼順序存入陣列中</li>
@@ -37,14 +39,13 @@
                 </ul>
             </div>
 
-            <pre><code><?php
+            <?php
 $code = <<<'EOD'
-// 【 程式碼練習 】
+// 【程式碼練習】
 // 在此處呈現練習思路及程式碼內容
 
 $lotto=[];
 // 1. 初始化空陣列(從零開始)
-
 // 2. 進入迴圈：只要數量少於 6 就重複執行
 
 while(count($lotto)<6){
@@ -75,13 +76,31 @@ foreach($lotto as $num){
     echo '這是$num' . "$num,";
 }
 EOD;
-echo htmlspecialchars($code);
-?></code></pre>
+$codeLineCount = substr_count($code, "\n") + 1;
+$codeGutter = implode("\n", range(1, $codeLineCount));
+?>
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                </div>
+            </div>
 
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php
-                // 【 程式碼練習 】
+                // 【程式碼練習】
                 //
                 //
 
@@ -118,13 +137,21 @@ echo htmlspecialchars($code);
                 }
                 ?>
             </div>
+            </div>
 
             <div class="learning-point-box">
-                <p class="learning-point-title">學習重點</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <!-- 影片1122 -->
                 <ul class="custom-list">
                     <li>
-                        <strong>流程總結：</strong>用 <code>while (count($lotto) &lt; 6)</code> 湊齊數量；每次 <code>rand(1, 38)</code> 後用 <code>!in_array($tmp, $lotto)</code> 擋重複，再 <code>$lotto[] = $tmp</code>。細節見上方程式註解。
+                        <strong>流程總結：</strong>
+                        <ul class="custom-list learning-sublist">
+                            <li><strong>迴圈條件：</strong>用 <code>while (count($lotto) &lt; 6)</code>，湊滿 6 個號碼才結束。</li>
+                            <li><strong>隨機取號：</strong>每次 <code>rand(1, 38)</code> 產生一個暫存 <code>$tmp</code>。</li>
+                            <li><strong>擋重複：</strong><code>!in_array($tmp, $lotto)</code> 為真才表示這個號還沒出現過。</li>
+                            <li><strong>寫入陣列：</strong>通過檢查後執行 <code>$lotto[] = $tmp</code>。</li>
+                            <li>細節見上方程式註解。</li>
+                        </ul>
                     </li>
                     <li>
                         <strong>if 與 while 的差別</strong>
@@ -139,12 +166,23 @@ echo htmlspecialchars($code);
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        延伸閱讀：<a href="https://hackmd.io/@egXmVFKSSCCUA8IhBuQ7Gw/rk9rjYX0Wl">樂透不重複抽號邏輯</a></li>
                 </ul>
             </div>
+
+            <aside class="note-reference-box" aria-label="延伸閱讀">
+                <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
+                <ul class="note-reference-list">
+                    <li>
+                        <a href="https://hackmd.io/@egXmVFKSSCCUA8IhBuQ7Gw/rk9rjYX0Wl" target="_blank" rel="noopener noreferrer">樂透不重複抽號邏輯</a>
+                    </li>
+                </ul>
+            </aside>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
+    <script src="../../../assets/js/note-code-window.js"></script>
 </body>
 
 </html>

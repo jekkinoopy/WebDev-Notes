@@ -149,7 +149,7 @@
         <div class="note-card">
             <h3 class="note-subtitle">BMI 計算</h3>
             <div class="ques-section">
-                <strong>題目需求：</strong><br>
+                <strong class="is-bracket-heading">【題目需求】</strong><br>
                 1. 建立一個可以輸入身高和體重的表單畫面。<br>
                 2. 按下「計算BMI」按鈕後，在另一個頁面顯示 BMI 值。
             </div>
@@ -162,7 +162,7 @@ echo htmlspecialchars($code);
 ?></code></pre>
 
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
 
 <!-- 表單卡片區 -->
     <div class="cards-wrapper">
@@ -223,7 +223,7 @@ echo htmlspecialchars($code);
             </div>
 
             <div class="learning-point-box">
-                <p class="learning-point-title">學習重點</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
                     <li>在此紀錄關鍵函式或邏輯思維</li>
                     <li>標記需要特別注意的語法細節</li>

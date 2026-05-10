@@ -59,7 +59,7 @@ echo htmlspecialchars($code);
 
             <!-- 2. 執行結果 -->
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php
                 $students = [
                     "judy" => ["國文" => 95, "英文" => 64, "數學" => 70, "地理" => 90, "歷史" => 84],
@@ -84,7 +84,7 @@ echo htmlspecialchars($code);
 
             <!-- 3. 學習重點 -->
             <div class="learning-point-box">
-                <p class="learning-point-title">學習重點</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
                     <li>使用關聯陣列 (Associative Array) 巢狀結構儲存複雜資料。</li>
                     <li>運用 foreach 雙層迴圈拆解多維陣列的鍵 (Key) 與值 (Value)。</li>

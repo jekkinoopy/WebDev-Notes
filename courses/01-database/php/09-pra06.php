@@ -43,7 +43,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span><br>
+                <span class="section-label is-bracket-heading">【執行結果】</span><br>
                 <?php
                 for ($i = 1; $i <= 5; $i++) {
                     for ($j = 1; $j <= $i; $j++) {
@@ -77,7 +77,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span><br>
+                <span class="section-label is-bracket-heading">【執行結果】</span><br>
                 <?php
                 $totalRows = 5;
                 for ($i = 1; $i <= $totalRows; $i++) {
@@ -107,7 +107,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span><br>
+                <span class="section-label is-bracket-heading">【執行結果】</span><br>
                 <?php // 預留位置 ?>
             </div>
         </div>
@@ -126,12 +126,12 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span><br>
+                <span class="section-label is-bracket-heading">【執行結果】</span><br>
                 <?php // 預留位置 ?>
             </div>
 
             <div class="learning-point-box">
-                <p class="learning-point-title">學習重點</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
                     <li>座標判定：思考矩形四條邊與對角線在座標 (i, j) 上的數學特徵。</li>
                     <li>巢狀結構：外層控制列，內層控制行。</li>

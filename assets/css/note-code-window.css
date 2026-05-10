@@ -1,0 +1,242 @@
+/* 程式碼練習：Carbon／macOS 視窗感外框（內容交 Prism 上色） */
+
+.note-code-window {
+  /* 未包在 note-practice-sticky 時，上下仍與卡片內區塊對齊；圓角與題目需求等區塊一致（深色視窗底色不變） */
+  margin: var(--note-block-gap, 1.25rem) 0 var(--note-practice-run-gap, var(--note-block-gap));
+  border-radius: var(--note-section-radius, 10px);
+  overflow: hidden;
+  background: #121212;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.12),
+    0 12px 24px rgba(0, 0, 0, 0.25);
+  border: 1px solid #2a2a2e;
+}
+
+.note-code-window-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px var(--note-section-pad-inline, 10px);
+  background: linear-gradient(180deg, #1e1e1e 0%, #181818 100%);
+  border-bottom: 1px solid #2a2a2e;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.note-code-window-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.note-code-window-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.note-code-window-dot--red {
+  background: #ff5f57;
+}
+.note-code-window-dot--yellow {
+  background: #febc2e;
+}
+.note-code-window-dot--green {
+  background: #28c840;
+}
+
+.note-code-window-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #8b949e;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.note-code-window-copy:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e6edf3;
+}
+
+.note-code-window-copy[data-copied="1"] {
+  color: #56d364;
+}
+
+.note-code-window-body {
+  /* 可視高度 ≈ 15 行（與下方 pre／gutter 相同字級與行高）；超出則卷軸 */
+  --note-code-window-lines: 15;
+  --note-code-window-pad-y: 24px; /* 約等同 gutter／pre 上下 padding 合計 */
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: stretch;
+  background: #121212;
+  font-size: var(--note-practice-copy-font-size, 0.8125rem);
+  line-height: var(--note-practice-copy-line-height, 1.55);
+  box-sizing: border-box;
+  /* ≈15 行，且與【執行結果】並排複習時兩區加總不撐爆視窗 */
+  height: min(
+    calc(
+      var(--note-code-window-lines, 15) *
+        var(--note-practice-copy-line-height, 1.55) *
+        1em +
+        var(--note-code-window-pad-y, 24px)
+    ),
+    max(260px, min(calc((100svh - 14rem) / 2 - 2.75rem), 480px))
+  );
+  max-height: none;
+  overflow: auto;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 #1a1a1c;
+}
+
+/* WebKit：較貼近編輯器／Carbon 的深色卷軸 */
+.note-code-window-body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.note-code-window-body::-webkit-scrollbar-track {
+  background: #161618;
+  border-radius: 8px;
+  margin: 4px;
+}
+
+.note-code-window-body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4a5058 0%, #393e46 100%);
+  border-radius: 8px;
+  border: 2px solid #161618;
+}
+
+.note-code-window-body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #5e6670 0%, #494f58 100%);
+}
+
+.note-code-window-body::-webkit-scrollbar-corner {
+  background: #161618;
+}
+
+/* 少於 15 行：不強制約 15 行高，整區隨內容（由 JS 加 .is-auto-height） */
+.note-code-window-body.is-auto-height {
+  height: auto;
+  max-height: none;
+  overflow-y: visible;
+  overflow-x: auto;
+  scrollbar-gutter: auto;
+}
+
+.note-code-window-gutter {
+  padding: 12px 6px 12px var(--note-section-pad-inline, 12px);
+  text-align: right;
+  font-family:
+    ui-monospace, "Cascadia Code", "Fira Code", Consolas, "Courier New",
+    monospace;
+  font-size: var(--note-practice-copy-font-size, 0.8125rem);
+  line-height: var(--note-practice-copy-line-height, 1.55);
+  color: #6e7681;
+  white-space: pre;
+  user-select: none;
+  border-right: 1px solid #30363d;
+  background: #121212;
+}
+
+.note-code-window pre {
+  margin: 0 !important;
+  padding: 12px var(--note-section-pad-inline, 16px) 12px 12px !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family:
+    ui-monospace, "Cascadia Code", "Fira Code", Consolas, "Courier New",
+    monospace;
+  font-size: var(--note-practice-copy-font-size, 0.8125rem) !important;
+  line-height: var(--note-practice-copy-line-height, 1.55) !important;
+  /* 蓋過 course-note.css 的 pre { color }，否則配 inherit 的 code 會整段單色 */
+  color: #abb2bf !important;
+}
+
+.note-code-window pre code[class*="language-"] {
+  background: transparent !important;
+  font-size: inherit !important;
+  text-shadow: none;
+  /* 避免全站 pre code { color: inherit } 把 Prism 的 .token 外層基色弄亂 */
+  color: #abb2bf !important;
+}
+
+/* 蓋過 Prism 主題給 pre 上的底色，改由視窗與 gutter 控制 */
+.note-code-window pre[class*="language-"] {
+  background: transparent !important;
+}
+
+/* PHP / One Dark 系：老師示範常見的彩度（!important 壓過全站 pre code） */
+.note-code-window .token.comment,
+.note-code-window .token.prolog,
+.note-code-window .token.doctype,
+.note-code-window .token.cdata {
+  color: #5c6370 !important;
+}
+
+.note-code-window .token.punctuation {
+  color: #abb2bf !important;
+}
+
+.note-code-window .token.property,
+.note-code-window .token.tag,
+.note-code-window .token.constant,
+.note-code-window .token.symbol,
+.note-code-window .token.deleted {
+  color: #e06c75 !important;
+}
+
+.note-code-window .token.boolean,
+.note-code-window .token.number {
+  color: #d19a66 !important;
+}
+
+.note-code-window .token.selector,
+.note-code-window .token.attr-name,
+.note-code-window .token.string,
+.note-code-window .token.char,
+.note-code-window .token.builtin,
+.note-code-window .token.inserted {
+  color: #98c379 !important;
+}
+
+.note-code-window .token.operator,
+.note-code-window .token.entity,
+.note-code-window .token.url,
+.note-code-window .language-css .token.string,
+.note-code-window .style .token.string {
+  color: #56b6c2 !important;
+}
+
+.note-code-window .token.atrule,
+.note-code-window .token.attr-value,
+.note-code-window .token.keyword {
+  color: #c678dd !important;
+}
+
+.note-code-window .token.function,
+.note-code-window .token.class-name {
+  color: #61afef !important;
+}
+
+.note-code-window .token.regex,
+.note-code-window .token.important,
+.note-code-window .token.variable {
+  color: #e06c75 !important;
+}

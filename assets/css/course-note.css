@@ -1,3 +1,27 @@
+:root {
+  /*
+   * 筆記卡內四大區塊統一間距：小標題↔題目需求、題目↔程式+結果區、區塊結尾留白
+   * （程式區與【執行結果】之間也用同一數值）
+   */
+  --note-block-gap: 1.25rem;
+  --note-practice-run-gap: var(--note-block-gap);
+  /* 與 .note-practice-sticky 內程式窗（body／gutter／pre、Prism span.token）一致 */
+  --note-practice-copy-font-size: 0.8125rem;
+  --note-practice-copy-line-height: 1.55;
+  /* 題目需求、執行結果、學習重點內文與上方同節奏 */
+  --note-body-font-size: var(--note-practice-copy-font-size);
+  --note-body-line-height: var(--note-practice-copy-line-height);
+  /* 條列 li 之間約半行，與程式行距視覺對齊 */
+  --note-practice-li-gap: 0.5em;
+  /* 題目／程式／執行結果／學習重點 共用外框節奏（各區底色與邊線色不改） */
+  --note-section-pad-block: 1.25rem;
+  --note-section-pad-inline: 1.5rem;
+  --note-section-radius: 4px 8px 8px 4px;
+  --note-section-inset-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02);
+  /* 【】類標題：文案不含半形空格，字距由此控制（單頁試用 class is-bracket-heading） */
+  --note-bracket-letter-spacing: 0.14em;
+}
+
 body {
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   background-color: var(--primary);
@@ -60,14 +84,20 @@ body {
 /* --- 題目需求區塊樣式 --- */
 .ques-section {
   background-color: var(--white);
+  background-image: linear-gradient(
+    to right,
+    rgba(99, 102, 241, 0.03),
+    transparent
+  );
   /* 保持乾淨背景 */
   border-left: 4px solid var(--primary-light);
-  padding: 1.25rem 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: 4px 8px 8px 4px;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02);
+  padding: var(--note-section-pad-block) var(--note-section-pad-inline);
+  margin: 0 0 var(--note-block-gap, 1.25rem) 0;
+  border-radius: var(--note-section-radius);
+  box-shadow: var(--note-section-inset-shadow);
   /* 輕微內陰影增加深度 */
-  line-height: 1.7;
+  font-size: var(--note-body-font-size);
+  line-height: var(--note-body-line-height);
   color: var(--text-main);
   position: relative;
 }
@@ -75,9 +105,9 @@ body {
 /* 題目需求強標題 */
 .ques-section strong {
   color: var(--primary-dark);
-  font-size: 1.05rem;
+  font-size: calc(var(--note-body-font-size) * 1.06);
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: var(--note-practice-li-gap, 0.5em);
   letter-spacing: 0.5px;
 }
 
@@ -86,12 +116,6 @@ body {
   display: block;
   content: "";
   margin-top: 8px;
-}
-
-/* 題目區塊內的補充文字（如：年份判斷邏輯） */
-.ques-section {
-  font-size: 0.95rem;
-  background-image: linear-gradient(to right, rgba(99, 102, 241, 0.03), transparent);
 }
 
 /* 裝飾性小標示：在右上角加入「Exercise」字樣（選用） */
@@ -128,12 +152,16 @@ body {
 
 .custom-list li {
   color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 2;
-  margin-bottom: 8px;
+  font-size: var(--note-body-font-size);
+  line-height: var(--note-body-line-height);
+  margin-bottom: var(--note-practice-li-gap, 0.5em);
 
   /* 3. 重要：確保這裡沒有 display: flex，不然點點會不見 */
   display: list-item;
+}
+
+.custom-list li:last-child {
+  margin-bottom: 0;
 }
 
 .custom-list li::marker {
@@ -179,17 +207,25 @@ body {
   transform: translateX(-4px);
 }
 
-/* 程式碼區塊樣式 */
+/*
+ * 程式碼練習 + 【執行結果】外層包裝（僅版面分組）。
+ * 未使用 position:sticky：sticky 會讓此區固定在視窗上，捲動時底下「學習重點」易被整塊擋住。
+ */
+.note-practice-sticky {
+  padding-bottom: 0;
+  margin: 0;
+}
 
-.code-section {
-  background-color: white;
-  /* border: 1px solid #e5e7eb; */
-  border-radius: 0.375rem;
-  padding: 1rem;
-  font-family: "Courier New", monospace;
-  color: #374151;
-  margin-top: 1rem;
-  overflow-x: auto;
+.note-practice-sticky > .note-code-window {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: var(--note-practice-run-gap, var(--note-block-gap));
+}
+
+.note-practice-sticky ~ .learning-point-box {
+  margin-top: 0;
+  clear: both;
 }
 
 /* 筆記外框 */
@@ -204,7 +240,7 @@ body {
 /* 小標題樣式 */
 .note-card h3 {
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: var(--note-block-gap, 1.25rem);
   color: var(--primary-dark);
   font-size: 1.25rem;
   display: flex;
@@ -217,11 +253,15 @@ body {
 }
 
 .note-card li {
-  margin-bottom: 8px;
+  margin-bottom: var(--note-practice-li-gap, 0.5em);
   /* 刪除 display: flex; */
   /* 刪除 align-items: center; */
   display: list-item;
   /* 確保它是清單模式 */
+}
+
+.note-card li:last-child {
+  margin-bottom: 0;
 }
 
 /* 內容區塊 */
@@ -233,54 +273,233 @@ body {
 
 /* 學習重點獨立區塊優化 */
 .learning-point-box {
-  margin-top: 25px;
-  padding: 15px 20px;
+  margin-top: 0;
+  padding: var(--note-section-pad-block) var(--note-section-pad-inline);
   background-color: rgba(74, 111, 165, 0.05);
-  border-radius: 8px;
+  border-radius: var(--note-section-radius);
   border-left: 4px solid var(--primary);
-  /* 專業感深藍左邊框 */
+  box-shadow: var(--note-section-inset-shadow);
+  /* 與上方區塊間距由上層 margin-bottom（多為 .code-section）統一拉出 */
 }
 
 .learning-point-title {
+  /* 與 .ques-section strong 同級標題節奏；字色維持主色區塊慣用的 primary */
   color: var(--primary);
-  font-size: 0.95rem;
+  font-size: calc(var(--note-body-font-size) * 1.06);
+  line-height: var(--note-body-line-height);
   font-weight: bold;
-  /* margin-bottom: 10px; */
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  margin-bottom: var(--note-practice-li-gap, 0.5em);
+  display: block;
+}
+
+.learning-point-title:not(.is-bracket-heading) {
+  letter-spacing: 0.5px;
+}
+
+/* 同頁連續兩個學習區時 */
+.learning-point-box + .learning-point-box {
+  margin-top: var(--note-block-gap, 1.25rem);
 }
 
 /* 確保區塊內的列表縮排與整體對齊 */
 .learning-point-box .custom-list {
   margin: 0;
-  padding-left: 5px;
+  margin-left: 0.5rem;
+  padding-left: 1.2rem;
 }
 
-.learning-point-box .learning-sublist {
-  margin-top: 0.5rem;
+/* 學習重點主層／巢狀 li 間距（與題目 custom-list、程式行距同節奏） */
+.learning-point-box .custom-list > li {
+  margin-bottom: var(--note-practice-li-gap, 0.5em);
+}
+
+.learning-point-box .custom-list > li:last-child {
   margin-bottom: 0;
-  padding-left: 1.1rem;
+}
+
+.learning-point-box .learning-sublist > li {
+  margin-bottom: var(--note-practice-li-gap, 0.5em);
+}
+
+.learning-point-box .learning-sublist > li:last-child {
+  margin-bottom: 0;
+}
+
+/* 下一階圓圈與父層「if」字字頭對齊（外層 padding 改為 20px 時略回收巢狀縮排） */
+.learning-point-box .learning-sublist {
+  margin-top: var(--note-practice-li-gap, 0.5em);
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-left: calc(2.85rem - 15px);
+  list-style-position: outside;
+}
+
+/* 延伸閱讀／參考資料：「標題列」套用舊 border-left 的淺藍 (--primary)，下方列表維持白底；整塊不設左側邊線 */
+.note-reference-box {
+  margin-top: var(--note-block-gap, 1.25rem);
+  padding: 0;
+  border-radius: var(--note-section-radius);
+  border: none;
+  overflow: hidden;
+  box-shadow: var(--note-section-inset-shadow);
+  background-color: var(--white);
+  color: var(--text-main);
+}
+
+.note-reference-title {
+  margin: 0;
+  padding: 0.65rem var(--note-section-pad-inline);
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: calc(var(--note-body-font-size) * 1.06);
+  font-weight: bold;
+  line-height: var(--note-body-line-height);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.note-reference-list {
+  list-style: none;
+  margin: 0;
+  padding: var(--note-practice-li-gap, 0.5em) var(--note-section-pad-inline)
+    var(--note-section-pad-block);
+  display: flex;
+  flex-direction: column;
+  gap: var(--note-practice-li-gap, 0.5em);
+}
+
+.note-reference-list li {
+  margin: 0;
+  padding: 0;
+  font-size: var(--note-body-font-size);
+  line-height: var(--note-body-line-height);
+  color: var(--text-main);
+}
+
+.note-reference-list a {
+  color: var(--primary-light);
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.note-reference-list a:hover {
+  text-decoration: underline;
+}
+
+.note-reference-list a[target="_blank"]::after {
+  content: " \2197";
+  font-size: 0.85em;
+  font-weight: 500;
+  opacity: 0.65;
+}
+
+/* 參考條目多時：外加 class「note-reference-box--scroll」限制高度並顯示捲軸 */
+.note-reference-box--scroll .note-reference-list {
+  max-height: min(45vh, 280px);
+  overflow-y: auto;
+  padding-right: calc(var(--note-section-pad-inline) - 2px);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-400) var(--gray-100);
+}
+
+.note-reference-box--scroll .note-reference-list::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  border-radius: 6px;
+}
+
+.note-reference-box--scroll .note-reference-list::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: 6px;
 }
 
 
 /* 執行結果區塊強化 */
-/* 1. 執行結果區塊 - 帶虛線邊框 */
+/* 1. 執行結果區塊 - 帶虛線邊框（底色／虛線色照舊，外框與題目需求同節奏） */
 .code-section {
+  box-sizing: border-box;
   background: #f8f9fa;
   border: 1px dashed #dee2e6;
-  padding: 20px;
-  margin-top: 1rem;
-  margin-bottom: 25px;
-  border-radius: 8px;
+  padding: var(--note-section-pad-block) var(--note-section-pad-inline);
+  margin-top: var(--note-block-gap, 1.25rem);
+  margin-bottom: var(--note-block-gap, 1.25rem);
+  border-radius: var(--note-section-radius);
+  box-shadow: var(--note-section-inset-shadow);
+  font-family: "Courier New", monospace;
+  color: #374151;
+  font-size: var(--note-body-font-size);
+  line-height: var(--note-body-line-height);
+  overflow-x: auto;
 }
 
+/* 程式碼練習正下方的【執行結果】：可比照約 15 行高 + 卷軸 */
+.note-code-window + .code-section {
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: var(--note-block-gap, 1.25rem);
+  font-size: var(--note-body-font-size);
+  line-height: var(--note-body-line-height);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #bfc4cc #eaecef;
+  max-height: min(
+    calc(2.85rem + 15 * var(--note-body-line-height) * 1em + 44px),
+    max(260px, min(calc((100svh - 14rem) / 2), 520px))
+  );
+  overflow: auto;
+}
+
+.note-code-window + .code-section::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+.note-code-window + .code-section::-webkit-scrollbar-track {
+  background: #eaecef;
+  border-radius: 8px;
+  margin: 4px;
+}
+
+.note-code-window + .code-section::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c7ccd4, #afb6c2);
+  border-radius: 8px;
+  border: 2px solid #eaecef;
+}
+
+.note-code-window + .code-section::-webkit-scrollbar-thumb:hover {
+  background: #9aa3ae;
+}
+
+.note-code-window + .code-section::-webkit-scrollbar-corner {
+  background: #eaecef;
+}
+
+/* 對齊題目區小標題節奏；區塊本身仍為灰底虛線 */
 .section-label {
   display: block;
-  font-size: 0.85rem;
-  color: #adb5bd;
-  margin-bottom: 10px;
+  color: var(--primary-dark);
+  font-size: calc(var(--note-body-font-size) * 1.06);
+  line-height: var(--note-body-line-height);
+  margin-bottom: var(--note-practice-li-gap, 0.5em);
   font-weight: bold;
+}
+
+.section-label:not(.is-bracket-heading) {
+  letter-spacing: 0.5px;
+}
+
+/* 【】標題：文案不加半形空格，字距用 --note-bracket-letter-spacing（多處套用 class） */
+.section-label.is-bracket-heading,
+.learning-point-title.is-bracket-heading,
+.note-reference-title.is-bracket-heading,
+.ques-section strong.is-bracket-heading {
+  letter-spacing: var(--note-bracket-letter-spacing, 0.14em);
+}
+
+/* 執行結果內分段線上下留白（例：程式 echo <hr>） */
+.code-section hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* 執行結果區內的 <pre>：勿沿用全站「講義用」深色 pre，避免與 code-section 淺底衝突 */
@@ -294,7 +513,8 @@ body {
   overflow-x: auto;
   font-family: Consolas, "Courier New", monospace;
   white-space: pre-wrap;
-  line-height: 1.45;
+  font-size: var(--note-practice-copy-font-size, 0.8125rem);
+  line-height: var(--note-practice-copy-line-height, 1.55);
 }
 
 /* 重點筆記區塊 */
@@ -404,22 +624,15 @@ mark {
 
 /* 2. 學習重點區塊 - 妳要求的獨立藍色區塊 */
 .learning-point-box {
-  margin-top: 25px;
-  padding: 15px 20px;
+  margin-top: 0;
+  padding: var(--note-section-pad-block) var(--note-section-pad-inline);
   background-color: var(--white);
-  border-radius: 8px;
+  border-radius: var(--note-section-radius);
   border-left: 4px solid var(--primary);
-  /* 藍色粗邊框 */
-}
-
-.learning-point-title {
-  color: var(--primary);
-  font-size: 0.95rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  box-shadow: var(--note-section-inset-shadow);
+  font-size: var(--note-body-font-size);
+  line-height: var(--note-body-line-height);
+  /* 藍色粗邊框：與上方間距由上層 .code-section margin-bottom 統一 */
 }
 
 /* 3. 清單縮排與點點顏色 */

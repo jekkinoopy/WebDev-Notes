@@ -67,7 +67,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
                     echo "1.";
                     $str="aaddw1123";
@@ -101,7 +101,7 @@ EOD;
 echo htmlspecialchars($code);
 ?></code></pre>
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
                 $str="喜歡水晶男孩，是因為在他們身上能看見「時間的溫柔」。作為元祖偶像，他們擁有跨越世代的實力與金曲，旋律朗朗上口，讓不同年齡層都能共情。
 
@@ -119,7 +119,7 @@ echo "$str";
 
             <!-- 學習重點 -->
             <div class="learning-point-box">
-                <p class="learning-point-title">學習重點</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
                     <li>處理中文字串（全形字）時，應優先使用 `mb_` 系列函式避免長度計算錯誤。</li>
                     <li>字串取代函式是將後端數據與前端 CSS 樣式結合的常用手段。</li>

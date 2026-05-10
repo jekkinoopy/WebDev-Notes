@@ -27,7 +27,7 @@
         <div class="note-card">
             <h3>綜合練習三</h3>
             <div class="code-section">
-                <strong>題目需求：</strong><br>
+                <strong class="is-bracket-heading">【題目需求】</strong><br>
                 使用for迴圈來產生以下的數列<br>
                 <br>
                 1,3,5,7,9……n<br>

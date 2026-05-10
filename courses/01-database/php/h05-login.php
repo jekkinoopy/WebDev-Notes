@@ -164,7 +164,7 @@
         <div class="note-card">
             <h3 class="note-subtitle">登入檢查</h3>
             <div class="ques-section">
-                <strong>題目需求：</strong><br>
+                <strong class="is-bracket-heading">【題目需求】</strong><br>
                 1. 建立一個可以輸入帳號和密碼的表單畫面。<br>
                 2. 輸入帳號密碼，按下「登入」按鈕後，在另一個頁面顯示帳號密碼是否正確。
             </div>
@@ -177,7 +177,7 @@ echo htmlspecialchars($code);
 ?></code></pre>
 
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 
                 <!-- 修正：將登入卡片包裹在 wrapper 中並放入 code-section -->
                 <div class="login-wrapper">
@@ -224,7 +224,7 @@ echo htmlspecialchars($code);
             </div>
 
             <div class="learning-point-box">
-                <p class="learning-point-title">學習重點</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
                     <li>在此紀錄關鍵函式或邏輯思維</li>
                     <li>標記需要特別注意的語法細節</li>

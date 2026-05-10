@@ -57,7 +57,7 @@ echo htmlspecialchars($code);
 ?></code></pre>
 
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php
                 $nine = [];
                 for ($i = 1; $i <= 9; $i++) {
@@ -72,7 +72,7 @@ echo htmlspecialchars($code);
             </div>
 
             <div class="learning-point-box">
-                <p class="learning-point-title">學習重點</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
                     <li><strong>變數解析：</strong>`{$i}` 可以讓變數在字串中清晰定位，避免與後續字元混淆。</li>
                     <li><strong>記憶體共享：</strong>在同一個 PHP 檔案中，不論開多少次標籤，變數記憶體都是共享的。</li>
@@ -104,7 +104,7 @@ echo htmlspecialchars($code);
 ?></code></pre>
 
             <div class="code-section">
-                <span class="section-label">【 執行結果 】</span>
+                <span class="section-label is-bracket-heading">【執行結果】</span>
                 <table>
                     <tr>
                         <?php
@@ -120,7 +120,7 @@ echo htmlspecialchars($code);
             </div>
 
             <div class="learning-point-box">
-                <p class="learning-point-title">學習重點</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
                     <li><strong>foreach 結構：</strong>`$idx` 代表索引（0-80），`$item` 代表內容（如 "1x1=1"）。</li>
                     <li><strong>換行邏輯：</strong>利用 `$idx % 9 == 0` 來判斷每一列的結束點。</li>
