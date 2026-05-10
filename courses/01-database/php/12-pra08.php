@@ -32,17 +32,40 @@
                 <li>完成選號後將陣列內容印出</li>
             </ul>
             <pre><code><?php
-                    $lotto=[];// 1. 初始化空陣列(從零開始)
+                    $lotto=[];
+                    // 1. 初始化空陣列(從零開始)
 
                     // 2. 進入迴圈：只要數量少於 6 就重複執行
 
     while(count($lotto)<6){
-        // 3. 隨機取號
+        // count()：項目總數
+        // 隨機取號
         $tmp=rand(1,38);
+        // rand(1, 38)： PHP 的隨機數產生。第一個參數 1 是最小值。第二個參數 38 是最大值。
+        // $tmp：這是一個暫存變數  
+    
+          echo '這是$tmp:' . "$tmp," . '<br>';
         if(!in_array($tmp,$lotto)){
+            // !in_array檢查$tmp是不是已經在$lotto裡面(有沒有重複)
             $lotto[]=$tmp;
-            }
-        }            foreach($lotto)
+            // 沒有在$lotto[]裡面 就放進去$lotto[]
+            
+            
+            // 如果寫if(in_array($tmp,$lotto)){
+                //     如果在裡面就???? 
+                //     }else{
+                    //         $lotto[]=$tmp;
+                    // }
+                    //if ture沒有明確指令在裡面 所以在判斷式加!反轉 不用else
+            echo "<pre>";
+            print_r($lotto);
+            echo "</pre>";            
+                    }}
+                    echo "<hr>";
+    foreach($lotto as $num){
+        echo '這是$num' . "$num,";
+    }        
+                    
                     
             ?></code></pre>
             <div class="code-section">
@@ -54,15 +77,11 @@
     
     while (重複執行直到不符)：
     它像是一個迴圈操場。當你符合條件時，他會叫你進去跑一圈。跑完後，他會立刻把你抓回起點再檢查一次條件。只要條件還成立，你就要一直跑下去，直到你死去為止。
-    
+    <!-- 影片1122 -->
 </p>
 <div class="note-container">
     <!-- 加上 CSS 樣式來撐開高度 -->
-    <iframe 
-        src="https://hackmd.io/@egXmVFKSSCCUA8IhBuQ7Gw/rk9rjYX0Wl" 
-        style="width: 100%; height: 600px; border: 1px solid #ddd; border-radius: 8px;"
-        frameborder="0">
-    </iframe>
+    <a href="https://hackmd.io/@egXmVFKSSCCUA8IhBuQ7Gw/rk9rjYX0Wl">note</a>
 </div>        </div>
     </div>
 </body>
