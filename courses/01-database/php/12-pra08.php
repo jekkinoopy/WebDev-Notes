@@ -173,7 +173,10 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                 <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
                 <ul class="note-reference-list">
                     <li>
-                        <a href="https://hackmd.io/@egXmVFKSSCCUA8IhBuQ7Gw/rk9rjYX0Wl" target="_blank" rel="noopener noreferrer">樂透不重複抽號邏輯</a>
+                        <a href="https://mackliu.github.io/php-book/2021/09/19/basic-lesson-03/" target="_blank" rel="noopener noreferrer">[基礎課程] Lesson 3 陣列（含威力彩不重複選號）</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/mackliu/11501-FULL-BASIC/blob/main/12-pra08.php" target="_blank" rel="noopener noreferrer">11501 全端班：本題對照原始碼（12-pra08.php）</a>
                     </li>
                 </ul>
             </aside>

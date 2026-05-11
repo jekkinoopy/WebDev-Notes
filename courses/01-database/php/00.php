@@ -106,12 +106,25 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                 </ul>
             </div>
 
-            <!-- 與 12-pra08.php 版面一致：無延伸閱讀可整段刪除；連結多好捲動請 aside 外加 class note-reference-box--scroll -->
+            <!--
+              延伸閱讀（三相關站點請對應到「本頁主題」，勿連無關文章）：
+              1）php-book：換成該課對應的單篇文章（例：威力彩題見 Lesson 3 陣列
+                 https://mackliu.github.io/php-book/2021/09/19/basic-lesson-03/ ）
+              2）11501-FULL-BASIC：https://github.com/mackliu/11501-FULL-BASIC/blob/main/本頁同名.php
+              3）115-html：有對應檔可改為 blob／raw 連結；否則可先連 repo 首頁
+              無需此區時整段刪除；連結多 aside 可加 class note-reference-box--scroll
+            -->
             <aside class="note-reference-box" aria-label="延伸閱讀">
                 <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
                 <ul class="note-reference-list">
                     <li>
-                        <a href="#" target="_blank" rel="noopener noreferrer">參考連結標題</a>
+                        <a href="https://mackliu.github.io/php-book/" target="_blank" rel="noopener noreferrer">月光林地教材（請改為本主題對應單篇）</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/mackliu/11501-FULL-BASIC" target="_blank" rel="noopener noreferrer">11501 程式基礎（請改為 blob/main/本頁檔名.php）</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/mackliu/115-html" target="_blank" rel="noopener noreferrer">115 HTML 課程範例（有對應檔請換成該檔連結）</a>
                     </li>
                 </ul>
             </aside>
