@@ -1,5 +1,9 @@
 # 🎨 色彩配置說明 (README.md)
 
+> **Cursor：** 改檔前先讀 [`CURSOR-HANDOFF.md`](./CURSOR-HANDOFF.md)（含最底下〈變更〉）。聊天不保證跨機，以該檔與 Git 為準。
+
+---
+
 ### 📄 新增文件
 * **colors-config.css** - 統一的色彩配置檔
     * 所有顏色變數集中定義

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
     <style>
+        /* 本頁四張實作卡＋課表需較寬版面，與全站預設 900px 筆記容器區隔 */
+        body.table-html-lesson .note-container {
+            max-width: 1200px;
+        }
+
         /* --- 表格通用樣式 (Table) --- */
         table {
             width: 80%;
@@ -27,7 +32,8 @@
 
         }
 
-        table td {
+        table td,
+        table th {
             border: 0.5px solid var(--gray-200);
             padding: 15px;
             text-align: center;
@@ -38,12 +44,11 @@
             position: relative;
         }
 
-        /* 課表的第一列或標頭 */
+        /* 課表表頭列與最左欄（節次） */
+        .course-schedule-notes tr:first-child th,
         .course-schedule-notes tr:first-child td,
         .course-schedule-notes tr td:first-child {
             background-color: var(--primary-dark) !important;
-            /* 強制覆蓋 */
-            ;
             font-weight: 700;
             color: var(--gray-100);
         }
@@ -65,22 +70,32 @@
     </style>
 </head>
 
-<body>
+<body class="table-html-lesson">
     <header class="header">
         <nav class="navbar"></nav>
         <script src="../../../assets/js/nav-loader.js"></script>
     </header>
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">網頁排版編輯</span>
-            <h2 class="note-title">HTML Table：儲存格合併實戰</h2>
-            <p class="hero-desc">掌握 <code>rowspan</code> 與 <code>colspan</code>，建構複雜且精緻的數據表格與課表排版。</p>
+            <span class="category-tag">網頁前端基礎</span>
+            <h2 class="note-title">HTML Table : 儲存格合併實戰</h2>
+            <p class="hero-desc">掌握 <code>rowspan</code> 與 <code>colspan</code>，表格製作巨匠般的細節將由你親自雕琢。</p>
             <div class="hero-divider"></div>
         </div>
     </section>
-    <div class="ex">
+    <div class="note-container">
         <div class="note-card">
-            <h3>九宮格表格結構</h3>
+            <h3 class="note-subtitle">題目要求</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目要求】</strong>
+                <ul class="custom-list">
+                    <li>請依照下方「範例圖」來製作對應的表格實作。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="note-card">
+            <h3 class="note-subtitle">九宮格表格結構</h3>
             <div class="note-content">
                 <div class="note-item">
                     <code>&lt;tr&gt;</code>
@@ -115,7 +130,7 @@
         </div>
 
         <div class="note-card">
-            <h3>合併儲存格</h3>
+            <h3 class="note-subtitle">合併儲存格</h3>
             <div class="note-content">
                 <div class="note-item">
                     <code>rowspan="2"</code>
@@ -145,7 +160,7 @@
             </table>
         </div>
         <div class="note-card">
-            <h3>SECHSKIES 偶像養成課表：合併邏輯拆解</h3>
+            <h3 class="note-subtitle">SECHSKIES 偶像養成課表：合併進階訓練</h3>
             <div class="note-content ">
                 <div class="note-item">
                     <code>colspan="5"</code>
@@ -162,12 +177,12 @@
             </div>
             <table class="course-schedule-notes">
                 <tr>
-                    <td>節數</th>
-                    <td>週一</th>
-                    <td>週二</th>
-                    <td>週三</th>
-                    <td>週四</th>
-                    <td>週五</th>
+                    <th scope="col">節數</th>
+                    <th scope="col">週一</th>
+                    <th scope="col">週二</th>
+                    <th scope="col">週三</th>
+                    <th scope="col">週四</th>
+                    <th scope="col">週五</th>
                 </tr>
                 <tr>
                     <td>早自習<br>0750~0830</td>
@@ -242,9 +257,15 @@
                     <td>日文深度對話<br>李宰鎮</td>
                 </tr>
             </table>
+
+            <div class="learning-point-box">
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
+                <ul class="custom-list">
+                    <li>請確實掌握表格製作的各項關鍵，包含 <code>colspan</code>／<code>rowspan</code> 的注意事項。</li>
+                </ul>
+            </div>
         </div>
     </div>
-
 </body>
 
 </html>
