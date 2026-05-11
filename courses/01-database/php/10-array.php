@@ -37,6 +37,7 @@
 
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 $students = [
     "judy"  => ["國文" => 95, "英文" => 64, "數學" => 70, "地理" => 90, "歷史" => 84],
     "amo"   => ["國文" => 88, "英文" => 78, "數學" => 54, "地理" => 81, "歷史" => 71],
@@ -59,7 +60,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">

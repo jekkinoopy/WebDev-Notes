@@ -47,12 +47,12 @@
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此實作間隔天數計算
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -94,12 +94,12 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此實作生日倒數計算
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -136,12 +136,12 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此實作各式格式呈現
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -174,12 +174,12 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此實作週一日期迴圈
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">

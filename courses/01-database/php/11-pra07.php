@@ -31,6 +31,7 @@
         <div class="note-card">
             <h3 class="note-subtitle">利用程式產生陣列</h3>
             <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
                 <ul class="custom-list">
                     <li>以迴圈的方式產生一個九九乘法表</li>
                     <li>將九九乘法表的每個項目以字串型式存入陣列中</li>
@@ -40,6 +41,7 @@
 
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 建立空陣列
 $nine = [];
 
@@ -58,7 +60,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -107,11 +108,13 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
         <div class="note-card" style="margin-top: 40px;">
             <h3 class="note-subtitle">表格視覺化顯示</h3>
             <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
                 <p>運用 `foreach` 拆解陣列內容，並配合 `%` 取餘數邏輯進行 HTML 表格換行。</p>
             </div>
 
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 echo "<table><tr>";
 foreach ($nine as $idx => $item) {
     // 判斷是否需要換行：索引大於 0 且為 9 的倍數
@@ -125,7 +128,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -169,7 +171,6 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     <li><strong>邏輯與視圖：</strong>實現了「一次計算、多處使用」的資料共享邏輯。</li>
                 </ul>
             </div>
-        </div>
 
             <aside class="note-reference-box" aria-label="延伸閱讀">
                 <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
@@ -182,6 +183,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     </li>
                 </ul>
             </aside>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>

@@ -40,12 +40,12 @@
 
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此處實作迴圈置換邏輯
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">

@@ -31,10 +31,12 @@
         <div class="note-card">
             <h3 class="note-subtitle">直角三角形</h3>
             <div class="ques-section">
-                控制內層迴圈邊界，使其隨外層行數遞增。
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <p>控制內層迴圈邊界，使其隨外層行數遞增。</p>
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 for ($i = 1; $i <= 5; $i++) {
     for ($j = 1; $j <= $i; $j++) {
         echo "<img src='images/09-1.png' style='width:30px'>";
@@ -45,7 +47,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -82,10 +83,12 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
         <div class="note-card">
             <h3 class="note-subtitle">正三角形 (金字塔)</h3>
             <div class="ques-section">
-                邏輯：先印空格，再印金幣。
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <p>邏輯：先印空格，再印金幣。</p>
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 $totalRows = 5;
 for ($i = 1; $i <= $totalRows; $i++) {
     for ($j = 1; $j <= ($totalRows - $i); $j++) {
@@ -100,7 +103,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -141,17 +143,18 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
         <div class="note-card">
             <h3 class="note-subtitle">空心矩形</h3>
             <div class="ques-section">
-                <strong>挑戰需求：</strong>實作出只有邊框有金幣的 5x5 矩形。
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <p>挑戰：實作出只有邊框有金幣的 5x5 矩形。</p>
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此處實作迴圈與 if 判斷邊界邏輯
 
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -181,17 +184,18 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
         <div class="note-card">
             <h3 class="note-subtitle">對角線矩形</h3>
             <div class="ques-section">
-                <strong>挑戰需求：</strong>除了矩形邊框，還要包含中間的「X」對角線。
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <p>挑戰：除了矩形邊框，還要包含中間的「X」對角線。</p>
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此處實作對角線判斷邏輯 (提示：i 與 j 的關係)
 
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -223,7 +227,6 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     <li>巢狀結構：外層控制列，內層控制行。</li>
                 </ul>
             </div>
-        </div>
 
             <aside class="note-reference-box" aria-label="延伸閱讀">
                 <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
@@ -236,6 +239,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     </li>
                 </ul>
             </aside>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>

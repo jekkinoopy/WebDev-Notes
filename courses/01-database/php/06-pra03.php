@@ -39,6 +39,7 @@
                 <pre><code><?php
             // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
 $code = <<<'EOD'
+// 【程式碼練習】
 <?php
 $n=100;
     for($i=1; $i<=$n; $i+=2){
@@ -56,6 +57,7 @@ echo htmlspecialchars($code);
             <pre><code><?php
         // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
 $code = <<<'EOD'
+// 【程式碼練習】
             <?php
             $n=100;
             for($i=10;$i<=$n;$i+=10){
@@ -84,7 +86,6 @@ echo htmlspecialchars($code);
 
                 ?>
         </div>
-        </div>
 
             <aside class="note-reference-box" aria-label="延伸閱讀">
                 <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
@@ -97,6 +98,7 @@ echo htmlspecialchars($code);
                     </li>
                 </ul>
             </aside>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>

@@ -49,12 +49,12 @@
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此實作 Table 迴圈產生日曆邏輯
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -131,12 +131,12 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此實作 Table 迴圈產生日曆邏輯
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -223,12 +223,12 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此實作 Table 迴圈產生日曆邏輯
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -304,12 +304,12 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此實作 if 判斷特殊日期顯示邏輯
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -342,6 +342,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             </div>
             <?php
 $code = <<<'EOD'
+/* 【樣式建議】 */
 /* CSS 建議方向：
 .calendar { display: flex; flex-wrap: wrap; }
 .day { width: calc(100% / 7); }
@@ -350,7 +351,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【樣式建議】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">

@@ -6,7 +6,7 @@
   --note-block-gap: 1.25rem;
   --note-practice-run-gap: var(--note-block-gap);
   /* 與 .note-practice-sticky 內程式窗（body／gutter／pre、Prism span.token）一致 */
-  --note-practice-copy-font-size: 0.8125rem;
+  --note-practice-copy-font-size: 1rem;
   --note-practice-copy-line-height: 1.55;
   /* 題目需求、執行結果、學習重點內文與上方同節奏 */
   --note-body-font-size: var(--note-practice-copy-font-size);
@@ -122,6 +122,13 @@ body {
   display: block;
   content: "";
   margin-top: 8px;
+}
+
+.ques-section img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 0.9rem;
 }
 
 /* 裝飾性小標示：在右上角加入「Exercise」字樣（選用） */
@@ -466,6 +473,30 @@ body {
   box-shadow: var(--note-section-inset-shadow);
   background-color: var(--white);
   color: var(--text-main);
+}
+
+/* 多卡頁沉底版：延伸閱讀作為 note-container 直層元素時，補上獨立卡片感與對比 */
+.note-container > .note-reference-box {
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 10px 28px rgba(15, 23, 42, 0.14),
+    0 2px 8px rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.96);
+  overflow: hidden;
+}
+
+.note-container > .note-reference-box .note-reference-title {
+  background-color: var(--primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+  padding: 0.75rem 1.25rem;
+}
+
+.note-container > .note-reference-box .note-reference-list {
+  padding: 0.85rem 1.25rem 1.1rem;
+  gap: 0.55em;
 }
 
 .note-reference-title {

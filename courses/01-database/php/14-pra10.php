@@ -30,6 +30,7 @@
         <div class="note-card">
             <h3 class="note-subtitle">天干地支轉換器</h3>
             <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
                 <p>已知西元1024年為甲子年，請設計一支程式，可以接受任一西元年份，輸出對應的天干地支的年別。(利用迴圈)</p>
                 <ul class="custom-list">
                     <li>天干：甲乙丙丁戊己庚辛壬癸</li>
@@ -40,12 +41,12 @@
 
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 在此處實作迴圈計算邏輯
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">

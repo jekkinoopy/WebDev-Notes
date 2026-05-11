@@ -59,6 +59,7 @@
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 // 1. 將 ”aaddw1123” 改成 ”*********”
 
 // 2. 將 ”this,is,a,book” 依 ”,” 切割後成為陣列
@@ -69,7 +70,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -110,6 +110,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             </div>
             <?php
 $code = <<<'EOD'
+// 【程式碼練習】
 $quote = "The reason why a great man is great is that he resolves to be a great man";
 $sentence = "學會PHP網頁程式設計，薪水會加倍，工作會好找";
 $keyword = "程式設計";
@@ -122,7 +123,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">

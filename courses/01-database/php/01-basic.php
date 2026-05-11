@@ -46,7 +46,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -108,7 +107,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -152,7 +150,6 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     <li><strong>變數交換：</strong>用暫存（<code>$temp</code>），避免兩邊直接互指定時覆蓋掉其中一個原值。</li>
                 </ul>
             </div>
-        </div>
 
             <aside class="note-reference-box" aria-label="延伸閱讀">
                 <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
@@ -165,6 +162,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     </li>
                 </ul>
             </aside>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>

@@ -53,7 +53,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -145,7 +144,6 @@ EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
-            <p class="section-label is-bracket-heading">【程式碼練習】</p>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
                 <div class="note-code-window-toolbar">
@@ -203,7 +201,6 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     <li>若不加 <code>default</code>，表示沒有符合的 <code>case</code> 時，結束這個 <code>switch</code> 的執行</li>
                 </ul>
             </div>
-        </div>
 
             <aside class="note-reference-box" aria-label="延伸閱讀">
                 <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
@@ -216,6 +213,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     </li>
                 </ul>
             </aside>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
