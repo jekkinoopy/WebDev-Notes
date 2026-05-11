@@ -73,14 +73,20 @@
       indexLabelNext = "回到 " + series + " 目錄";
     }
 
+    var prevHrefOverride = root.getAttribute("data-lesson-prev-href");
+    var nextHrefOverride = root.getAttribute("data-lesson-next-href");
+
     // 上一則
     if (cur > 0) {
       var prev = chain[cur - 1];
       var prevNum = cur;
+      var prevHref =
+        prevHrefOverride && prevHrefOverride.length
+          ? prevHrefOverride
+          : prev.id + ext;
       parts.push(
         '<a class="note-lesson-nav-link note-lesson-nav-link--prev" href="' +
-          prev.id +
-          ext +
+          prevHref +
           '"><span class="note-lesson-nav-chevron" aria-hidden="true">‹</span><span class="note-lesson-nav-text">' +
           series +
           " Lesson " +
@@ -103,10 +109,13 @@
     if (cur < chain.length - 1) {
       var next = chain[cur + 1];
       var nextNum = cur + 2;
+      var nextHref =
+        nextHrefOverride && nextHrefOverride.length
+          ? nextHrefOverride
+          : next.id + ext;
       parts.push(
         '<a class="note-lesson-nav-link note-lesson-nav-link--next" href="' +
-          next.id +
-          ext +
+          nextHref +
           '"><span class="note-lesson-nav-text">' +
           series +
           " Lesson " +
