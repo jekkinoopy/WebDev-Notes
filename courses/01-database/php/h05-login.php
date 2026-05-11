@@ -261,7 +261,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     <a href="https://mackliu.github.io/php-book/2021/09/19/basic-lesson-02/" target="_blank" rel="noopener noreferrer">[基礎課程] Lesson 2 PHP程式流程控制</a>
                 </li>
                 <li>
-                    <a href="https://github.com/mackliu/11501-FULL-BASIC/blob/main/h05-login.php" target="_blank" rel="noopener noreferrer">11501 全端班：本題對照原始碼（h05-login.php）</a>
+                    <a href="https://github.com/mackliu/115-html/blob/main/07-login-get.php" target="_blank" rel="noopener noreferrer">115 HTML 課程：對照原始碼（07-login-get.php）</a>
                 </li>
             </ul>
         </aside>

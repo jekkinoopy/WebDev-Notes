@@ -98,6 +98,16 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
                 ?>
             </div>
+            </div>
+
+            <div class="learning-point-box">
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
+                <ul class="custom-list">
+                    <li><strong>str_replace：</strong>把指定內容換成新字串；搜尋與取代可為字串或陣列，適合同時改掉多個字元或片段。</li>
+                    <li><strong>explode：</strong>依分隔字串將一條字串切成<strong>陣列</strong>，分隔符請與題目要求一致（例如逗號）。</li>
+                    <li><strong>implode / join：</strong>把陣列元素用指定字串（例如空白）接成<strong>單一字串</strong>，與 <code>explode()</code> 成對使用。</li>
+                </ul>
+            </div>
         </div>
 
         <!-- 練習 2：子字串取用與 HTML 整合 -->
@@ -143,25 +153,27 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
-                $str="喜歡水晶男孩，是因為在他們身上能看見「時間的溫柔」。作為元祖偶像，他們擁有跨越世代的實力與金曲，旋律朗朗上口，讓不同年齡層都能共情。
+                
+//                 $str="喜歡水晶男孩，是因為在他們身上能看見「時間的溫柔」。作為元祖偶像，他們擁有跨越世代的實力與金曲，旋律朗朗上口，讓不同年齡層都能共情。
 
-更迷人的是那份從未改變的真誠。即便歲月更迭，成員間相處依舊像大男孩般純粹，既有成熟男人的內斂與擔當，又保有調皮反差的魅力。這種不刻意包裝的「真」，讓老粉絲重拾青春回憶，也讓新一代被他們專業卻不失溫度的精神吸引。他們不只是偶像，更是一種陪伴與堅持的象徵。";
-echo "$str";
-$keyword="水晶男孩";
-$tmp="<a href='#' style='color:yellow;'>$keyword</a>";
-if(strpos($str)
-    ){};
-echo "$str";
+// 更迷人的是那份從未改變的真誠。即便歲月更迭，成員間相處依舊像大男孩般純粹，既有成熟男人的內斂與擔當，又保有調皮反差的魅力。這種不刻意包裝的「真」，讓老粉絲重拾青春回憶，也讓新一代被他們專業卻不失溫度的精神吸引。他們不只是偶像，更是一種陪伴與堅持的象徵。";
+// echo "$str";
+// $keyword="水晶男孩";
+// $tmp="<a href='#' style='color:yellow;'>$keyword</a>";
+// if(strpos($str)
+//     ){};
+// echo "$str";
             
                 
                 ?>
+            </div>
             </div>
 
             <!-- 學習重點 -->
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
-                    <li>處理中文字串（全形字）時，應優先使用 `mb_` 系列函式避免長度計算錯誤。</li>
+                    <li>處理中文字串（全形字）時，應優先使用 <code>mb_</code> 系列函式避免長度計算錯誤。</li>
                     <li>字串取代函式是將後端數據與前端 CSS 樣式結合的常用手段。</li>
                 </ul>
             </div>
@@ -175,7 +187,7 @@ echo "$str";
                     <a href="https://mackliu.github.io/php-book/2021/09/19/basic-lesson-01/" target="_blank" rel="noopener noreferrer">[基礎課程] Lesson 1（變數與字串）</a>
                 </li>
                 <li>
-                    <a href="https://github.com/mackliu/11501-FULL-BASIC/blob/main/h01-string.php" target="_blank" rel="noopener noreferrer">11501 全端班：本題對照原始碼（h01-string.php）</a>
+                    <a href="https://github.com/mackliu/115-html/blob/main/01-string.php" target="_blank" rel="noopener noreferrer">115 HTML 課程：對照原始碼（01-string.php）</a>
                 </li>
             </ul>
         </aside>

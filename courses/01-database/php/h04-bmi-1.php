@@ -192,7 +192,7 @@
                     <a href="https://mackliu.github.io/php-book/2021/09/19/basic-lesson-02/" target="_blank" rel="noopener noreferrer">[基礎課程] Lesson 2 PHP程式流程控制</a>
                 </li>
                 <li>
-                    <a href="https://github.com/mackliu/11501-FULL-BASIC/blob/main/h04-bmi-1.php" target="_blank" rel="noopener noreferrer">11501 全端班：本題對照原始碼（h04-bmi-1.php）</a>
+                    <a href="https://github.com/mackliu/115-html/blob/main/06-BMI.php" target="_blank" rel="noopener noreferrer">115 HTML 課程：對照原始碼（06-BMI.php）</a>
                 </li>
             </ul>
         </aside>
