@@ -32,6 +32,8 @@
     { id: "h03-calander", title: "線上月曆製作" },
     { id: "h06-webCalendar", title: "網頁版萬年曆" },
     { id: "h04-bmi", title: "BMI 計算實作" },
+    { id: "h05-getPost", title: "網頁傳值（GET／POST）重點整理" },
+    { id: "h05-cookieSession", title: "Cookie／Session 狀態管理重點整理" },
     { id: "h05-login", title: "登入驗證練習" },
     { id: "h07-loginCookie", title: "Cookie 狀態管理" },
     { id: "h08-loginSession", title: "Session 會員登入實作" },

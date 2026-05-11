@@ -21,10 +21,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
     }
 }
 
+$demoMinionCenter = isset($_GET['demo']) && $_GET['demo'] === '1';
 $showCenter = isset($_GET['center']) && $_GET['center'] === '1'
-    && !empty($_SESSION['minion_user']);
-$userDisplay = $showCenter ? htmlspecialchars((string) $_SESSION['minion_user'], ENT_QUOTES, 'UTF-8') : '';
+    && (!empty($_SESSION['minion_user']) || $demoMinionCenter);
+if ($showCenter) {
+    if (!empty($_SESSION['minion_user'])) {
+        $userDisplay = htmlspecialchars((string) $_SESSION['minion_user'], ENT_QUOTES, 'UTF-8');
+    } else {
+        $userDisplay = '訪客小小兵';
+    }
+} else {
+    $userDisplay = '';
+}
 $noteIndexHref = 'index.html';
+$selfBase = basename(__FILE__);
+$trainerForTour = (!empty($_COOKIE['trainer_name']) && trim((string) $_COOKIE['trainer_name']) !== '')
+    ? trim((string) $_COOKIE['trainer_name'])
+    : '訪客訓練家';
+$lessonPrevH07Center = 'h07-loginCookie.php?center=1&username=' . rawurlencode($trainerForTour);
+/* 導覽順序：寶可夢登入 → 訓練家中心 → 小小兵登入 → 小小兵中心（demo=1 為示範預覽，免先填表單） */
+if ($showCenter) {
+    $lessonPrevHref = $selfBase;
+    $lessonPrevLabel = 'Bello 登入';
+    $lessonNextHref = 'h07-loginCookie.php';
+    $lessonNextLabel = '訓練家登入';
+    $lessonNextTitle = '導覽回到寶可夢登入頁';
+} else {
+    $lessonPrevHref = $lessonPrevH07Center;
+    $lessonPrevLabel = '訓練家中心';
+    $lessonNextHref = $selfBase . '?center=1&demo=1';
+    $lessonNextLabel = '小小兵中心';
+    $lessonNextTitle = '示範預覽會員中心（免帳密）；若已 Session 登入則顯示你的帳號';
+}
 ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -64,6 +92,71 @@ $noteIndexHref = 'index.html';
             box-shadow: 0 2px 0 var(--mn-black);
         }
 
+        .btn-lesson-mn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: clamp(0.65rem, 1.55vw, 0.76rem);
+            padding: 6px 12px;
+            border-radius: 50px;
+            border: 3px solid var(--mn-black);
+            white-space: nowrap;
+            max-width: min(34vw, 8.75rem);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-shadow: 0 4px 0 var(--mn-black);
+            transition: transform 0.1s, filter 0.12s;
+        }
+
+        .btn-lesson-mn:hover { filter: brightness(1.04); }
+
+        .btn-lesson-mn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 var(--mn-black);
+        }
+
+        .btn-lesson-mn-prev {
+            background: var(--mn-blue);
+            color: var(--mn-white);
+        }
+
+        .btn-lesson-mn-next {
+            background: var(--mn-yellow);
+            color: var(--mn-black);
+        }
+
+        .theme-lesson-strip {
+            flex-shrink: 0;
+            width: min(100%, 480px);
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 10px 6px;
+            box-sizing: border-box;
+        }
+
+        .theme-lesson-strip .btn-back-notes {
+            padding: 6px 12px;
+            font-size: clamp(0.62rem, 1.45vw, 0.74rem);
+        }
+
+        .header-lesson-cluster {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-lesson-cluster .btn-back-notes {
+            padding: 6px 12px;
+            font-size: 0.78rem;
+        }
+
         /* —— 登入 —— */
         body.login-body {
             background-color: var(--mn-yellow);
@@ -71,18 +164,25 @@ $noteIndexHref = 'index.html';
             font-family: 'Noto Sans TC', sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
+            max-height: 100vh;
             margin: 0;
-            gap: 16px;
+            overflow: hidden;
+            box-sizing: border-box;
+            padding-top: 6px;
         }
 
         .login-wrap {
+            flex: 1 1 auto;
+            min-height: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            justify-content: center;
+            width: 100%;
+            overflow: hidden;
         }
 
         .container {
@@ -119,7 +219,7 @@ $noteIndexHref = 'index.html';
         }
 
         form.mn-form {
-            padding: 40px 30px;
+            padding: 28px 26px 20px;
         }
 
         .form-group {
@@ -180,44 +280,61 @@ $noteIndexHref = 'index.html';
             text-decoration: underline;
         }
 
-        .login-back-row {
-            text-align: center;
-            padding-bottom: 28px;
-        }
-
         /* —— 會員中心 —— */
         body.center-body {
             background-color: #fefce8;
             font-family: 'Noto Sans TC', sans-serif;
             margin: 0;
+            height: 100vh;
+            max-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         body.center-body > header {
+            flex-shrink: 0;
             background-color: var(--mn-blue);
-            padding: 15px 40px;
+            padding: 10px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
+            flex-wrap: nowrap;
+            gap: 10px;
             color: white;
             border-bottom: 8px solid var(--mn-yellow);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-size: clamp(0.92rem, 2.9vw, 1.35rem);
             font-weight: 900;
             display: flex;
             align-items: center;
             gap: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .nav-actions {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-flow: row nowrap;
+            gap: 8px;
             align-items: center;
+        }
+
+        .center-body-scroll {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: none;
+        }
+
+        .center-body-scroll::-webkit-scrollbar {
+            width: 0;
+            height: 0;
         }
 
         .logout-btn {
@@ -234,8 +351,8 @@ $noteIndexHref = 'index.html';
 
         .main-container {
             max-width: 1100px;
-            margin: 50px auto;
-            padding: 0 20px;
+            margin: clamp(18px, 3.5vh, 36px) auto;
+            padding: 0 clamp(12px, 3vw, 20px);
         }
 
         .welcome-section {
@@ -267,8 +384,8 @@ $noteIndexHref = 'index.html';
 
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: clamp(14px, 2.8vw, 24px);
         }
 
         .card {
@@ -330,7 +447,7 @@ $noteIndexHref = 'index.html';
 
         .center-footer {
             text-align: center;
-            padding: 40px;
+            padding: clamp(18px, 4vh, 32px);
             font-weight: 900;
             color: var(--mn-blue);
         }
@@ -339,6 +456,11 @@ $noteIndexHref = 'index.html';
 <body class="<?php echo $showCenter ? 'center-body' : 'login-body'; ?>">
 
 <?php if (!$showCenter): ?>
+    <nav class="theme-lesson-strip" aria-label="單元導覽">
+        <a href="<?php echo htmlspecialchars($lessonPrevHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-lesson-mn btn-lesson-mn-prev" title="上一則：<?php echo htmlspecialchars($lessonPrevLabel, ENT_QUOTES, 'UTF-8'); ?>"><span aria-hidden="true">‹</span> <?php echo htmlspecialchars($lessonPrevLabel, ENT_QUOTES, 'UTF-8'); ?></a>
+        <a href="<?php echo htmlspecialchars($noteIndexHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-back-notes"><i class="fa-solid fa-book-open" aria-hidden="true"></i> PHP 課程筆記</a>
+        <a href="<?php echo htmlspecialchars($lessonNextHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-lesson-mn btn-lesson-mn-next" title="<?php echo htmlspecialchars($lessonNextTitle, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($lessonNextLabel, ENT_QUOTES, 'UTF-8'); ?> <span aria-hidden="true">›</span></a>
+    </nav>
     <div class="login-wrap">
     <div class="container">
         <div class="header">
@@ -364,9 +486,6 @@ $noteIndexHref = 'index.html';
             還沒加入小小兵？ <a href="#">立即加入</a>
         </div>
 
-        <div class="login-back-row">
-            <a href="<?php echo htmlspecialchars($noteIndexHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-back-notes"><i class="fa-solid fa-book-open" aria-hidden="true"></i> 回到課程筆記</a>
-        </div>
     </div>
     </div>
 
@@ -375,11 +494,16 @@ $noteIndexHref = 'index.html';
     <header>
         <div class="logo">🍌 MINION CENTER</div>
         <div class="nav-actions">
-            <a href="<?php echo htmlspecialchars($noteIndexHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-back-notes"><i class="fa-solid fa-book-open" aria-hidden="true"></i> 回到課程筆記</a>
+            <div class="header-lesson-cluster">
+                <a href="<?php echo htmlspecialchars($lessonPrevHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-lesson-mn btn-lesson-mn-prev" title="上一則">‹ <?php echo htmlspecialchars($lessonPrevLabel, ENT_QUOTES, 'UTF-8'); ?></a>
+                <a href="<?php echo htmlspecialchars($noteIndexHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-back-notes"><i class="fa-solid fa-book-open" aria-hidden="true"></i> PHP 筆記</a>
+                <a href="<?php echo htmlspecialchars($lessonNextHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-lesson-mn btn-lesson-mn-next" title="<?php echo htmlspecialchars($lessonNextTitle, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($lessonNextLabel, ENT_QUOTES, 'UTF-8'); ?> ›</a>
+            </div>
             <a href="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'); ?>?logout=1" class="logout-btn">POOPAYE! (登出)</a>
         </div>
     </header>
 
+    <div class="center-body-scroll">
     <div class="main-container">
         <div class="welcome-section">
             <div class="welcome-emoji"><img src="./images/h08-1.png" alt=""></div>
@@ -432,6 +556,7 @@ $noteIndexHref = 'index.html';
     <footer class="center-footer">
         <p>BANANA! © 2026 小小兵中心 · 搗蛋無罪 🍌</p>
     </footer>
+    </div>
 
 <?php endif; ?>
 

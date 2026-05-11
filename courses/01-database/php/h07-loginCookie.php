@@ -19,6 +19,24 @@ $showCenter = isset($_GET['center']) && $_GET['center'] === '1'
     && isset($_GET['username']) && trim((string) $_GET['username']) !== '';
 $userDisplay = $showCenter ? htmlspecialchars(trim((string) $_GET['username']), ENT_QUOTES, 'UTF-8') : '';
 $noteIndexHref = 'index.html';
+$selfBase = basename(__FILE__);
+$trainerPreview = (!empty($_COOKIE['trainer_name']) && trim((string) $_COOKIE['trainer_name']) !== '')
+    ? trim((string) $_COOKIE['trainer_name'])
+    : '訪客訓練家';
+/* 導覽順序：寶可夢登入 → 訓練家中心 → 小小兵登入 → 小小兵中心 */
+if ($showCenter) {
+    $lessonPrevHref = $selfBase;
+    $lessonPrevLabel = '訓練家登入';
+    $lessonNextHref = 'h08-loginSession.php';
+    $lessonNextLabel = '小小兵登入';
+    $lessonNextTitle = '導覽：前往小小兵登入（Session 主題）';
+} else {
+    $lessonPrevHref = 'h05-login.php';
+    $lessonPrevLabel = 'POST 登入';
+    $lessonNextHref = $selfBase . '?center=1&username=' . rawurlencode($trainerPreview);
+    $lessonNextLabel = '訓練家中心';
+    $lessonNextTitle = '示範進入訓練家中心（免先送出表單；稱呼來自 Cookie 或「訪客訓練家」）';
+}
 ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -63,6 +81,72 @@ $noteIndexHref = 'index.html';
             box-shadow: 0 1px 0 var(--pk-black);
         }
 
+        /* 上一則／下一則（訓練家主題） */
+        .btn-lesson-pk {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: clamp(0.65rem, 1.55vw, 0.76rem);
+            padding: 6px 12px;
+            border-radius: 50px;
+            border: 3px solid var(--pk-black);
+            white-space: nowrap;
+            max-width: min(34vw, 8.75rem);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-shadow: 0 3px 0 var(--pk-black);
+            transition: transform 0.1s, filter 0.12s;
+        }
+
+        .btn-lesson-pk:hover { filter: brightness(1.05); }
+
+        .btn-lesson-pk:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 var(--pk-black);
+        }
+
+        .btn-lesson-pk-prev {
+            background: var(--pk-blue);
+            color: white;
+        }
+
+        .btn-lesson-pk-next {
+            background: var(--pk-yellow);
+            color: var(--pk-black);
+        }
+
+        .theme-lesson-strip {
+            flex-shrink: 0;
+            width: min(100%, 480px);
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 10px 6px;
+            box-sizing: border-box;
+        }
+
+        .theme-lesson-strip .btn-back-notes {
+            padding: 6px 12px;
+            font-size: clamp(0.62rem, 1.45vw, 0.74rem);
+        }
+
+        .header-lesson-cluster {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-lesson-cluster .btn-back-notes {
+            padding: 6px 12px;
+            font-size: 0.78rem;
+        }
+
         /* —— 登入畫面 —— */
         body.login-body {
             background-color: #e0e0e0;
@@ -73,18 +157,25 @@ $noteIndexHref = 'index.html';
             font-family: 'Noto Sans TC', sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
+            max-height: 100vh;
             margin: 0;
-            gap: 16px;
+            overflow: hidden;
+            box-sizing: border-box;
+            padding-top: 6px;
         }
 
         .login-wrap {
+            flex: 1 1 auto;
+            min-height: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            justify-content: center;
+            width: 100%;
+            overflow: hidden;
         }
 
         .container {
@@ -143,7 +234,7 @@ $noteIndexHref = 'index.html';
         }
 
         form.poke-form {
-            padding: 50px 35px 30px 35px;
+            padding: 28px 30px 18px 30px;
         }
 
         .form-group {
@@ -225,31 +316,31 @@ $noteIndexHref = 'index.html';
 
         .footer-link a:hover { border-bottom-color: var(--pk-red); }
 
-        .login-back-row {
-            text-align: center;
-            padding-bottom: 28px;
-        }
-
         /* —— 訓練家中心 —— */
         body.center-body {
             background-color: var(--pk-gray);
             font-family: 'Noto Sans TC', sans-serif;
             margin: 0;
             color: var(--pk-black);
+            height: 100vh;
+            max-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         body.center-body > header {
+            flex-shrink: 0;
             background-color: var(--pk-red);
             border-bottom: 6px solid var(--pk-black);
-            padding: 15px 30px;
+            padding: 10px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
+            flex-wrap: nowrap;
+            gap: 10px;
             color: white;
-            position: sticky;
-            top: 0;
+            position: relative;
             z-index: 100;
         }
 
@@ -277,9 +368,22 @@ $noteIndexHref = 'index.html';
 
         .nav-actions {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-flow: row nowrap;
+            gap: 8px;
             align-items: center;
+        }
+
+        .center-body-scroll {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: none;
+        }
+
+        .center-body-scroll::-webkit-scrollbar {
+            width: 0;
+            height: 0;
         }
 
         .logout-btn {
@@ -302,8 +406,8 @@ $noteIndexHref = 'index.html';
 
         .main-container {
             max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: clamp(16px, 3vh, 28px) auto;
+            padding: 0 clamp(12px, 3vw, 20px);
         }
 
         .welcome-section {
@@ -358,8 +462,8 @@ $noteIndexHref = 'index.html';
 
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: clamp(14px, 2.5vw, 22px);
         }
 
         .card {
@@ -430,8 +534,8 @@ $noteIndexHref = 'index.html';
             background-color: var(--pk-black);
             color: white;
             text-align: center;
-            padding: 30px;
-            margin-top: 60px;
+            padding: clamp(16px, 3vh, 22px);
+            margin-top: clamp(20px, 4vh, 40px);
         }
 
         .center-footer p {
@@ -439,11 +543,20 @@ $noteIndexHref = 'index.html';
             font-weight: 600;
             letter-spacing: 1px;
         }
+
+        .logo span {
+            font-size: clamp(0.92rem, 2.8vw, 1.15rem);
+        }
     </style>
 </head>
 <body class="<?php echo $showCenter ? 'center-body' : 'login-body'; ?>">
 
 <?php if (!$showCenter): ?>
+    <nav class="theme-lesson-strip" aria-label="單元導覽">
+        <a href="<?php echo htmlspecialchars($lessonPrevHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-lesson-pk btn-lesson-pk-prev" title="上一則：<?php echo htmlspecialchars($lessonPrevLabel, ENT_QUOTES, 'UTF-8'); ?>"><span aria-hidden="true">‹</span> <?php echo htmlspecialchars($lessonPrevLabel, ENT_QUOTES, 'UTF-8'); ?></a>
+        <a href="<?php echo htmlspecialchars($noteIndexHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-back-notes"><i class="fa-solid fa-book-open" aria-hidden="true"></i> 課程筆記</a>
+        <a href="<?php echo htmlspecialchars($lessonNextHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-lesson-pk btn-lesson-pk-next" title="<?php echo htmlspecialchars($lessonNextTitle, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($lessonNextLabel, ENT_QUOTES, 'UTF-8'); ?> <span aria-hidden="true">›</span></a>
+    </nav>
     <div class="login-wrap">
     <div class="container">
         <div class="header">
@@ -476,9 +589,6 @@ $noteIndexHref = 'index.html';
             新手訓練家？ <a href="#">領取新手禮包(註冊)</a>
         </div>
 
-        <div class="login-back-row">
-            <a href="<?php echo htmlspecialchars($noteIndexHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-back-notes"><i class="fa-solid fa-book-open" aria-hidden="true"></i> 回到課程筆記</a>
-        </div>
     </div>
     </div>
 
@@ -490,11 +600,16 @@ $noteIndexHref = 'index.html';
             <span>TRAINER CENTER</span>
         </div>
         <div class="nav-actions">
-            <a href="<?php echo htmlspecialchars($noteIndexHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-back-notes"><i class="fa-solid fa-book-open" aria-hidden="true"></i> 回到課程筆記</a>
+            <div class="header-lesson-cluster">
+                <a href="<?php echo htmlspecialchars($lessonPrevHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-lesson-pk btn-lesson-pk-prev" title="上一則">‹ <span><?php echo htmlspecialchars($lessonPrevLabel, ENT_QUOTES, 'UTF-8'); ?></span></a>
+                <a href="<?php echo htmlspecialchars($noteIndexHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-back-notes"><i class="fa-solid fa-book-open" aria-hidden="true"></i> 筆記</a>
+                <a href="<?php echo htmlspecialchars($lessonNextHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-lesson-pk btn-lesson-pk-next" title="<?php echo htmlspecialchars($lessonNextTitle, ENT_QUOTES, 'UTF-8'); ?>"><span><?php echo htmlspecialchars($lessonNextLabel, ENT_QUOTES, 'UTF-8'); ?></span> ›</a>
+            </div>
             <a href="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'); ?>?logout=1" class="logout-btn">結束冒險</a>
         </div>
     </header>
 
+    <div class="center-body-scroll">
     <div class="main-container">
         <div class="welcome-section">
             <div class="welcome-emoji">⚡</div>
@@ -596,6 +711,7 @@ $noteIndexHref = 'index.html';
     <footer class="center-footer">
         <p>© 2026 POKÉMON TRAINER CENTER · GO FOR IT! ⚡</p>
     </footer>
+    </div>
 
 <?php endif; ?>
 

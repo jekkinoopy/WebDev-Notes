@@ -1,4 +1,11 @@
-<?php $noteIndexHref = 'index.html'; ?>
+<?php
+$noteIndexHref = 'index.html';
+$h = static fn (string $s): string => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+$prevLessonHref = 'h06-webCalendar.php';
+$nextLessonHref = 'h06-webCalendar-2.php';
+$prevLessonLabel = '講義萬年曆';
+$nextLessonLabel = '森林萬年曆';
+?>
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -17,6 +24,9 @@
         }
 
         /* 關鍵：強制 100vh 且隱藏捲軸 */
+        html { height: 100%; box-sizing: border-box; }
+        *, *::before, *::after { box-sizing: inherit; }
+
         body {
             background-color: #a5d6a7; 
             background-image: radial-gradient(#81c784 10%, transparent 10%);
@@ -24,18 +34,78 @@
             font-family: 'Noto Sans TC', sans-serif;
             color: var(--ac-brown);
             margin: 0;
-            height: 100vh;
+            height: 100%;
+            max-height: 100vh;
             overflow: hidden; 
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
+        /* 頂橫列：上一則｜返回｜標題｜下一則 */
+        .ac-top-row {
+            flex-shrink: 0;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            gap: clamp(6px, 1.2vw, 12px);
+            width: min(98vw, 1400px);
+            margin: 4px auto 8px;
+            padding: 0 clamp(6px, 1.6vw, 12px);
+            z-index: 10;
+        }
+
+        a.ac-nav-btn {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: clamp(0.68rem, 1.55vw, 0.82rem);
+            padding: 8px 12px;
+            border-radius: 50px;
+            border: 3px solid #5d4037;
+            white-space: nowrap;
+            max-width: min(30vw, 9.5rem);
+            box-shadow: 0 3px 0 #5d4037;
+            transition: transform 0.12s, filter 0.12s;
+            color: #4a3728;
+        }
+
+        .ac-nav-btn .ac-nav-ellip {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        a.ac-nav-btn:hover { filter: brightness(1.04); }
+
+        a.ac-nav-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 #5d4037;
+        }
+
+        a.ac-nav-prev { background-color: #90caf9; }
+        a.ac-nav-next { background-color: var(--ac-yellow); }
+
+        .ac-top-center {
+            flex: 1 1 auto;
+            min-width: 0;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(6px, 1.6vw, 12px);
+        }
+
         /* 標題區塊：木頭吊牌感 */
         .ac-header {
             margin-top: 0;
+            flex: 1 1 auto;
+            min-width: 0;
             background: #b68d68; /* 木頭色 */
-            padding: 10px 40px;
+            padding: 8px clamp(14px, 4vw, 36px);
             border-radius: 50px;
             border: 4px solid #8d6e63;
             box-shadow: 0 4px 0px #5d4037;
@@ -46,76 +116,75 @@
         .ac-header h1 {
             margin: 0;
             color: white;
-            font-size: 1.5rem;
+            font-size: clamp(0.92rem, 2.8vw, 1.42rem);
             text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: clamp(6px, 2vw, 12px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* 主容器：利用左右空間 */
         .ac-main-container {
-            flex: 1; /* 自動填滿剩餘高度 */
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow: hidden;
             display: flex;
-            gap: 20px;
-            padding: 20px;
-            width: 95vw;
+            gap: clamp(12px, 2vw, 18px);
+            padding: clamp(8px, 1.5vh, 14px);
+            width: min(98vw, 1400px);
             max-width: 1400px;
-            box-sizing: border-box;
-            align-items: stretch; /* 讓左右兩邊等高 */
+            align-items: stretch;
         }
 
         /* 左側：資訊區塊 */
         .ac-sidebar {
-            flex: 1;
+            flex: 1 1 22%;
+            min-width: 0;
+            min-height: 0;
+            overflow: hidden;
             background-color: var(--ac-beige);
             border-radius: var(--radius-lg);
-            border: 4px dashed #d7d0b0;
-            padding: 20px;
+            border: 4px solid #e0dbba;
+            padding: clamp(12px, 2.2vh, 24px);
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         /* 右側：月曆主體 */
         .ac-calendar-card {
-            flex: 3;
+            flex: 3 1 55%;
+            min-width: 0;
+            min-height: 0;
+            overflow: hidden;
             background-color: var(--ac-card-bg);
             border-radius: var(--radius-lg);
             border: 6px solid #e0dbba;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            padding: 15px;
+            padding: clamp(8px, 1.6vh, 14px);
             display: flex;
             flex-direction: column;
             position: relative;
         }
 
         h2 {
+            flex-shrink: 0;
             text-align: center;
             background-color: var(--ac-green);
             color: white;
-            padding: 8px;
+            padding: 6px 10px;
             border-radius: 50px;
-            font-size: 1.2rem;
-            margin: 0 0 15px 0;
+            font-size: clamp(0.86rem, 2.6vw, 1.08rem);
+            margin: 0 0 clamp(6px, 1.6vh, 12px);
             box-shadow: 0 3px 0px #5ea53b;
         }
 
-/* 側邊欄整體優化 */
-.ac-sidebar {
-    flex: 1;
-    background-color: var(--ac-beige);
-    border-radius: var(--radius-lg);
-    border: 4px solid #e0dbba; /* 改成實線，看起來更穩重 */
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* 改成從頂部開始排 */
-}
-
 .ac-sidebar h3 {
-    margin: 0 0 20px 0;
-    font-size: 1.2rem;
+    margin: 0 0 clamp(10px, 2vh, 18px);
+    font-size: clamp(0.9rem, 2.6vw, 1.08rem);
     color: var(--ac-brown);
     border-bottom: 2px solid rgba(141, 110, 99, 0.2);
     padding-bottom: 10px;
@@ -129,11 +198,11 @@
 }
 
 .ques-section li {
-    padding: 10px 0;
+    padding: clamp(4px, 1.2vh, 9px) 0;
     display: flex;
     align-items: center; /* 讓葉子與文字垂直對齊 */
     justify-content: space-between; /* 讓數據靠右，名稱靠左，達成完美對齊 */
-    font-size: 0.95rem;
+    font-size: clamp(0.75rem, 2.1vw, 0.9rem);
     color: var(--ac-brown);
     border-bottom: 1px solid rgba(141, 110, 99, 0.05); /* 輕微的分割線 */
 }
@@ -156,20 +225,22 @@
     color: var(--ac-leaf);
 }
 
-        /* 表格優化：高度自適應 */
-        table {
+        /* 表格：撐滿剩餘高度、略縮字避免超出視窗 */
+        .ac-calendar-card table {
+            flex: 1 1 auto;
+            min-height: 0;
             width: 100%;
-            height: 100%; /* 撐滿父容器 */
             border-collapse: separate;
-            border-spacing: 6px;
-            table-layout: fixed; /* 固定欄寬 */
+            border-spacing: clamp(3px, 0.8vmin, 6px);
+            table-layout: fixed;
         }
 
         th {
             background-color: #ffcc80;
             color: white;
             border-radius: 10px;
-            height: 35px;
+            height: clamp(24px, 5.5vh, 34px);
+            font-size: clamp(0.68rem, 2vw, 0.85rem);
         }
 
         th:first-child { background-color: #ef9a9a; }
@@ -178,7 +249,7 @@
         td {
             background-color: white;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: clamp(0.72rem, 2.5vmin, 1.12rem);
             font-weight: bold;
             border-radius: 12px;
             border-bottom: 3px solid #eee;
@@ -193,26 +264,15 @@
 
         td:empty { background: transparent; border: none; }
 
-        .ac-top-row {
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            width: 95%;
-            max-width: 1400px;
-            z-index: 10;
-        }
-
         a.btn-back-notes {
+            flex-shrink: 0;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
             text-decoration: none;
             font-weight: 800;
-            font-size: 0.9rem;
-            padding: 10px 22px;
+            font-size: clamp(0.65rem, 1.55vw, 0.82rem);
+            padding: 8px 12px;
             border-radius: 50px;
             background: var(--ac-beige);
             color: var(--ac-brown);
@@ -238,14 +298,18 @@
 </head>
 <body>
 
-    <div class="ac-top-row">
-        <a href="<?php echo htmlspecialchars($noteIndexHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-back-notes">
-            <i class="fa-solid fa-book-open" aria-hidden="true"></i> 回到課程筆記
-        </a>
-        <div class="ac-header">
-            <h1><i class="fa-solid fa-calendar-check"></i> 努比的動森萬年曆</h1>
+    <nav class="ac-top-row" aria-label="單元導覽">
+        <a href="<?php echo $h($prevLessonHref); ?>" class="ac-nav-btn ac-nav-prev" title="上一則：<?php echo $h($prevLessonLabel); ?>"><span aria-hidden="true">‹</span> <span class="ac-nav-ellip"><?php echo $h($prevLessonLabel); ?></span></a>
+        <div class="ac-top-center">
+            <a href="<?php echo $h($noteIndexHref); ?>" class="btn-back-notes">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i> 回到課程筆記
+            </a>
+            <div class="ac-header">
+                <h1><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> 動森萬年曆</h1>
+            </div>
         </div>
-    </div>
+        <a href="<?php echo $h($nextLessonHref); ?>" class="ac-nav-btn ac-nav-next" title="下一則：<?php echo $h($nextLessonLabel); ?>"><span class="ac-nav-ellip"><?php echo $h($nextLessonLabel); ?></span> <span aria-hidden="true">›</span></a>
+    </nav>
 
     <?php 
         // --- 保持原始程式內容 ---

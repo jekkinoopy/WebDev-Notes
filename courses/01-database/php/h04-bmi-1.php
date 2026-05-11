@@ -1,9 +1,50 @@
+<?php
+declare(strict_types=1);
+
+$heightRaw = null;
+$weightRaw = null;
+if (isset($_GET['height'], $_GET['weight'])) {
+    $heightRaw = $_GET['height'];
+    $weightRaw = $_GET['weight'];
+} elseif (isset($_POST['height'], $_POST['weight'])) {
+    $heightRaw = $_POST['height'];
+    $weightRaw = $_POST['weight'];
+}
+
+if ($heightRaw === null || $weightRaw === null) {
+    header('Location: h04-bmi.php', true, 302);
+    exit;
+}
+
+$height = filter_var($heightRaw, FILTER_VALIDATE_FLOAT);
+$weight = filter_var($weightRaw, FILTER_VALIDATE_FLOAT);
+
+if ($height === false || $weight === false || $height <= 0) {
+    header('Location: h04-bmi.php', true, 302);
+    exit;
+}
+
+$bmi = (int) round($weight / (($height / 100) * ($height / 100)));
+
+if ($bmi >= 27) {
+    $status = '肥胖';
+} elseif ($bmi >= 24) {
+    $status = '過重';
+} elseif ($bmi > 18) {
+    $status = '正常';
+} else {
+    $status = '過輕';
+}
+
+$heightDisplay = htmlspecialchars((string) $height, ENT_QUOTES, 'UTF-8');
+$weightDisplay = htmlspecialchars((string) $weight, ENT_QUOTES, 'UTF-8');
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI 計算 - 努比的全端筆記</title>
+    <title>BMI 計算結果 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -121,38 +162,7 @@
     </style>
 </head>
 <body>
-    <?php
-        if(isset($_GET['weight'])){
-            // $_GET('weight') 這就是那個印有 height 標籤的包裹，裡面裝著身高數字
-            // isset($_GET('weight')) 白話解釋：這是在問：「門口有沒有一個叫做 height 的包裹？」。零件功能：它會給你一個答案（True 或 False），但它還不會去拆包裹。
-            $weight=$_GET['weight'];
-        };
-        if(isset($_GET['height'])){
-            $height=$_GET['height'];
-        };
-        if(isset($_POST['weight'])){
-            // $_POST('weight') 這就是那個印有 height 標籤的包裹，裡面裝著身高數字
-            // isset($_POST('weight')) 白話解釋：這是在問：「門口有沒有一個叫做 height 的包裹？」。零件功能：它會給你一個答案（True 或 False），但它還不會去拆包裹。
-            $weight=$_POST['weight'];
-        };
-        if(isset($_POST['height'])){
-            $height=$_POST['height'];
-        };
-        $bmi=round($weight/(($height/100)*($height/100)));
-        if($bmi>=27){
-            $status="肥胖";
-            }
-            elseif($bmi>=24){
-                $status="過重";
-                }
-                elseif($bmi>18){
-                    $status="正常";
-                    }
-                    else{
-                        $status="過輕";
-                    }
-    ?>
-    
+
     <div class="result-card">
         <div class="result-header"></div>
         <div class="result-body">
@@ -161,21 +171,21 @@
             <div class="data-list">
                 <div class="data-item">
                     <span>身高</span>
-                    <strong><?= htmlspecialchars($height); ?> cm</strong>
+                    <strong><?php echo $heightDisplay; ?> cm</strong>
                 </div>
                 <div class="data-item">
                     <span>體重</span>
-                    <strong><?= htmlspecialchars($weight); ?> kg</strong>
+                    <strong><?php echo $weightDisplay; ?> kg</strong>
                 </div>
             </div>
 
             <div class="bmi-display">
-                <span class="bmi-value"><?= $bmi; ?></span>
+                <span class="bmi-value"><?php echo (int) $bmi; ?></span>
                 <span class="bmi-unit">BMI</span>
             </div>
 
             <div class="status-badge">
-                你的體態為：<?= $status; ?>
+                你的體態為：<?php echo htmlspecialchars($status, ENT_QUOTES, 'UTF-8'); ?>
             </div>
 
             <a href="h04-bmi.php" class="btn-back">
