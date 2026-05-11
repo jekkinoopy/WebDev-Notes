@@ -120,12 +120,13 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
                 </table>
             </div>
+            </div>
         </div>
 
         
         <!-- 需求：萬年曆練習(可調整月) -->
         <div class="note-card">
-            <h3 class="note-subtitle">以表格方式呈現整個月份的日期</h3>
+            <h3 class="note-subtitle">以表格呈現整月日期（可切換月份）</h3>
             <div class="ques-section">
                 <strong class="is-bracket-heading">【題目需求】</strong>動態產生萬年曆練習(可調整月)。
             </div>
@@ -202,6 +203,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
                 </table>
             </div>
+            </div>
         </div>
         <div class="note-card">
             <h3 class="note-subtitle">重點複習：月曆核心邏輯</h3>
@@ -217,7 +219,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
         
         <!-- 需求：萬年曆練習(無限月份) -->
         <div class="note-card">
-            <h3 class="note-subtitle">以表格方式呈現整個月份的日期</h3>
+            <h3 class="note-subtitle">以表格呈現整月日期（多月份延伸）</h3>
             <div class="ques-section">
                 <strong class="is-bracket-heading">【題目需求】</strong>動態產生無限月份的日曆網格。
             </div>
@@ -294,6 +296,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
                 </table>
             </div>
+            </div>
         </div>
 
         <!-- 需求 2：特殊日期標註 -->
@@ -330,6 +333,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 預留練習空間 ?>
+            </div>
             </div>
         </div>
 
@@ -372,6 +376,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 預留練習空間 ?>
             </div>
+            </div>
 
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【實作建議】</p>
@@ -391,6 +396,12 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                 </li>
                 <li>
                     <a href="https://github.com/mackliu/115-html/blob/main/03-calendar.php" target="_blank" rel="noopener noreferrer">115 HTML 課程：對照原始碼（03-calendar.php）</a>
+                </li>
+                <li>
+                    <a href="https://github.com/mackliu/115-html/blob/main/04-calendar2.php" target="_blank" rel="noopener noreferrer">115 HTML 課程：進階（04-calendar2.php）</a>
+                </li>
+                <li>
+                    <a href="https://github.com/mackliu/115-html/blob/main/05-calendar3.php" target="_blank" rel="noopener noreferrer">115 HTML 課程：進階（05-calendar3.php）</a>
                 </li>
             </ul>
         </aside>

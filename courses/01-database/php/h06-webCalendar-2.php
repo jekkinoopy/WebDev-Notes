@@ -1,3 +1,4 @@
+<?php $noteIndexHref = 'index.html'; ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -31,7 +32,7 @@
 
         /* 頂部標題：森林車站木牌感 */
         .totoro-header {
-            margin-top: 25px;
+            margin-top: 0;
             background: var(--forest-green);
             padding: 8px 50px;
             border-radius: 10px;
@@ -173,13 +174,58 @@
         }
 
         td:empty { background: transparent; }
+
+        .totoro-top-row {
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            width: 92%;
+            max-width: 1200px;
+        }
+
+        a.btn-back-notes {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.9rem;
+            padding: 8px 22px;
+            border-radius: 10px;
+            background: var(--paper-white);
+            color: var(--forest-green);
+            border: 3px solid var(--forest-green);
+            box-shadow: 4px 4px 0 rgba(45, 90, 39, 0.15);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        a.btn-back-notes:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 0 rgba(45, 90, 39, 0.2);
+        }
+
+        a.btn-back-notes:active {
+            transform: translateY(0);
+            box-shadow: 2px 2px 0 rgba(45, 90, 39, 0.15);
+        }
+
+        a.btn-back-notes i {
+            color: var(--forest-green);
+        }
     </style>
 </head>
 <body>
 
-    <!-- 頂部標題 -->
-    <div class="totoro-header">
-        <h1><i class="fa-solid fa-seedling"></i> 努比的森林萬年曆</h1>
+    <div class="totoro-top-row">
+        <a href="<?php echo htmlspecialchars($noteIndexHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-back-notes">
+            <i class="fa-solid fa-book-open" aria-hidden="true"></i> 回到課程筆記
+        </a>
+        <div class="totoro-header">
+            <h1><i class="fa-solid fa-seedling"></i> 努比的森林萬年曆</h1>
+        </div>
     </div>
 
     <?php 

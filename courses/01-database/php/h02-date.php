@@ -39,7 +39,8 @@
                     <li><strong>核心概念：</strong>PHP 處理時間的基本單位是「秒」，時間戳相減後需除以 86400 換算為天。</li>
                 </ul>
             </div>
-        </div><!-- 練習 1：間隔天數 -->
+        </div>
+        <!-- 練習 1：間隔天數 -->
         <div class="note-card">
             <h3 class="note-subtitle">給定兩個日期，計算中間間隔天數</h3>
             <div class="ques-section">
@@ -84,6 +85,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
                 ?>
             </div>
+            </div>
         </div>
 
         <!-- 練習 2：生日天數 -->
@@ -120,6 +122,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 待實作 ?>
+            </div>
             </div>
         </div>
 
@@ -163,6 +166,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 待實作 ?>
             </div>
+            </div>
         </div>
 
         <!-- 練習 4：連續周一 -->
@@ -201,7 +205,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 待實作 ?>
             </div>
-
+            </div>
         </div>
 
 

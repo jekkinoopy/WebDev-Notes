@@ -66,6 +66,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 執行結果預留位置 ?>
             </div>
+            </div>
 
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
@@ -75,18 +76,25 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                 </ul>
             </div>
 
-            <aside class="note-reference-box" aria-label="延伸閱讀">
-                <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
-                <ul class="note-reference-list">
-                    <li>
-                        <a href="https://mackliu.github.io/php-book/2021/09/19/basic-lesson-02/" target="_blank" rel="noopener noreferrer">[基礎課程] Lesson 2 PHP程式流程控制</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/mackliu/11501-FULL-BASIC/blob/main/h06-webCalendar.php" target="_blank" rel="noopener noreferrer">11501 全端班：本題對照原始碼（h06-webCalendar.php）</a>
-                    </li>
-                </ul>
-            </aside>
         </div>
+
+        <aside class="note-reference-box" aria-label="延伸閱讀">
+            <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
+            <ul class="note-reference-list">
+                <li>
+                    <a href="https://mackliu.github.io/php-book/2021/09/19/basic-lesson-02/" target="_blank" rel="noopener noreferrer">[基礎課程] Lesson 2 PHP程式流程控制</a>
+                </li>
+                <li>
+                    <a href="https://github.com/mackliu/115-html/blob/main/04-calendar2.php" target="_blank" rel="noopener noreferrer">115 HTML 課程：對照原始碼（04-calendar2.php，月份切換）</a>
+                </li>
+                <li>
+                    <a href="https://github.com/mackliu/115-html/blob/main/05-calendar3.php" target="_blank" rel="noopener noreferrer">115 HTML 課程：對照原始碼（05-calendar3.php，延伸）</a>
+                </li>
+                <li>
+                    <a href="https://github.com/mackliu/115-html/blob/main/03-calendar.php" target="_blank" rel="noopener noreferrer">115 HTML 課程：基礎單月（03-calendar.php）</a>
+                </li>
+            </ul>
+        </aside>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>

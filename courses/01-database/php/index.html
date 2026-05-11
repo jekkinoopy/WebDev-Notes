@@ -388,27 +388,7 @@
           </a>
         </article>
 
-        <!-- Note Card 18 -->
-        <article class="note-card">
-          <div class="card-header">
-            <span class="card-icon">📅</span>
-            <span class="card-badge">進階</span>
-          </div>
-          <div class="card-content">
-            <h3>網頁版萬年曆</h3>
-            <p>利用 URL 參數實現月份切換功能，並動態強化當日與週末的視覺樣式。</p>
-            <div class="tag-list">
-              <span class="tag">URL 傳值</span>
-              <span class="tag">GET</span>
-              <span class="tag">日期邏輯</span>
-            </div>
-          </div>
-          <a href="h06-webCalendar.php" class="card-link">
-            查看筆記 <span class="arrow">→</span>
-          </a>
-        </article>
-
-        <!-- Note Card 16 -->
+        <!-- Note Card h04 -->
         <article class="note-card">
           <div class="card-header">
             <span class="card-icon">⚖️</span>
@@ -428,7 +408,26 @@
           </a>
         </article>
 
-        <!-- Note Card 17 -->
+        <article class="note-card">
+          <div class="card-header">
+            <span class="card-icon">⚖️</span>
+            <span class="card-badge">配套</span>
+          </div>
+          <div class="card-content">
+            <h3>BMI 運算結果頁</h3>
+            <p>接收 <code>h04-bmi.php</code> 表單 GET／POST 傳值並顯示 BMI 與健康區間（與主頁搭配使用）。</p>
+            <div class="tag-list">
+              <span class="tag">表單接收</span>
+              <span class="tag">$_GET</span>
+              <span class="tag">$_POST</span>
+            </div>
+          </div>
+          <a href="h04-bmi-1.php" class="card-link">
+            開啟結果頁 <span class="arrow">→</span>
+          </a>
+        </article>
+
+        <!-- Note Card h05 -->
         <article class="note-card">
           <div class="card-header">
             <span class="card-icon">🔑</span>
@@ -448,7 +447,81 @@
           </a>
         </article>
 
-        <!-- Note Card 19 -->
+        <article class="note-card">
+          <div class="card-header">
+            <span class="card-icon">🔑</span>
+            <span class="card-badge">配套</span>
+          </div>
+          <div class="card-content">
+            <h3>登入驗證結果頁</h3>
+            <p>接收登入表單並比對帳密是否正確（與 <code>h05-login.php</code> 表單 <code>action</code> 對應）。</p>
+            <div class="tag-list">
+              <span class="tag">接收表單</span>
+              <span class="tag">$_POST</span>
+            </div>
+          </div>
+          <a href="h05-login-1.php" class="card-link">
+            開啟結果頁 <span class="arrow">→</span>
+          </a>
+        </article>
+
+        <!-- Note Card h06 -->
+        <article class="note-card">
+          <div class="card-header">
+            <span class="card-icon">📅</span>
+            <span class="card-badge">進階</span>
+          </div>
+          <div class="card-content">
+            <h3>網頁版萬年曆</h3>
+            <p>利用 URL 參數實現月份切換功能，並動態強化當日與週末的視覺樣式。</p>
+            <div class="tag-list">
+              <span class="tag">URL 傳值</span>
+              <span class="tag">GET</span>
+              <span class="tag">日期邏輯</span>
+            </div>
+          </div>
+          <a href="h06-webCalendar.php" class="card-link">
+            查看筆記 <span class="arrow">→</span>
+          </a>
+        </article>
+
+        <article class="note-card">
+          <div class="card-header">
+            <span class="card-icon">📅</span>
+            <span class="card-badge">配套</span>
+          </div>
+          <div class="card-content">
+            <h3>動森風網頁萬年曆</h3>
+            <p>以 <code>GET</code> 帶年月參數切換月份、組出整月格子，並搭配全畫面動森取向的排版與樣式區分平日／週末／今日。</p>
+            <div class="tag-list">
+              <span class="tag">萬年曆</span>
+              <span class="tag">主題 UI</span>
+            </div>
+          </div>
+          <a href="h06-webCalendar-1.php" class="card-link">
+            開啟延伸頁 <span class="arrow">→</span>
+          </a>
+        </article>
+
+        <article class="note-card">
+          <div class="card-header">
+            <span class="card-icon">📅</span>
+            <span class="card-badge">配套</span>
+          </div>
+          <div class="card-content">
+            <h3>森林風網頁萬年曆</h3>
+            <p>同樣透過網址參數換月並渲染網格格線；在格林／森林意象的視覺下複習日期邏輯與版面結構。</p>
+            <div class="tag-list">
+              <span class="tag">萬年曆</span>
+              <span class="tag">主題 UI</span>
+            </div>
+          </div>
+          <a href="h06-webCalendar-2.php" class="card-link">
+            開啟延伸頁 <span class="arrow">→</span>
+          </a>
+        </article>
+
+        <!-- Note Card h07 -->
         <article class="note-card">
           <div class="card-header">
             <span class="card-icon">🍪</span>
@@ -456,7 +529,7 @@
           </div>
           <div class="card-content">
             <h3>Cookie 狀態管理</h3>
-            <p>學習將資料儲存在使用者瀏覽器端，實作如「記住我」或偏好設定等長期儲存功能。</p>
+            <p>練習瀏覽器端狀態：表單 <code>POST</code> 驗證後以 <code>setcookie</code> 留存身分，並實作清除 Cookie／登出行為；視覺以訓練家取向貫串登入與會員畫面。</p>
             <div class="tag-list">
               <span class="tag">PHP</span>
               <span class="tag">Cookie</span>
@@ -468,7 +541,7 @@
           </a>
         </article>
 
-        <!-- Note Card 20 -->
+        <!-- Note Card h08 -->
         <article class="note-card">
           <div class="card-header">
             <span class="card-icon">🔐</span>
@@ -476,7 +549,7 @@
           </div>
           <div class="card-content">
             <h3>Session 會員登入實作</h3>
-            <p>利用伺服器端狀態管理實作會員登入驗證，並確保瀏覽器不關閉時維持登入狀態。</p>
+            <p><code>session_start()</code> 與 <code>$_SESSION</code> 維持登入態、POST 送出帳密、登出時銷毀 Session；版面走小小兵風格示範會員區塊。</p>
             <div class="tag-list">
               <span class="tag">Session</span>
               <span class="tag">會員系統</span>
@@ -487,14 +560,6 @@
             查看筆記 <span class="arrow">→</span>
           </a>
         </article>
-
-        <!-- Note Card h01 -->
-        <!-- Note Card h01 -->
-        <!-- Note Card h01 -->
-        <!-- Note Card h01 -->
-        <!-- Note Card h01 -->
-        <!-- Note Card h01 -->
-        <!-- Note Card h01 -->
 
       </div>
     </div>

@@ -1,3 +1,4 @@
+<?php $noteIndexHref = 'index.html'; ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -32,7 +33,7 @@
 
         /* 標題區塊：木頭吊牌感 */
         .ac-header {
-            margin-top: 20px;
+            margin-top: 0;
             background: #b68d68; /* 木頭色 */
             padding: 10px 40px;
             border-radius: 50px;
@@ -191,13 +192,59 @@
         }
 
         td:empty { background: transparent; border: none; }
+
+        .ac-top-row {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            width: 95%;
+            max-width: 1400px;
+            z-index: 10;
+        }
+
+        a.btn-back-notes {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.9rem;
+            padding: 10px 22px;
+            border-radius: 50px;
+            background: var(--ac-beige);
+            color: var(--ac-brown);
+            border: 4px solid #8d6e63;
+            box-shadow: 0 4px 0 #5d4037;
+            transition: transform 0.15s, filter 0.15s;
+        }
+
+        a.btn-back-notes:hover {
+            filter: brightness(1.05);
+            transform: translateY(-1px);
+        }
+
+        a.btn-back-notes:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #5d4037;
+        }
+
+        a.btn-back-notes i {
+            color: var(--ac-leaf);
+        }
     </style>
 </head>
 <body>
 
-    <!-- 頂部標題 -->
-    <div class="ac-header">
-        <h1><i class="fa-solid fa-calendar-check"></i> 努比的動森萬年曆</h1>
+    <div class="ac-top-row">
+        <a href="<?php echo htmlspecialchars($noteIndexHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn-back-notes">
+            <i class="fa-solid fa-book-open" aria-hidden="true"></i> 回到課程筆記
+        </a>
+        <div class="ac-header">
+            <h1><i class="fa-solid fa-calendar-check"></i> 努比的動森萬年曆</h1>
+        </div>
     </div>
 
     <?php 
