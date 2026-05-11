@@ -7,6 +7,8 @@
     <title>字串處理 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
+    <link rel="stylesheet" href="../../../assets/css/note-code-window.css">
 </head>
 
 <body>
@@ -50,12 +52,12 @@
         <div class="note-card">
             <h3 class="note-subtitle">字串取代、分割與組合</h3>
             <div class="ques-section">
-                <strong>練習需求：</strong><br>
+                <strong class="is-bracket-heading">【題目需求】</strong><br>
                 1. 將 ”aaddw1123” 改成 ”*********”。<br>
                 2. 將 ”this,is,a,book” 依 ”,” 切割後成為陣列。<br>
                 3. 將上例陣列重新組合成 “this is a book”。
             </div>
-            <pre><code><?php
+            <?php
 $code = <<<'EOD'
 // 1. 將 ”aaddw1123” 改成 ”*********”
 
@@ -64,8 +66,27 @@ $code = <<<'EOD'
 // 3. 將上例陣列重新組合成 “this is a book”
 
 EOD;
-echo htmlspecialchars($code);
-?></code></pre>
+$codeLineCount = substr_count($code, "\n") + 1;
+$codeGutter = implode("\n", range(1, $codeLineCount));
+?>
+            <p class="section-label is-bracket-heading">【程式碼練習】</p>
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                </div>
+            </div>
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
@@ -83,11 +104,11 @@ echo htmlspecialchars($code);
         <div class="note-card">
             <h3 class="note-subtitle">子字串取用與 HTML 關鍵字整合</h3>
             <div class="ques-section">
-                <strong>練習需求：</strong><br>
+                <strong class="is-bracket-heading">【題目需求】</strong><br>
                 1. 將 ”The reason why a great man is great is that he resolves to be a great man” 只取前十字成為 ”The reason…”。<br>
                 2. 給定一句子，將指定關鍵字 “程式設計” 放大字型或變色。
             </div>
-            <pre><code><?php
+            <?php
 $code = <<<'EOD'
 $quote = "The reason why a great man is great is that he resolves to be a great man";
 $sentence = "學會PHP網頁程式設計，薪水會加倍，工作會好找";
@@ -98,8 +119,27 @@ $keyword = "程式設計";
 // 2. 關鍵字與 HTML/CSS 整合應用
 
 EOD;
-echo htmlspecialchars($code);
-?></code></pre>
+$codeLineCount = substr_count($code, "\n") + 1;
+$codeGutter = implode("\n", range(1, $codeLineCount));
+?>
+            <p class="section-label is-bracket-heading">【程式碼練習】</p>
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                </div>
+            </div>
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
@@ -125,8 +165,24 @@ echo "$str";
                     <li>字串取代函式是將後端數據與前端 CSS 樣式結合的常用手段。</li>
                 </ul>
             </div>
+
+            <aside class="note-reference-box" aria-label="延伸閱讀">
+                <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
+                <ul class="note-reference-list">
+                    <li>
+                        <a href="https://mackliu.github.io/php-book/2021/09/19/basic-lesson-01/" target="_blank" rel="noopener noreferrer">[基礎課程] Lesson 1（變數與字串）</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/mackliu/11501-FULL-BASIC/blob/main/h01-string.php" target="_blank" rel="noopener noreferrer">11501 全端班：本題對照原始碼（h01-string.php）</a>
+                    </li>
+                </ul>
+            </aside>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
+    <script src="../../../assets/js/note-code-window.js"></script>
     <div class="note-container note-lesson-nav-wrap">
         <div id="note-lesson-nav-root" data-lesson-id="h01-string"></div>
     </div>

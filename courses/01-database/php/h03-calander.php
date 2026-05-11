@@ -7,6 +7,8 @@
     <title>線上月曆製作 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
+    <link rel="stylesheet" href="../../../assets/css/note-code-window.css">
 </head>
 
 <body>
@@ -27,8 +29,9 @@
     <div class="note-container">
         <!-- 基礎重點：日期與月曆邏輯 -->
         <div class="note-card">
+            <h3 class="note-subtitle">基礎重點：日期與月曆邏輯</h3>
             <div class="learning-point-box" style="margin-top: 0;">
-                <p class="learning-point-title is-bracket-heading">【月曆實作核心邏輯】</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
                     <li><strong>時區設定：</strong><code>date_default_timezone_set("Asia/Taipei")</code> 確保日期精確。</li>
                     <li><strong>關鍵資料：</strong>需取得「當月 1 號是星期幾」及「當月總共有幾天」。</li>
@@ -41,15 +44,34 @@
         <div class="note-card">
             <h3 class="note-subtitle">以表格方式呈現整個月份的日期(當月)</h3>
             <div class="ques-section">
-                <strong>開發需求：</strong>使用 HTML <code>&lt;table&gt;</code> 標籤配合 PHP 迴圈，動態產生當月的日曆網格。
+                <strong class="is-bracket-heading">【題目需求】</strong>使用 HTML <code>&lt;table&gt;</code> 標籤配合 PHP 迴圈，動態產生當月的日曆網格。
                 <img src="images/basic-lesson-05-001.jpg" alt="月曆範例圖" style="max-width: 280px; margin-top: 10px; border: 1px solid #eee;">
             </div>
-            <pre><code><?php
+            <?php
 $code = <<<'EOD'
 // 在此實作 Table 迴圈產生日曆邏輯
 EOD;
-echo htmlspecialchars($code);
-?></code></pre>
+$codeLineCount = substr_count($code, "\n") + 1;
+$codeGutter = implode("\n", range(1, $codeLineCount));
+?>
+            <p class="section-label is-bracket-heading">【程式碼練習】</p>
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                </div>
+            </div>
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
@@ -105,14 +127,33 @@ echo htmlspecialchars($code);
         <div class="note-card">
             <h3 class="note-subtitle">以表格方式呈現整個月份的日期</h3>
             <div class="ques-section">
-                <strong>開發需求：</strong>動態產生萬年曆練習(可調整月)。
+                <strong class="is-bracket-heading">【題目需求】</strong>動態產生萬年曆練習(可調整月)。
             </div>
-            <pre><code><?php
+            <?php
 $code = <<<'EOD'
 // 在此實作 Table 迴圈產生日曆邏輯
 EOD;
-echo htmlspecialchars($code);
-?></code></pre>
+$codeLineCount = substr_count($code, "\n") + 1;
+$codeGutter = implode("\n", range(1, $codeLineCount));
+?>
+            <p class="section-label is-bracket-heading">【程式碼練習】</p>
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                </div>
+            </div>
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
@@ -163,8 +204,9 @@ echo htmlspecialchars($code);
             </div>
         </div>
         <div class="note-card">
+            <h3 class="note-subtitle">重點複習：月曆核心邏輯</h3>
             <div class="learning-point-box" style="margin-top: 0;">
-                <p class="learning-point-title is-bracket-heading">【月曆實作核心邏輯】</p>
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
                     <li><strong>時區設定：</strong><code>date_default_timezone_set("Asia/Taipei")</code> 確保日期精確。</li>
                     <li><strong>關鍵資料：</strong>需取得「當月 1 號是星期幾」及「當月總共有幾天」。</li>
@@ -177,14 +219,33 @@ echo htmlspecialchars($code);
         <div class="note-card">
             <h3 class="note-subtitle">以表格方式呈現整個月份的日期</h3>
             <div class="ques-section">
-                <strong>開發需求：</strong>動態產生無限月份的日曆網格。
+                <strong class="is-bracket-heading">【題目需求】</strong>動態產生無限月份的日曆網格。
             </div>
-            <pre><code><?php
+            <?php
 $code = <<<'EOD'
 // 在此實作 Table 迴圈產生日曆邏輯
 EOD;
-echo htmlspecialchars($code);
-?></code></pre>
+$codeLineCount = substr_count($code, "\n") + 1;
+$codeGutter = implode("\n", range(1, $codeLineCount));
+?>
+            <p class="section-label is-bracket-heading">【程式碼練習】</p>
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                </div>
+            </div>
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php 
@@ -239,14 +300,33 @@ echo htmlspecialchars($code);
         <div class="note-card">
             <h3 class="note-subtitle">在特殊日期中顯示資訊 (假日或紀念日)</h3>
             <div class="ques-section">
-                <strong>開發需求：</strong>在迴圈中加入條件判斷，當日期符合指定條件時，顯示如「假日」或「紀念日」等自定義資訊。
+                <strong class="is-bracket-heading">【題目需求】</strong>在迴圈中加入條件判斷，當日期符合指定條件時，顯示如「假日」或「紀念日」等自定義資訊。
             </div>
-            <pre><code><?php
+            <?php
 $code = <<<'EOD'
 // 在此實作 if 判斷特殊日期顯示邏輯
 EOD;
-echo htmlspecialchars($code);
-?></code></pre>
+$codeLineCount = substr_count($code, "\n") + 1;
+$codeGutter = implode("\n", range(1, $codeLineCount));
+?>
+            <p class="section-label is-bracket-heading">【程式碼練習】</p>
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                </div>
+            </div>
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 預留練習空間 ?>
@@ -257,18 +337,37 @@ echo htmlspecialchars($code);
         <div class="note-card">
             <h3 class="note-subtitle">嘗試以 Block box 或 Flex box 方式製作</h3>
             <div class="ques-section">
-                <strong>開發需求：</strong>捨棄傳統表格，改用現代 CSS 佈局（如 Flexbox 或 Grid）來重新構建月曆結構，提升響應式效果。
+                <strong class="is-bracket-heading">【題目需求】</strong>捨棄傳統表格，改用現代 CSS 佈局（如 Flexbox 或 Grid）來重新構建月曆結構，提升響應式效果。
                 <br><br>
             </div>
-            <pre><code><?php
+            <?php
 $code = <<<'EOD'
 /* CSS 建議方向：
 .calendar { display: flex; flex-wrap: wrap; }
 .day { width: calc(100% / 7); }
 */
 EOD;
-echo htmlspecialchars($code);
-?></code></pre>
+$codeLineCount = substr_count($code, "\n") + 1;
+$codeGutter = implode("\n", range(1, $codeLineCount));
+?>
+            <p class="section-label is-bracket-heading">【樣式建議】</p>
+            <div class="note-practice-sticky">
+            <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount; ?>">
+                <div class="note-code-window-toolbar">
+                    <div class="note-code-window-dots" aria-hidden="true">
+                        <span class="note-code-window-dot note-code-window-dot--red"></span>
+                        <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                        <span class="note-code-window-dot note-code-window-dot--green"></span>
+                    </div>
+                    <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
+                </div>
+                <div class="note-code-window-body">
+                    <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <pre class="language-css"><code class="language-css"><?php echo htmlspecialchars($code, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                </div>
+            </div>
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php // 預留練習空間 ?>
@@ -281,8 +380,25 @@ echo htmlspecialchars($code);
                     <li><strong>視覺強化：</strong>利用 CSS 選擇器（如 <code>:nth-child</code>）快速標記週六、週日的顏色。</li>
                 </ul>
             </div>
+
+            <aside class="note-reference-box" aria-label="延伸閱讀">
+                <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
+                <ul class="note-reference-list">
+                    <li>
+                        <a href="https://mackliu.github.io/php-book/2021/09/19/basic-lesson-02/" target="_blank" rel="noopener noreferrer">[基礎課程] Lesson 2 PHP程式流程控制</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/mackliu/11501-FULL-BASIC/blob/main/h03-calander.php" target="_blank" rel="noopener noreferrer">11501 全端班：本題對照原始碼（h03-calander.php）</a>
+                    </li>
+                </ul>
+            </aside>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+    <script src="../../../assets/js/note-code-window.js"></script>
     <div class="note-container note-lesson-nav-wrap">
         <div id="note-lesson-nav-root" data-lesson-id="h03-calander"></div>
     </div>
