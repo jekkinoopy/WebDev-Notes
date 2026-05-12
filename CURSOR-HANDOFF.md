@@ -1,7 +1,7 @@
 # Cursor 接力（本專案）
 
 聊天**不**保證跨機保留 → **以本檔 + Git 為準**。改檔前先讀全文 + 最底下〈變更〉。  
-協作與成長習慣（溝通節奏、怎麼問助理）：見 [`docs/ai-collab-guide.md`](docs/ai-collab-guide.md)；說明索引見 [`docs/README.md`](docs/README.md)。
+協作與成長習慣（溝通節奏、怎麼問助理）：見 [`docs/ai-collab-guide.md`](docs/ai-collab-guide.md)；**文件索引**（非根 README）見 [`docs/INDEX.md`](docs/INDEX.md)。
 
 ## 開工（四步）
 
@@ -85,6 +85,10 @@
 ### 2026-05-11
 - 需求：`03-sql-syntax.html` 各段【執行結果】改回可換圖：依段落命名之 `images/*.jpg`（如 `insert.jpg`、`order-by.jpg`）。
 - 範圍：`courses/01-database/SQL/03-sql-syntax.html`；本檔〈變更〉。
+
+### 2026-05-11（`docs/` 索引檔名）
+- 需求：與根目錄 `README.md` 區分；`docs/` 內索引改為 `INDEX.md`，方便 `@INDEX`／`@README` 各指一檔。
+- 範圍：新建 `docs/INDEX.md`、刪除 `docs/README.md`；`README.md`（根）、`CURSOR-HANDOFF.md`（首段連結 + 本則）。較舊〈變更〉列的 `docs/README.md` 為史實，對應現檔 `docs/INDEX.md`。
 
 ---
 
