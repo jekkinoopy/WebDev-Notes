@@ -22,7 +22,13 @@
 
 **DOM：**`note-practice-sticky` 只包程式窗+執行結果；**學習重點**在外、仍在同張 `note-card`。**延伸閱讀 `aside`** 勿塞進 card 內層。少 `</div>` 會卡死下一張 card。
 
+**SQL 總覽卡片（`courses/01-database/SQL/index.html`）**：每張卡的說明 `<p>` 只寫**該頁筆記在講什麼**（主題、步驟、涵蓋的 SQL 概念）。勿寫**製作／後設**文字（檔名怎麼取、頁面分幾段、有無示意圖連結等）——那些給協作者看，不算讀者簡介。
+
+**程式窗行號欄（`.note-code-window-gutter`）**：樣式含 `white-space: pre`。若把行號打成多行且第二行起帶 **HTML 縮排空格**，空白會算進 gutter 寬度，出現左側大片空白、行號與程式碼被擠到中右。**多行行號請每行行首緊貼數字、勿前置空白**（或 gutter 只用單行）；Prettier 等可能自動破壞——必要時對該段加 `<!-- prettier-ignore -->`。
+
 ## 換機／預覽
+
+**Windows + macOS：**專案根有 **`.gitattributes`**，常見文字檔（`.html`、`.css`、`.js`、`.md`、`.php` 等）**行尾為 LF**；兩邊拉同一份 repo 較不會因 CRLF 亂跳 diff。若編輯器可設「預設 LF」，與之一致即可。
 
 `git pull`（必要 `pull --rebase`）→ 看執行結果開 **`.php`**（勿誤開只排版的 `.html`）→ URL 勿空白 → 怪就 **Ctrl+Shift+R**。  
 本機例：專案根目錄 `php -S localhost:8080` → `http://localhost:8080/courses/01-database/SQL/01-expense-ledger.html`（資料夾 **`SQL` 大寫**；SQL 講義為靜態頁，用 `.html` 即可預覽）。
@@ -41,6 +47,15 @@
 - 範圍：只動 `CURSOR-HANDOFF.md`（本則〈變更〉與上一節規則文字）。
 - 禁止：未經點名不擴張改其他檔。
 - 後續：SQL 兩講改為僅保留 `01-expense-ledger.html`、`03-sql-syntax.html`（刪 `.php`）；`index.html` 連結改 `.html`；`03` 標題縮短；`note-lesson-nav.js` 中 `CHAIN_SQL` 與 SQL 導覽文案（不帶「Lesson N」前綴）。
+
+### 2026-05-13
+- 需求：將 SQL 目錄卡片文案原則、`note-code-window-gutter` 多行縮排問題寫入正文「課中」並留〈變更〉。
+- 範圍：只動 `CURSOR-HANDOFF.md`。
+
+### 2026-05-14
+- 需求：Win + Mac 共用 repo，統一文字檔行尾並記入接力說明。
+- 範圍：新增 repo 根目錄 `.gitattributes`；`CURSOR-HANDOFF.md`「換機」補一小段。
+- 補充：若舊檔曾混 CRLF，可視需要一次性 `git add --renormalize .` 再提交（會觸發大範圍換行 normalized diff，使用前自行確認）。
 
 ---
 
