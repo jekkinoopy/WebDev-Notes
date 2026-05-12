@@ -39,7 +39,7 @@
   /** @type {{ id: string, title: string }[]} */
   var CHAIN_SQL = [
     { id: "01-expense-ledger", title: "每日花費流水帳（DDL／DML）" },
-    { id: "03-sql-syntax", title: "Lesson 3 SQL 語法（CRUD／條件／限制）" },
+    { id: "03-sql-syntax", title: "SQL 語法（CRUD／條件／限制）" },
   ];
 
   /** @type {{ id: string, title: string }[]} */
@@ -116,15 +116,15 @@
         prevHrefOverride && prevHrefOverride.length
           ? prevHrefOverride
           : chainNeighborHref(prev.id, scope, ext);
+      var prevLabel =
+        scope === "sql"
+          ? series + " " + prev.title
+          : series + " Lesson " + prevNum + " " + prev.title;
       parts.push(
         '<a class="note-lesson-nav-link note-lesson-nav-link--prev" href="' +
           prevHref +
           '"><span class="note-lesson-nav-chevron" aria-hidden="true">‹</span><span class="note-lesson-nav-text">' +
-          series +
-          " Lesson " +
-          prevNum +
-          " " +
-          prev.title +
+          prevLabel +
           "</span></a>"
       );
     } else {
@@ -145,15 +145,15 @@
         nextHrefOverride && nextHrefOverride.length
           ? nextHrefOverride
           : chainNeighborHref(next.id, scope, ext);
+      var nextLabel =
+        scope === "sql"
+          ? series + " " + next.title
+          : series + " Lesson " + nextNum + " " + next.title;
       parts.push(
         '<a class="note-lesson-nav-link note-lesson-nav-link--next" href="' +
           nextHref +
           '"><span class="note-lesson-nav-text">' +
-          series +
-          " Lesson " +
-          nextNum +
-          " " +
-          next.title +
+          nextLabel +
           '</span><span class="note-lesson-nav-chevron" aria-hidden="true">›</span></a>'
       );
     } else {

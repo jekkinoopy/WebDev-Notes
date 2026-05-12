@@ -18,14 +18,14 @@
 ## 課中（筆記／題）
 
 使用者丟題 → 你拆結構（幾張 card、分不分頁）→ **程式區先留白** → 使用者練完再補：**程式整理、【執行結果】、【學習重點】**。  
-一頁≤**四**個重點；檔名 **序號+英文**（SQL 同 PHP，例 `01-expense-ledger`）。**先 `.php` 確認後再 `.html`**；沒說的不要做。
+一頁≤**四**個重點；檔名 **序號+英文**（SQL 同 PHP，例 `01-expense-ledger`）。**SQL 筆記為純 `.html`**（不必經 PHP）；PHP 課程仍可「先 `.php` 再 `.html`」；沒說的不要做。
 
 **DOM：**`note-practice-sticky` 只包程式窗+執行結果；**學習重點**在外、仍在同張 `note-card`。**延伸閱讀 `aside`** 勿塞進 card 內層。少 `</div>` 會卡死下一張 card。
 
 ## 換機／預覽
 
 `git pull`（必要 `pull --rebase`）→ 看執行結果開 **`.php`**（勿誤開只排版的 `.html`）→ URL 勿空白 → 怪就 **Ctrl+Shift+R**。  
-本機例：`php -S localhost:8080` → `http://localhost:8080/courses/01-database/SQL/01-expense-ledger.php`（資料夾 **`SQL` 大寫**）。
+本機例：專案根目錄 `php -S localhost:8080` → `http://localhost:8080/courses/01-database/SQL/01-expense-ledger.html`（資料夾 **`SQL` 大寫**；SQL 講義為靜態頁，用 `.html` 即可預覽）。
 
 **新 SQL 一講：**複製版型 → `note-lesson-nav.js` 的 `CHAIN_SQL` 加一筆 → 頁底 `#note-lesson-nav-root` 設 `data-lesson-scope="sql"` + `data-lesson-id` → 列表頁加連結。
 
@@ -40,6 +40,7 @@
 - 需求：補「未要求勿更動」與列表 `.html`／`.php` 邊界；記錄本日曾更動檔案清單供核對。
 - 範圍：只動 `CURSOR-HANDOFF.md`（本則〈變更〉與上一節規則文字）。
 - 禁止：未經點名不擴張改其他檔。
+- 後續：SQL 兩講改為僅保留 `01-expense-ledger.html`、`03-sql-syntax.html`（刪 `.php`）；`index.html` 連結改 `.html`；`03` 標題縮短；`note-lesson-nav.js` 中 `CHAIN_SQL` 與 SQL 導覽文案（不帶「Lesson N」前綴）。
 
 ---
 
