@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>綜合練習三｜規則數列 - 努比的全端筆記</title>
+    <title>規則數列（for）- 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
@@ -19,74 +19,187 @@
     <section class="page-hero">
         <div class="hero-container">
             <span class="category-tag">PHP 基礎</span>
-            <h2 class="note-title">綜合練習三：規則數列（for）</h2>
+            <h2 class="note-title">規則數列（for）</h2>
             <p class="hero-desc">以 for 迴圈產生指定規則的數列，含奇數、十的倍數與質數區間數列題型。</p>
             <div class="hero-divider"></div>
         </div>
     </section>
     <div class="note-container">
         <div class="note-card">
-            <h3 class="note-subtitle">綜合練習三</h3>
-            <div class="code-section">
-                <strong class="is-bracket-heading">【題目需求】</strong><br>
-                <p>請使用 <strong>for 迴圈</strong>，依題意輸出下列數列類型（終點或上限可依題設為 n）；以下各段為對照區，請在對應位置撰寫與驗證程式。</p>
+            <h3 class="note-subtitle">奇數列</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
                 <ul class="custom-list">
-                    <li>奇數列：1，3，5，7，9……n</li>
-                    <li>十的倍數列：10，20，30，40，50，60……n</li>
-                    <li>質數區間列（示意題型）：3，5，7，11，13，17……97</li>
+                    <li>使用 <strong>for</strong> 與步長，輸出 1，3，5，7，9……至上限 <code>n</code>（範例 <code>n = 100</code>）。</li>
                 </ul>
-                <p><strong>（一）輸出奇數列 1，3，5，7，9……n</strong></p>
-                <pre><code><?php
-            // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
-$code = <<<'EOD'
-// 【程式碼練習】
-<?php
-$n=100;
-    for($i=1; $i<=$n; $i+=2){
-    echo $i . ",";}
-?> <br><br>
-EOD;
-echo htmlspecialchars($code); 
-?></code></pre>
-            <?php
-            $n=100;
-            for($i=1; $i<=$n; $i+=2){
-                echo $i . ",";}
-                ?> <br><br>
-            <p><strong>（二）輸出十的倍數列 10，20，30，40，50……n</strong></p>
-            <pre><code><?php
-        // 使用 Heredoc (<<<EOD) 定義字串，這樣裡面放單引號或雙引號都不會出錯
-$code = <<<'EOD'
-// 【程式碼練習】
-            <?php
-            $n=100;
-            for($i=10;$i<=$n;$i+=10){
-                echo $i . ",";}
-            ?> 
-EOD;
-echo htmlspecialchars($code); 
-    ?></code></pre>
-                <?php
-                $n=100;
-                for($i=10;$i<=$n;$i+=10){
-                    echo $i . ",";}
-                ?> <br><br>
-                <p><strong>（三）輸出在題目範圍內的質數區間數列示意</strong></p>
-                <?php
-                $n=100;
-                $flag =true;
-                for($i=1; $i<$n; $i++){
-                    for($j=2;$j<$i;$j++){
-                        if($i%$j==0){
-                            $flag=false;
-                            break;
-                        }
-                    }
-                }
+            </div>
 
-                ?>
+            <?php
+$code1 = <<<'EOD'
+// 【程式碼練習】
+$n = 100;
+for ($i = 1; $i <= $n; $i += 2) {
+    echo $i . ",";
+}
+EOD;
+$codeLineCount1 = substr_count($code1, "\n") + 1;
+$codeGutter1 = implode("\n", range(1, $codeLineCount1));
+?>
+            <div class="note-practice-sticky">
+                <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount1; ?>">
+                    <div class="note-code-window-toolbar">
+                        <div class="note-code-window-dots" aria-hidden="true">
+                            <span class="note-code-window-dot note-code-window-dot--red"></span>
+                            <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                            <span class="note-code-window-dot note-code-window-dot--green"></span>
+                        </div>
+                        <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                        </button>
+                    </div>
+                    <div class="note-code-window-body">
+                        <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter1, ENT_QUOTES, 'UTF-8'); ?></div>
+                        <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code1, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                    </div>
+                </div>
+
+                <div class="code-section">
+                    <span class="section-label is-bracket-heading">【執行結果】</span>
+                    <?php
+                    $n = 100;
+                    for ($i = 1; $i <= $n; $i += 2) {
+                        echo $i . ",";
+                    }
+                    ?>
+                </div>
+            </div>
         </div>
 
+        <div class="note-card">
+            <h3 class="note-subtitle">十的倍數列</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <ul class="custom-list">
+                    <li>使用 <strong>for</strong> 輸出 10，20，30……至上限 <code>n</code>（範例 <code>n = 100</code>）。</li>
+                </ul>
+            </div>
+
+            <?php
+$code2 = <<<'EOD'
+// 【程式碼練習】
+$n = 100;
+for ($i = 10; $i <= $n; $i += 10) {
+    echo $i . ",";
+}
+EOD;
+$codeLineCount2 = substr_count($code2, "\n") + 1;
+$codeGutter2 = implode("\n", range(1, $codeLineCount2));
+?>
+            <div class="note-practice-sticky">
+                <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount2; ?>">
+                    <div class="note-code-window-toolbar">
+                        <div class="note-code-window-dots" aria-hidden="true">
+                            <span class="note-code-window-dot note-code-window-dot--red"></span>
+                            <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                            <span class="note-code-window-dot note-code-window-dot--green"></span>
+                        </div>
+                        <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                        </button>
+                    </div>
+                    <div class="note-code-window-body">
+                        <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter2, ENT_QUOTES, 'UTF-8'); ?></div>
+                        <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code2, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                    </div>
+                </div>
+
+                <div class="code-section">
+                    <span class="section-label is-bracket-heading">【執行結果】</span>
+                    <?php
+                    $n = 100;
+                    for ($i = 10; $i <= $n; $i += 10) {
+                        echo $i . ",";
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="note-card">
+            <h3 class="note-subtitle">質數區間列</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <ul class="custom-list">
+                    <li>在題目範圍內（範例：小於 100 的正整數）找出<strong>質數</strong>，依序列出（如 2，3，5，7……97）。</li>
+                    <li>內層可用試除：若 <code>$i</code> 可被某個 <code>$j</code>（<code>2 ≤ j &lt; i</code>）整除則不是質數；可搭配 <code>break</code> 提前結束。</li>
+                </ul>
+            </div>
+
+            <?php
+$code3 = <<<'EOD'
+// 【程式碼練習】
+for ($i = 2; $i < 100; $i++) {
+    $isPrime = true;
+    for ($j = 2; $j * $j <= $i; $j++) {
+        if ($i % $j === 0) {
+            $isPrime = false;
+            break;
+        }
+    }
+    if ($isPrime) {
+        echo $i . ",";
+    }
+}
+EOD;
+$codeLineCount3 = substr_count($code3, "\n") + 1;
+$codeGutter3 = implode("\n", range(1, $codeLineCount3));
+?>
+            <div class="note-practice-sticky">
+                <div class="note-code-window" data-note-code-window data-code-line-count="<?php echo (int) $codeLineCount3; ?>">
+                    <div class="note-code-window-toolbar">
+                        <div class="note-code-window-dots" aria-hidden="true">
+                            <span class="note-code-window-dot note-code-window-dot--red"></span>
+                            <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                            <span class="note-code-window-dot note-code-window-dot--green"></span>
+                        </div>
+                        <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                        </button>
+                    </div>
+                    <div class="note-code-window-body">
+                        <div class="note-code-window-gutter"><?php echo htmlspecialchars($codeGutter3, ENT_QUOTES, 'UTF-8'); ?></div>
+                        <pre class="language-php"><code class="language-php"><?php echo htmlspecialchars($code3, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                    </div>
+                </div>
+
+                <div class="code-section">
+                    <span class="section-label is-bracket-heading">【執行結果】</span>
+                    <?php
+                    for ($i = 2; $i < 100; $i++) {
+                        $isPrime = true;
+                        for ($j = 2; $j * $j <= $i; $j++) {
+                            if ($i % $j === 0) {
+                                $isPrime = false;
+                                break;
+                            }
+                        }
+                        if ($isPrime) {
+                            echo $i . ",";
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <div class="learning-point-box">
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
+                <ul class="custom-list">
+                    <li><strong>步長：</strong>奇數列用 <code>$i += 2</code>；十的倍數用 <code>$i += 10</code>，起點與上限要與題意一致。</li>
+                    <li><strong>質數試除：</strong>若 <code>$i</code> 有因子則非質數；試除到 <code>√i</code> 即可（<code>$j * $j &lt;= $i</code>）。</li>
+                    <li><strong>巢狀迴圈：</strong>外層掃每個候選數，內層負責檢查是否可整除。</li>
+                    <li><strong>質數旗標：</strong>每個 <code>$i</code> 都要重新假設為質數再檢查；不可沿用上一輪的布林值，否則會誤判。</li>
+                </ul>
+            </div>
         </div>
 
         <aside class="note-reference-box" aria-label="延伸閱讀">

@@ -131,6 +131,15 @@ body {
   margin-top: 0.9rem;
 }
 
+/* 與【題目需求】主標同節奏：小節 h3（不出現「【題目需求】」文字時使用） */
+.ques-section > h3.note-section-lead {
+  margin: 0 0 0.65em 0;
+  color: var(--primary-dark);
+  font-size: calc(var(--note-body-font-size) * 1.06);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 /* 裝飾性小標示：在右上角加入「Exercise」字樣（選用） */
 .ques-section::after {
   content: "PRACTICE";

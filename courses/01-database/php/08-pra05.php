@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>綜合練習五｜尋找字元（while）- 努比的全端筆記</title>
+    <title>尋找字元（while）- 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
@@ -19,14 +19,14 @@
     <section class="page-hero">
         <div class="hero-container">
             <span class="category-tag">PHP 基礎</span>
-            <h2 class="note-title">綜合練習五：尋找字元（while）</h2>
+            <h2 class="note-title">尋找字元（while）</h2>
             <p class="hero-desc">在一句話中用 while 逐一比對指定單字或字母，並印出找到的內容在句子中的索引位置。</p>
             <div class="hero-divider"></div>
         </div>
     </section>
     <div class="note-container">
         <div class="note-card">
-            <h3 class="note-subtitle">尋找字元（while）</h3>
+            <h3 class="note-subtitle">題目與練習</h3>
             <div class="ques-section">
                 <strong class="is-bracket-heading">【題目需求】</strong>
                 <ul class="custom-list">

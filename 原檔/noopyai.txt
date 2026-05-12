@@ -1,6 +1,3 @@
-我是說我要下的指令 字很長 我管你裡面寫什麼 又不是我要讀的
-
-了解，你要的是你打給對方 Cursor 的話要短，裡面 CURSOR-HANDOFF.md 寫多長是給 AI 看的，你不用讀。
 
 一句（最短）：
 
@@ -11,4 +8,30 @@
 三句（要它順便拉 git）：
 
 先 git pull。讀 CURSOR-HANDOFF.md。然後：［一句任務］
-之後你就只改最後那句任務；前面固定複製貼上即可。
+之後你就只改最後那句任務；前面固定複製貼上即可。+
+
+明天怎麼用
+把最新程式抓下來（若換電腦或已有遠端更新）
+git clone 或進專案目錄後 git pull。
+
+開本機預覽
+PHP 講義要經伺服器編譯，用你平常的作法即可，例如在專案根目錄：
+
+php -S localhost:8080
+再在瀏覽器開：
+http://localhost:8080/courses/01-database/sql/01-expense-ledger.php
+（或你電腦上實際路徑，注意 sql 資料夾名稱要跟 repo 一致。）
+
+畫面沒更新時
+按 強制重新整理（Chrome：Ctrl + Shift + R），避免舊的快取頁。
+
+往後多加一則 SQL 講義時
+
+複製現在的 01-expense-ledger.php 版型做 02-xxx.php。
+開 assets/js/note-lesson-nav.js，在 CHAIN_SQL 陣列裡依順序多加一列 { id, title }。
+新頁底部的 #note-lesson-nav-root 設：
+data-lesson-scope="sql"、data-lesson-id="檔名（不含副檔名）"。
+SQL 總覽頁連結
+若在 courses/01-database/sql/index.html 加了新卡片，記得 href 對到新檔名即可。
+
+這樣明天 pull 後照路徑開頁面、要擴課就只改 CHAIN_SQL + 新檔 + index 卡片。若你用的是 GitHub Pages 或其它部署，跟我說一下網址規則，我可以幫你對成「明天點哪個 URL」。

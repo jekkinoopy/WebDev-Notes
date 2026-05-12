@@ -5,9 +5,41 @@
     return /\.html$/i.test(p) ? ".html" : ".php";
   }
 
+  /**
+   * `courses/01-database/php/` 內已放「確認版」靜態頁的單元 id。
+   * 從 *.html 複習時：上一／下一若該單元尚無 .html，改連 *.php，避免 404 浪費時間。
+   * 新單元補好 .html 後請把 id 加進此表（與 CHAIN 的 id 一致）。
+   */
+  var PHP_LESSON_STATIC_HTML = {
+    "01-basic": true,
+    "02-select": true,
+    "03-forloop": true,
+    "04-pra01": true,
+    "09-pra06": true,
+    "10-array": true,
+    "11-pra07": true,
+    "12-pra08": true,
+  };
+
+  /**
+   * @param {string} lessonId
+   * @param {"php"|"sql"} scope
+   * @param {".html"|".php"} ext
+   */
+  function chainNeighborHref(lessonId, scope, ext) {
+    if (scope !== "php") {
+      return lessonId + ext;
+    }
+    if (ext === ".php") {
+      return lessonId + ".php";
+    }
+    return PHP_LESSON_STATIC_HTML[lessonId] ? lessonId + ".html" : lessonId + ".php";
+  }
+
   /** @type {{ id: string, title: string }[]} */
   var CHAIN_SQL = [
     { id: "01-expense-ledger", title: "每日花費流水帳（DDL／DML）" },
+    { id: "03-sql-syntax", title: "Lesson 3 SQL 語法（CRUD／條件／限制）" },
   ];
 
   /** @type {{ id: string, title: string }[]} */
@@ -17,8 +49,8 @@
     { id: "03-forloop", title: "For Loop 迴圈" },
     { id: "04-pra01", title: "成績等級判定" },
     { id: "05-pra02", title: "閏年判斷實戰" },
-    { id: "06-pra03", title: "規則數列（for 迴圈）" },
-    { id: "07-pra04", title: "九九乘法表（表格與交叉表）" },
+    { id: "06-pra03", title: "規則數列（for）" },
+    { id: "07-pra04", title: "九九乘法表（表格／交叉）" },
     { id: "08-pra05", title: "尋找字元（while）" },
     { id: "09-pra06", title: "瑪利歐金幣牆" },
     { id: "10-array", title: "陣列基礎" },
@@ -83,7 +115,7 @@
       var prevHref =
         prevHrefOverride && prevHrefOverride.length
           ? prevHrefOverride
-          : prev.id + ext;
+          : chainNeighborHref(prev.id, scope, ext);
       parts.push(
         '<a class="note-lesson-nav-link note-lesson-nav-link--prev" href="' +
           prevHref +
@@ -112,7 +144,7 @@
       var nextHref =
         nextHrefOverride && nextHrefOverride.length
           ? nextHrefOverride
-          : next.id + ext;
+          : chainNeighborHref(next.id, scope, ext);
       parts.push(
         '<a class="note-lesson-nav-link note-lesson-nav-link--next" href="' +
           nextHref +

@@ -27,7 +27,6 @@
     </section>
 
     <div class="note-container">
-        <!-- 練習 1：直角三角形 (已完成保留) -->
         <div class="note-card">
             <h3 class="note-subtitle">直角三角形</h3>
             <div class="ques-section">
@@ -79,7 +78,6 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             </div>
         </div>
 
-        <!-- 練習 2：正三角形 (已完成保留) -->
         <div class="note-card">
             <h3 class="note-subtitle">正三角形 (金字塔)</h3>
             <div class="ques-section">
@@ -139,7 +137,6 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             </div>
         </div>
 
-        <!-- 練習 3：空心矩形 (已清空等待填寫) -->
         <div class="note-card">
             <h3 class="note-subtitle">空心矩形</h3>
             <div class="ques-section">
@@ -180,7 +177,6 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             </div>
         </div>
 
-        <!-- 練習 4：內含對角線矩形 (已清空等待填寫) -->
         <div class="note-card">
             <h3 class="note-subtitle">對角線矩形</h3>
             <div class="ques-section">
