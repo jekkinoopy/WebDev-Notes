@@ -1,6 +1,7 @@
 # Cursor 接力（本專案）
 
-聊天**不**保證跨機保留 → **以本檔 + Git 為準**。改檔前先讀全文 + 最底下〈變更〉。
+聊天**不**保證跨機保留 → **以本檔 + Git 為準**。改檔前先讀全文 + 最底下〈變更〉。  
+協作與成長習慣（溝通節奏、怎麼問助理）：見 [`docs/ai-collab-guide.md`](docs/ai-collab-guide.md)；說明索引見 [`docs/README.md`](docs/README.md)。
 
 ## 開工（四步）
 
@@ -25,6 +26,10 @@
 **SQL 總覽卡片（`courses/01-database/SQL/index.html`）**：每張卡的說明 `<p>` 只寫**該頁筆記在講什麼**（主題、步驟、涵蓋的 SQL 概念）。勿寫**製作／後設**文字（檔名怎麼取、頁面分幾段、有無示意圖連結等）——那些給協作者看，不算讀者簡介。
 
 **程式窗行號欄（`.note-code-window-gutter`）**：樣式含 `white-space: pre`。若把行號打成多行且第二行起帶 **HTML 縮排空格**，空白會算進 gutter 寬度，出現左側大片空白、行號與程式碼被擠到中右。**多行行號請每行行首緊貼數字、勿前置空白**（或 gutter 只用單行）；Prettier 等可能自動破壞——必要時對該段加 `<!-- prettier-ignore -->`。
+
+**`03-sql-syntax.html` 與 `course-note.css`（小節標題）：**全站 `.note-card h3::before` **維持 💎**（大段 `note-subtitle` 等）。`h3.note-section-lead` 在共用樣式中**關閉 `::before`**，避免與大標重複鑽石；**小節圖示（Font Awesome 筆等）只寫在該講義頁**的 `head`（連結 FA + 頁內 `<style>` + 標題內 `<i>`），**勿**在 `course-note.css` 全域 `@import` FA 或改掉全站 `h3` 鑽石。改動範圍若含「還原／重做」，**不得**把已分好的區塊（例如 `CREATE TABLE` 與 `INSERT` 分兩段）一併刪回舊版。
+
+**可推斷則少問（省打字）：**若意圖已能由**小節標題、`images/` 檔名規律、既有 HTML 結構**確定（例：`create-table-1/2/3` 只掛在 CREATE TABLE 的【執行結果】；`insert-1` 只掛 INSERT），**直接改對並簡短說明**即可，不必先長文確認。會動到**未點名檔**、**全站共用樣式**、或**撤銷已約好的版面／分區**時，仍應先問一句。已寫在本文的機械規則（gutter 行號勿前置空白、【執行結果】圖維持比例、DOM 包法）**主動套用**，勿等使用者重複提醒。
 
 ## 換機／預覽
 
@@ -56,6 +61,30 @@
 - 需求：Win + Mac 共用 repo，統一文字檔行尾並記入接力說明。
 - 範圍：新增 repo 根目錄 `.gitattributes`；`CURSOR-HANDOFF.md`「換機」補一小段。
 - 補充：若舊檔曾混 CRLF，可視需要一次性 `git add --renormalize .` 再提交（會觸發大範圍換行 normalized diff，使用前自行確認）。
+
+### 2026-05-15
+- 需求：`03-sql-syntax.html` 刪除各段參考 SQL 與結果圖，程式窗留白、【執行結果】改占位，供自練。
+- 範圍：只動 `courses/01-database/SQL/03-sql-syntax.html`。
+
+### 2026-05-18
+- 需求：新增協作／成長筆記獨立檔，HANDOFF 開頭加連結。
+- 範圍：`docs/COLLABORATION-AND-GROWTH.md`（新建）；`CURSOR-HANDOFF.md`（首段連結 + 本則〈變更〉）。
+
+### 2026-05-20
+- 需求：釐清多個「README」來源；根目錄改為專案簡介、色彩長文移至 `docs/colors-quickstart.md`。
+- 範圍：`README.md`（根，改寫）、`docs/colors-quickstart.md`（新建）、`docs/README.md`（索引表更新）。
+
+### 2026-05-19
+- 需求：協作筆記改較直觀檔名、補 `docs/` 索引；釐清非正式「規範」文件。
+- 範圍：`docs/ai-collab-guide.md`（由 `COLLABORATION-AND-GROWTH.md` 更名並微調開頭）；`docs/README.md`（新建）；`CURSOR-HANDOFF.md`（連結）；刪除 `docs/COLLABORATION-AND-GROWTH.md`。
+
+### 2026-05-17
+- 需求：協作上「可從檔名／小節推斷則直接做、少來回確認」；機械規則主動套用。
+- 範圍：只動 `CURSOR-HANDOFF.md`（課中補一段）。
+
+### 2026-05-11
+- 需求：`03-sql-syntax.html` 各段【執行結果】改回可換圖：依段落命名之 `images/*.jpg`（如 `insert.jpg`、`order-by.jpg`）。
+- 範圍：`courses/01-database/SQL/03-sql-syntax.html`；本檔〈變更〉。
 
 ---
 

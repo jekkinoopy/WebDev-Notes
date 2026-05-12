@@ -13,6 +13,8 @@
   --note-body-line-height: var(--note-practice-copy-line-height);
   /* 條列 li 之間約半行，與程式行距視覺對齊 */
   --note-practice-li-gap: 0.5em;
+  /* 上一段練習／執行結果結束後，與下一個含小節標題的題區之間額外垂直節奏 */
+  --note-after-practice-gap: 1.75rem;
   /* 題目／程式／執行結果／學習重點 共用外框節奏（各區底色與邊線色不改） */
   --note-section-pad-block: 1.25rem;
   --note-section-pad-inline: 1.5rem;
@@ -378,6 +380,11 @@ body {
   clear: both;
 }
 
+/* 練習區結束後接下一主題（常為含 note-section-lead 的 ques-section）：避免與【執行結果】貼太緊 */
+.note-card .note-practice-sticky + .ques-section {
+  margin-top: var(--note-after-practice-gap, 1.75rem);
+}
+
 /* 筆記外框 */
 .note-card {
   background: rgba(255, 255, 255, 0.8);
@@ -400,6 +407,13 @@ body {
 .note-card h3::before {
   content: "💎";
   margin-right: 8px;
+}
+
+/* 練習小節 h3：不套用與大標相同的 💎（小節圖示由該頁自行放，目前僅 03-sql-syntax 使用） */
+.note-card h3.note-section-lead::before {
+  content: none;
+  display: none;
+  margin-right: 0;
 }
 
 .note-card li {
@@ -604,6 +618,15 @@ body {
   font-size: var(--note-body-font-size);
   line-height: var(--note-body-line-height);
   overflow-x: auto;
+}
+
+/* 【執行結果】截圖：維持原圖比例，寬度不超過區塊（勿與固定 height 併用以免變形） */
+.code-section img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin-top: 0.35rem;
 }
 
 /* 程式碼練習正下方的【執行結果】：可比照約 15 行高 + 卷軸 */
