@@ -6,7 +6,7 @@
 ## 開工（四步）
 
 1. 看〈變更〉最新日期。  
-2. 動筆記／講義前對母版：`courses/01-database/php/01-basic.html` 或 `01-basic.php`、`assets/css/course-note.css`。  
+2. 動筆記／講義前對母版：`courses/01-database/php/01-basic.html` 或 `01-basic.php`、`assets/css/course-note.css`。若該**課程模組**需要講義專用、且不宜塞進共用 `course-note.css` 的補充樣式：**路徑模板**為 `assets/css/course-note-{領域}.css`——`{領域}` 須與**該組講義所在之課程子資料夾名稱**完全一致（含大小寫；實際檔名不要出現 `{}`）。例：`courses/03-layout/css/` → `course-note-css.css`；`courses/01-database/php/` → `course-note-php.css`；`courses/01-database/SQL/` → `course-note-SQL.css`。與 `course-note.css` 併用，由各講義頁 `<link>`；**勿**在 `courses/.../` 課程資料夾另放一份同等用途的散落檔。（助理解讀需求時，亦可用 `$` 表示同一占位，例如寫成 `course-note-$.css`，將 `$` 換成**與資料夾同名**之領域字串即可。）**程式窗**（Carbon／macOS 風外框、行號欄、複製鈕、與 Prism 搭配）：共用 `assets/css/course-note-code-window.css` + `assets/js/course-note-code-window.js`；HTML 仍用 class `note-code-window`（檔名前綴 `course-note-` 與 DOM class 不必同名）。  
 3. **只動使用者點名的檔**；勿順手改 `assets/js/note-lesson-nav.js` 等共用檔。  
 4. 協作規則有變 → 在〈變更〉**加一則**（勿刪舊的）。
 
@@ -24,6 +24,8 @@
 **DOM：**`note-practice-sticky` 只包程式窗+執行結果；**學習重點**在外、仍在同張 `note-card`。**延伸閱讀 `aside`** 勿塞進 card 內層。少 `</div>` 會卡死下一張 card。
 
 **SQL 總覽卡片（`courses/01-database/SQL/index.html`）**：每張卡的說明 `<p>` 只寫**該頁筆記在講什麼**（主題、步驟、涵蓋的 SQL 概念）。勿寫**製作／後設**文字（檔名怎麼取、頁面分幾段、有無示意圖連結等）——那些給協作者看，不算讀者簡介。
+
+**筆記正文語氣（全課程通用）：**`hero`、各 `note-card` 內（含【題目需求】【執行結果】【學習重點】）、`aside` 等**讀者會看到的文字**，只寫**知識與題目本身**（定義、規格、範例圖說、連結）。**禁止**寫入：對話口吻、帶讀頁面的導覽（例：「對照下方…」「此處用灰底白底對照」）、協作或製作後設（例：為何這樣排版、給助理的備註、聊天裡的取捨說明）。助理的說明留在**回覆聊天**，不要貼進 repo 筆記。**已納入版控的講義用 CSS 檔**，其註解亦同：只保留技術上必要短註，勿寫路徑說明、檔案用途給協作者看的一長段。
 
 **程式窗行號欄（`.note-code-window-gutter`）**：樣式含 `white-space: pre`。若把行號打成多行且第二行起帶 **HTML 縮排空格**，空白會算進 gutter 寬度，出現左側大片空白、行號與程式碼被擠到中右。**多行行號請每行行首緊貼數字、勿前置空白**（或 gutter 只用單行）；Prettier 等可能自動破壞——必要時對該段加 `<!-- prettier-ignore -->`。
 
@@ -89,6 +91,22 @@
 ### 2026-05-11（`docs/` 索引檔名）
 - 需求：與根目錄 `README.md` 區分；`docs/` 內索引改為 `INDEX.md`，方便 `@INDEX`／`@README` 各指一檔。
 - 範圍：新建 `docs/INDEX.md`、刪除 `docs/README.md`；`README.md`（根）、`CURSOR-HANDOFF.md`（首段連結 + 本則）。較舊〈變更〉列的 `docs/README.md` 為史實，對應現檔 `docs/INDEX.md`。
+
+### 2026-05-21
+- 需求：筆記內禁止寫入對話／導覽式帶讀／協作後設；寫入接力規範並同步協作說明。
+- 範圍：`CURSOR-HANDOFF.md`（課中新段落 + 本則〈變更〉）；`docs/ai-collab-guide.md`（協作端補一句）。
+
+### 2026-05-22
+- 需求：CSS 講義專用補充樣式集中於 `assets/css/course-note-css.css`，檔名統一；開工步驟補一句。
+- 範圍：新建 `assets/css/course-note-css.css`；`courses/03-layout/css/margin-padding.html`、`courses/03-layout/css/index.html`；刪除 `courses/03-layout/css/margin-padding.css`；`CURSOR-HANDOFF.md`（開工第 2 點 + 本則〈變更〉）。
+
+### 2026-05-23
+- 需求：講義專用補充表路徑改寫成通則 `course-note-{領域}.css`，並註明 `$` 占位讀法。
+- 範圍：只動 `CURSOR-HANDOFF.md`（開工第 2 點 + 本則〈變更〉）。
+
+### 2026-05-25
+- 需求：講義程式窗共用樣式／腳本更名為 `course-note-code-window.css`、`.js`（與 `course-note.css` 前綴一致）；全 repo 更新 `<link>`／`<script>`；HANDOFF 開工第 2 點補程式窗說明。
+- 範圍：更名 `assets/css/note-code-window.css`、`assets/js/note-code-window.js`；所有引用之 `.html`／`.php`／`原檔/00.php`；`CURSOR-HANDOFF.md`（開工第 2 點 + 本則〈變更〉）；`assets/css/course-note-code-window.css`、`assets/js/course-note-code-window.js`（檔頭註解）。
 
 ---
 

@@ -1,5 +1,6 @@
 /**
- * 程式碼視窗：Prism 上色（需先載入 prism-markup-templating + prism-php）+ 複製按鈕
+ * course-note-code-window.js：講義程式窗（[data-note-code-window]）— 複製按鈕、可視高度與行數同步。
+ * Prism 語法上色須由各頁先載入對應 prism 元件（如 prism-php、prism-css）。
  */
 (function () {
   function copyText(text) {
@@ -20,8 +21,8 @@
     }
   }
 
-  /** 程式少於 15 行時高度跟內容；≥15 維持 CSS 約 15 行＋卷軸 */
-  const MIN_SCROLL_LINES = 15;
+  /** 程式行數 ≤ 此值時高度跟內容；超過則維持 CSS 約 15 行高＋卷軸（避免與【執行結果】並排時總高過大） */
+  const MAX_LINES_AUTO_HEIGHT = 16;
 
   function resolveLineCount(root) {
     var fromAttr = parseInt(root.getAttribute("data-code-line-count"), 10);
@@ -39,7 +40,7 @@
     var body = root.querySelector(".note-code-window-body");
     if (!body) return;
     var lines = resolveLineCount(root);
-    if (lines < MIN_SCROLL_LINES) {
+    if (lines <= MAX_LINES_AUTO_HEIGHT) {
       body.classList.add("is-auto-height");
     } else {
       body.classList.remove("is-auto-height");

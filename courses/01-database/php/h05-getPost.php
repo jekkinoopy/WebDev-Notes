@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
-    <link rel="stylesheet" href="../../../assets/css/note-code-window.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note-code-window.css">
 </head>
 
 <body>
@@ -157,7 +157,7 @@ header("Location: target.php?error=fail");</code></pre>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
-    <script src="../../../assets/js/note-code-window.js"></script>
+    <script src="../../../assets/js/course-note-code-window.js"></script>
     <script src="../../../assets/js/note-lesson-nav.js"></script>
 </body>
 

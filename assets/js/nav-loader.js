@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             title: "網頁排版",
             links: [
-                { name: "HTML5", url: "courses/03-layout/html5/index.html", isFinished: true },
-                { name: "CSS3", url: "#", isFinished: false },
+                { name: "HTML", url: "courses/03-layout/html/index.html", isFinished: true },
+                { name: "CSS", url: "courses/03-layout/css/index.html", isFinished: true },
                 { name: "RWD 響應式", url: "#", isFinished: false }
             ]
         },

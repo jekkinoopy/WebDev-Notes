@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin 與 Padding - 努比的全端筆記</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note-code-window.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note-css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="note-page-margin-padding">
+    <header class="header">
+        <nav class="navbar"></nav>
+        <script src="../../../assets/js/nav-loader.js"></script>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-container">
+            <span class="category-tag">CSS 盒模型</span>
+            <h2 class="note-title">Margin 與 Padding</h2>
+            <p class="hero-desc">內距、外距、盒模型層級，以及 <code>content-box</code> 與 <code>border-box</code> 對實際佔位的影響。</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <div class="note-container">
+        <div class="note-card">
+            <h3 class="note-subtitle">盒模型與 box-sizing</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <ul class="custom-list">
+                    <li>辨識由外而內 <code>margin</code>、<code>border</code>、<code>padding</code>、<code>content</code> 的層級。
+                    </li>
+                    <li>在相同 <code>width</code>、<code>height</code>、<code>padding</code>、<code>border</code> 下，比較
+                        <code>content-box</code> 與 <code>border-box</code> 的總佔位。
+                    </li>
+                </ul>
+            </div>
+
+            <div class="note-practice-sticky">
+
+                <div class="code-section">
+                    <div class="mp-demo-wrap">
+                        <span class="section-label is-bracket-heading">【執行結果】</span>
+
+                        <section class="mp-bm-diagram" aria-label="盒模型層級">
+                            <section class="mp-bm-layer-margin">
+                                <span class="mp-bm-layer-lead"><i
+                                        class="fa-solid fa-circle-chevron-right mp-bm-dir-strip__icon"
+                                        aria-hidden="true"></i> margin</span>
+                                <section class="mp-bm-layer-border">
+                                    <span class="mp-bm-layer-lead"><i
+                                            class="fa-solid fa-circle-chevron-right mp-bm-dir-strip__icon"
+                                            aria-hidden="true"></i> border</span>
+                                    <section class="mp-bm-layer-padding">
+                                        <span class="mp-bm-layer-lead"><i
+                                                class="fa-solid fa-circle-chevron-right mp-bm-dir-strip__icon"
+                                                aria-hidden="true"></i> padding</span>
+                                        <section class="mp-bm-layer-content">
+                                            <span class="mp-bm-layer-lead"><i
+                                                    class="fa-solid fa-circle-chevron-right mp-bm-dir-strip__icon"
+                                                    aria-hidden="true"></i> content</span>
+                                        </section>
+                                    </section>
+                                </section>
+                            </section>
+                        </section>
+                        <!-- 若要顯示圖例：移除此 ul 的 hidden 即可（勿用註解包 BEM 的雙連字元 class） -->
+                        <ul class="mp-bm-legend" hidden>
+                            <li><span class="mp-bm-legend-swatch mp-bm-legend-swatch--margin" aria-hidden="true"></span>
+                                margin</li>
+                            <li><span class="mp-bm-legend-swatch mp-bm-legend-swatch--border" aria-hidden="true"></span>
+                                border</li>
+                            <li><span class="mp-bm-legend-swatch mp-bm-legend-swatch--padding"
+                                    aria-hidden="true"></span> padding</li>
+                            <li><span class="mp-bm-legend-swatch mp-bm-legend-swatch--content"
+                                    aria-hidden="true"></span> content</li>
+                        </ul>
+                    </div>
+                    <!-- 若要顯示 content-box 對照：移除此 div 的 hidden 即可 -->
+                    <div class="mp-demo-wrap" hidden>
+                        <section class="mp-bm-compare">
+                            <section>
+                                <span class="mp-bm-compare-cap">content-box</span>
+                                <section class="mp-bm-box mp-bm-box--content" aria-label="content-box 示範"></section>
+                            </section>
+                            <section>
+                                <span class="mp-bm-compare-cap">border-box</span>
+                                <section class="mp-bm-box mp-bm-box--border" aria-label="border-box 示範"></section>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-point-box">
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
+                <ul class="custom-list">
+                    <li><strong>padding：</strong>增加邊框內側與內容之間的距離。</li>
+                    <li><strong>四邊簡寫：</strong>順序為「上、右、下、左」；兩個值時為「上下、左右」。</li>
+                    <li><strong>margin：</strong>在邊框外推開與其他盒子的距離；可為負值，百分比相對於<strong>包含塊寬度</strong>。</li>
+                    <li><strong>水平置中：</strong>區塊在一般排版流中，設寬度後可使用 <code>margin-inline: auto</code>；亦常寫成
+                        <code>margin: 0 auto</code>。
+                    </li>
+                    <li><strong>content-box：</strong>所設 <code>width</code>／<code>height</code>
+                        多指內容區；<code>padding</code>、<code>border</code> 會往外疊加，總佔位變大。</li>
+                    <li><strong>border-box：</strong>所設 <code>width</code>／<code>height</code> 含 <code>padding</code> 與
+                        <code>border</code>；內容區會向內縮，總外框較易預估。
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <aside class="note-reference-box" aria-label="延伸閱讀">
+            <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
+            <ul class="note-reference-list">
+                <li><a href="index.html">CSS 筆記目錄</a></li>
+                <li>
+                    <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/padding" target="_blank"
+                        rel="noopener noreferrer">MDN：padding</a>
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/box-sizing" target="_blank"
+                        rel="noopener noreferrer">MDN：box-sizing</a>
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/margin" target="_blank"
+                        rel="noopener noreferrer">MDN：margin</a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+    <script src="../../../assets/js/course-note-code-window.js"></script>
+</body>
+
+</html>
