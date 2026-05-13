@@ -14,6 +14,8 @@
 
 專案體量大，**任何未在當句需求中點名、未同意範圍的檔案都不得修改**——包含「順手修一下」「看起來比較合理」「幫你統一成 `.php`」等；若認為該動，先問使用者或請使用者把路徑寫進需求再動。
 
+**接力還原：**在**當次有在動的檔案與區塊**裡，若某樣式／屬性為使用者**已刪除**者，**未經當句需求明寫**不得擅自加回（例：某頁已拿掉的 `border-left` 勿偷偷補）。此條只約束**別替你還原你拿掉的東西**；並非「全專案凡刪過的屬性永遠不准再出現」。
+
 **課程總覽連結：**列表頁（如 `courses/01-database/php/index.html`）上，**已確認好的靜態筆記維持 `.html` 連 `.html`**；不得擅自改成 `.php`。換機預覽「優先開 `.php`」僅為本機驗證習慣，**不**等同要把列表入口全部改成 `.php`。
 
 ## 課中（筆記／題）
@@ -107,6 +109,10 @@
 ### 2026-05-25
 - 需求：講義程式窗共用樣式／腳本更名為 `course-note-code-window.css`、`.js`（與 `course-note.css` 前綴一致）；全 repo 更新 `<link>`／`<script>`；HANDOFF 開工第 2 點補程式窗說明。
 - 範圍：更名 `assets/css/note-code-window.css`、`assets/js/note-code-window.js`；所有引用之 `.html`／`.php`／`原檔/00.php`；`CURSOR-HANDOFF.md`（開工第 2 點 + 本則〈變更〉）；`assets/css/course-note-code-window.css`、`assets/js/course-note-code-window.js`（檔頭註解）。
+
+### 2026-05-13（CSS margin-padding／協作）
+- 需求：釐清「勿還原已刪」僅指**當次改動範圍內**使用者拿掉的規則，勿寫成全專案通案；精簡〈變更〉避免長篇頁面快照。
+- 範圍：只動 `CURSOR-HANDOFF.md`（「未要求勿更動」一句 + 本則〈變更〉）。
 
 ---
 
