@@ -23,7 +23,7 @@
         <div class="hero-container">
             <span class="category-tag">CSS 盒模型</span>
             <h2 class="note-title">Margin 與 Padding</h2>
-            <p class="hero-desc">內距、外距、盒模型層級，以及 <code>content-box</code> 與 <code>border-box</code> 對實際佔位的影響。</p>
+            <p class="hero-desc">對照色塊、虛線、長條。</p>
             <div class="hero-divider"></div>
         </div>
     </section>
@@ -34,10 +34,8 @@
             <div class="ques-section">
                 <strong class="is-bracket-heading">【題目需求】</strong>
                 <ul class="custom-list">
-                    <li>辨識由外而內 <code>margin</code>、<code>border</code>、<code>padding</code>、<code>content</code> 的層級。
-                    </li>
-                    <li>在相同 <code>width</code>、<code>height</code>、<code>padding</code>、<code>border</code> 下，比較
-                        <code>content-box</code> 與 <code>border-box</code> 的總佔位。
+                    <li>認巢狀四層；同一組 <code>width</code>／<code>padding</code>／<code>border</code>，比兩種
+                        <code>box-sizing</code> 誰比較寬。
                     </li>
                 </ul>
             </div>
@@ -69,49 +67,42 @@
                                     </section>
                                 </section>
                             </section>
+                            <!-- 若要顯示 content-box 對照：移除此 div 的 hidden 即可 -->
+                            <div class="mp-demo-wrap">
+                                <section class="mp-bm-compare" aria-label="box-sizing 對照">
+                                    <section class="mp-bm-compare-cols">
+                                        <section class="mp-bm-compare-col">
+                                            <span class="mp-bm-compare-cap mp-bm-compare-cap--border">border-box</span>
+                                            <section class="mp-bm-box mp-bm-box--border"
+                                                aria-label="border-box：粉虛線為整盒外緣，即 width 含 padding 與 border">
+                                                <span class="mp-bm-box-content-slab">content</span>
+                                            </section>
+                                        </section>
+                                        <section class="mp-bm-compare-col">
+                                            <span
+                                                class="mp-bm-compare-cap mp-bm-compare-cap--content">content-box</span>
+                                            <section class="mp-bm-box mp-bm-box--content"
+                                                aria-label="content-box：藍虛線只包住 content；灰虛線為整盒外緣（較寬）">
+                                                <span class="mp-bm-box-content-slab">content</span>
+                                            </section>
+                                        </section>
+                                    </section>
+
+                                </section>
+                            </div>
                         </section>
-                        <!-- 若要顯示圖例：移除此 ul 的 hidden 即可（勿用註解包 BEM 的雙連字元 class） -->
-                        <ul class="mp-bm-legend" hidden>
-                            <li><span class="mp-bm-legend-swatch mp-bm-legend-swatch--margin" aria-hidden="true"></span>
-                                margin</li>
-                            <li><span class="mp-bm-legend-swatch mp-bm-legend-swatch--border" aria-hidden="true"></span>
-                                border</li>
-                            <li><span class="mp-bm-legend-swatch mp-bm-legend-swatch--padding"
-                                    aria-hidden="true"></span> padding</li>
-                            <li><span class="mp-bm-legend-swatch mp-bm-legend-swatch--content"
-                                    aria-hidden="true"></span> content</li>
-                        </ul>
+
                     </div>
-                    <!-- 若要顯示 content-box 對照：移除此 div 的 hidden 即可 -->
-                    <div class="mp-demo-wrap" hidden>
-                        <section class="mp-bm-compare">
-                            <section>
-                                <span class="mp-bm-compare-cap">content-box</span>
-                                <section class="mp-bm-box mp-bm-box--content" aria-label="content-box 示範"></section>
-                            </section>
-                            <section>
-                                <span class="mp-bm-compare-cap">border-box</span>
-                                <section class="mp-bm-box mp-bm-box--border" aria-label="border-box 示範"></section>
-                            </section>
-                        </section>
-                    </div>
+
                 </div>
             </div>
 
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
-                <ul class="custom-list">
-                    <li><strong>padding：</strong>增加邊框內側與內容之間的距離。</li>
-                    <li><strong>四邊簡寫：</strong>順序為「上、右、下、左」；兩個值時為「上下、左右」。</li>
-                    <li><strong>margin：</strong>在邊框外推開與其他盒子的距離；可為負值，百分比相對於<strong>包含塊寬度</strong>。</li>
-                    <li><strong>水平置中：</strong>區塊在一般排版流中，設寬度後可使用 <code>margin-inline: auto</code>；亦常寫成
-                        <code>margin: 0 auto</code>。
-                    </li>
-                    <li><strong>content-box：</strong>所設 <code>width</code>／<code>height</code>
-                        多指內容區；<code>padding</code>、<code>border</code> 會往外疊加，總佔位變大。</li>
-                    <li><strong>border-box：</strong>所設 <code>width</code>／<code>height</code> 含 <code>padding</code> 與
-                        <code>border</code>；內容區會向內縮，總外框較易預估。
-                    </li>
+                <ul class="custom-list mp-bm-learn-min">
+                    <li><strong>padding／margin</strong> 簡寫順序：上 → 右 → 下 → 左。</li>
+                    <li><strong>置中：</strong><code>margin-inline: auto</code>（或 <code>margin: 0 auto</code>）。</li>
+                    <li><strong>box-sizing：</strong>對照本頁兩盒虛線；細節見延伸 MDN。</li>
                 </ul>
             </div>
         </div>

@@ -130,31 +130,189 @@ body.note-page-margin-padding .mp-demo-wrap .mp-bm-layer-lead {
   box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.12);
 }
 
-/* content-box vs border-box 並排 */
+/* content-box vs border-box：對照盒＋長條，少文字 */
 .mp-bm-compare {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
   margin-top: 0.25rem;
 }
 
+.mp-bm-compare-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.mp-bm-compare-col {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+/* 小標：只表示「這一欄示範哪一種 box-sizing」，本身不是 box model 的一層 */
 .mp-bm-compare-cap {
   display: block;
-  margin: 0 0 0.4rem;
+  margin: 0;
+  padding: 0.2rem 0 0.2rem 0.45rem;
   font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--gray-600, #4b5563);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--gray-700, #374151);
+  border-radius: 4px;
+  /* background: rgba(255, 255, 255, 0.65); */
+}
+
+
+
+.mp-bm-compare-viz-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.65rem 0.85rem;
+  align-items: end;
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px dashed rgba(71, 85, 105, 0.28);
+}
+
+.mp-bm-compare-viz {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mp-bm-compare-viz li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.mp-bm-compare-viz-track {
+  display: block;
+  height: 0.55rem;
+  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.25);
+  overflow: hidden;
+}
+
+.mp-bm-compare-viz-fill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.mp-bm-compare-viz-fill--content {
+  width: 128%;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+}
+
+.mp-bm-compare-viz-fill--border {
+  width: 100%;
+  background: linear-gradient(90deg, #f472b6, #db2777);
+}
+
+.mp-bm-compare-key {
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+  padding-bottom: 0.05rem;
+}
+
+.mp-bm-compare-key-i {
+  display: block;
+  height: 0.5rem;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.mp-bm-compare-key-i--border {
+  width: 3.25rem;
+  background: linear-gradient(90deg, #f472b6, #db2777);
+}
+
+.mp-bm-compare-key-i--content {
+  width: calc(3.25rem * 1.28);
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+}
+
+body.note-page-margin-padding .learning-point-box .mp-bm-learn-min {
+  margin-top: 0.35rem;
+}
+
+body.note-page-margin-padding .learning-point-box .mp-bm-learn-min li {
+  margin-bottom: 0.35rem;
 }
 
 .mp-bm-box {
+  position: relative;
+  display: flex;
+  align-items: stretch;
   width: 6.5rem;
   height: 4.5rem;
   padding: 0.75rem;
   border: 0.2rem solid rgba(71, 85, 105, 0.42);
-  margin: 0.5rem 0.5rem 0 0;
+  margin: 0.35rem 0.5rem 0 0;
   font-size: 0.8125rem;
   line-height: 1.35;
   color: var(--gray-800, #1f2937);
+  overflow: visible;
+}
+
+.mp-bm-box-content-slab {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  border-radius: 3px;
+  background: var(--white, #fff);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-600, #4b5563);
+  font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+}
+
+body.note-page-margin-padding .mp-demo-wrap .mp-bm-box-content-slab {
+  font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+}
+
+/* 粉虛線：width 含 padding＋border（整盒外緣） */
+.mp-bm-box--border::after {
+  content: "";
+  position: absolute;
+  inset: -0.2rem;
+  border: 2px dashed rgba(219, 39, 119, 0.72);
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 灰虛線：整盒外緣（content-box 時比藍線大一圈） */
+.mp-bm-box--content::before {
+  content: "";
+  position: absolute;
+  inset: -0.2rem;
+  border: 1px dashed rgba(71, 85, 105, 0.38);
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 藍虛線：width 只算 content 區 */
+.mp-bm-box--content .mp-bm-box-content-slab {
+  outline: 2px dashed rgba(14, 165, 233, 0.85);
+  outline-offset: 1px;
 }
 
 .mp-bm-box--content {
