@@ -19,7 +19,7 @@
 
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">PHP 基礎</span>
+            <span class="category-tag">流程控制</span>
             <h2 class="note-title">For Loop 迴圈</h2>
             <p class="hero-desc">掌握 <code>for</code>、<code>while</code> 與 <code>foreach</code>，學會自動化重複任務與陣列資料處理。</p>
             <div class="hero-divider"></div>

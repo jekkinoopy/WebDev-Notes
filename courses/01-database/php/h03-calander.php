@@ -19,7 +19,7 @@
 
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">實戰專題</span>
+            <span class="category-tag">流程控制</span>
             <h2 class="note-title">線上月曆製作</h2>
             <p class="hero-desc">將日期邏輯轉化為視覺排版，挑戰多種佈局方式與資料顯示。</p>
             <div class="hero-divider"></div>

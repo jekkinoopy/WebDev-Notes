@@ -19,7 +19,7 @@
 
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">基礎課程</span>
+            <span class="category-tag">流程控制</span>
             <h2 class="note-title">時間及日期處理</h2>
             <p class="hero-desc">掌握時間戳運算與格式化參數，從基礎顯示到實作動態月曆。</p>
             <div class="hero-divider"></div>

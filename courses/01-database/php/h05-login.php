@@ -155,7 +155,7 @@
 
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">網頁傳值練習</span>
+            <span class="category-tag">流程控制</span>
             <h2 class="note-title">登入驗證練習</h2>
             <p class="hero-desc">實作基礎的帳號密碼比對邏輯，掌握表單身分驗證流程。</p>
             <div class="hero-divider"></div>

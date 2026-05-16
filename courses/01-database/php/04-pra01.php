@@ -19,7 +19,7 @@
 
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">PHP 基礎</span>
+            <span class="category-tag">流程控制</span>
             <h2 class="note-title">成績等級判定</h2>
             <p class="hero-desc">運用 <code>if...else</code> 多重分支邏輯，實作自動化成績等級分類系統。</p>
             <div class="hero-divider"></div>

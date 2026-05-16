@@ -19,7 +19,7 @@
 
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">PHP 基礎</span>
+            <span class="category-tag">流程控制</span>
             <h2 class="note-title">選擇結構與多選結構</h2>
             <p class="hero-desc">流程控制的一種：依條件決定程式走哪條路。本頁練習 <code>if…else</code>（二選一）與 <code>switch…case</code>（多個固定選項對應）。</p>
             <div class="hero-divider"></div>

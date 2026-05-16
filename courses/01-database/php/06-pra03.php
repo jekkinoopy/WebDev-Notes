@@ -18,7 +18,7 @@
     </header>
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">PHP 基礎</span>
+            <span class="category-tag">流程控制</span>
             <h2 class="note-title">規則數列（for）</h2>
             <p class="hero-desc">以 for 迴圈產生指定規則的數列，含奇數、十的倍數與質數區間數列題型。</p>
             <div class="hero-divider"></div>
