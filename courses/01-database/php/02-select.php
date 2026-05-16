@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>流程控制練習 - 努比的全端筆記</title>
+    <title>選擇結構與多選結構 - 努比的全端筆記</title>
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <link rel="stylesheet" href="../../../assets/css/course-note.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
@@ -20,8 +20,8 @@
     <section class="page-hero">
         <div class="hero-container">
             <span class="category-tag">PHP 基礎</span>
-            <h2 class="note-title">流程控制實作練習</h2>
-            <p class="hero-desc">PHP 條件分支與多重選擇結構實作。</p>
+            <h2 class="note-title">選擇結構與多選結構</h2>
+            <p class="hero-desc">流程控制的一種：依條件決定程式走哪條路。本頁練習 <code>if…else</code>（二選一）與 <code>switch…case</code>（多個固定選項對應）。</p>
             <div class="hero-divider"></div>
         </div>
     </section>
