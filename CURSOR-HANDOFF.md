@@ -18,6 +18,8 @@
 
 **課程總覽連結：**列表頁（如 `courses/01-database/php/index.html`）上，**已確認好的靜態筆記維持 `.html` 連 `.html`**；不得擅自改成 `.php`。換機預覽「優先開 `.php`」僅為本機驗證習慣，**不**等同要把列表入口全部改成 `.php`。
 
+**Git commit 訊息（助理提供指令時）：**格式 `fix:`／`feat:`／`style:` + 空格 + 重點；**重點不超過 15 字**；只寫檔案實際改動，勿寫聊天說明。細則見 `.cursor/rules/git-commit.mdc`。
+
 ## 課中（筆記／題）
 
 使用者丟題 → 你拆結構（幾張 card、分不分頁）→ **程式區先留白** → 使用者練完再補：**程式整理、【執行結果】、【學習重點】**。  
@@ -109,6 +111,10 @@
 ### 2026-05-25
 - 需求：講義程式窗共用樣式／腳本更名為 `course-note-code-window.css`、`.js`（與 `course-note.css` 前綴一致）；全 repo 更新 `<link>`／`<script>`；HANDOFF 開工第 2 點補程式窗說明。
 - 範圍：更名 `assets/css/note-code-window.css`、`assets/js/note-code-window.js`；所有引用之 `.html`／`.php`／`原檔/00.php`；`CURSOR-HANDOFF.md`（開工第 2 點 + 本則〈變更〉）；`assets/css/course-note-code-window.css`、`assets/js/course-note-code-window.js`（檔頭註解）。
+
+### 2026-05-16
+- 需求：Git commit 重點不超過 15 字；勿把聊天說明寫進 `-m`。
+- 範圍：新建 `.cursor/rules/git-commit.mdc`；`CURSOR-HANDOFF.md`（未要求勿更動 + 本則〈變更〉）。
 
 ### 2026-05-13（CSS margin-padding／協作）
 - 需求：釐清「勿還原已刪」僅指**當次改動範圍內**使用者拿掉的規則，勿寫成全專案通案；精簡〈變更〉避免長篇頁面快照。

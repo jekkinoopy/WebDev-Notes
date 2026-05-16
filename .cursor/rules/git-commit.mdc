@@ -1,0 +1,29 @@
+---
+description: Git commit 訊息格式（type 前綴 + 15 字內重點）
+alwaysApply: true
+---
+
+# Git commit 訊息
+
+使用者要求提供 commit 指令時，使用：
+
+```bash
+git add .
+git commit -m "type: 重點"
+```
+
+## type（擇一，依改動主類型）
+
+- `fix:` — 修正錯誤、連結、顯示問題
+- `feat:` — 新功能、新頁面、新單元
+- `style:` — 純排版、文案、樣式，不影響功能邏輯
+
+## 重點（`type: ` 之後）
+
+- **不超過 15 字**（中文一字算一字）
+- **只寫 repo 內實際改動**；勿寫聊天裡的教學、原因補充、對話才提到的說明
+- 範例：`fix: index 改連 html`
+
+## 勿擅自 commit
+
+除非使用者明確要求執行 commit，否則只提供指令文字，不代為 `git commit`。
