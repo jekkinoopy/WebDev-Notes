@@ -18,7 +18,7 @@
     </header>
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">流程控制</span>
+            <span class="category-tag">實戰</span>
             <h2 class="note-title">尋找字元（while）</h2>
             <p class="hero-desc">在一句話中用 while 逐一比對指定單字或字母，並印出找到的內容在句子中的索引位置。</p>
             <div class="hero-divider"></div>

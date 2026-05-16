@@ -140,7 +140,7 @@
 
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">流程控制</span>
+            <span class="category-tag">實戰</span>
             <h2 class="note-title">BMI 計算實作</h2>
             <p class="hero-desc">練習透過 Form 表單傳遞數據至後端進行運算並顯示結果。</p>
             <div class="hero-divider"></div>

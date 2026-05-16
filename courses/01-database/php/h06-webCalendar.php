@@ -19,7 +19,7 @@
 
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">流程控制</span>
+            <span class="category-tag">實戰</span>
             <h2 class="note-title">網頁版萬年曆</h2>
             <p class="hero-desc">利用 URL 傳值實現月份切換功能，並強化視覺樣式判斷。</p>
             <div class="hero-divider"></div>

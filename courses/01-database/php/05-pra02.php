@@ -18,7 +18,7 @@
     </header>
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">流程控制</span>
+            <span class="category-tag">實戰</span>
             <h2 class="note-title">閏年判斷實戰</h2>
             <p class="hero-desc">運用邏輯運算子，實作精準的閏年週期判定邏輯。</p>
             <div class="hero-divider"></div>

@@ -29,7 +29,7 @@
     </header>
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">流程控制</span>
+            <span class="category-tag">實戰</span>
             <h2 class="note-title">九九乘法表（表格／交叉）</h2>
             <p class="hero-desc">製作表格版（含完整算式）與交叉乘積版兩種呈現；可對照題圖與解題參考驗證。</p>
             <div class="hero-divider"></div>
