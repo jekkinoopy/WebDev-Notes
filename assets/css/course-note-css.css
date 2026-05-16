@@ -1,0 +1,356 @@
+/*
+ * 與 course-note.css 併用；檔名 course-note-{領域}.css，領域與講義所在課程子資料夾同名（本檔對應 css）。
+ * 路徑：assets/css/；勿在課程子目錄另複製一份。
+ */
+
+/* 示範外層：淺灰底＋細邊線，對齊全站灰階變數 */
+.mp-demo-wrap {
+  margin-top: 1rem;
+  padding: 1.125rem 1.25rem 1.25rem;
+}
+
+/* 盒模型各層標籤左側：Font Awesome circle-chevron-right（class 沿用 mp-bm-dir-strip__icon） */
+.mp-bm-dir-strip__icon {
+  font-size: 0.95rem;
+  line-height: 1;
+  color: #475569;
+}
+
+.mp-bm-layer-margin,
+.mp-bm-layer-border,
+.mp-bm-layer-padding,
+.mp-bm-layer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.mp-bm-layer-lead {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+  color: var(--gray-600, #4b5563);
+}
+
+body.note-page-margin-padding .mp-demo-wrap .mp-bm-layer-lead {
+  font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+}
+
+/* 盒模型層級示意（由外而內：margin → border → padding → content）；寬度為外層示範區 80% 並置中 */
+.mp-bm-diagram {
+  display: block;
+  width: 80%;
+  max-width: 100%;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.mp-bm-diagram section {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.mp-bm-layer-margin {
+  padding: 0.65rem;
+  border-radius: 10px;
+  background: rgba(86, 204, 242, 0.12);
+  /* border: 1px dashed rgba(60, 96, 143, 0.28); */
+}
+
+.mp-bm-layer-border {
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: rgba(231, 189, 134, 0.2);
+  border: 3px solid rgba(255, 175, 69, 0.65);
+}
+
+.mp-bm-layer-padding {
+  padding: 0.5rem;
+  border-radius: 6px;
+  background: rgba(148, 163, 184, 0.22);
+  border: 1px solid rgba(100, 116, 139, 0.35);
+}
+
+.mp-bm-layer-content {
+  min-width: 5.5rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 4px;
+  background: var(--white, #fff);
+  font-size: 0.8125rem;
+  color: var(--gray-700, #374151);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+}
+
+.mp-bm-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.75rem;
+  color: var(--gray-600, #4b5563);
+}
+
+.mp-bm-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mp-bm-legend-swatch {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.mp-bm-legend-swatch--margin {
+  background: rgba(86, 204, 242, 0.35);
+  border: 1px dashed rgba(60, 96, 143, 0.35);
+}
+
+.mp-bm-legend-swatch--border {
+  background: rgba(231, 189, 134, 0.55);
+}
+
+.mp-bm-legend-swatch--padding {
+  background: rgba(148, 163, 184, 0.45);
+}
+
+.mp-bm-legend-swatch--content {
+  background: var(--white, #fff);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.12);
+}
+
+/* content-box vs border-box：對照盒＋長條，少文字 */
+.mp-bm-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.mp-bm-compare-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.mp-bm-compare-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+/* 小標：只表示「這一欄示範哪一種 box-sizing」，本身不是 box model 的一層 */
+.mp-bm-compare-cap {
+  display: block;
+  margin: 0;
+  padding: 0.2rem 0 0.2rem 0.45rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--gray-700, #374151);
+  border-radius: 4px;
+}
+
+.mp-bm-compare-viz-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.65rem 0.85rem;
+  align-items: end;
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px dashed rgba(71, 85, 105, 0.28);
+}
+
+.mp-bm-compare-viz {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mp-bm-compare-viz li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.mp-bm-compare-viz-track {
+  display: block;
+  height: 0.55rem;
+  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.25);
+  overflow: hidden;
+}
+
+.mp-bm-compare-viz-fill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.mp-bm-compare-viz-fill--content {
+  width: 128%;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+}
+
+.mp-bm-compare-viz-fill--border {
+  width: 100%;
+  background: linear-gradient(90deg, #f472b6, #db2777);
+}
+
+.mp-bm-compare-key {
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+  padding-bottom: 0.05rem;
+}
+
+.mp-bm-compare-key-i {
+  display: block;
+  height: 0.5rem;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.mp-bm-compare-key-i--border {
+  width: 3.25rem;
+  background: linear-gradient(90deg, #f472b6, #db2777);
+}
+
+.mp-bm-compare-key-i--content {
+  width: calc(3.25rem * 1.28);
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+}
+
+body.note-page-margin-padding .learning-point-box .mp-bm-learn-min {
+  margin-top: 0.35rem;
+}
+
+body.note-page-margin-padding .learning-point-box .mp-bm-learn-min li {
+  margin-bottom: 0.35rem;
+}
+
+.mp-bm-box {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  --mp-bm-pad: clamp(0.45rem, 5%, 1.125rem);
+  --mp-bm-bw: clamp(0.1rem, 1.2%, 0.3rem);
+  padding: var(--mp-bm-pad);
+  border-style: solid;
+  border-color: rgba(71, 85, 105, 0.42);
+  border-width: var(--mp-bm-bw);
+  margin: 0.35rem 0 0;
+  line-height: 1.35;
+  color: var(--gray-800, #1f2937);
+  overflow: visible;
+  aspect-ratio: 39 / 27;
+  height: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.mp-bm-box--border {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(244, 114, 182, 0.14);
+  border-style: dashed;
+  border-color: rgba(219, 39, 119, 0.78);
+}
+
+/* content 寬扣掉 padding／border，使整盒外緣不超出父欄（與 border-box 欄同寬對齊） */
+.mp-bm-box--content {
+  width: calc(100% - 2 * var(--mp-bm-pad) - 2 * var(--mp-bm-bw));
+  box-sizing: content-box;
+  background: rgba(56, 189, 248, 0.16);
+  border-style: solid;
+  border-color: rgba(71, 85, 105, 0.52);
+}
+
+.mp-bm-box-content-slab {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  border-radius: clamp(3px, 0.8vw, 5px);
+  background: var(--white, #fff);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+  font-size: clamp(0.65rem, 3.8vw, 1.125rem);
+  font-weight: 600;
+  color: var(--gray-600, #4b5563);
+  font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+}
+
+body.note-page-margin-padding .mp-demo-wrap .mp-bm-box-content-slab {
+  font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+}
+
+/* 藍虛線：width 只算 content 區（content-box） */
+.mp-bm-box--content .mp-bm-box-content-slab {
+  outline: clamp(2px, 0.35vw, 4px) dashed rgba(14, 165, 233, 0.85);
+  outline-offset: clamp(1px, 0.15vw, 2px);
+}
+
+body.note-page-margin-padding .note-code-window,
+body.note-page-margin-padding .note-code-window-body {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+body.note-page-margin-padding .note-practice-sticky {
+  max-width: 100%;
+}
+
+/* margin-padding 講義：【執行結果】外層不當整塊灰底；灰底／圓角只套在示範 .mp-demo-wrap */
+body.note-page-margin-padding .code-section {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+body.note-page-margin-padding .code-section>.mp-demo-wrap {
+  background: #f8f9fa;
+  box-shadow: var(--note-section-inset-shadow);
+  border-radius: var(--note-section-radius);
+  padding: var(--note-section-pad-block) var(--note-section-pad-inline);
+  font-family: "Courier New", monospace;
+  color: #374151;
+  font-size: var(--note-body-font-size);
+  line-height: var(--note-body-line-height);
+}
+
+body.note-page-margin-padding .code-section>.mp-demo-wrap~.mp-demo-wrap {
+  margin-top: 1rem;
+}
+
+body.note-page-margin-padding .note-code-window+.code-section {
+  max-height: none;
+  overflow: visible;
+  scrollbar-width: auto;
+  scrollbar-gutter: auto;
+}

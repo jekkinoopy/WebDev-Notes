@@ -1,4 +1,4 @@
-/* 程式碼練習：Carbon／macOS 視窗感外框（內容交 Prism 上色） */
+/* course-note-code-window.css：講義「程式窗」（Carbon／macOS 視窗感外框、行號欄、複製鈕、與 Prism 搭配之捲動高度）。HTML class 仍以 .note-code-window 為根，與檔名不同步乃刻意保留。 */
 
 .note-code-window {
   /* 未包在 note-practice-sticky 時，上下仍與卡片內區塊對齊；圓角與題目需求等區塊一致（深色視窗底色不變） */
@@ -128,7 +128,7 @@
   background: #161618;
 }
 
-/* 少於 15 行：不強制約 15 行高，整區隨內容（由 JS 加 .is-auto-height） */
+/* 行數不多時：不強制約 15 行高，整區隨內容（由 JS 加 .is-auto-height；門檻見 course-note-code-window.js） */
 .note-code-window-body.is-auto-height {
   height: auto;
   max-height: none;

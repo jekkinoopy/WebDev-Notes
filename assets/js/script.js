@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
         "Git": "Git 版本控制",
         "02-dynamic": "網頁動態技術",
         "03-layout": "網頁排版編輯",
-        "html5": "HTML5",
+        "html": "HTML",
         "04-design": "視覺影像設計",
         "illustrator": "Illustrator 向量設計",
         "photoshop": "Photoshop 數位影像",

@@ -603,11 +603,11 @@ body {
 
 
 /* 執行結果區塊強化 */
-/* 1. 執行結果區塊 - 帶虛線邊框（底色／虛線色照舊，外框與題目需求同節奏） */
+/* 1. 執行結果區塊 - 淺灰底、無外框線（外框與題目需求同節奏） */
 .code-section {
   box-sizing: border-box;
   background: #f8f9fa;
-  border: 1px dashed #dee2e6;
+  border: none;
   padding: var(--note-section-pad-block) var(--note-section-pad-inline);
   margin-top: var(--note-block-gap, 1.25rem);
   margin-bottom: var(--note-block-gap, 1.25rem);
@@ -671,7 +671,7 @@ body {
   background: #eaecef;
 }
 
-/* 對齊題目區小標題節奏；區塊本身仍為灰底虛線 */
+/* 對齊題目區小標題節奏；區塊本身仍為灰底 */
 .section-label {
   display: block;
   color: var(--primary-dark);

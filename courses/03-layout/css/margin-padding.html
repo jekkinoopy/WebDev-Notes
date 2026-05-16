@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin 與 Padding - 努比的全端筆記</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note-code-window.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note-css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="note-page-margin-padding">
+    <header class="header">
+        <nav class="navbar"></nav>
+        <script src="../../../assets/js/nav-loader.js"></script>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-container">
+            <span class="category-tag">CSS 盒模型</span>
+            <h2 class="note-title">Margin 與 Padding</h2>
+            <p class="hero-desc">對照色塊、虛線、長條。</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <div class="note-container">
+        <div class="note-card">
+            <h3 class="note-subtitle">盒模型與 box-sizing</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【題目需求】</strong>
+                <ul class="custom-list">
+                    <li>認巢狀四層；同一組 <code>width</code>／<code>padding</code>／<code>border</code>，比兩種
+                        <code>box-sizing</code> 誰比較寬。
+                    </li>
+                </ul>
+            </div>
+
+            <div class="note-practice-sticky">
+
+                <div class="code-section">
+                    <div class="mp-demo-wrap">
+                        <span class="section-label is-bracket-heading">【執行結果】</span>
+
+                        <section class="mp-bm-diagram" aria-label="盒模型層級">
+                            <section class="mp-bm-layer-margin">
+                                <span class="mp-bm-layer-lead"><i
+                                        class="fa-solid fa-circle-chevron-right mp-bm-dir-strip__icon"
+                                        aria-hidden="true"></i> margin</span>
+                                <section class="mp-bm-layer-border">
+                                    <span class="mp-bm-layer-lead"><i
+                                            class="fa-solid fa-circle-chevron-right mp-bm-dir-strip__icon"
+                                            aria-hidden="true"></i> border</span>
+                                    <section class="mp-bm-layer-padding">
+                                        <span class="mp-bm-layer-lead"><i
+                                                class="fa-solid fa-circle-chevron-right mp-bm-dir-strip__icon"
+                                                aria-hidden="true"></i> padding</span>
+                                        <section class="mp-bm-layer-content">
+                                            <span class="mp-bm-layer-lead"><i
+                                                    class="fa-solid fa-circle-chevron-right mp-bm-dir-strip__icon"
+                                                    aria-hidden="true"></i> content</span>
+                                        </section>
+                                    </section>
+                                </section>
+                            </section>
+                            <!-- 若要顯示 content-box 對照：移除此 div 的 hidden 即可 -->
+                            <div class="mp-demo-wrap">
+                                <section class="mp-bm-compare" aria-label="box-sizing 對照">
+                                    <section class="mp-bm-compare-cols">
+                                        <section class="mp-bm-compare-col">
+                                            <span class="mp-bm-compare-cap">border-box</span>
+                                            <section class="mp-bm-box mp-bm-box--border"
+                                                aria-label="border-box：粉紅虛線為 border；內側淺粉為 padding；白底為 content">
+                                                <span class="mp-bm-box-content-slab">content</span>
+                                            </section>
+                                        </section>
+                                        <section class="mp-bm-compare-col">
+                                            <span class="mp-bm-compare-cap">content-box</span>
+                                            <section class="mp-bm-box mp-bm-box--content"
+                                                aria-label="content-box：灰實線為 border；淺藍為 padding；藍虛線內為 content 與 width">
+                                                <span class="mp-bm-box-content-slab">content</span>
+                                            </section>
+                                        </section>
+                                    </section>
+
+                                </section>
+                            </div>
+                        </section>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="learning-point-box">
+                <p class="learning-point-title is-bracket-heading">【學習重點】</p>
+                <ul class="custom-list mp-bm-learn-min">
+                    <li><strong>padding／margin</strong> 簡寫順序：上 → 右 → 下 → 左。</li>
+                    <li><strong>置中：</strong><code>margin-inline: auto</code>（或 <code>margin: 0 auto</code>）。</li>
+                    <li><strong>box-sizing：</strong>對照本頁兩盒虛線；細節見延伸 MDN。</li>
+                </ul>
+            </div>
+        </div>
+
+        <aside class="note-reference-box" aria-label="延伸閱讀">
+            <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
+            <ul class="note-reference-list">
+                <li><a href="index.html">CSS 筆記目錄</a></li>
+                <li>
+                    <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/padding" target="_blank"
+                        rel="noopener noreferrer">MDN：padding</a>
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/box-sizing" target="_blank"
+                        rel="noopener noreferrer">MDN：box-sizing</a>
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/margin" target="_blank"
+                        rel="noopener noreferrer">MDN：margin</a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+    <script src="../../../assets/js/course-note-code-window.js"></script>
+</body>
+
+</html>
