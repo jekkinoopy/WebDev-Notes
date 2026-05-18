@@ -18,15 +18,15 @@
     </header>
     <section class="page-hero">
         <div class="hero-container">
-            <span class="category-tag">實戰</span>
+            <span class="category-tag">進階</span>
             <h2 class="note-title">PDO 資料庫連線</h2>
-            <p class="hero-desc">以 PDO 連線 MySQL、查詢 <code>dept</code> 資料表，並預留新增資料（Create）段落。</p>
+            <p class="hero-desc">以 PDO 連線 <code>school</code>，對 <code>dept</code> 完成查詢、新增、更新、刪除（CRUD）。</p>
             <div class="hero-divider"></div>
         </div>
     </section>
     <div class="note-container">
         <div class="note-card">
-            <h3 class="note-subtitle">連線、查詢與輸出</h3>
+            <h3 class="note-subtitle">PDO 與 dept 資料表 CRUD</h3>
             <div class="ques-section">
                 <strong class="is-bracket-heading">【學習段落】</strong>
                 <ul class="custom-list">
@@ -168,10 +168,10 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     print_r($depts);
                     echo "</pre>";
 
-
-                
-?>          
+?>
+                </div>
             </div>
+            </motion>
 
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
@@ -181,6 +181,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     <li><strong>查詢：</strong><code>$pdo->query($sql)</code> 執行 SQL；<code>fetchAll(PDO::FETCH_ASSOC)</code> 以關聯陣列取回全部列。</li>
                     <li><strong>輸出：</strong><code>print_r()</code> 搭配 <code>&lt;pre&gt;</code> 檢視查詢結果。</li>
                     <li><strong>query / exec：</strong>查資料、看畫面用 <code>query()</code>；新增、修改、刪除用 <code>exec()</code>。</li>
+                    <li><strong>下一步：</strong>完成後可進入 <a href="s02-register.php">簡易註冊系統（s02）</a>。</li>
                 </ul>
             </div>
 
