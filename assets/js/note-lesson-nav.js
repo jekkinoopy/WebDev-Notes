@@ -71,6 +71,9 @@
     { id: "h08-loginSession", title: "Session 會員登入實作" },
     { id: "s01-register", title: "簡易註冊系統" },
     { id: "02-api_register", title: "註冊表單接收（API）" },
+    { id: "s02-login", title: "簡易登入系統" },
+    { id: "03-api_login", title: "登入表單接收（API）" },
+    { id: "04-login-success", title: "登入成功頁" },
   ];
 
   var SERIES_PHP = "[基礎課程]";
