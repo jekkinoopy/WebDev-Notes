@@ -116,6 +116,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
+                <div class="pdo-run-output" aria-live="polite">
                 <?php
                 //第一部分：資料庫連線 
                     $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
@@ -171,7 +172,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
                 </div>
             </div>
-            </motion>
+            </div>
 
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
@@ -191,6 +192,9 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             <ul class="note-reference-list">
                 <li>
                     <a href="https://mackliu.github.io/php-book/2021/09/21/php-lesson-04/" target="_blank" rel="noopener noreferrer">[PHP] Lesson 4 PHP + MySQL</a>
+                </li>
+                <li>
+                    <a href="https://mackliu.github.io/php-book/2021/09/20/db-lesson-01/" target="_blank" rel="noopener noreferrer">[資料庫] Lesson 1 SQL 資料庫基本操作</a>
                 </li>
                 <li>
                     <a href="../SQL/03-sql-syntax.html" target="_blank" rel="noopener noreferrer">本站：SQL 語法與 school 資料庫</a>

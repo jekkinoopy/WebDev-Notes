@@ -67,27 +67,6 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
-                <?php
-                //第一部分：資料庫連線 
-                    $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
-                    //$data sourse name 資料來源="使用的資料庫:提供服務的主機=本機;編碼=通用萬國碼;資料庫名=$";
-                    $pdo = new PDO($dsn,'root','');
-                    //核心變數 連線機器人 = 新執行 設計圖($dsn,'帳號','密碼'); 
-                //第二部分：查詢資料 (Read)
-                    $sql = " select * from  `dept`";
-                    //資料庫(以指令內容生出來的)="選擇全部直欄 從 `資料表`
-                    $depts = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-                    //A -> B，去執行 A物件 的 B功能 或 抓取 A物件 的 B屬性
-                    //$pdo->query($sql) ➔ 【發射並帶回成果包】
-                    //拿取全部->fetchAll()
-                    //PDO::FETCH_ASSOC 直接翻閱 PDO 總部字典裡的 FETCH_ASSOC 條目
-
-                    echo "<pre>";
-                    print_r($depts);
-                    echo "</pre>";
-                //第三部分：新增資料 (Create)
-                
-?>
                 <section class="reg-demo-wrap" aria-label="註冊表單示範">
                     <header class="form-header">
                         <h4>會員註冊</h4>
@@ -131,6 +110,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     <li><strong>表單：</strong><code>method="post"</code>、<code>action</code> 指向接收程式。</li>
                     <li><strong>接收端：</strong>以 <code>$_POST['欄位名']</code> 讀取送出值，再寫入資料庫。</li>
                     <li><strong>版面：</strong>淺綠底、橘黃標題與按鈕、圓角輸入（見【執行結果】示範）。</li>
+                    <li><strong>前置：</strong>需先完成 <a href="s01-pdo.php">PDO 資料庫連線（s01）</a>。</li>
                 </ul>
             </div>
 
