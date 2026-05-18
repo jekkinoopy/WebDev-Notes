@@ -19,7 +19,7 @@
         <div class="hero-container">
             <span class="category-tag">配套</span>
             <h2 class="note-title">登入成功</h2>
-            <p class="hero-desc">帳密比對通過後，由 s04-api_login.php 導向此頁顯示登入成功。</p>
+            <p class="hero-desc">帳密比對通過後，由 s03-api_login.php 導向此頁顯示登入成功。</p>
             <div class="hero-divider"></div>
         </div>
     </section>
@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="note-container note-lesson-nav-wrap">
-        <div id="note-lesson-nav-root" data-lesson-id="s05-login-success"></div>
+        <div id="note-lesson-nav-root" data-lesson-id="s03-login-success"></div>
     </div>
     <script src="../../../assets/js/note-lesson-nav.js"></script>
 </body>

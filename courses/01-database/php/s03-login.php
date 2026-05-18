@@ -42,10 +42,10 @@
 $loginError = isset($_GET['error']);
 $code = <<<'EOD'
 // 【程式碼練習】
-// 1. 登入表單（method="post" action="s04-api_login.php"）
-// 2. s04-api_login.php：PDO 查詢 members 比對 account、password
+// 1. 登入表單（method="post" action="s03-api_login.php"）
+// 2. s03-api_login.php：PDO 查詢 members 比對 account、password
 //    SELECT COUNT(*) ... 或 SELECT id ... LIMIT 1
-// 3. 比對成功：header('Location: s05-login-success.php'); exit;
+// 3. 比對成功：header('Location: s03-login-success.php'); exit;
 // 4. 比對失敗：header('Location: s03-login.php?error=1'); exit;
 // 5. s03-login.php：若 $_GET['error'] 顯示錯誤訊息
 EOD;
@@ -80,7 +80,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     <?php if ($loginError) : ?>
                     <p class="reg-error-text" role="alert">帳號或密碼錯誤，請重新輸入</p>
                     <?php endif; ?>
-                    <form action="s04-api_login.php" method="post">
+                    <form action="s03-api_login.php" method="post">
                         <div class="reg-form-group">
                             <label for="account">帳號 *</label>
                             <input type="text" id="account" name="account" placeholder="請輸入帳號" required autocomplete="username">
@@ -94,7 +94,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                             <button type="reset" class="reg-btn-reset">清空</button>
                         </div>
                     </form>
-                    <p class="reg-info-text">* 表示必填；送出目標為 <code>s04-api_login.php</code></p>
+                    <p class="reg-info-text">* 表示必填；送出目標為 <code>s03-api_login.php</code></p>
                 </section>
             </div>
             </div>
@@ -102,9 +102,9 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
                 <ul class="custom-list">
-                    <li><strong>資料表：</strong>沿用 <code>members</code> 的 <code>account</code>、<code>password</code> 欄位（見 <a href="s01-register.php">簡易註冊系統</a>）。</li>
+                    <li><strong>資料表：</strong>沿用 <code>members</code> 的 <code>account</code>、<code>password</code> 欄位（見 <a href="s02-register.php">簡易註冊系統</a>）。</li>
                     <li><strong>比對：</strong>以 SQL <code>WHERE account = ? AND password = ?</code> 查詢；<code>COUNT(*)</code> 為 1 代表登入成功。</li>
-                    <li><strong>導向：</strong>成功用 <code>header('Location: s05-login-success.php')</code>；失敗導回 <code>s03-login.php?error=1</code>。</li>
+                    <li><strong>導向：</strong>成功用 <code>header('Location: s03-login-success.php')</code>；失敗導回 <code>s03-login.php?error=1</code>。</li>
                     <li><strong>錯誤提示：</strong>登入頁以 <code>isset($_GET['error'])</code> 決定是否顯示錯誤文字。</li>
                 </ul>
             </div>

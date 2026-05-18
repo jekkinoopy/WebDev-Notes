@@ -83,25 +83,60 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
                 <?php
-//第一部分：資料庫連線
-    $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
-    //$data sourse name 資料來源="使用的資料庫:提供服務的主機=本機;編碼=通用萬國碼;資料庫名=$";
-    $pdo = new PDO($dsn,'root','');
-    //核心變數 連線機器人 = 新執行 設計圖($dsn,'帳號','密碼');
-//第二部分：查詢資料 (Read)
-    $sql = " select * from  `dept`";
-    //資料庫(以指令內容生出來的)="選擇全部直欄 從 `資料表`
-    $depts = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-    //A -> B，去執行 A物件 的 B功能 或 抓取 A物件 的 B屬性
-    //$pdo->query($sql) ➔ 【發射並帶回成果包】
-    //拿取全部->fetchAll()
-    //PDO::FETCH_ASSOC 直接翻閱 PDO 總部字典裡的 FETCH_ASSOC 條目
+                //第一部分：資料庫連線 
+                    $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
+                    //$data sourse name 資料來源="使用的資料庫:提供服務的主機=本機;編碼=通用萬國碼;資料庫名=$";
+                    $pdo = new PDO($dsn,'root','');
+                    //核心變數 連線機器人 = 新執行 設計圖($dsn,'帳號','密碼'); 
+                //第二部分：查詢資料 (Read)
+                    $sql = " select * from  `dept`";
+                    //資料庫(以指令內容生出來的)="選擇全部直欄 從 `資料表`
+                    $depts = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+                    //A -> B，去執行 A物件 的 B功能 或 抓取 A物件 的 B屬性
+                    //$pdo->query($sql) ➔ 【發射並帶回成果包】
+                    //拿取全部->fetchAll()
+                    //PDO::FETCH_ASSOC 直接翻閱 PDO 總部字典裡的 FETCH_ASSOC 條目
 
-    echo "<pre>";
-    print_r($depts);
-    echo "</pre>";
-//第三部分：新增資料 (Create)
-?>
+                    echo "<pre>";
+                    print_r($depts);
+                    echo "</pre>";
+                //第三部分：新增資料 (Create)
+                    $sql_insert="insert into`dept`(`code`,`name`)
+                                                values('601','中餐科')";
+                    echo "<h2>新增資料</h2>";
+                    echo $sql_insert;
+                    echo "<hr>";
+                    //$pdo->exec($sql_insert);重整就會新增一筆 所以關掉                    
+                    //要從資料庫「撈資料、看畫面」 ➔ 用 query()
+                    //要對資料庫「新增、修改、刪除」 ➔ 用 exec()
+                //第四部分：更新資料 (Update)
+                    echo "<h2>更新資料</h2>";
+
+                    $sql_update="update `dept` 
+                                 set `code`='602',`name`='西餐科'     
+                                 where `id`='8'";
+                    $pdo->exec($sql_update);
+                    echo $sql_update;
+                    echo "<hr>";
+              
+                //第五部分：刪除資料 (Delete)
+                    $depts=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+                    echo "<pre>";
+                    print_r($depts);
+                    echo "</pre>";
+                    echo "<h2>刪除資料</h2>";
+                    $sql_delete= "delete from `dept` where `id`='2'";
+                    $pdo->exec($sql_delete);
+                    echo $sql_delete;
+                    echo "<hr>";
+                    $depts=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+                    echo "<pre>";
+                    print_r($depts);
+                    echo "</pre>";
+
+
+                
+?>          
             </div>
 
             <div class="learning-point-box">

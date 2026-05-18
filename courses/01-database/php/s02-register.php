@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../../assets/css/course-note-php.css">
 </head>
 
-<body class="note-page-s01-register">
+<body class="note-page-s02-register">
     <header class="header">
         <nav class="navbar"></nav>
         <script src="../../../assets/js/nav-loader.js"></script>
@@ -158,7 +158,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
     <script src="../../../assets/js/course-note-code-window.js"></script>
     <div class="note-container note-lesson-nav-wrap">
-        <div id="note-lesson-nav-root" data-lesson-id="s01-register"></div>
+        <div id="note-lesson-nav-root" data-lesson-id="s02-register"></div>
     </div>
     <script src="../../../assets/js/note-lesson-nav.js"></script>
 </body>
