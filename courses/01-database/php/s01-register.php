@@ -117,11 +117,17 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
         <aside class="note-reference-box" aria-label="延伸閱讀">
             <h4 class="note-reference-title is-bracket-heading">【延伸閱讀】</h4>
             <ul class="note-reference-list">
-                <li><a href="index.html">PHP 筆記目錄</a></li>
-                <li><a href="h05-getPost.php">網頁傳值（GET／POST）</a></li>
                 <li>
-                    <a href="https://developer.mozilla.org/zh-TW/docs/Web/HTML/Element/form" target="_blank"
-                        rel="noopener noreferrer">MDN：&lt;form&gt;</a>
+                    <a href="https://mackliu.github.io/php-book/2021/09/21/php-lesson-04/" target="_blank" rel="noopener noreferrer">[PHP] Lesson 4 PHP + MySQL（含簡易註冊系統）</a>
+                </li>
+                <li>
+                    <a href="https://github.com/mackliu/115-PHP/blob/main/02-register.php" target="_blank" rel="noopener noreferrer">115 PHP 課程：對照原始碼（02-register.php）</a>
+                </li>
+                <li>
+                    <a href="https://github.com/mackliu/115-PHP/blob/main/api_register.php" target="_blank" rel="noopener noreferrer">115 PHP 課程：對照原始碼（api_register.php）</a>
+                </li>
+                <li>
+                    <a href="https://github.com/mackliu/115-PHP/blob/main/members.sql" target="_blank" rel="noopener noreferrer">115 PHP 課程：對照原始碼（members.sql）</a>
                 </li>
             </ul>
         </aside>
