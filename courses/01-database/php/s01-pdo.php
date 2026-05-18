@@ -32,7 +32,9 @@
                 <ul class="custom-list">
                     <li><strong>第一部分：</strong>設定 <code>$dsn</code>，以 <code>new PDO()</code> 建立連線。</li>
                     <li><strong>第二部分：</strong>撰寫 <code>SELECT</code>，以 <code>query()</code>、<code>fetchAll(PDO::FETCH_ASSOC)</code> 讀取 <code>dept</code>。</li>
-                    <li><strong>第三部分：</strong>新增資料（Create）— 待續實作。</li>
+                    <li><strong>第三部分：</strong>新增資料（Create）— <code>INSERT</code> 與 <code>exec()</code>。</li>
+                    <li><strong>第四部分：</strong>更新資料（Update）— <code>UPDATE</code> 與 <code>exec()</code>。</li>
+                    <li><strong>第五部分：</strong>刪除資料（Delete）— <code>DELETE</code> 後再查詢確認。</li>
                 </ul>
             </div>
 
@@ -57,6 +59,38 @@ $code = <<<'EOD'
     print_r($depts);
     echo "</pre>";
 //第三部分：新增資料 (Create)
+    $sql_insert="insert into`dept`(`code`,`name`)
+                                        values('601','中餐科')";
+    echo "<h2>新增資料</h2>";
+    echo $sql_insert;
+    echo "<hr>";
+    //$pdo->exec($sql_insert);重整就會新增一筆 所以關掉                    
+    //要從資料庫「撈資料、看畫面」 ➔ 用 query()
+    //要對資料庫「新增、修改、刪除」 ➔ 用 exec()
+//第四部分：更新資料 (Update)
+    echo "<h2>更新資料</h2>";
+
+    $sql_update="update `dept` 
+                 set `code`='602',`name`='西餐科'     
+                 where `id`='8'";
+    $pdo->exec($sql_update);
+    echo $sql_update;
+    echo "<hr>";
+  
+//第五部分：刪除資料 (Delete)
+    $depts=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    echo "<pre>";
+    print_r($depts);
+    echo "</pre>";
+    echo "<h2>刪除資料</h2>";
+    $sql_delete= "delete from `dept` where `id`='2'";
+    $pdo->exec($sql_delete);
+    echo $sql_delete;
+    echo "<hr>";
+    $depts=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    echo "<pre>";
+    print_r($depts);
+    echo "</pre>";
 ?>
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
@@ -146,6 +180,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     <li><strong>$pdo：</strong><code>new PDO($dsn, 帳號, 密碼)</code> 建立連線物件。</li>
                     <li><strong>查詢：</strong><code>$pdo->query($sql)</code> 執行 SQL；<code>fetchAll(PDO::FETCH_ASSOC)</code> 以關聯陣列取回全部列。</li>
                     <li><strong>輸出：</strong><code>print_r()</code> 搭配 <code>&lt;pre&gt;</code> 檢視查詢結果。</li>
+                    <li><strong>query / exec：</strong>查資料、看畫面用 <code>query()</code>；新增、修改、刪除用 <code>exec()</code>。</li>
                 </ul>
             </div>
 
