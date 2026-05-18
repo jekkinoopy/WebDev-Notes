@@ -69,6 +69,7 @@
     { id: "h05-login", title: "登入驗證練習" },
     { id: "h07-loginCookie", title: "Cookie 狀態管理" },
     { id: "h08-loginSession", title: "Session 會員登入實作" },
+    { id: "s01-pdo", title: "PDO 資料庫連線" },
     { id: "s01-register", title: "簡易註冊系統" },
     { id: "02-api_register", title: "註冊表單接收（API）" },
     { id: "s02-login", title: "簡易登入系統" },
