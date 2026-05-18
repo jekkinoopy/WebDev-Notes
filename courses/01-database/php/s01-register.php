@@ -41,8 +41,8 @@
 $code = <<<'EOD'
 // 【程式碼練習】
 // 1. CREATE TABLE members（id, account, password, tel, birthday, email）
-// 2. 註冊表單 HTML（method="post" action="02-api_register.php"）
-// 3. 02-api_register.php：讀取 $_POST 並 INSERT
+// 2. 註冊表單 HTML（method="post" action="s02-api_register.php"）
+// 3. s02-api_register.php：讀取 $_POST 並 INSERT
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
 $codeGutter = implode("\n", range(1, $codeLineCount));
@@ -67,12 +67,33 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span>
+                <?php
+                //第一部分：資料庫連線 
+                    $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
+                    //$data sourse name 資料來源="使用的資料庫:提供服務的主機=本機;編碼=通用萬國碼;資料庫名=$";
+                    $pdo = new PDO($dsn,'root','');
+                    //核心變數 連線機器人 = 新執行 設計圖($dsn,'帳號','密碼'); 
+                //第二部分：查詢資料 (Read)
+                    $sql = " select * from  `dept`";
+                    //資料庫(以指令內容生出來的)="選擇全部直欄 從 `資料表`
+                    $depts = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+                    //A -> B，去執行 A物件 的 B功能 或 抓取 A物件 的 B屬性
+                    //$pdo->query($sql) ➔ 【發射並帶回成果包】
+                    //拿取全部->fetchAll()
+                    //PDO::FETCH_ASSOC 直接翻閱 PDO 總部字典裡的 FETCH_ASSOC 條目
+
+                    echo "<pre>";
+                    print_r($depts);
+                    echo "</pre>";
+                //第三部分：新增資料 (Create)
+                
+?>
                 <section class="reg-demo-wrap" aria-label="註冊表單示範">
                     <header class="form-header">
                         <h4>會員註冊</h4>
                         <p>歡迎加入</p>
                     </header>
-                    <form action="02-api_register.php" method="post">
+                    <form action="s02-api_register.php" method="post">
                         <div class="reg-form-group">
                             <label for="account">帳號 *</label>
                             <input type="text" id="account" name="account" placeholder="請輸入帳號" required autocomplete="username">
@@ -98,7 +119,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                             <button type="reset" class="reg-btn-reset">清空</button>
                         </div>
                     </form>
-                    <p class="reg-info-text">* 表示必填；送出目標為 <code>02-api_register.php</code></p>
+                    <p class="reg-info-text">* 表示必填；送出目標為 <code>s02-api_register.php</code></p>
                 </section>
             </div>
             </div>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../../assets/css/course-note-php.css">
 </head>
 
-<body class="note-page-s02-login">
+<body class="note-page-s03-login">
     <header class="header">
         <nav class="navbar"></nav>
         <script src="../../../assets/js/nav-loader.js"></script>
@@ -19,7 +19,7 @@
         <div class="hero-container">
             <span class="category-tag">配套</span>
             <h2 class="note-title">登入成功</h2>
-            <p class="hero-desc">帳密比對通過後，由 03-api_login.php 導向此頁顯示登入成功。</p>
+            <p class="hero-desc">帳密比對通過後，由 s04-api_login.php 導向此頁顯示登入成功。</p>
             <div class="hero-divider"></div>
         </div>
     </section>
@@ -31,12 +31,12 @@
                     <p>歡迎回來，您已成功登入</p>
                 </header>
                 <p class="reg-success-text">✓ 帳號與密碼驗證通過</p>
-                <p class="reg-info-text"><a href="s02-login.php">返回登入頁</a></p>
+                <p class="reg-info-text"><a href="s03-login.php">返回登入頁</a></p>
             </section>
         </div>
     </div>
     <div class="note-container note-lesson-nav-wrap">
-        <div id="note-lesson-nav-root" data-lesson-id="04-login-success"></div>
+        <div id="note-lesson-nav-root" data-lesson-id="s05-login-success"></div>
     </div>
     <script src="../../../assets/js/note-lesson-nav.js"></script>
 </body>

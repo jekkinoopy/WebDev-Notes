@@ -3,7 +3,7 @@
  */
 
 body.note-page-s01-register .reg-demo-wrap,
-body.note-page-s02-login .reg-demo-wrap {
+body.note-page-s03-login .reg-demo-wrap {
   margin-top: 0.25rem;
   padding: 1.25rem 1.35rem 1.5rem;
   background: #e8f4e6;
@@ -13,13 +13,13 @@ body.note-page-s02-login .reg-demo-wrap {
 }
 
 body.note-page-s01-register .reg-demo-wrap .form-header,
-body.note-page-s02-login .reg-demo-wrap .form-header {
+body.note-page-s03-login .reg-demo-wrap .form-header {
   text-align: center;
   margin-bottom: 1rem;
 }
 
 body.note-page-s01-register .reg-demo-wrap .form-header h4,
-body.note-page-s02-login .reg-demo-wrap .form-header h4 {
+body.note-page-s03-login .reg-demo-wrap .form-header h4 {
   margin: 0 0 0.35rem;
   font-size: 1.25rem;
   font-weight: 700;
@@ -27,19 +27,19 @@ body.note-page-s02-login .reg-demo-wrap .form-header h4 {
 }
 
 body.note-page-s01-register .reg-demo-wrap .form-header p,
-body.note-page-s02-login .reg-demo-wrap .form-header p {
+body.note-page-s03-login .reg-demo-wrap .form-header p {
   margin: 0;
   font-size: 0.9rem;
   color: #d4a017;
 }
 
 body.note-page-s01-register .reg-form-group,
-body.note-page-s02-login .reg-form-group {
+body.note-page-s03-login .reg-form-group {
   margin-bottom: 0.85rem;
 }
 
 body.note-page-s01-register .reg-form-group label,
-body.note-page-s02-login .reg-form-group label {
+body.note-page-s03-login .reg-form-group label {
   display: block;
   margin-bottom: 0.3rem;
   font-size: 0.85rem;
@@ -48,7 +48,7 @@ body.note-page-s02-login .reg-form-group label {
 }
 
 body.note-page-s01-register .reg-form-group input,
-body.note-page-s02-login .reg-form-group input {
+body.note-page-s03-login .reg-form-group input {
   width: 100%;
   padding: 0.55rem 0.75rem;
   font-size: 0.95rem;
@@ -59,7 +59,7 @@ body.note-page-s02-login .reg-form-group input {
 }
 
 body.note-page-s01-register .reg-form-actions,
-body.note-page-s02-login .reg-form-actions {
+body.note-page-s03-login .reg-form-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -67,9 +67,9 @@ body.note-page-s02-login .reg-form-actions {
 }
 
 body.note-page-s01-register .reg-btn-submit,
-body.note-page-s02-login .reg-btn-submit,
+body.note-page-s03-login .reg-btn-submit,
 body.note-page-s01-register .reg-btn-reset,
-body.note-page-s02-login .reg-btn-reset {
+body.note-page-s03-login .reg-btn-reset {
   flex: 1 1 6.5rem;
   padding: 0.6rem 1rem;
   font-size: 0.9rem;
@@ -80,27 +80,27 @@ body.note-page-s02-login .reg-btn-reset {
 }
 
 body.note-page-s01-register .reg-btn-submit,
-body.note-page-s02-login .reg-btn-submit {
+body.note-page-s03-login .reg-btn-submit {
   background: #e67e22;
   color: #fff;
 }
 
 body.note-page-s01-register .reg-btn-reset,
-body.note-page-s02-login .reg-btn-reset {
+body.note-page-s03-login .reg-btn-reset {
   background: transparent;
   color: #e67e22;
   border-color: #e67e22;
 }
 
 body.note-page-s01-register .reg-info-text,
-body.note-page-s02-login .reg-info-text {
+body.note-page-s03-login .reg-info-text {
   margin: 0.75rem 0 0;
   font-size: 0.78rem;
   text-align: center;
   color: #5a6b5c;
 }
 
-body.note-page-s02-login .reg-error-text {
+body.note-page-s03-login .reg-error-text {
   margin: 0 0 0.85rem;
   padding: 0.55rem 0.75rem;
   font-size: 0.85rem;
@@ -112,7 +112,7 @@ body.note-page-s02-login .reg-error-text {
   border-radius: 10px;
 }
 
-body.note-page-s02-login .reg-success-text {
+body.note-page-s03-login .reg-success-text {
   margin: 0 0 0.5rem;
   padding: 0.65rem 0.75rem;
   font-size: 0.95rem;
@@ -124,6 +124,6 @@ body.note-page-s02-login .reg-success-text {
   border-radius: 10px;
 }
 
-body.note-page-s02-login .login-success-wrap {
+body.note-page-s03-login .login-success-wrap {
   max-width: 20rem;
 }
