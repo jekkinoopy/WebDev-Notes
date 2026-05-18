@@ -5,7 +5,9 @@ alwaysApply: true
 
 # Git commit 訊息
 
-使用者要求提供 commit 指令時，使用：
+**完成一項有改檔的任務後**，回覆結尾須**主動**附上 commit 指令（不必等使用者再說「給 commit」）。若本次對話未改任何檔案，則不必附。
+
+格式：
 
 ```bash
 git add .
