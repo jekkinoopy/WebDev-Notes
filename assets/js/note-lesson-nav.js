@@ -69,6 +69,8 @@
     { id: "h05-login", title: "登入驗證練習" },
     { id: "h07-loginCookie", title: "Cookie 狀態管理" },
     { id: "h08-loginSession", title: "Session 會員登入實作" },
+    { id: "s01-register", title: "簡易註冊系統" },
+    { id: "02-api_register", title: "註冊表單接收（API）" },
   ];
 
   var SERIES_PHP = "[基礎課程]";
