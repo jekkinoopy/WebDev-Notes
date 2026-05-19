@@ -180,7 +180,6 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                     <li><strong>查詢：</strong><code>$pdo->query($sql)</code> 執行 SQL；<code>fetchAll(PDO::FETCH_ASSOC)</code> 以關聯陣列取回全部列。</li>
                     <li><strong>輸出：</strong><code>print_r()</code> 搭配 <code>&lt;pre&gt;</code> 檢視查詢結果。</li>
                     <li><strong>query / exec：</strong>查資料、看畫面用 <code>query()</code>；新增、修改、刪除用 <code>exec()</code>。</li>
-                    <li><strong>下一步：</strong>完成後可進入 <a href="s02-register.php">簡易註冊系統（s02）</a>。</li>
                 </ul>
             </div>
 
