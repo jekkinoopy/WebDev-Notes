@@ -171,7 +171,6 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 ?>
                 </div>
             </div>
-            </motion>
 
             <div class="learning-point-box">
                 <p class="learning-point-title is-bracket-heading">【學習重點】</p>
