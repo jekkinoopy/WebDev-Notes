@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>學生管理系統製作練習 - 努比的全端筆記</title>
+  <link rel="stylesheet" href="../../../../assets/css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar"></nav>
+    <script src="../../../../assets/js/nav-loader.js"></script>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2 class="hero-title">學生管理系統製作練習</h2>
+      <p class="hero-subtitle">school 專題區：以 PDO 與表單完成註冊、登入與學生資料管理</p>
+    </div>
+  </section>
+
+  <section id="notes" class="notes-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>練習單元</h2>
+        <p>依序實作各檔案；資料庫請使用 <code>school</code></p>
+      </div>
+
+      <div class="notes-grid">
+        <article class="note-card">
+          <div class="card-header">
+            <span class="card-icon">📝</span>
+            <span class="card-badge">單元 01</span>
+          </div>
+          <div class="card-content">
+            <h3>會員註冊</h3>
+            <p>註冊表單頁，送出至 API 寫入資料庫。</p>
+            <div class="tag-list">
+              <span class="tag">表單</span>
+              <span class="tag">POST</span>
+            </div>
+          </div>
+          <a href="01-register.php" class="card-link">
+            開啟練習 <span class="arrow">→</span>
+          </a>
+        </article>
+
+        <article class="note-card">
+          <div class="card-header">
+            <span class="card-icon">📨</span>
+            <span class="card-badge">單元 02</span>
+          </div>
+          <div class="card-content">
+            <h3>註冊表單接收（API）</h3>
+            <p>接收註冊表單 POST，將資料寫入資料表。</p>
+            <div class="tag-list">
+              <span class="tag">PDO</span>
+              <span class="tag">INSERT</span>
+            </div>
+          </div>
+          <a href="02-api_register.php" class="card-link">
+            開啟 API <span class="arrow">→</span>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>學生管理系統製作練習</h4>
+          <p>school 專題練習區</p>
+        </div>
+        <div class="footer-section">
+          <h4>快速連結</h4>
+          <ul>
+            <li><a href="../index.html">回到 PHP 課程索引</a></li>
+            <li><a href="../../index.html">回到資料庫課程</a></li>
+            <li><a href="../../../../index.html">主首頁</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 努比的全端筆記</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/script.js"></script>
+</body>
+
+</html>

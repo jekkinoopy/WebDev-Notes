@@ -8,7 +8,7 @@
 <body>
     <div class="container">
         <h2>會員註冊</h2>
-        <form action="api_register.php" method="post">
+        <form action="02-api_register.php" method="post">
             <p>
                 <label for="account">帳號：</label>
                 <input type="text" id="account" name="account" placeholder="請輸入帳號" required>
