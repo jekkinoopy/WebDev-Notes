@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form 練習 - 努比的全端筆記</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
+    <link rel="stylesheet" href="../../../assets/css/course-note.css" />
+    <style>
+        /* 1. 基礎容器 */
+        form {
+            width: 90%;
+            min-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: transparent;
+            border-radius: 12px;
+            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); */
+        }
+
+
+        /* 2. 核心：統一所有標題與內容的距離 (Label 5px Input) */
+        .sechskies-form p {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .form-title h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            display: inline-block;
+            position: relative;
+            padding: 0 30px;
+            letter-spacing: 5px;
+        }
+
+        .form-title h1::after,
+        .form-title h1::before {
+            content: "💎";
+            margin: 8px;
+        }
+
+        .form-title p {
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin-top: 10px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .main-label {
+            display: block;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0;
+            /* 移除外距由 p 的 gap 控制 */
+        }
+
+        /* 3. 輸入框與圓角 */
+        .sechskies-form input[type="text"],
+        .sechskies-form input[type="url"],
+        .sechskies-form input[type="tel"],
+        .sechskies-form input[type="email"],
+        .sechskies-form input[type="password"],
+        .sechskies-form input[type="date"],
+        .sechskies-form input[type="number"],
+        .sechskies-form select,
+        .sechskies-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1.5px solid var(--primary-dark);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: var(--primary-dark);
+        }
+
+        /* 4. 喜愛程度 (Range) 顏色與高度修正 */
+        input[type="range"] {
+            -webkit-appearance: none;
+            /* 最重要！ 告訴瀏覽器「閉嘴，我要自己畫」，不然預設的灰色改不動。 */
+            width: 100%;
+            height: 30px;
+            background: transparent;
+            accent-color: var(--primary);
+            /* 這是現代瀏覽器的一個捷徑，可以直接改拉桿主色（但在自定義樣式下效果有限）。 */
+        }
+
+        /* 這是指那一條長長的軌道。你設高度和背景色就在這。 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 10px;
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        /* 這是指那個圓圓的滑塊（你可以點住拉動的那個按鈕）。 */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--primary);
+            margin-top: -5px;
+            /* 因為 Chrome 的滑塊預設位置會跑掉，這是用來把圓圈圈校正到軌道中間的。 */
+        }
+
+        /* 5. 檔案上傳美化 */
+        input[type="file"] {
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+
+        input[type="file"]::file-selector-button {
+            background: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* 6. 按鈕組樣式 */
+        .submit {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* 送出 (藍底白字) */
+        input[type="submit"] {
+            background-color: var(--primary) !important;
+            color: var(--gray-100) !important;
+            border: 2px solid var(--primary) !important;
+            padding: 15px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            cursor: pointer;
+            width: 100% !important;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: var(--primary-dark) !important;
+            border-color: var(--primary-dark) !important;
+        }
+
+        /* 重置 (白底藍字) */
+        input[type="reset"] {
+            background-color: var(--gray-100) !important;
+            color: var(--primary) !important;
+            border: 2px solid var(--primary) !important;
+            padding: 15px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            cursor: pointer;
+            width: 100% !important;
+            transition: 0.3s;
+        }
+
+        input[type="reset"]:hover {
+            background-color: var(--danger) !important;
+            border: 2px solid var(--danger) !important;
+            color: var(--gray-100) !important;
+        }
+
+        /* 7. Fieldset & Legend (左右藍線) */
+        fieldset {
+            border: 2px solid var(--primary);
+            background-color: transparent;
+            border-radius: 50px;
+            padding: 4rem;
+            margin: 4rem 0;
+        }
+
+        legend {
+            font-weight: 900;
+            color: var(--primary);
+            padding: 0 15px;
+            font-size: 1.2rem;
+            border-left: 5px solid var(--primary);
+            border-right: 5px solid var(--primary);
+            margin: auto;
+        }
+
+        .option-row {
+            display: flex;
+            /* gap: 15px; */
+            flex-wrap: wrap;
+            margin-top: 10px;
+            justify-content: space-between;
+        }
+
+        .option-row.grid-3 {
+            display: grid;
+            /* 強制覆蓋 flex */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px 10px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto !important;
+            margin: 0 !important;
+        }
+
+        /* 1. 統一所有「標題」與「內容」的間距：全部鎖死為 5px */
+        .sechskies-form p,
+        .sechskies-form fieldset>div,
+        .sechskies-form fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            /* 標題與框框的距離 */
+            margin-bottom: 20px;
+            /* 每個大題之間的距離 */
+        }
+
+        /* 2. 修正標題本身的 margin，不讓它亂撐距離 */
+        .main-label {
+            margin: 0 !important;
+            display: block !important;
+        }
+
+        /* 3. 解決選擇檔案按鈕太醜 */
+
+
+        /* 
+        input[type="file"] {
+            border: 2px dashed var(--primary-dark) !important;
+            padding: 10px !important;
+            border-radius: 15px !important;
+        } */
+
+        /* 5. 重置與送出並排：平分寬度、顏色對調 */
+        .submit {
+            display: flex !important;
+            flex-direction: row !important;
+            /* 橫向並排 */
+        }
+
+        .submit input {
+            flex: 1 !important;
+            padding: 15px !important;
+            border-radius: 50px !important;
+            font-weight: bold !important;
+            cursor: pointer;
+        }
+
+        */ input[type="submit"] {
+            width: 50%;
+            background: var(--primary) !important;
+            color: var(--gray-100) !important;
+            border: none !important;
+        }
+
+        input[type="reset"] {
+            background: var(--gray-100) !important;
+            color: var(--primary) !important;
+            border: 2px solid var(--primary) !important;
+        }
+
+        /* 6. 其他框線統一 */
+        input[type="text"],
+        input[type="url"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="number"],
+        input[type="time"],
+        /* 加入這行 */
+        input[type="datetime-local"],
+        /* 加入這行 */
+        select,
+        textarea {
+            border: 1.5px solid var(--primary-dark) !important;
+            border-radius: 15px !important;
+            padding: 10px !important;
+        }
+
+        /* 針對所有輸入框、下拉選單、文字區域設定點擊效果 */
+        .sechskies-form input:focus,
+        .sechskies-form select:focus,
+        .sechskies-form textarea:focus {
+            /* 1. 移除瀏覽器預設的藍色粗框 */
+            outline: none;
+
+            /* 2. 更改邊框顏色 (改為你的主色或深色) */
+            border-color: var(--primary) !important;
+
+            /* 3. (選配) 增加一點發光效果，讓質感更好 */
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+
+            /* 4. 保持圓角一致 */
+            border-radius: 20px;
+        }
+
+        input[type="time"]::-webkit-calendar-picker-indicator,
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            /* filter: invert(85%) sepia(50%) saturate(2000%) hue-rotate(1deg) brightness(105%) contrast(105%); */
+            /* 這段濾鏡能把預設的黑色圖示轉為接近你的應援黃色 */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar"></nav>
+        <script src="../../../assets/js/nav-loader.js"></script>
+    </header>
+    <section class="page-hero">
+        <div class="hero-container">
+            <span class="category-tag">HTML/CSS 實戰</span>
+            <h2 class="note-title">表單實作</h2>
+            <p class="hero-desc">實作具備美感與分層邏輯的應援調查表單。</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+    <div class="ex">
+        <div class="note-card">
+            <div class="note-content">
+                <form action="" class="sechskies-form">
+                    <div class="form-title">
+                        <h1>水晶男孩入坑申請書</h1>
+                        <p>SECHSKIES JOINING APPLICATION</p>
+                    </div>
+                    <fieldset>
+                        <legend>💛 第一階段：小黃身分驗證</legend>
+                        <div>
+                            <label class="main-label">應援小黃</label>
+                            <input type="text" placeholder="輸入你的暱稱">
+                        </div>
+                        <div>
+                            <label class="main-label">聯絡信箱</label>
+                            <input type="email" placeholder="example@mail.com">
+                        </div>
+                        <div>
+                            <label class="main-label">輸入你的密碼</label>
+                            <input type="password">
+                        </div>
+                        <div>
+                            <label class="main-label">聯絡電話 (發放週邊通知用)</label>
+                            <input type="tel" placeholder="0912-345-678">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>🎤 第二階段：見面會應援調查</legend>
+                        <div>
+                            <label class="main-label">本命成員</label>
+                            <div class="option-row">
+                                <label class="option-item"><input type="checkbox">殷志源 은지원</label>
+                                <label class="option-item"><input type="checkbox">李宰鎮 이재진</label>
+                                <label class="option-item"><input type="checkbox">金在德 김재덕</label>
+                                <label class="option-item"><input type="checkbox">姜成勳 강성훈</label>
+                                <label class="option-item"><input type="checkbox">張水院 장수원</label>
+                                <label class="option-item"><input type="checkbox">高志鎔 고지용</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="main-label">最希望舉辦見面會的時間</label>
+                            <input type="time" name="event_time">
+                        </div>
+
+                        <div>
+                            <label class="main-label">最期待聽到的歌曲</label>
+                            <select>
+                                <option value="">請選擇歌曲</option>
+                                <optgroup label="《學園別曲》（학원별곡）">
+                                    <option value="school_anthem">학원별곡（學園別曲）</option>
+                                    <option value="heartbreak">연정（戀情）</option>
+                                    <option value="pom_saeng_pom_sa">사나이 가는 길（폼생폼사） / 男兒之路（品生品死）</option>
+                                    <option value="confirmation">확인 / 確認</option>
+                                    <option value="betrayal">배신감 / 背叛感</option>
+                                    <option value="remember_me">기억해줄래 / 請記得好嗎</option>
+                                    <option value="walking_in_the_rain">Walking In The Rain</option>
+                                    <option value="dream_comes_true">Dream Comes True</option>
+                                    <option value="love_declaration">사랑 신고식 / 愛的宣言</option>
+                                    <option value="together">다같이 해요 / 一起來吧</option>
+                                    <option value="heartbreak_remix">연정（Remix） / 戀情（Remix）</option>
+                                    <option value="pom_saeng_pom_sa_remix">사나이 가는 길（폼생폼사）（Remix） / 男兒之路（品生品死）（Remix）
+                                    </option>
+                                </optgroup>
+                                <optgroup label="《Special》">
+                                    <option value="leaving_you">너를 보내며 / 送你離開</option>
+                                    <option value="couple">커플（Couple） / 戀人</option>
+                                    <option value="unseen_world">네겐 보일수 없었던 세상 / 不能讓你看到的世界</option>
+                                    <option value="while_you_sleep">그대가 잠든 사이에 / 在你熟睡時</option>
+                                    <option value="know_my_heart">내맘을 알고있니 / 明白我的心嗎</option>
+                                    <option value="celebrate_tonight">Celebrate Tonight</option>
+                                    <option value="transformation">변신 / 改變</option>
+                                    <option value="giving_up">단념 / 死心</option>
+                                    <option value="prayer">기도 / 祈禱</option>
+                                    <option value="goodbye_party">Goodbye Party（슬픈축제）</option>
+                                    <option value="soaring">비상 / 飛翔</option>
+                                    <option value="celebrate_tonight_remix">Celebrate Tonight（Remix）</option>
+                                    <option value="the_time_is_now_remix">지금이야（Remix） / 機會來了（Remix）</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="main-label">最期待的見面會環節</label>
+                            <div class="option-row grid-3">
+                                <label class="option-item"><input type="radio" name="event_poll">隨機舞蹈挑戰</label>
+                                <label class="option-item"><input type="radio" name="event_poll">黑白水晶對抗賽</label>
+                                <label class="option-item"><input type="radio" name="event_poll">時光膠囊對話</label>
+                                <label class="option-item"><input type="radio" name="event_poll">抒情版
+                                    Unplugged</label>
+                                <label class="option-item"><input type="radio" name="event_poll">Yellow Note
+                                    心願投稿</label>
+                                <label class="option-item"><input type="radio" name="event_poll">黃色氣球海大合唱</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="main-label">想簽名的專輯數</label>
+                            <input type="number" placeholder="0">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>📂 第三階段：資格審核與提交</legend>
+                        <div>
+                            <label class="main-label">入坑日期</label>
+                            <input type="date">
+                        </div>
+                        <div>
+                            <label class="main-label">入坑原因 (最感動的一瞬間)</label>
+                            <textarea rows="10" placeholder="分享你入坑的故事"></textarea>
+                        </div>
+                        <div>
+                            <label class="main-label">上傳你的小黃應援證物 (PDF/圖片)</label>
+                            <input type="file">
+                        </div>
+
+                        <div>
+                            <label class="main-label">淪陷指數</label>
+                            <input type="range" min="0" max="100">
+                        </div>
+
+                        <div>
+                            <label class="main-label">你最愛的應援色定義</label>
+                            <input type="color" value="#FFD700"
+                                style="height: 40px; width: 80px; padding: 0;border: 0;">
+                        </div>
+
+                        <div>
+                            <label class="main-label">必推連結!!不能只有我入坑</label>
+                            <input type="url" placeholder="https://youtube.com/...">
+                        </div>
+
+                    </fieldset>
+                    <div class="submit" style="display: flex; flex-direction: row; gap: 10px;">
+                        <input type="reset" value="重置">
+                        <input type="submit" value="送出">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
