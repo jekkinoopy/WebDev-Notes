@@ -19,6 +19,7 @@
     "10-array": true,
     "11-pra07": true,
     "12-pra08": true,
+    "s01-pdo": true,
   };
 
   /**

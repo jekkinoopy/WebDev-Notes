@@ -17,12 +17,12 @@
         <script src="../../../assets/js/nav-loader.js"></script>
     </header>
     <section class="page-hero">
-        <motion class="hero-container">
+        <div class="hero-container">
             <span class="category-tag">進階</span>
             <h2 class="note-title">PDO 資料庫連線</h2>
             <p class="hero-desc">以 PDO 連線 <code>school</code>，對 <code>dept</code> 完成查詢、新增、更新、刪除（CRUD）。</p>
-            <div class="hero-divider"></motion>
-        </motion>
+            <div class="hero-divider"></div>
+        </div>
     </section>
     <div class="note-container">
         <div class="note-card">
@@ -39,7 +39,7 @@
             </div>
 
             <div class="note-practice-sticky">
-            <motion class="note-code-window" data-note-code-window data-code-line-count="49">
+            <div class="note-code-window" data-note-code-window data-code-line-count="49">
                 <div class="note-code-window-toolbar">
                     <div class="note-code-window-dots" aria-hidden="true">
                         <span class="note-code-window-dot note-code-window-dot--red"></span>
@@ -99,7 +99,7 @@
 46
 47
 48
-49</motion>
+49</div>
                     <pre class="language-php"><code class="language-php">&lt;?php
 //第一部分：資料庫連線
     $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
@@ -327,9 +327,6 @@
                 <li>
                     <a href="https://github.com/mackliu/115-SQL/blob/main/school.sql" target="_blank" rel="noopener noreferrer">115 SQL 課程：對照原始碼（school.sql）</a>
                 </li>
-                <li>
-                    <a href="s01-pdo.php" target="_blank" rel="noopener noreferrer">本題可執行版（s01-pdo.php，需 PHP + MySQL）</a>
-                </li>
             </ul>
         </aside>
     </div>
@@ -338,7 +335,7 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
     <script src="../../../assets/js/course-note-code-window.js"></script>
     <div class="note-container note-lesson-nav-wrap">
-        <motion id="note-lesson-nav-root" data-lesson-id="s01-pdo"></div>
+        <div id="note-lesson-nav-root" data-lesson-id="s01-pdo"></div>
     </div>
     <script src="../../../assets/js/note-lesson-nav.js"></script>
 </body>
