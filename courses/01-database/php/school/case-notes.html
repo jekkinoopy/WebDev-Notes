@@ -50,6 +50,11 @@
             <p><strong>白話解釋：</strong>在 PHP 裡面，只要看到這個符號，就代表後面那個字是一個「用來裝資料的特製箱子」。不管是 <code>$pdo</code>（連線箱）、<code>$sql</code>（字條箱），還是系統自帶的 <code>$_POST</code>（表單大包裹），開頭一定必加 <code>$</code>。</p>
           </li>
           <li class="conan-notes-item">
+            <p class="conan-notes-symbol"><code>()</code>（小括號）</p>
+            <p><strong>專門用途：</strong>「執行動作（函式）的發動開關，以及 SQL 的對齊桶」。</p>
+            <p><strong>白話解釋：</strong>只要看到英文單字後面緊貼著一對小括號 <code>()</code>，這個單字百分之百是一個「動作」（例如 <code>print_r()</code>、<code>exec()</code>）。小括號就是啟動按鈕，並且負責把執行需要的原料塞在括號裡面。另外，當它寫在 SQL 的 <code>VALUES</code> 後面時，則是專門用來把資料群組起來、像拉鍊一樣一對一對齊欄位用的。</p>
+          </li>
+          <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>[]</code>（中括號）</p>
             <p><strong>專門用途：</strong>「拆包裹，指定拿哪一張貼紙的值」。</p>
             <p><strong>白話解釋：</strong>當你手上拿著一個大包裹箱子（陣列）時，你不能直接把整箱倒出來，你必須用中括號指定裡面的名字。例如 <code>$_POST['account']</code>，這對中括號就是專門用來綁架 <code>'account'</code> 這個標籤的。</p>
