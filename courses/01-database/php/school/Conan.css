@@ -255,6 +255,28 @@
   border-left-color: var(--conan-crimson);
 }
 
+.conan-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.65rem;
+  font-size: 1.1rem;
+  color: var(--conan-crimson);
+  background: rgba(220, 38, 38, 0.08);
+  border-radius: 4px;
+}
+
+.conan-feature-link .fa-solid {
+  font-size: 0.75em;
+  margin-left: 0.15em;
+}
+
+.conan-cta .fa-solid {
+  margin-right: 0.35em;
+}
+
 .conan-feature-label {
   display: inline-block;
   margin-bottom: 0.35rem;
@@ -328,7 +350,18 @@
 }
 
 .conan-news-icon {
-  font-size: 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  font-size: 1rem;
+  color: var(--conan-crimson);
+}
+
+.conan-contact-list .fa-solid {
+  flex-shrink: 0;
+  width: 1.1em;
+  color: #fca5a5;
 }
 
 .conan-news-text {
@@ -426,12 +459,25 @@
 }
 
 .conan-back-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   margin-bottom: 1rem;
   font-size: 0.88rem;
   font-weight: 500;
   color: var(--conan-navy);
   text-decoration: none;
+}
+
+.conan-form-label .fa-solid,
+.conan-form-field label .fa-solid {
+  margin-right: 0.35em;
+  color: var(--conan-crimson);
+  font-size: 0.9em;
+}
+
+.conan-form-actions .fa-solid {
+  margin-right: 0.35em;
 }
 
 .conan-back-link:hover {
@@ -539,10 +585,6 @@
 .conan-form-actions button[type="reset"]:hover {
   background: var(--conan-dark);
   color: #fff;
-}
-
-.conan-site-footer--compact {
-  padding: 1.25rem 1.5rem;
 }
 
 .conan-btn-register[aria-current="page"] {
