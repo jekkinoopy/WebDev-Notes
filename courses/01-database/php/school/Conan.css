@@ -775,6 +775,37 @@
   color: var(--conan-crimson);
 }
 
+/* 辦案筆記：AI 整理警語（index 與各篇內頁共用） */
+.conan-notes-disclaimer {
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem 0.85rem 1.05rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--conan-navy);
+  background: color-mix(in srgb, var(--conan-crimson) 8%, var(--conan-card-bg));
+  border: 1px solid color-mix(in srgb, var(--conan-crimson) 35%, transparent);
+  border-left: 4px solid var(--conan-crimson);
+  border-radius: 0 6px 6px 0;
+}
+
+.conan-notes-disclaimer-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--conan-crimson);
+}
+
+.conan-notes-disclaimer-title i {
+  font-size: 1rem;
+}
+
+.conan-notes-disclaimer p {
+  margin: 0;
+}
+
 .conan-notes-index-list {
   margin: 0;
   padding-left: 1.35rem;
