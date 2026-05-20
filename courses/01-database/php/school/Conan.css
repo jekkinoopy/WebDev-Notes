@@ -418,6 +418,137 @@
   color: var(--conan-crimson);
 }
 
+/* 表單頁（01-register 等） */
+.conan-page-main {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 2.5rem;
+}
+
+.conan-back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--conan-navy);
+  text-decoration: none;
+}
+
+.conan-back-link:hover {
+  color: var(--conan-crimson);
+}
+
+.conan-form-card {
+  background: var(--conan-card-bg);
+  border: 1px solid var(--conan-border);
+  border-left: 4px solid var(--conan-crimson);
+  border-radius: 4px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  box-shadow: 0 4px 20px var(--conan-shadow);
+}
+
+.conan-form-label {
+  display: block;
+  margin: 0 0 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--conan-muted);
+}
+
+.conan-form-card h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--conan-dark);
+}
+
+.conan-form-sub {
+  margin: 0 0 1.5rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--conan-muted);
+  font-style: italic;
+}
+
+.conan-form-field {
+  margin-bottom: 1rem;
+}
+
+.conan-form-field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--conan-navy);
+}
+
+.conan-form-field input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--conan-border);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--conan-bg);
+  color: var(--conan-dark);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.conan-form-field input:focus {
+  outline: none;
+  border-color: var(--conan-navy);
+  box-shadow: 0 0 0 2px rgba(42, 67, 101, 0.18);
+}
+
+.conan-form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.conan-form-actions button {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.conan-form-actions button[type="submit"] {
+  background: var(--conan-crimson);
+  color: #fff;
+  border: 1px solid var(--conan-crimson);
+}
+
+.conan-form-actions button[type="submit"]:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+}
+
+.conan-form-actions button[type="reset"] {
+  background: transparent;
+  color: var(--conan-dark);
+  border: 1px solid var(--conan-dark);
+}
+
+.conan-form-actions button[type="reset"]:hover {
+  background: var(--conan-dark);
+  color: #fff;
+}
+
+.conan-site-footer--compact {
+  padding: 1.25rem 1.5rem;
+}
+
+.conan-btn-register[aria-current="page"] {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
 @media (max-width: 900px) {
   .conan-feature-grid {
     grid-template-columns: repeat(2, 1fr);
