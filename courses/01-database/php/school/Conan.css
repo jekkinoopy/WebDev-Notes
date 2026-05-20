@@ -617,6 +617,143 @@
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
 }
 
+.conan-nav a[aria-current="page"] {
+  color: var(--conan-crimson);
+  font-weight: 600;
+}
+
+/* 辦案筆記（case-notes.html） */
+.conan-notes-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 2.5rem;
+}
+
+.conan-notes-dossier {
+  background: var(--conan-card-bg);
+  border: 1px solid var(--conan-border);
+  border-left: 4px solid var(--conan-navy);
+  border-radius: 4px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  box-shadow: 0 4px 20px var(--conan-shadow);
+}
+
+.conan-notes-dossier h1 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--conan-dark);
+}
+
+.conan-notes-intro {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--conan-muted);
+}
+
+.conan-notes-intro:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.conan-notes-faction {
+  margin-bottom: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--conan-border);
+}
+
+.conan-notes-faction:last-child {
+  margin-bottom: 0;
+}
+
+.conan-notes-faction-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--conan-navy);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.conan-notes-faction-title .fa-php {
+  color: #777bb4;
+}
+
+.conan-notes-faction-title .fa-database {
+  color: var(--conan-crimson);
+}
+
+.conan-notes-faction-desc {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--conan-muted);
+}
+
+.conan-notes-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: conan-note;
+}
+
+.conan-notes-item {
+  counter-increment: conan-note;
+  margin-bottom: 1.15rem;
+  padding: 1rem 1rem 1rem 2.75rem;
+  position: relative;
+  background: var(--conan-bg);
+  border: 1px solid var(--conan-border);
+  border-radius: 4px;
+}
+
+.conan-notes-item::before {
+  content: counter(conan-note);
+  position: absolute;
+  left: 0.85rem;
+  top: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--conan-crimson);
+}
+
+.conan-notes-item:last-child {
+  margin-bottom: 0;
+}
+
+.conan-notes-item p {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--conan-dark);
+}
+
+.conan-notes-item p:last-child {
+  margin-bottom: 0;
+}
+
+.conan-notes-symbol {
+  margin-bottom: 0.35rem !important;
+  font-weight: 600;
+}
+
+.conan-notes-symbol code {
+  font-size: 1.05em;
+  padding: 0.1em 0.4em;
+  background: #fff;
+  border: 1px solid var(--conan-border);
+  color: var(--conan-crimson);
+}
+
+.conan-notes-item code {
+  font-size: 0.88em;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  background: #fff;
+  color: var(--conan-navy);
+}
+
 @media (max-width: 900px) {
   .conan-feature-grid {
     grid-template-columns: repeat(2, 1fr);
