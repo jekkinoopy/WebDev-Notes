@@ -775,6 +775,25 @@
   color: var(--conan-crimson);
 }
 
+.conan-notes-index-list {
+  margin: 0;
+  padding-left: 1.35rem;
+  line-height: 1.85;
+}
+
+.conan-notes-index-list a {
+  color: var(--conan-navy);
+  font-weight: 600;
+}
+
+.conan-notes-index-list a:hover {
+  color: var(--conan-crimson);
+}
+
+.conan-note-page .conan-back-link-secondary {
+  margin-top: 0.35rem;
+}
+
 @media (max-width: 900px) {
   .conan-feature-grid {
     grid-template-columns: repeat(2, 1fr);
