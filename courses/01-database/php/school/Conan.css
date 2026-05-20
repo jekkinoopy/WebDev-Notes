@@ -3,6 +3,7 @@
   --conan-dark: #1e293b;
   --conan-navy: #2a4365;
   --conan-crimson: #dc2626;
+  --conan-stamp: #4a7ab5;
   --conan-bg: #f4f5f7;
   --conan-card-bg: #ffffff;
   --conan-border: #e2e8f0;
@@ -704,6 +705,7 @@
   margin-bottom: 1.15rem;
   padding: 1rem 1rem 1rem 2.75rem;
   position: relative;
+  overflow: visible;
   background: var(--conan-bg);
   border: 1px solid var(--conan-border);
   border-radius: 4px;
@@ -721,6 +723,103 @@
 
 .conan-notes-item:last-child {
   margin-bottom: 0;
+}
+
+/* 已親自確認：藍色矩形橡皮章（鑑識成功） */
+.conan-notes-item--ok {
+  padding-right: 5.5rem;
+  border-color: color-mix(in srgb, var(--conan-navy) 12%, var(--conan-border));
+  background: var(--conan-bg);
+}
+
+.conan-notes-stamp {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  transform: rotate(-12deg);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.78;
+}
+
+.conan-notes-stamp-plate {
+  position: relative;
+  display: inline-block;
+  padding: 0.18rem 0.5rem 0.2rem;
+  border: 2.5px solid var(--conan-stamp);
+  border-radius: 3px;
+  outline: 2px solid var(--conan-stamp);
+  outline-offset: 2px;
+  background: color-mix(in srgb, var(--conan-stamp) 5%, #fff);
+}
+
+.conan-notes-stamp-text {
+  position: relative;
+  z-index: 1;
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  white-space: nowrap;
+  color: var(--conan-stamp);
+}
+
+/* 目錄用迷你橡皮章 */
+.conan-notes-stamp--mini {
+  position: static;
+  display: inline-block;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+  transform: rotate(-10deg);
+  opacity: 0.7;
+}
+
+.conan-notes-stamp--mini .conan-notes-stamp-plate {
+  padding: 0.08rem 0.28rem 0.1rem;
+  border-width: 1.5px;
+  outline-width: 1.5px;
+  outline-offset: 1px;
+  border-radius: 2px;
+}
+
+.conan-notes-stamp--mini .conan-notes-stamp-text {
+  font-size: 0.48rem;
+  letter-spacing: 0.14em;
+  text-indent: 0.14em;
+}
+
+.conan-notes-legend {
+  margin: 0 0 1.25rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--conan-dark);
+  background: var(--conan-bg);
+  border: 1px dashed var(--conan-border);
+  border-radius: 6px;
+}
+
+.conan-notes-legend strong {
+  color: var(--conan-navy);
+}
+
+.conan-notes-index-status {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #92400e;
+  background: color-mix(in srgb, #f59e0b 15%, #fff);
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+.conan-notes-index-status--ok {
+  color: #166534;
+  background: color-mix(in srgb, #22c55e 18%, #fff);
 }
 
 .conan-notes-item p {
