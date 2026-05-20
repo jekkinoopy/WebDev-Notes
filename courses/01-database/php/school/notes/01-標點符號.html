@@ -40,11 +40,7 @@
         <p id="notes-disclaimer-title" class="conan-notes-disclaimer-title">
           <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> 偵辦警語
         </p>
-        <p>以下內容<strong>大部分為 AI 整理</strong>；在本人複習驗證之前，<strong>正確性不予保證</strong>。請以偵探之眼謹慎偵查、交叉比對，勿將本筆記直接當成定案證據。</p>
-        <p>符號條目若已親自確認，右上角會加蓋藍色矩形章「<strong>鑑識成功</strong>」——<strong>有章＝該符號已複核</strong>，無章＝仍為 AI
-          草稿、尚待定案。程式碼筆記為練習時自行補充，不一定每個符號都有，與是否蓋章無關。整篇複習完成後，目錄該篇條目旁會加<strong>迷你章</strong>（見
-          <a href="index.html">辦案筆記目錄</a>警語）。
-        </p>
+        <p>以下內容<strong>大部分為 AI 整理</strong>；在本人複習驗證之前，<strong>正確性不予保證</strong>。請以偵探之眼謹慎偵查、交叉比對，勿將本筆記直接當成定案證據。符號條目若已親自確認，右上角會加蓋藍色矩形章「<strong>鑑識成功</strong>」。</p>
       </aside>
       <p class="conan-notes-intro">在 PHP 與 SQL
         的世界裡，這些標點符號就是我們偵辦案件時的「核心密碼與破案規則」。在後端主機執行時，哪怕只是解錯一個符號或漏掉一條線索，整個系統就會直接發出致命警報（Fatal Error），導致破案失敗。</p>
@@ -55,7 +51,7 @@
         <pre class="conan-notes-code-block"><code>// 你的練習片段與備忘</code></pre>
       </div>
       -->
-      <!-- 確認後：整段 <li> 剪貼到「已鑑識」<ol>，加 conan-notes-item--ok 與印章（序號自動重排） -->
+      <!-- 確認後：整段 <li> 剪貼到 conan-notes-list--reviewed，加 conan-notes-item--ok 與印章（序號自動重排） -->
 
       <section class="conan-notes-faction" aria-labelledby="php-faction-title">
         <h2 id="php-faction-title" class="conan-notes-faction-title">
@@ -65,7 +61,6 @@
           時，絕對不能搞混的關鍵符號：</p>
 
         <div class="conan-notes-list-wrap">
-          <p class="conan-notes-list-label conan-notes-list-label--reviewed">已鑑識</p>
           <ol class="conan-notes-list conan-notes-list--reviewed">
           <li class="conan-notes-item conan-notes-item--ok">
             <span class="conan-notes-stamp" aria-label="鑑識成功，已確認">
@@ -87,7 +82,6 @@
             </div>
           </li>
           </ol>
-          <p class="conan-notes-list-label conan-notes-list-label--pending">待複核</p>
           <ol class="conan-notes-list conan-notes-list--pending">
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>$</code>（錢字號 / Dollar Sign）</p>
@@ -178,7 +172,7 @@
         <p class="conan-notes-faction-desc">當資料準備透過 PDO 移送至 MySQL 資料庫時，法庭有它自己一套嚴格的「審查規則」。為了符合最高破案規格，這裡必須嚴格遵守以下線索配置：</p>
 
         <div class="conan-notes-list-wrap">
-          <ol class="conan-notes-list conan-notes-list--reviewed" aria-label="已鑑識"></ol>
+          <ol class="conan-notes-list conan-notes-list--reviewed"></ol>
           <ol class="conan-notes-list conan-notes-list--pending">
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>`</code>（反單引號 / Backtick）</p>
