@@ -1,339 +1,296 @@
-/* school/index.html — 配色依作者多拉插畫 */
-.school-index-page {
+/* 大雄的學校 — 配色依作者多拉插畫 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.dora-school {
   --dora-blue: #76c2f3;
   --dora-blue-deep: #5ab0eb;
+  --dora-blue-nav: #4a9fd9;
   --dora-white: #ffffff;
   --dora-red: #e53935;
   --dora-pink: #ff8a80;
   --dora-blush: #ffcdd2;
   --dora-cream: #fff9c4;
+  --dora-cream-panel: #fffde7;
   --dora-ink: #4e342e;
-  --dora-shadow: rgba(78, 52, 46, 0.12);
-  --dora-radius: 24px;
+  --dora-shadow: rgba(78, 52, 46, 0.1);
+  margin: 0;
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   color: var(--dora-ink);
   background: var(--dora-cream);
-  min-height: 100vh;
-}
-
-.school-index-page .hero,
-.school-index-page .notes-section,
-.school-index-page .footer {
-  display: none;
-}
-
-.school-main {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 1.5rem 1.25rem 3rem;
-}
-
-/* Hero：藍色頭部 + 白臉卡片 */
-.school-hero {
-  position: relative;
-  padding: 3.5rem 1.5rem 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  border-radius: var(--dora-radius);
-  background: linear-gradient(165deg, var(--dora-blue) 0%, var(--dora-blue-deep) 100%);
-  box-shadow: 0 12px 28px var(--dora-shadow);
-  overflow: hidden;
-}
-
-.school-hero::before {
-  content: "";
-  position: absolute;
-  top: -40%;
-  left: 50%;
-  width: 140%;
-  aspect-ratio: 1;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: var(--dora-blue);
-  opacity: 0.35;
-}
-
-.school-hero-bell {
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--dora-red);
-  border: 3px solid var(--dora-white);
-  box-shadow: 0 2px 8px var(--dora-shadow);
-  z-index: 2;
-}
-
-.school-hero-face {
-  position: relative;
-  z-index: 1;
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 1.75rem 1.5rem 1.5rem;
-  background: var(--dora-white);
-  border-radius: 28px;
-  box-shadow: 0 8px 24px var(--dora-shadow);
-}
-
-.school-hero-face::before,
-.school-hero-face::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 56px;
-  height: 2px;
-  background: var(--dora-ink);
-  opacity: 0.35;
-}
-
-.school-hero-face::before {
-  left: -12px;
-  transform: translateY(-50%) rotate(-8deg);
-}
-
-.school-hero-face::after {
-  right: -12px;
-  transform: translateY(-50%) rotate(8deg);
-}
-
-.school-hero-title {
-  margin: 0 0 0.5rem;
-  font-size: clamp(1.35rem, 4vw, 1.75rem);
-  font-weight: 700;
-  color: var(--dora-ink);
-  line-height: 1.35;
-}
-
-.school-hero-subtitle {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--dora-ink);
-  opacity: 0.85;
   line-height: 1.6;
 }
 
-.school-hero-subtitle code {
-  padding: 0.1em 0.45em;
-  border-radius: 8px;
-  background: var(--dora-blush);
-  color: var(--dora-ink);
-  font-size: 0.9em;
-}
-
-.school-hero-cheeks {
-  display: flex;
-  justify-content: center;
-  gap: 4.5rem;
-  margin-top: 1rem;
-}
-
-.school-hero-cheeks span {
-  width: 36px;
-  height: 14px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, var(--dora-pink) 0%, var(--dora-blush) 70%, transparent 100%);
-}
-
-/* 單元區 */
-.school-section-head {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.school-section-head h2 {
-  margin: 0 0 0.35rem;
-  font-size: 1.25rem;
-  color: var(--dora-ink);
-}
-
-.school-section-head p {
-  margin: 0;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.school-section-head code {
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
-  background: var(--dora-white);
-  border: 1px solid var(--dora-blue);
-}
-
-.school-grid {
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-}
-
-.school-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--dora-white);
-  border-radius: var(--dora-radius);
-  border: 3px solid var(--dora-blue);
-  box-shadow: 0 8px 20px var(--dora-shadow);
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.school-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px var(--dora-shadow);
-}
-
-.school-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.15rem 0.5rem;
-  background: linear-gradient(180deg, var(--dora-blue) 0%, var(--dora-blue-deep) 100%);
-  color: var(--dora-white);
-}
-
-.school-card-icon {
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.school-card-badge {
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.25rem 0.65rem;
-  border-radius: 999px;
-  background: var(--dora-white);
-  color: var(--dora-blue-deep);
-}
-
-.school-card-body {
-  flex: 1;
-  padding: 1rem 1.15rem;
-}
-
-.school-card-body h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
-  color: var(--dora-ink);
-}
-
-.school-card-body p {
-  margin: 0 0 0.75rem;
-  font-size: 0.9rem;
-  line-height: 1.55;
-  opacity: 0.88;
-}
-
-.school-tags {
+/* 頂部導覽（頁內用，非全站 header） */
+.dora-topbar {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.school-tags span {
-  font-size: 0.75rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  background: var(--dora-blush);
-  color: var(--dora-ink);
-}
-
-.school-card-link {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  padding: 0.85rem 1rem;
-  font-weight: 600;
-  font-size: 0.95rem;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding: 0.85rem 1.5rem;
+  background: linear-gradient(90deg, var(--dora-blue-deep) 0%, var(--dora-blue-nav) 100%);
+  box-shadow: 0 2px 12px var(--dora-shadow);
+}
+
+.dora-logo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dora-white);
   text-decoration: none;
-  color: var(--dora-white);
-  background: var(--dora-red);
-  transition: background 0.2s ease, filter 0.2s ease;
+  letter-spacing: 0.02em;
 }
 
-.school-card-link:hover {
-  background: #c62828;
-  filter: brightness(1.05);
+.dora-logo:hover {
+  color: var(--dora-blush);
 }
 
-.school-card-link .arrow {
-  transition: transform 0.2s ease;
-}
-
-.school-card-link:hover .arrow {
-  transform: translateX(3px);
-}
-
-/* 頁尾 */
-.school-footer {
-  margin-top: 2.5rem;
-  padding: 1.5rem 1.25rem;
-  border-radius: var(--dora-radius);
-  background: linear-gradient(135deg, var(--dora-blue-deep) 0%, var(--dora-blue) 100%);
-  color: var(--dora-white);
-}
-
-.school-footer-inner {
+.dora-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: space-between;
-  max-width: 960px;
-  margin: 0 auto;
+  gap: 0.35rem 1.25rem;
 }
 
-.school-footer h4 {
-  margin: 0 0 0.35rem;
-  font-size: 1rem;
+.dora-nav a {
+  color: var(--dora-white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-.school-footer p {
-  margin: 0;
-  font-size: 0.85rem;
+.dora-nav a:hover {
+  border-bottom-color: var(--dora-red);
+  color: var(--dora-blush);
+}
+
+/* Hero */
+.dora-hero {
+  text-align: center;
+  padding: 3.5rem 1.5rem 3rem;
+  background: linear-gradient(180deg, var(--dora-blue) 0%, #a8daf8 55%, var(--dora-cream) 100%);
+}
+
+.dora-hero h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+  font-weight: 700;
+  color: var(--dora-ink);
+}
+
+.dora-hero-lead {
+  margin: 0 auto 1.5rem;
+  max-width: 36rem;
+  font-size: 1.05rem;
+  color: var(--dora-ink);
   opacity: 0.9;
 }
 
-.school-footer ul {
+.dora-hero-lead code {
+  padding: 0.12em 0.45em;
+  border-radius: 6px;
+  background: var(--dora-white);
+  font-size: 0.92em;
+}
+
+.dora-cta {
+  display: inline-block;
+  padding: 0.65rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--dora-white);
+  text-decoration: none;
+  background: var(--dora-red);
+  box-shadow: 0 4px 14px rgba(229, 57, 53, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.dora-cta:hover {
+  background: #c62828;
+  transform: translateY(-2px);
+}
+
+/* 區塊標題 */
+.dora-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+
+.dora-section-title {
+  margin: 0 0 1.75rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dora-ink);
+}
+
+.dora-section-title::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 4px;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+  background: var(--dora-red);
+}
+
+/* 特色 3×2 */
+.dora-feature-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.dora-feature-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.15rem 1.15rem;
+  background: var(--dora-white);
+  border-radius: 16px;
+  border: 2px solid var(--dora-blue);
+  box-shadow: 0 6px 18px var(--dora-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dora-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px var(--dora-shadow);
+}
+
+.dora-feature-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.dora-feature-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dora-red);
+}
+
+.dora-feature-card p {
+  flex: 1;
+  margin: 0 0 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--dora-ink);
+  opacity: 0.88;
+}
+
+.dora-feature-card code {
+  font-size: 0.85em;
+  padding: 0.05em 0.3em;
+  border-radius: 4px;
+  background: var(--dora-blush);
+}
+
+.dora-feature-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dora-blue-deep);
+  text-decoration: none;
+}
+
+.dora-feature-link:hover {
+  color: var(--dora-red);
+  text-decoration: underline;
+}
+
+/* 最新消息 */
+.dora-news-panel {
+  padding: 0.5rem 0;
+  background: var(--dora-cream-panel);
+  border: 2px solid var(--dora-blue);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.dora-news-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.school-footer li + li {
-  margin-top: 0.35rem;
+.dora-news-list li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(118, 194, 243, 0.45);
 }
 
-.school-footer a {
-  color: var(--dora-white);
-  text-decoration: none;
-  font-size: 0.9rem;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
+.dora-news-list li:last-child {
+  border-bottom: none;
 }
 
-.school-footer a:hover {
-  border-bottom-color: var(--dora-blush);
+.dora-news-icon {
+  font-size: 1.25rem;
 }
 
-.school-footer-copy {
-  width: 100%;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  text-align: center;
+.dora-news-text {
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+.dora-news-text code {
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: var(--dora-white);
+  font-size: 0.88em;
+}
+
+.dora-news-date {
   font-size: 0.8rem;
-  opacity: 0.85;
+  color: var(--dora-ink);
+  opacity: 0.65;
+  white-space: nowrap;
 }
 
-@media (max-width: 600px) {
-  .school-hero-cheeks {
-    gap: 2.5rem;
+/* 返回連結 */
+.dora-back {
+  text-align: center;
+  margin: 0;
+  padding: 0 1.25rem 2.5rem;
+}
+
+.dora-back a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dora-blue-deep);
+  text-decoration: none;
+}
+
+.dora-back a:hover {
+  color: var(--dora-red);
+}
+
+@media (max-width: 900px) {
+  .dora-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .dora-feature-grid {
+    grid-template-columns: 1fr;
   }
 
-  .school-hero-face::before,
-  .school-hero-face::after {
-    display: none;
+  .dora-news-list li {
+    grid-template-columns: auto 1fr;
+  }
+
+  .dora-news-date {
+    grid-column: 2;
+    justify-self: start;
   }
 }
