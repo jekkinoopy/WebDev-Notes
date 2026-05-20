@@ -755,7 +755,8 @@
   color: var(--conan-navy);
 }
 
-/* 指面配置：柯南主題紅（--conan-crimson）強調 */
+/* 鍵位指法：柯南主題紅（--conan-crimson）強調 */
+.conan-notes-item .conan-notes-keyboard,
 .conan-notes-item .conan-notes-fingering {
   margin: 0.55rem 0 0;
   padding: 0.5rem 0.65rem 0.5rem 0.85rem;
@@ -769,6 +770,7 @@
   border-radius: 0 4px 4px 0;
 }
 
+.conan-notes-item .conan-notes-keyboard strong,
 .conan-notes-item .conan-notes-fingering strong {
   color: var(--conan-crimson);
 }
