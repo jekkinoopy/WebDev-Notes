@@ -175,7 +175,22 @@
         <p class="conan-notes-faction-desc">當資料準備透過 PDO 移送至 MySQL 資料庫時，法庭有它自己一套嚴格的「審查規則」。為了符合最高破案規格，這裡必須嚴格遵守以下線索配置：</p>
 
         <div class="conan-notes-list-wrap">
-          <ol class="conan-notes-list conan-notes-list--reviewed"></ol>
+          <ol class="conan-notes-list conan-notes-list--reviewed">
+            <li class="conan-notes-item conan-notes-item--ok">
+              <span class="conan-notes-stamp" aria-label="鑑識成功，已確認">
+                <span class="conan-notes-stamp-plate">
+                  <span class="conan-notes-stamp-text">鑑識成功</span>
+                </span>
+              </span>
+              <p class="conan-notes-symbol"><code>'</code>（單引號）</p>
+              <p><strong>唯一專門用途：</strong>框住純文字的「值」。</p>
+              <p>
+                <strong>鑑識報告：</strong>它是寫給資料庫看的，用來宣告「等一下塞進這格的名字是一串文字」。例如：<code>'{$_POST['account']}'</code>。因為雙引號才是老大，所以這個單引號
+                ' ' 必須乖乖被包在雙引號的肚子裡面。
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 右1</p>
+            </li>
+          </ol>
           <ol class="conan-notes-list conan-notes-list--pending">
             <li class="conan-notes-item">
               <p class="conan-notes-symbol"><code>`</code>（反單引號 / Backtick）</p>
@@ -191,15 +206,6 @@
               <p><strong>唯一專門用途：</strong>資料表與欄位的「階層串接」。</p>
               <p><strong>鑑識報告：</strong>在 SQL 裡，點號的作用是「從屬關係」，用來精準指定 <code>`表名`.`欄位名`</code>，明確指出這個線索是屬於哪一個檔案夾的。</p>
               <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 無名指 下滑 1</p>
-            </li>
-            <li class="conan-notes-item">
-              <p class="conan-notes-symbol"><code>'</code>（單引號）</p>
-              <p><strong>唯一專門用途：</strong>框住純文字的「值」。</p>
-              <p>
-                <strong>鑑識報告：</strong>它是寫給資料庫看的，用來宣告「等一下塞進這格的名字是一串文字」。例如：<code>'{$_POST['account']}'</code>。因為雙引號才是老大，所以這個單引號
-                ' ' 必須乖乖被包在雙引號的肚子裡面。
-              </p>
-              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 右1</p>
             </li>
             <li class="conan-notes-item">
               <p class="conan-notes-symbol"><code>()</code>（小括號）</p>
