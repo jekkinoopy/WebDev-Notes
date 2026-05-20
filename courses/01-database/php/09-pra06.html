@@ -56,7 +56,7 @@
                     <pre class="language-php"><code class="language-php">// 【程式碼練習】
 for ($i = 1; $i &lt;= 5; $i++) {
     for ($j = 1; $j &lt;= $i; $j++) {
-        echo "&lt;img src='images/09-1.png' style='width:30px'&gt;";
+        echo "&lt;img src='images/09-1.png' style='width:30px;display:inline-block'&gt;";
     }
     echo "&lt;br&gt;";
 }</code></pre>
@@ -65,11 +65,11 @@ for ($i = 1; $i &lt;= 5; $i++) {
 
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span><br>
-                <img src="images/09-1.png" style="width:30px" alt=""><br>
-                <img src="images/09-1.png" style="width:30px" alt=""><img src="images/09-1.png" style="width:30px" alt=""><br>
-                <img src="images/09-1.png" style="width:30px" alt=""><img src="images/09-1.png" style="width:30px" alt=""><img src="images/09-1.png" style="width:30px" alt=""><br>
-                <img src="images/09-1.png" style="width:30px" alt=""><img src="images/09-1.png" style="width:30px" alt=""><img src="images/09-1.png" style="width:30px" alt=""><img src="images/09-1.png" style="width:30px" alt=""><br>
-                <img src="images/09-1.png" style="width:30px" alt=""><img src="images/09-1.png" style="width:30px" alt=""><img src="images/09-1.png" style="width:30px" alt=""><img src="images/09-1.png" style="width:30px" alt=""><img src="images/09-1.png" style="width:30px" alt=""><br>
+                <img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><br>
+                <img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><br>
+                <img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><br>
+                <img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><br>
+                <img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block" alt=""><br>
             </div>
             </div>
         </div>
@@ -78,7 +78,7 @@ for ($i = 1; $i &lt;= 5; $i++) {
             <h3 class="note-subtitle">正三角形 (金字塔)</h3>
             <div class="ques-section">
                 <strong class="is-bracket-heading">【題目需求】</strong>
-                <p>邏輯：先印空格，再印金幣。</p>
+                <p>邏輯：左側留白要對齊「金幣寬度」（底下範例用 30px）；每列包在 <code>nowrap</code> 裡，避免最底層金幣多時被擠成兩行。</p>
             </div>
             <div class="note-practice-sticky">
             <div class="note-code-window" data-note-code-window data-code-line-count="11">
@@ -105,27 +105,26 @@ for ($i = 1; $i &lt;= 5; $i++) {
 10
 11</div>
                     <pre class="language-php"><code class="language-php">// 【程式碼練習】
+$coinW = 30;
 $totalRows = 5;
 for ($i = 1; $i &lt;= $totalRows; $i++) {
-    for ($j = 1; $j &lt;= ($totalRows - $i); $j++) {
-        echo "&amp;nbsp;&amp;nbsp;&amp;nbsp;";
-    }
+    $leftPad = ($totalRows - $i) * $coinW;
+    echo '&lt;span style="display:block;white-space:nowrap;padding-left:' . $leftPad . 'px"&gt;';
     for ($k = 1; $k &lt;= (2 * $i - 1); $k++) {
-        echo "&lt;img src='images/09-1.png' style='width:30px; vertical-align: middle;'&gt;";
+        echo "&lt;img src='images/09-1.png' style=\"width:{$coinW}px;display:inline-block;vertical-align:middle;\"&gt;";
     }
-    echo "&lt;br&gt;";
+    echo '&lt;/span&gt;';
 }</code></pre>
                 </div>
             </div>
 
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><br>
-                &nbsp;&nbsp;&nbsp;<img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><br>
-                <img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><img src="images/09-1.png" style="width:30px; vertical-align: middle;" alt=""><br>
+                <span style="display:block;white-space:nowrap;padding-left:120px"><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""></span>
+                <span style="display:block;white-space:nowrap;padding-left:90px"><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""></span>
+                <span style="display:block;white-space:nowrap;padding-left:60px"><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""></span>
+                <span style="display:block;white-space:nowrap;padding-left:30px"><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""></span>
+                <span style="display:block;white-space:nowrap;padding-left:0px"><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""><img src="images/09-1.png" style="width:30px;display:inline-block;vertical-align:middle;" alt=""></span>
             </div>
             </div>
         </div>
