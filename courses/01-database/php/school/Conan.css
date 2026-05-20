@@ -755,6 +755,24 @@
   color: var(--conan-navy);
 }
 
+/* 指面配置：柯南主題紅（--conan-crimson）強調 */
+.conan-notes-item .conan-notes-fingering {
+  margin: 0.55rem 0 0;
+  padding: 0.5rem 0.65rem 0.5rem 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  font-weight: 600;
+  color: var(--conan-crimson);
+  background: rgba(220, 38, 38, 0.1);
+  background: color-mix(in srgb, var(--conan-crimson) 12%, var(--conan-card-bg));
+  border-left: 4px solid var(--conan-crimson);
+  border-radius: 0 4px 4px 0;
+}
+
+.conan-notes-item .conan-notes-fingering strong {
+  color: var(--conan-crimson);
+}
+
 @media (max-width: 900px) {
   .conan-feature-grid {
     grid-template-columns: repeat(2, 1fr);
