@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>實作專案 - 網頁設計實務 - 努比的全端筆記</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    .practice-notice {
+      margin: 0 0 2rem;
+      padding: 1rem 1.15rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--text-primary, #1e293b);
+      background: color-mix(in srgb, var(--primary, #3b82f6) 8%, #fff);
+      border: 1px solid color-mix(in srgb, var(--primary, #3b82f6) 25%, transparent);
+      border-left: 4px solid var(--primary, #3b82f6);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .practice-notice strong {
+      color: var(--primary, #2563eb);
+    }
+
+    .breadcrumb {
+      padding: 1rem 0 0;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar"></nav>
+    <script src="../../../assets/js/nav-loader.js"></script>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="breadcrumb"><a href="../index.html">網頁設計實務</a> / 實作專案</p>
+      <h2 class="hero-title">實作專案</h2>
+      <p class="hero-subtitle">全棧練習專區 · 專案實作與整合</p>
+    </div>
+  </section>
+
+  <section class="courses-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>專案列表</h2>
+        <p>以完整情境練習前後端、資料庫與 API 串接</p>
+      </div>
+
+      <p class="practice-notice">
+        <strong>目錄規劃：</strong>各專案將收納於 <code>courses/07-projects/</code> 底下（例如
+        <code>school/</code>）。目前<strong>尚未搬移實體檔案</strong>，入口先以暫轉連結對應現有路徑；遷移完成後只需更新本頁連結即可。
+      </p>
+
+      <div class="courses-grid">
+        <article class="course-card featured">
+          <div class="card-header">
+            <span class="card-icon">🔍</span>
+            <span class="card-badge">進行中</span>
+          </div>
+          <div class="card-content">
+            <h3>米花町偵探學園</h3>
+            <p class="hours">school · 學生管理系統練習</p>
+            <p>PDO 連線 <code>school</code> 資料庫、註冊表單、API 寫入、登入驗證；含柯南主題練習站與辦案筆記（標點符號鍵位指法）。</p>
+            <div class="tag-list">
+              <span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">PDO</span>
+              <span class="tag">註冊登入</span>
+            </div>
+          </div>
+          <a href="../school/index.html" class="card-link">
+            進入專案 <span class="arrow">→</span>
+          </a>
+        </article>
+
+        <article class="course-card">
+          <div class="card-header">
+            <span class="card-icon">🎓</span>
+            <span class="card-badge">規劃中</span>
+          </div>
+          <div class="card-content">
+            <h3>卓越科技大學校園資訊系統</h3>
+            <p class="hours">project1</p>
+            <p>學生管理、課程管理、成績查詢系統的全棧開發。</p>
+            <div class="tag-list">
+              <span class="tag">管理系統</span>
+              <span class="tag">全棧</span>
+            </div>
+          </div>
+          <span class="card-link" style="opacity: 0.55; cursor: default;">籌備中</span>
+        </article>
+
+        <article class="course-card">
+          <div class="card-header">
+            <span class="card-icon">👥</span>
+            <span class="card-badge">規劃中</span>
+          </div>
+          <div class="card-content">
+            <h3>健康促進網社群平台</h3>
+            <p class="hours">project2</p>
+            <p>用戶社交、內容發布、互動評論的社群平台開發。</p>
+            <div class="tag-list">
+              <span class="tag">社群</span>
+              <span class="tag">前後端</span>
+            </div>
+          </div>
+          <span class="card-link" style="opacity: 0.55; cursor: default;">籌備中</span>
+        </article>
+
+        <article class="course-card">
+          <div class="card-header">
+            <span class="card-icon">🎬</span>
+            <span class="card-badge">規劃中</span>
+          </div>
+          <div class="card-content">
+            <h3>ABC 影城</h3>
+            <p class="hours">project3</p>
+            <p>電影查詢、訂票系統、支付功能的票務管理平台。</p>
+            <div class="tag-list">
+              <span class="tag">票務</span>
+              <span class="tag">支付</span>
+            </div>
+          </div>
+          <span class="card-link" style="opacity: 0.55; cursor: default;">籌備中</span>
+        </article>
+
+        <article class="course-card">
+          <div class="card-header">
+            <span class="card-icon">💎</span>
+            <span class="card-badge">規劃中</span>
+          </div>
+          <div class="card-content">
+            <h3>精品電子商務平台</h3>
+            <p class="hours">project4</p>
+            <p>商品展示、購物車、訂單管理、支付整合的電商平台。</p>
+            <div class="tag-list">
+              <span class="tag">電商</span>
+              <span class="tag">購物</span>
+            </div>
+          </div>
+          <span class="card-link" style="opacity: 0.55; cursor: default;">籌備中</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>實作專案</h4>
+          <p>專案實務 · 練習與整合</p>
+        </div>
+        <div class="footer-section">
+          <h4>進行中</h4>
+          <ul>
+            <li><a href="../school/index.html">米花町偵探學園</a></li>
+            <li><a href="../../../courses/01-database/php/school/notes/index.html">辦案筆記（現行路徑）</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>返回</h4>
+          <ul>
+            <li><a href="../index.html">網頁設計實務</a></li>
+            <li><a href="../../../index.html">主首頁</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 努比的全端筆記 - 實作專案</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/script.js"></script>
+</body>
+
+</html>

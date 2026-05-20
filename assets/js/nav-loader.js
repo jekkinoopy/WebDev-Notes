@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             title: "專案實務",
             links: [
-                { name: "乙級檢定", url: "courses/07-projects/index.html", isFinished: false },
-                { name: "實作專案", url: "courses/07-projects/index.html", isFinished: false }
+                { name: "乙級檢定", url: "courses/07-projects/index.html", isFinished: true },
+                { name: "實作專案", url: "courses/07-projects/practice/index.html", isFinished: true }
             ]
         }
     ];
