@@ -1,0 +1,339 @@
+/* school/index.html — 配色依作者多拉插畫 */
+.school-index-page {
+  --dora-blue: #76c2f3;
+  --dora-blue-deep: #5ab0eb;
+  --dora-white: #ffffff;
+  --dora-red: #e53935;
+  --dora-pink: #ff8a80;
+  --dora-blush: #ffcdd2;
+  --dora-cream: #fff9c4;
+  --dora-ink: #4e342e;
+  --dora-shadow: rgba(78, 52, 46, 0.12);
+  --dora-radius: 24px;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  color: var(--dora-ink);
+  background: var(--dora-cream);
+  min-height: 100vh;
+}
+
+.school-index-page .hero,
+.school-index-page .notes-section,
+.school-index-page .footer {
+  display: none;
+}
+
+.school-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+/* Hero：藍色頭部 + 白臉卡片 */
+.school-hero {
+  position: relative;
+  padding: 3.5rem 1.5rem 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-radius: var(--dora-radius);
+  background: linear-gradient(165deg, var(--dora-blue) 0%, var(--dora-blue-deep) 100%);
+  box-shadow: 0 12px 28px var(--dora-shadow);
+  overflow: hidden;
+}
+
+.school-hero::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  width: 140%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--dora-blue);
+  opacity: 0.35;
+}
+
+.school-hero-bell {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--dora-red);
+  border: 3px solid var(--dora-white);
+  box-shadow: 0 2px 8px var(--dora-shadow);
+  z-index: 2;
+}
+
+.school-hero-face {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 1.5rem;
+  background: var(--dora-white);
+  border-radius: 28px;
+  box-shadow: 0 8px 24px var(--dora-shadow);
+}
+
+.school-hero-face::before,
+.school-hero-face::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 56px;
+  height: 2px;
+  background: var(--dora-ink);
+  opacity: 0.35;
+}
+
+.school-hero-face::before {
+  left: -12px;
+  transform: translateY(-50%) rotate(-8deg);
+}
+
+.school-hero-face::after {
+  right: -12px;
+  transform: translateY(-50%) rotate(8deg);
+}
+
+.school-hero-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 700;
+  color: var(--dora-ink);
+  line-height: 1.35;
+}
+
+.school-hero-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--dora-ink);
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.school-hero-subtitle code {
+  padding: 0.1em 0.45em;
+  border-radius: 8px;
+  background: var(--dora-blush);
+  color: var(--dora-ink);
+  font-size: 0.9em;
+}
+
+.school-hero-cheeks {
+  display: flex;
+  justify-content: center;
+  gap: 4.5rem;
+  margin-top: 1rem;
+}
+
+.school-hero-cheeks span {
+  width: 36px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, var(--dora-pink) 0%, var(--dora-blush) 70%, transparent 100%);
+}
+
+/* 單元區 */
+.school-section-head {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.school-section-head h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+  color: var(--dora-ink);
+}
+
+.school-section-head p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.school-section-head code {
+  padding: 0.1em 0.4em;
+  border-radius: 6px;
+  background: var(--dora-white);
+  border: 1px solid var(--dora-blue);
+}
+
+.school-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.school-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--dora-white);
+  border-radius: var(--dora-radius);
+  border: 3px solid var(--dora-blue);
+  box-shadow: 0 8px 20px var(--dora-shadow);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.school-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px var(--dora-shadow);
+}
+
+.school-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.15rem 0.5rem;
+  background: linear-gradient(180deg, var(--dora-blue) 0%, var(--dora-blue-deep) 100%);
+  color: var(--dora-white);
+}
+
+.school-card-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.school-card-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: var(--dora-white);
+  color: var(--dora-blue-deep);
+}
+
+.school-card-body {
+  flex: 1;
+  padding: 1rem 1.15rem;
+}
+
+.school-card-body h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: var(--dora-ink);
+}
+
+.school-card-body p {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  opacity: 0.88;
+}
+
+.school-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.school-tags span {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--dora-blush);
+  color: var(--dora-ink);
+}
+
+.school-card-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--dora-white);
+  background: var(--dora-red);
+  transition: background 0.2s ease, filter 0.2s ease;
+}
+
+.school-card-link:hover {
+  background: #c62828;
+  filter: brightness(1.05);
+}
+
+.school-card-link .arrow {
+  transition: transform 0.2s ease;
+}
+
+.school-card-link:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* 頁尾 */
+.school-footer {
+  margin-top: 2.5rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--dora-radius);
+  background: linear-gradient(135deg, var(--dora-blue-deep) 0%, var(--dora-blue) 100%);
+  color: var(--dora-white);
+}
+
+.school-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.school-footer h4 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.school-footer p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.school-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.school-footer li + li {
+  margin-top: 0.35rem;
+}
+
+.school-footer a {
+  color: var(--dora-white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.school-footer a:hover {
+  border-bottom-color: var(--dora-blush);
+}
+
+.school-footer-copy {
+  width: 100%;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+  .school-hero-cheeks {
+    gap: 2.5rem;
+  }
+
+  .school-hero-face::before,
+  .school-hero-face::after {
+    display: none;
+  }
+}
