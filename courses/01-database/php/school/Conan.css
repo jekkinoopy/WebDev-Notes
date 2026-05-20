@@ -952,6 +952,15 @@
   margin: 0;
 }
 
+.conan-notes-disclaimer p + p {
+  margin-top: 0.55rem;
+}
+
+.conan-notes-disclaimer a {
+  color: var(--conan-crimson);
+  font-weight: 600;
+}
+
 .conan-notes-index-list {
   margin: 0;
   padding-left: 1.35rem;

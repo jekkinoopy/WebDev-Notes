@@ -41,14 +41,14 @@
           <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> 偵辦警語
         </p>
         <p>以下內容<strong>大部分為 AI 整理</strong>；在本人複習驗證之前，<strong>正確性不予保證</strong>。請以偵探之眼謹慎偵查、交叉比對，勿將本筆記直接當成定案證據。</p>
+        <p>符號條目若已親自確認，右上角會加蓋藍色矩形章「<strong>鑑識成功</strong>」——<strong>有章＝該符號已複核</strong>，無章＝仍為 AI
+          草稿、尚待定案。程式碼筆記為練習時自行補充，不一定每個符號都有，與是否蓋章無關。整篇複習完成後，目錄該篇條目旁會加<strong>迷你章</strong>（見
+          <a href="index.html">辦案筆記目錄</a>警語）。
+        </p>
       </aside>
       <p class="conan-notes-intro">在 PHP 與 SQL
         的世界裡，這些標點符號就是我們偵辦案件時的「核心密碼與破案規則」。在後端主機執行時，哪怕只是解錯一個符號或漏掉一條線索，整個系統就會直接發出致命警報（Fatal Error），導致破案失敗。</p>
       <p class="conan-notes-intro">為了不讓主機發出錯誤警報，我們必須將 these 關鍵符號分成「PHP 偵辦組」與「SQL 資料庫組」兩大陣營，徹底釐清它們的唯一專門用途：</p>
-      <p class="conan-notes-intro">各符號下方的<strong>程式碼筆記</strong>為練習時自行補充，不一定每個符號都會有；沒有則略過該區即可。</p>
-      <p class="conan-notes-legend"><strong>確認標記：</strong>預設為 AI 整理、尚未親自定案。複核無誤後，在該符號的
-        <code>&lt;li&gt;</code> 加上 <code>conan-notes-item--ok</code>，並貼上<strong>鑑識成功</strong>印章（見雙引號範例）。<strong>目前僅雙引號已蓋章</strong>，其餘待複核。
-      </p>
       <!-- 程式碼筆記（選填，貼在鍵位指法下方）
       <div class="conan-notes-code">
         <p class="conan-notes-code-label"><i class="fa-solid fa-code" aria-hidden="true"></i> 程式碼筆記</p>
@@ -128,8 +128,10 @@
             </span>
             <p class="conan-notes-symbol"><code>"</code>（雙引號）</p>
             <p><strong>唯一專門用途：</strong>框住字串，並啟動內部變數解析。</p>
-            <p><strong>鑑識報告：</strong>這是一個有超能力的隱形框框。只要用雙引號包起來的SQL字串，主機在讀取時，如果發現裡面藏著 <code>$</code>
-              變數，就會自動把變數拆開、將裡面的資料翻譯出來。</p>
+            <p><strong>鑑識報告：</strong>最高統治者，它統治了整行程式碼（從 insert into 一路到最尾巴）。只要用雙引號包起來的SQL字串，主機在讀取時，如果發現裡面藏著
+              <code>$</code>
+              變數，就會自動把變數拆開、將裡面的資料翻譯出來。
+            </p>
             <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 小拇指 右1</p>
             <div class="conan-notes-code">
               <p class="conan-notes-code-label"><i class="fa-solid fa-code" aria-hidden="true"></i> 程式碼筆記</p>
@@ -190,7 +192,7 @@
             <p><strong>唯一專門用途：</strong>框住純文字的「值」。</p>
             <p><strong>鑑識報告：</strong>當你要塞進資料庫的資料是「純文字、字串、日期」時，在 SQL
               語法裡必須用單引號包起來。例如：<code>'{$_POST['account']}'</code>。外層這一對單引號，是專門寫給資料庫看的。</p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 L右1</p>
+            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 右1</p>
           </li>
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>()</code>（小括號）</p>
