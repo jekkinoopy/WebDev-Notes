@@ -707,8 +707,7 @@
   display: none;
 }
 
-.conan-notes-list--reviewed .conan-notes-item:last-child,
-.conan-notes-list--pending .conan-notes-item:last-child {
+.conan-notes-list-wrap > .conan-notes-list:last-of-type .conan-notes-item:last-child {
   margin-bottom: 0;
 }
 
@@ -718,8 +717,11 @@
 
 .conan-notes-item {
   counter-increment: conan-note;
-  margin-bottom: 0.85rem;
-  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem 0.9rem 2.5rem;
   position: relative;
   overflow: visible;
   background: var(--conan-bg);
@@ -735,10 +737,6 @@
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--conan-crimson);
-}
-
-.conan-notes-item:last-child {
-  margin-bottom: 0;
 }
 
 /* 已親自確認：藍色矩形橡皮章（鑑識成功） */
@@ -839,18 +837,13 @@
 }
 
 .conan-notes-item > p {
-  margin: 0 0 0.3rem;
+  margin: 0;
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.55;
   color: var(--conan-dark);
 }
 
-.conan-notes-item > :last-child {
-  margin-bottom: 0;
-}
-
 .conan-notes-symbol {
-  margin-bottom: 0.2rem !important;
   font-weight: 600;
 }
 
@@ -873,10 +866,10 @@
 /* 鍵位指法：柯南主題紅（--conan-crimson）強調 */
 .conan-notes-item > .conan-notes-keyboard,
 .conan-notes-item > .conan-notes-fingering {
-  margin: 0.35rem 0 0;
-  padding: 0.35rem 0.55rem 0.35rem 0.7rem;
+  margin: 0;
+  padding: 0.45rem 0.6rem 0.45rem 0.75rem;
   font-size: 0.88rem;
-  line-height: 1.45;
+  line-height: 1.5;
   font-weight: 600;
   color: var(--conan-crimson);
   background: color-mix(in srgb, var(--conan-crimson) 12%, var(--conan-card-bg));
@@ -891,8 +884,8 @@
 
 /* 程式碼筆記（選填，練習時自行補上） */
 .conan-notes-item > .conan-notes-code {
-  margin: 0.35rem 0 0;
-  padding: 0.5rem 0.6rem 0.55rem;
+  margin: 0;
+  padding: 0.55rem 0.65rem 0.6rem;
   background: color-mix(in srgb, var(--conan-navy) 6%, var(--conan-card-bg));
   border: 1px solid color-mix(in srgb, var(--conan-navy) 18%, transparent);
   border-radius: 6px;
