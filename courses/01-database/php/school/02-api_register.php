@@ -13,12 +13,13 @@ echo "</pre>";
 //發生了什麼： 伺服器一走進來，先幫你建立 $pdo 連線物件，然後立刻把前端送來的 $_POST 包裹拆開，啪地一聲印在網頁最畫面上。
 
 $sql = "insert into `members`(`account`,`password`,`email`,`tel`,`birthday`) values(
+    //$sql = "INSERT INTO ...VALUES (...)";
+    //雙引號"必須一路包到底，直到最末端)";
                     '{$_POST['account']}',
                     '{$_POST['password']}',
                     '{$_POST['email']}',
                     '{$_POST['tel']}',
                     '{$_POST['birthday']}'
                 )";
-//$sql = "INSERT INTO ...VALUES (...)";
-//雙引號"必須一路包到底，直到最末端)";
+
 ?>

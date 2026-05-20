@@ -55,7 +55,7 @@
         <pre class="conan-notes-code-block"><code>// 你的練習片段與備忘</code></pre>
       </div>
       -->
-      <!-- 確認後：class 加 conan-notes-item--ok，<li> 內貼矩形章（見雙引號 conan-notes-stamp-plate） -->
+      <!-- 確認後：整段 <li> 剪貼到「已鑑識」<ol>，加 conan-notes-item--ok 與印章（序號自動重排） -->
 
       <section class="conan-notes-faction" aria-labelledby="php-faction-title">
         <h2 id="php-faction-title" class="conan-notes-faction-title">
@@ -64,7 +64,31 @@
         <p class="conan-notes-faction-desc">這是你在編寫 <code>01-register.php</code> 與 <code>02-api_register.php</code>
           時，絕對不能搞混的關鍵符號：</p>
 
-        <ol class="conan-notes-list">
+        <div class="conan-notes-list-wrap">
+          <p class="conan-notes-list-label conan-notes-list-label--reviewed">已鑑識</p>
+          <ol class="conan-notes-list conan-notes-list--reviewed">
+          <li class="conan-notes-item conan-notes-item--ok">
+            <span class="conan-notes-stamp" aria-label="鑑識成功，已確認">
+              <span class="conan-notes-stamp-plate">
+                <span class="conan-notes-stamp-text">鑑識成功</span>
+              </span>
+            </span>
+            <p class="conan-notes-symbol"><code>"</code>（雙引號）</p>
+            <p><strong>唯一專門用途：</strong>框住字串，並啟動內部變數解析。</p>
+            <p><strong>鑑識報告：</strong>最高統治者，它統治了整行程式碼（從 insert into 一路到最尾巴）。只要用雙引號包起來的SQL字串，主機在讀取時，如果發現裡面藏著
+              <code>$</code>
+              變數，就會自動把變數拆開、將裡面的資料翻譯出來。
+            </p>
+            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 小拇指 右1</p>
+            <div class="conan-notes-code">
+              <p class="conan-notes-code-label"><i class="fa-solid fa-code" aria-hidden="true"></i> 程式碼筆記</p>
+              <pre class="conan-notes-code-block"><code>//$sql = "INSERT INTO ...VALUES (...)";
+//雙引號"必須一路包到底，直到最末端)";</code></pre>
+            </div>
+          </li>
+          </ol>
+          <p class="conan-notes-list-label conan-notes-list-label--pending">待複核</p>
+          <ol class="conan-notes-list conan-notes-list--pending">
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>$</code>（錢字號 / Dollar Sign）</p>
             <p><strong>唯一專門用途：</strong>宣告變數。</p>
@@ -120,25 +144,6 @@
             </p>
             <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 0右2</p>
           </li>
-          <li class="conan-notes-item conan-notes-item--ok">
-            <span class="conan-notes-stamp" aria-label="鑑識成功，已確認">
-              <span class="conan-notes-stamp-plate">
-                <span class="conan-notes-stamp-text">鑑識成功</span>
-              </span>
-            </span>
-            <p class="conan-notes-symbol"><code>"</code>（雙引號）</p>
-            <p><strong>唯一專門用途：</strong>框住字串，並啟動內部變數解析。</p>
-            <p><strong>鑑識報告：</strong>最高統治者，它統治了整行程式碼（從 insert into 一路到最尾巴）。只要用雙引號包起來的SQL字串，主機在讀取時，如果發現裡面藏著
-              <code>$</code>
-              變數，就會自動把變數拆開、將裡面的資料翻譯出來。
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 小拇指 右1</p>
-            <div class="conan-notes-code">
-              <p class="conan-notes-code-label"><i class="fa-solid fa-code" aria-hidden="true"></i> 程式碼筆記</p>
-              <pre class="conan-notes-code-block"><code>//$sql = "INSERT INTO ...VALUES (...)";
-//雙引號"必須一路包到底，直到最末端)";</code></pre>
-            </div>
-          </li>
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>//</code>（單行註解）</p>
             <p><strong>唯一專門用途：</strong>寫給人看的單行筆記。</p>
@@ -162,7 +167,8 @@
             </p>
             <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 0右1，接 左 小拇指 Shift + 右 無名指 M右2 下滑 1</p>
           </li>
-        </ol>
+          </ol>
+        </div>
       </section>
 
       <section class="conan-notes-faction" aria-labelledby="sql-faction-title">
@@ -171,7 +177,9 @@
         </h2>
         <p class="conan-notes-faction-desc">當資料準備透過 PDO 移送至 MySQL 資料庫時，法庭有它自己一套嚴格的「審查規則」。為了符合最高破案規格，這裡必須嚴格遵守以下線索配置：</p>
 
-        <ol class="conan-notes-list">
+        <div class="conan-notes-list-wrap">
+          <ol class="conan-notes-list conan-notes-list--reviewed" aria-label="已鑑識"></ol>
+          <ol class="conan-notes-list conan-notes-list--pending">
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>`</code>（反單引號 / Backtick）</p>
             <p><strong>唯一專門用途：</strong>包覆資料表名稱與欄位名稱。</p>
@@ -228,7 +236,8 @@
             </p>
             <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 0右1 連按兩次</p>
           </li>
-        </ol>
+          </ol>
+        </div>
       </section>
     </article>
   </main>

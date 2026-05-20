@@ -693,11 +693,44 @@
   color: var(--conan-muted);
 }
 
+.conan-notes-list-wrap {
+  counter-reset: conan-note;
+}
+
 .conan-notes-list {
   margin: 0;
   padding: 0;
   list-style: none;
-  counter-reset: conan-note;
+}
+
+.conan-notes-list-wrap .conan-notes-list--reviewed:not(:has(.conan-notes-item)) {
+  display: none;
+}
+
+.conan-notes-list-wrap:not(:has(.conan-notes-list--reviewed .conan-notes-item)) .conan-notes-list-label--reviewed,
+.conan-notes-list-wrap:not(:has(.conan-notes-list--reviewed .conan-notes-item)) .conan-notes-list-label--pending {
+  display: none;
+}
+
+.conan-notes-list-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--conan-stamp);
+}
+
+.conan-notes-list-label--pending {
+  margin-top: 1rem;
+}
+
+.conan-notes-list--reviewed .conan-notes-item:last-child,
+.conan-notes-list--pending .conan-notes-item:last-child {
+  margin-bottom: 0;
+}
+
+.conan-notes-list--reviewed:not(:has(.conan-notes-item)) + .conan-notes-list-label--pending {
+  margin-top: 0;
 }
 
 .conan-notes-item {
