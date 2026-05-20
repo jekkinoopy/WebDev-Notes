@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>學生管理系統製作練習 - 努比的全端筆記</title>
+  <title>帝丹小學｜學生管理系統製作練習</title>
   <link rel="stylesheet" href="school-index.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,9 +13,9 @@
     rel="stylesheet" />
 </head>
 
-<body class="dora-school">
+<body class="conan-school">
   <header class="dora-topbar">
-    <a class="dora-logo" href="index.html">大雄的學校</a>
+    <a class="dora-logo" href="index.html">帝丹小學</a>
     <nav class="dora-nav" aria-label="主選單">
       <a href="#top">關於我們</a>
       <a href="#features">校園特色</a>
@@ -30,43 +30,46 @@
 
   <main id="top">
     <section class="dora-hero" aria-labelledby="hero-title">
-      <h1 id="hero-title">歡迎來到大雄的學校</h1>
-      <p class="dora-hero-lead">學生管理系統製作練習 — 以 PDO 與表單完成註冊、登入與資料寫入</p>
-      <a class="dora-cta" href="#features">瞭解更多</a>
+      <img class="dora-hero-bg" src="0.jpg" alt="" width="2544" height="1456" decoding="async" />
+      <div class="dora-hero-inner">
+        <h1 id="hero-title">歡迎來到帝丹小學</h1>
+        <p class="dora-hero-lead">學生管理系統製作練習 — 少年偵探團也用表單與資料庫，記錄每一位同學的資料</p>
+        <a class="dora-cta" href="#features">瞭解更多</a>
+      </div>
     </section>
 
     <section id="features" class="dora-section" aria-labelledby="features-title">
       <h2 id="features-title" class="dora-section-title">校園特色</h2>
       <div class="dora-feature-grid">
         <article class="dora-feature-card">
-          <span class="dora-feature-icon" aria-hidden="true">📝</span>
-          <h3>會員註冊</h3>
-          <p>建立註冊表單，以 POST 送出帳號與個人資料。</p>
+          <span class="dora-feature-icon" aria-hidden="true">🔍</span>
+          <h3>新生登記簿</h3>
+          <p>建立註冊表單，以 POST 送出帳號與個人資料（會員註冊）。</p>
         </article>
         <article class="dora-feature-card">
-          <span class="dora-feature-icon" aria-hidden="true">📨</span>
-          <h3>API 寫入</h3>
-          <p>接收表單並 INSERT 至 members 資料表。</p>
+          <span class="dora-feature-icon" aria-hidden="true">📋</span>
+          <h3>證物送鑑</h3>
+          <p>API 接收表單，將資料 INSERT 至 members 資料表。</p>
         </article>
         <article class="dora-feature-card">
           <span class="dora-feature-icon" aria-hidden="true">🔌</span>
-          <h3>PDO 連線</h3>
-          <p>連線 school 資料庫，練習 CRUD 操作。</p>
+          <h3>資料庫搜查</h3>
+          <p>PDO 連線 school，練習查詢、新增、更新、刪除。</p>
         </article>
         <article class="dora-feature-card">
           <span class="dora-feature-icon" aria-hidden="true">🔐</span>
-          <h3>登入驗證</h3>
-          <p>比對 members 帳密，導向成功或錯誤頁。</p>
+          <h3>身分驗證</h3>
+          <p>登入比對 members 帳密，成功或失敗導向不同頁面。</p>
         </article>
         <article class="dora-feature-card">
           <span class="dora-feature-icon" aria-hidden="true">🗃️</span>
-          <h3>資料表設計</h3>
+          <h3>檔案櫃結構</h3>
           <p>members 欄位：account、password、tel、birthday、email。</p>
         </article>
         <article class="dora-feature-card">
           <span class="dora-feature-icon" aria-hidden="true">📚</span>
-          <h3>對照筆記</h3>
-          <p>可回到 PHP 課程索引複習 s01～s03 單元。</p>
+          <h3>辦案手冊</h3>
+          <p>回到 PHP 課程索引，複習 s01～s03 筆記單元。</p>
         </article>
       </div>
     </section>
@@ -77,27 +80,27 @@
         <ul class="dora-news-list">
           <li>
             <span class="dora-news-icon" aria-hidden="true">🔔</span>
-            <span class="dora-news-text">單元一：完成 01-register.php 註冊表單</span>
+            <span class="dora-news-text">【校務】單元一：01-register.php 註冊表單開放練習</span>
             <time class="dora-news-date" datetime="2026-05-19">2026-05-19</time>
           </li>
           <li>
             <span class="dora-news-icon" aria-hidden="true">📬</span>
-            <span class="dora-news-text">單元二：02-api_register.php 接收 POST</span>
+            <span class="dora-news-text">【教務】02-api_register.php 已可接收 POST</span>
             <time class="dora-news-date" datetime="2026-05-19">2026-05-19</time>
           </li>
           <li>
             <span class="dora-news-icon" aria-hidden="true">🎒</span>
-            <span class="dora-news-text">請先建立 school 資料庫與 members 資料表</span>
+            <span class="dora-news-text">【提醒】請先匯入 school 資料庫與 members 資料表</span>
             <time class="dora-news-date" datetime="2026-05-18">2026-05-18</time>
           </li>
           <li>
-            <span class="dora-news-icon" aria-hidden="true">🤖</span>
-            <span class="dora-news-text">PDO 單元請參考 s01-pdo 筆記</span>
+            <span class="dora-news-icon" aria-hidden="true">🕵️</span>
+            <span class="dora-news-text">【補習】PDO 請對照 s01-pdo 筆記複習</span>
             <time class="dora-news-date" datetime="2026-05-18">2026-05-18</time>
           </li>
           <li>
             <span class="dora-news-icon" aria-hidden="true">✨</span>
-            <span class="dora-news-text">登入練習請使用 s03-login.php</span>
+            <span class="dora-news-text">【登入】驗證練習請使用 s03-login.php</span>
             <time class="dora-news-date" datetime="2026-05-17">2026-05-17</time>
           </li>
         </ul>
@@ -106,7 +109,7 @@
   </main>
 
   <footer id="contact" class="dora-site-footer">
-    <h2 class="dora-footer-title">大雄的學校</h2>
+    <h2 class="dora-footer-title">帝丹小學</h2>
     <nav class="dora-footer-nav" aria-label="頁尾連結">
       <a href="01-register.php">註冊練習</a>
       <a href="../s02-register.php">註冊筆記</a>
@@ -114,9 +117,9 @@
       <a href="../index.html">PHP 課程索引</a>
     </nav>
     <ul class="dora-contact-list">
-      <li><span aria-hidden="true">📍</span> 練習專區：courses/01-database/php/school</li>
-      <li><span aria-hidden="true">📞</span> 資料庫：localhost / school</li>
-      <li><span aria-hidden="true">✉️</span> 表單接收：02-api_register.php</li>
+      <li><span aria-hidden="true">📍</span> 東京都米花町 · 帝丹小學資訊教室</li>
+      <li><span aria-hidden="true">📞</span> 學務系統：localhost / school</li>
+      <li><span aria-hidden="true">✉️</span> 註冊 API：02-api_register.php</li>
     </ul>
     <div class="dora-footer-bottom">
       <p class="dora-copy">&copy; 2026 努比的全端筆記 · 學生管理系統製作練習</p>

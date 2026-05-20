@@ -1,22 +1,23 @@
-/* 結構對照校園參考版型；配色為作者多拉插畫色票 */
+/* 結構對照校園參考版型；帝丹小學／柯南風配色（深藍＋領結紅） */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+.conan-school,
 .dora-school {
-  --dora-blue: #76c2f3;
-  --dora-blue-deep: #5ab0eb;
-  --dora-blue-dark: #3d8cc4;
+  --dora-blue: #4a7fc1;
+  --dora-blue-deep: #2e5a9e;
+  --dora-blue-dark: #0f2d5c;
   --dora-white: #ffffff;
-  --dora-red: #e53935;
-  --dora-blush: #ffcdd2;
-  --dora-cream: #fff9c4;
-  --dora-cream-panel: #fffde7;
-  --dora-yellow-btn: #ffe082;
-  --dora-ink: #4e342e;
-  --dora-shadow: rgba(78, 52, 46, 0.1);
+  --dora-red: #c41e3a;
+  --dora-blush: #e8eef5;
+  --dora-cream: #f4f1ea;
+  --dora-cream-panel: #faf6ee;
+  --dora-yellow-btn: #f0c75e;
+  --dora-ink: #1a1a1a;
+  --dora-shadow: rgba(15, 45, 92, 0.12);
   margin: 0;
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   color: var(--dora-ink);
@@ -92,23 +93,65 @@
 
 /* —— Hero（參考：置中標題 + 副標 + CTA） —— */
 .dora-hero {
-  text-align: center;
-  padding: 3.5rem 1.5rem 3rem;
-  background: linear-gradient(180deg, var(--dora-blue) 0%, #b8e4fc 50%, var(--dora-cream) 100%);
+  position: relative;
+  padding: 0;
+  background-color: var(--dora-cream);
+  line-height: 0;
 }
 
-.dora-hero h1 {
+.dora-hero-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: top;
+}
+
+.dora-hero-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  line-height: 1.6;
+}
+
+.dora-hero-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(244, 241, 234, 0.5) 0%,
+    rgba(244, 241, 234, 0.25) 45%,
+    rgba(244, 241, 234, 0.65) 100%
+  );
+  pointer-events: none;
+}
+
+.dora-hero-inner h1,
+.dora-hero-inner .dora-hero-lead,
+.dora-hero-inner .dora-cta {
+  position: relative;
+  z-index: 1;
+}
+
+.dora-hero-inner h1 {
   margin: 0 0 0.75rem;
   font-size: clamp(1.6rem, 5vw, 2.2rem);
   font-weight: 700;
   color: var(--dora-ink);
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.85);
 }
 
-.dora-hero-lead {
+.dora-hero-inner .dora-hero-lead {
   margin: 0 auto 1.5rem;
   max-width: 36rem;
   font-size: 1.05rem;
-  opacity: 0.9;
+  opacity: 0.95;
+  text-shadow: 0 1px 8px rgba(255, 255, 255, 0.8);
 }
 
 .dora-cta {
