@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>大雄的學校｜學生管理系統練習</title>
+  <title>學生管理系統製作練習 - 努比的全端筆記</title>
   <link rel="stylesheet" href="school-index.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,19 +16,23 @@
 <body class="dora-school">
   <header class="dora-topbar">
     <a class="dora-logo" href="index.html">大雄的學校</a>
-    <nav class="dora-nav" aria-label="頁面導覽">
-      <a href="#top">首頁</a>
+    <nav class="dora-nav" aria-label="主選單">
+      <a href="#top">關於我們</a>
       <a href="#features">校園特色</a>
       <a href="#news">最新消息</a>
-      <a href="../index.html">回到筆記</a>
+      <a href="#contact">聯絡方式</a>
     </nav>
+    <div class="dora-auth">
+      <a href="../s03-login.php" class="dora-btn dora-btn-login">登入</a>
+      <a href="01-register.php" class="dora-btn dora-btn-register">註冊</a>
+    </div>
   </header>
 
   <main id="top">
     <section class="dora-hero" aria-labelledby="hero-title">
-      <h1 id="hero-title">歡迎來到哆啦 A 夢小學</h1>
-      <p class="dora-hero-lead">用任意門般的 PDO，把學生資料收進 <code>school</code> 資料庫！</p>
-      <a class="dora-cta" href="#features">開始練習</a>
+      <h1 id="hero-title">歡迎來到大雄的學校</h1>
+      <p class="dora-hero-lead">學生管理系統製作練習 — 以 PDO 與表單完成註冊、登入與資料寫入</p>
+      <a class="dora-cta" href="#features">瞭解更多</a>
     </section>
 
     <section id="features" class="dora-section" aria-labelledby="features-title">
@@ -36,39 +40,33 @@
       <div class="dora-feature-grid">
         <article class="dora-feature-card">
           <span class="dora-feature-icon" aria-hidden="true">📝</span>
-          <h3>會員註冊表單</h3>
-          <p>像填寫入學申請表一樣，用 HTML 表單收集帳號、密碼與個人資料。</p>
-          <a href="01-register.php" class="dora-feature-link">前往單元 →</a>
+          <h3>會員註冊</h3>
+          <p>建立註冊表單，以 POST 送出帳號與個人資料。</p>
         </article>
         <article class="dora-feature-card">
           <span class="dora-feature-icon" aria-hidden="true">📨</span>
-          <h3>API 接收 POST</h3>
-          <p>秘密道具「傳送門」：<code>s02-api_register.php</code> 把資料送進 members。</p>
-          <a href="02-api_register.php" class="dora-feature-link">前往 API →</a>
+          <h3>API 寫入</h3>
+          <p>接收表單並 INSERT 至 members 資料表。</p>
         </article>
         <article class="dora-feature-card">
           <span class="dora-feature-icon" aria-hidden="true">🔌</span>
-          <h3>PDO 資料庫連線</h3>
-          <p>先學會連上 school，對 dept 練習查詢、新增、更新、刪除。</p>
-          <a href="../s01-pdo.html" class="dora-feature-link">複習 PDO →</a>
+          <h3>PDO 連線</h3>
+          <p>連線 school 資料庫，練習 CRUD 操作。</p>
+        </article>
+        <article class="dora-feature-card">
+          <span class="dora-feature-icon" aria-hidden="true">🔐</span>
+          <h3>登入驗證</h3>
+          <p>比對 members 帳密，導向成功或錯誤頁。</p>
         </article>
         <article class="dora-feature-card">
           <span class="dora-feature-icon" aria-hidden="true">🗃️</span>
-          <h3>members 資料表</h3>
-          <p>欄位：<code>account</code>、<code>password</code>、<code>tel</code>、<code>birthday</code>、<code>email</code>。</p>
-          <a href="01-register.php" class="dora-feature-link">看表單欄位 →</a>
+          <h3>資料表設計</h3>
+          <p>members 欄位：account、password、tel、birthday、email。</p>
         </article>
         <article class="dora-feature-card">
-          <span class="dora-feature-icon" aria-hidden="true">🍞</span>
-          <h3>記憶麵包式 CRUD</h3>
-          <p><code>query()</code> 查資料、<code>exec()</code> 新增修改刪除，別搞混囉！</p>
-          <a href="../s01-pdo.html" class="dora-feature-link">對照筆記 →</a>
-        </article>
-        <article class="dora-feature-card">
-          <span class="dora-feature-icon" aria-hidden="true">⏰</span>
-          <h3>時光警報</h3>
-          <p>註冊成功後記得用 SELECT 確認；重整前別重複 INSERT 喔。</p>
-          <a href="02-api_register.php" class="dora-feature-link">檢查 API →</a>
+          <span class="dora-feature-icon" aria-hidden="true">📚</span>
+          <h3>對照筆記</h3>
+          <p>可回到 PHP 課程索引複習 s01～s03 單元。</p>
         </article>
       </div>
     </section>
@@ -79,37 +77,56 @@
         <ul class="dora-news-list">
           <li>
             <span class="dora-news-icon" aria-hidden="true">🔔</span>
-            <span class="dora-news-text">單元一上線：完成 <strong>01-register.php</strong> 註冊表單</span>
+            <span class="dora-news-text">單元一：完成 01-register.php 註冊表單</span>
             <time class="dora-news-date" datetime="2026-05-19">2026-05-19</time>
           </li>
           <li>
             <span class="dora-news-icon" aria-hidden="true">📬</span>
-            <span class="dora-news-text">單元二：<strong>02-api_register.php</strong> 接收 POST 寫入 members</span>
+            <span class="dora-news-text">單元二：02-api_register.php 接收 POST</span>
             <time class="dora-news-date" datetime="2026-05-19">2026-05-19</time>
           </li>
           <li>
             <span class="dora-news-icon" aria-hidden="true">🎒</span>
-            <span class="dora-news-text">請先在 phpMyAdmin 匯入 <code>school</code> 與 members 資料表</span>
+            <span class="dora-news-text">請先建立 school 資料庫與 members 資料表</span>
             <time class="dora-news-date" datetime="2026-05-18">2026-05-18</time>
           </li>
           <li>
             <span class="dora-news-icon" aria-hidden="true">🤖</span>
-            <span class="dora-news-text">大雄提醒：密碼請勿明文上傳到 GitHub！</span>
+            <span class="dora-news-text">PDO 單元請參考 s01-pdo 筆記</span>
             <time class="dora-news-date" datetime="2026-05-18">2026-05-18</time>
           </li>
           <li>
             <span class="dora-news-icon" aria-hidden="true">✨</span>
-            <span class="dora-news-text">靜香說：表單欄位記得加 <code>required</code> 與正確 <code>name</code></span>
+            <span class="dora-news-text">登入練習請使用 s03-login.php</span>
             <time class="dora-news-date" datetime="2026-05-17">2026-05-17</time>
           </li>
         </ul>
       </div>
     </section>
-
-    <p class="dora-back">
-      <a href="../index.html">← 回到 PHP 課程索引</a>
-    </p>
   </main>
+
+  <footer id="contact" class="dora-site-footer">
+    <h2 class="dora-footer-title">大雄的學校</h2>
+    <nav class="dora-footer-nav" aria-label="頁尾連結">
+      <a href="01-register.php">註冊練習</a>
+      <a href="../s02-register.php">註冊筆記</a>
+      <a href="../s03-login.php">登入筆記</a>
+      <a href="../index.html">PHP 課程索引</a>
+    </nav>
+    <ul class="dora-contact-list">
+      <li><span aria-hidden="true">📍</span> 練習專區：courses/01-database/php/school</li>
+      <li><span aria-hidden="true">📞</span> 資料庫：localhost / school</li>
+      <li><span aria-hidden="true">✉️</span> 表單接收：02-api_register.php</li>
+    </ul>
+    <div class="dora-footer-bottom">
+      <p class="dora-copy">&copy; 2026 努比的全端筆記 · 學生管理系統製作練習</p>
+      <p class="dora-footer-meta">
+        <a href="../index.html">回到筆記首頁</a>
+        <span aria-hidden="true">|</span>
+        <a href="#top">回到頂部</a>
+      </p>
+    </div>
+  </footer>
 </body>
 
 </html>
