@@ -45,6 +45,13 @@
       <p class="conan-notes-intro">在 PHP 與 SQL
         的世界裡，這些標點符號就是我們偵辦案件時的「核心密碼與破案規則」。在後端主機執行時，哪怕只是解錯一個符號或漏掉一條線索，整個系統就會直接發出致命警報（Fatal Error），導致破案失敗。</p>
       <p class="conan-notes-intro">為了不讓主機發出錯誤警報，我們必須將 these 關鍵符號分成「PHP 偵辦組」與「SQL 資料庫組」兩大陣營，徹底釐清它們的唯一專門用途：</p>
+      <p class="conan-notes-intro">各符號下方的<strong>程式碼筆記</strong>為練習時自行補充，不一定每個符號都會有；沒有則略過該區即可。</p>
+      <!-- 程式碼筆記（選填，貼在鍵位指法下方）
+      <div class="conan-notes-code">
+        <p class="conan-notes-code-label"><i class="fa-solid fa-code" aria-hidden="true"></i> 程式碼筆記</p>
+        <pre class="conan-notes-code-block"><code>// 你的練習片段與備忘</code></pre>
+      </div>
+      -->
 
       <section class="conan-notes-faction" aria-labelledby="php-faction-title">
         <h2 id="php-faction-title" class="conan-notes-faction-title">
@@ -115,6 +122,11 @@
             <p><strong>鑑識報告：</strong>這是一個有超能力的隱形框框。只要用雙引號包起來的SQL字串，主機在讀取時，如果發現裡面藏著 <code>$</code>
               變數，就會自動把變數拆開、將裡面的資料翻譯出來。</p>
             <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 小拇指 L右1</p>
+            <div class="conan-notes-code">
+              <p class="conan-notes-code-label"><i class="fa-solid fa-code" aria-hidden="true"></i> 程式碼筆記</p>
+              <pre class="conan-notes-code-block"><code>//$sql = "INSERT INTO ...VALUES (...)";
+//雙引號"必須一路包到底，直到最末端)";</code></pre>
+            </div>
           </li>
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>//</code>（單行註解）</p>

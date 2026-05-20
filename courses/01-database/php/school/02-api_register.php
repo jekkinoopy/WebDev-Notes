@@ -20,5 +20,5 @@ $sql = "insert into `members`(`account`,`password`,`email`,`tel`,`birthday`) val
                     '{$_POST['birthday']}'
                 )";
 //$sql = "INSERT INTO ...VALUES (...)";
-//雙引號 "，必須一路包到底，直到最末端
+//雙引號"必須一路包到底，直到最末端)";
 ?>

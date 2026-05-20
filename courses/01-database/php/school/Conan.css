@@ -775,6 +775,53 @@
   color: var(--conan-crimson);
 }
 
+/* 程式碼筆記（選填，練習時自行補上） */
+.conan-notes-item .conan-notes-code {
+  margin: 0.55rem 0 0;
+  padding: 0.65rem 0.75rem 0.7rem;
+  background: color-mix(in srgb, var(--conan-navy) 6%, var(--conan-card-bg));
+  border: 1px solid color-mix(in srgb, var(--conan-navy) 18%, transparent);
+  border-radius: 6px;
+}
+
+.conan-notes-code-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--conan-navy);
+}
+
+.conan-notes-code-block {
+  margin: 0;
+  padding: 0.55rem 0.65rem;
+  font-family: ui-monospace, "Cascadia Code", "Consolas", monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #1e293b;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.conan-notes-code-block code {
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: inherit;
+}
+
+.conan-notes-code-empty {
+  margin: 0;
+  font-size: 0.82rem;
+  color: color-mix(in srgb, var(--conan-navy) 55%, transparent);
+  font-style: italic;
+}
+
 /* 辦案筆記：AI 整理警語（index 與各篇內頁共用） */
 .conan-notes-disclaimer {
   margin: 0 0 1.25rem;
