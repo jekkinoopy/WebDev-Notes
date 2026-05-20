@@ -61,7 +61,13 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             title: "專案實務",
             links: [
-                { name: "實作專案", url: "courses/07-projects/practice/index.html", isFinished: true }
+                { name: "實作專案", url: "courses/07-projects/practice/index.html", isFinished: true },
+                { name: "米花町偵探學園", url: "courses/07-projects/school/index.html", isFinished: true },
+                { name: "辦案筆記", url: "courses/01-database/php/school/notes/index.html", isFinished: true },
+                { name: "校園資訊系統", url: "#", isFinished: false },
+                { name: "社群平台", url: "#", isFinished: false },
+                { name: "ABC 影城", url: "#", isFinished: false },
+                { name: "電商平台", url: "#", isFinished: false }
             ]
         }
     ];

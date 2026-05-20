@@ -1009,6 +1009,18 @@
   color: var(--conan-crimson);
 }
 
+/* 與全站 nav 未完成連結一致（#bbb + 不可點） */
+.conan-notes-index-list a.link-wip {
+  color: #bbb;
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.conan-notes-index-list a.link-wip:hover {
+  color: #bbb;
+}
+
 .conan-note-page .conan-back-link-secondary {
   margin-top: 0.35rem;
 }

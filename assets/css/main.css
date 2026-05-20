@@ -563,6 +563,20 @@ section {
     transform: translateX(4px);
 }
 
+/* 與 nav-loader.js 未完成連結一致：灰字 + (WIP) */
+.link-wip,
+.card-link--wip {
+    color: #bbb !important;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.6;
+    border-bottom-color: transparent !important;
+}
+
+.card-link--wip .arrow {
+    display: none;
+}
+
 /* ========================================
    About Section
    ======================================== */
