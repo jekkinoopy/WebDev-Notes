@@ -13,7 +13,12 @@ echo "</pre>";
 //發生了什麼： 伺服器一走進來，先幫你建立 $pdo 連線物件，然後立刻把前端送來的 $_POST 包裹拆開，啪地一聲印在網頁最畫面上。
 
 $sql="insert into `members`(`account`,`password`,`email`,`tel`,`birthday`)"
-            values('{$_POST[`account`]}',
-                    '{$_POST[`password`]}',
+            values('{$_POST['account']}',
+            //'{$_POST['account']}'第一層 SQL的文字桶
+            //{$_POST['account']}第二層 PHP的隔離罩
+            //['account']第三層 PHP的中括號標籤 專門寫給$_POST看
+                    '{$_POST['password']}',
+
+                
                     );
 ?>

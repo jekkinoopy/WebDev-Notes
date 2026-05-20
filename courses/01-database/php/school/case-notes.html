@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>辦案筆記｜標點符號卷宗｜米花町偵探學園</title>
+  <title>辦案筆記｜標點符號鑑識卷宗｜米花町偵探學園</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="Conan.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body class="conan-school">
@@ -32,65 +33,104 @@
     <a class="conan-back-link" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> 返回偵辦室</a>
 
     <article class="conan-notes-dossier">
-      <p class="conan-form-label"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> 辦案筆記</p>
-      <h1>標點符號卷宗</h1>
-      <p class="conan-notes-intro">在 PHP 和 SQL 的世界裡，標點符號就像是我們在做包裝設計時的「出血線、裁切線和刀模規則」，少了一條或畫錯一個，主機在印刷（執行）時就會完全看不懂。</p>
-      <p class="conan-notes-intro">我們直接把這些符號分成「PHP 專用」與「SQL 資料庫專用」兩大陣營，看懂它們各自的「唯一專門用途」：</p>
+      <p class="conan-form-label"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> 偵探編號 01</p>
+      <h1>疑點滿滿的標點符號</h1>
+      <p class="conan-notes-intro">在 PHP 與 SQL
+        的世界裡，這些標點符號就是我們偵辦案件時的「核心密碼與破案規則」。在後端主機執行時，哪怕只是解錯一個符號或漏掉一條線索，整個系統就會直接發出致命警報（Fatal Error），導致破案失敗。</p>
+      <p class="conan-notes-intro">為了不讓主機發出錯誤警報，我們必須將這些關鍵符號分成「PHP 偵辦組」與「SQL 資料庫組」兩大陣營，徹底釐清它們的唯一專門用途：</p>
 
       <section class="conan-notes-faction" aria-labelledby="php-faction-title">
         <h2 id="php-faction-title" class="conan-notes-faction-title">
-          <i class="fa-brands fa-php" aria-hidden="true"></i> 第一陣營：PHP 世界的標點符號
+          <i class="fa-solid fa-user-secret" aria-hidden="true"></i> 第一組：PHP 偵辦防線
         </h2>
-        <p class="conan-notes-faction-desc">這是你寫在 PHP 檔案裡，用來控制程式、變數與拆包裹用的符號。</p>
+        <p class="conan-notes-faction-desc">這是你在編寫 <code>01-register.php</code> 與 <code>02-api_register.php</code>
+          時，絕對不能搞混的關鍵符號：</p>
 
         <ol class="conan-notes-list">
           <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>$</code>（錢字號 Dollar Sign）</p>
-            <p><strong>專門用途：</strong>「宣告變數（建立圖層名稱）」。</p>
-            <p><strong>白話解釋：</strong>在 PHP 裡面，只要看到這個符號，就代表後面那個字是一個「用來裝資料的特製箱子」。不管是 <code>$pdo</code>（連線箱）、<code>$sql</code>（字條箱），還是系統自帶的 <code>$_POST</code>（表單大包裹），開頭一定必加 <code>$</code>。</p>
+            <p class="conan-notes-symbol"><code>$</code>（錢字號 / Dollar Sign）</p>
+            <p><strong>唯一專門用途：</strong>宣告變數。</p>
+            <p><strong>鑑識報告：</strong>這是 PHP 變數的專屬身分證。在 PHP 裡面，只要看到這個符號，就代表後面那個字是一個「用來裝資料的特製箱子」。不管是
+              <code>$pdo</code>（連線箱）、<code>$sql</code>（字條箱），還是系統自帶的 <code>$_POST</code>（表單大包裹），開頭一定必加 <code>$</code>。
+            </p>
+          </li>
+          <li class="conan-notes-item">
+            <p class="conan-notes-symbol"><code>.</code>（點號）</p>
+            <p><strong>唯一專門用途：</strong>字串連接符（Concatenation）。</p>
+            <p><strong>鑑識報告：</strong>在 PHP 裡，點號是用來把兩個字串（或是字串與變數）硬生生串在一起的專屬膠帶。</p>
           </li>
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>()</code>（小括號）</p>
-            <p><strong>專門用途：</strong>「執行動作（函式）的發動開關，以及 SQL 的對齊桶」。</p>
-            <p><strong>白話解釋：</strong>只要看到英文單字後面緊貼著一對小括號 <code>()</code>，這個單字百分之百是一個「動作」（例如 <code>print_r()</code>、<code>exec()</code>）。小括號就是啟動按鈕，並且負責把執行需要的原料塞在括號裡面。另外，當它寫在 SQL 的 <code>VALUES</code> 後面時，則是專門用來把資料群組起來、像拉鍊一樣一對一對齊欄位用的。</p>
+            <p><strong>唯一專門用途：</strong>執行動作（函式）的發動開關。</p>
+            <p><strong>鑑識報告：</strong>只要看到英文單字後面緊貼著一對小括號 <code>()</code>，這個單字百分之百是一個「動作」（例如
+              <code>print_r()</code>、<code>exec()</code>）。小括號就是啟動按鈕，並且負責把執行需要的原料塞在括號裡面。
+            </p>
           </li>
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>[]</code>（中括號）</p>
-            <p><strong>專門用途：</strong>「拆包裹，指定拿哪一張貼紙的值」。</p>
-            <p><strong>白話解釋：</strong>當你手上拿著一個大包裹箱子（陣列）時，你不能直接把整箱倒出來，你必須用中括號指定裡面的名字。例如 <code>$_POST['account']</code>，這對中括號就是專門用來綁架 <code>'account'</code> 這個標籤的。</p>
+            <p><strong>唯一專門用途：</strong>陣列（Array）的指定鑰匙。</p>
+            <p><strong>鑑識報告：</strong>當你手上拿著一個大包裹箱子（陣列）時，你不能直接把整箱倒出來，你必須用中括號指定裡面的名字。例如
+              <code>$_POST['account']</code>，這對中括號就是專門用來綁架 <code>'account'</code> 這個標籤的。
+            </p>
           </li>
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>{}</code>（大括號）</p>
-            <p><strong>專門用途：</strong>「在雙引號的大字串裡，把變數精準框起來」。</p>
-            <p><strong>白話解釋：</strong>像在寫 SQL 那串長長的雙引號 <code>""</code> 字串時，裡面密密麻麻都是字。如果你直接寫 <code>$sql = "VALUES ($_POST['account'])"</code>，電腦會分不清楚哪裡是字、哪裡是變數。</p>
-            <p>這時候用 <code>{}</code> 把 <code>{$_POST['account']}</code> 緊緊包住，就是專門跟電腦劃清界線：「報告！大括號中間包著的這隻是一隻完整的 PHP 麥克風，請先把它裡面的字傳過來，不要跟外面的字搞混！」</p>
+            <p><strong>唯一專門用途：</strong>在雙引號的大字串裡，把變數精準框起來。</p>
+            <p><strong>鑑識報告：</strong>像在寫 SQL 那串長長的雙引號 <code>""</code> 字串時，裡面密密麻麻都是字。如果直接寫
+              <code>$sql = "VALUES ($_POST['account'])"</code>，電腦會分不清楚哪裡是字、哪裡是變數。
+            </p>
+            <p>這時候用 <code>{}</code> 把 <code>{$_POST['account']}</code> 緊緊包住，就是專門跟電腦劃清界線：「報告！大括號中間包著的這隻是一隻完整的 PHP
+              麥克風，請先把它裡面的字傳過來，不要跟外面的字搞混！」</p>
           </li>
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>;</code>（分號）</p>
-            <p><strong>專門用途：</strong>「程式碼的句點」。</p>
-            <p><strong>白話解釋：</strong>這是你設定的嚴格規範！PHP 的每一行指令結束，右手小拇指一律要按下這個分號 <code>;</code>。這是在跟主機講：「這一個動作我做完了，你可以看下一行了。」少寫一個，整頁直接當機。</p>
+            <p><strong>唯一專門用途：</strong>程式碼的句點。</p>
+            <p><strong>鑑識報告：</strong>這是你設定的嚴格規範！PHP 的每一行指令結束，右手小拇指一律要按下這個分號
+              <code>;</code>。這是在跟主機講：「這一個動作我做完了，你可以看下一行了。」少寫一個，整頁直接當機。
+            </p>
           </li>
         </ol>
       </section>
 
       <section class="conan-notes-faction" aria-labelledby="sql-faction-title">
         <h2 id="sql-faction-title" class="conan-notes-faction-title">
-          <i class="fa-solid fa-database" aria-hidden="true"></i> 第二陣營：SQL 世界的標點符號
+          <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> 第二組：SQL 資料庫法庭
         </h2>
-        <p class="conan-notes-faction-desc">這是寫在 SQL 字串裡面，專門用來跟 MySQL 資料庫溝通、對齊欄位與表格用的符號。</p>
+        <p class="conan-notes-faction-desc">當資料準備透過 PDO 移送至 MySQL 資料庫時，法庭有它自己一套嚴格的「審查規則」。為了符合最高破案規格，這裡必須嚴格遵守以下線索配置：</p>
 
         <ol class="conan-notes-list">
           <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>`</code>（反單引號／鍵盤最左上角 ~ 鍵）</p>
-            <p><strong>專門用途：</strong>「框住『資料表名字』與『欄位名字』」。</p>
-            <p><strong>白話解釋：</strong>這也是你的嚴格規則！只要在 SQL 指令裡面提到資料庫裡的表格名稱（例如 <code>`members`</code>）或是欄位名稱（例如 <code>`account`</code>、<code>`password`</code>），一律要用這對反單引號包起來。</p>
-            <p><strong>為什麼要這樣？</strong>這是為了跟電腦防呆。萬一你取的名字剛好跟 SQL 的內建指令（例如 <code>name</code> 或 <code>date</code>）撞名，加了反單引號，資料庫就會知道：「喔！這純粹是努比自己寫的欄位名稱，不是我的指令。」</p>
+            <p class="conan-notes-symbol"><code>`</code>（反單引號 / Backtick）</p>
+            <p><strong>唯一專門用途：</strong>包覆資料表名稱與欄位名稱。</p>
+            <p><strong>鑑識報告：</strong>位於鍵盤最左上角 ~ 鍵（左手小拇指）。只要在 SQL 指令裡面提到資料庫裡的表格名稱（例如 <code>`members`</code>）或是欄位名稱（例如
+              <code>`account`</code>、<code>`password`</code>），一律要用這對反單引號包起來。
+            </p>
+            <p>這是為了跟電腦防呆。萬一你取的名字剛好跟 SQL 的內建指令（例如 <code>name</code> 或
+              <code>date</code>）撞名，加了反單引號，資料庫就會知道：「喔！這純粹是努比自己寫的欄位名稱，不是我的指令。」
+            </p>
+          </li>
+          <li class="conan-notes-item">
+            <p class="conan-notes-symbol"><code>.</code>（點號）</p>
+            <p><strong>唯一專門用途：</strong>資料表與欄位的「階層串接」。</p>
+            <p><strong>鑑識報告：</strong>位於鍵盤 <code>.</code> 鍵（右手無名指）。在 SQL 裡，點號的作用是「從屬關係」，用來精準指定
+              <code>`表名`.`欄位名`</code>，明確指出這個線索是屬於哪一個檔案夾的。
+            </p>
           </li>
           <li class="conan-notes-item">
             <p class="conan-notes-symbol"><code>'</code>（標準單引號）</p>
-            <p><strong>專門用途：</strong>「框住純文字的『值』」。</p>
-            <p><strong>白話解釋：</strong>當你要塞進資料庫的資料是「純文字、字串、日期」時，在 SQL 語法裡必須用單引號包起來。</p>
-            <p>例如：<code>'{$_POST['account']}'</code>。外層這一對單引號，是專門寫給資料庫看的，告訴資料庫說：「待會這隻麥克風吐出來的資料，是一串純文字（例如 <code>'noopy'</code>），請用文字的形式把它存進格子裡。」</p>
+            <p><strong>唯一專門用途：</strong>框住純文字的「值」。</p>
+            <p><strong>鑑識報告：</strong>當你要塞進資料庫的資料是「純文字、字串、日期」時，在 SQL
+              語法裡必須用單引號包起來。例如：<code>'{$_POST['account']}'</code>。外層這一對單引號，是專門寫給資料庫看的。</p>
+          </li>
+          <li class="conan-notes-item">
+            <p class="conan-notes-symbol"><code>()</code>（小括號）</p>
+            <p><strong>唯一專門用途：</strong>SQL 的對齊桶。</p>
+            <p><strong>鑑識報告：</strong>當它寫在 SQL 的 <code>VALUES</code> 後面時，則是專門用來把資料群組起來、像拉鍊一樣一對一對齊欄位用的。</p>
+          </li>
+          <li class="conan-notes-item">
+            <p class="conan-notes-symbol"><code>;</code>（分號）</p>
+            <p><strong>唯一專門用途：</strong>語句結尾。</p>
+            <p><strong>鑑識報告：</strong>位於 L 鍵右邊第二顆（右手小拇指）。這是 SQL 結案的法槌，每執行完一整行指令，結尾必加分號，代表這條線索審查完畢。</p>
           </li>
         </ol>
       </section>
