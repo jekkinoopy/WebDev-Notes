@@ -4,126 +4,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>帝丹小學｜學生管理系統製作練習</title>
+  <title>米花町偵探學園｜學生管理系統製作練習</title>
   <link rel="stylesheet" href="school-index.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
 </head>
 
 <body class="conan-school">
-  <header class="dora-topbar">
-    <a class="dora-logo" href="index.html">帝丹小學</a>
-    <nav class="dora-nav" aria-label="主選單">
+  <header class="conan-topbar">
+    <a class="conan-logo" href="index.html">米花町偵探學園</a>
+    <nav class="conan-nav" aria-label="主選單">
       <a href="#top">關於我們</a>
-      <a href="#features">校園特色</a>
-      <a href="#news">最新消息</a>
+      <a href="#features">辦案機能</a>
+      <a href="#news">事件簿</a>
       <a href="#contact">聯絡方式</a>
     </nav>
-    <div class="dora-auth">
-      <a href="../s03-login.php" class="dora-btn dora-btn-login">登入</a>
-      <a href="01-register.php" class="dora-btn dora-btn-register">註冊</a>
+    <div class="conan-auth">
+      <a href="../s03-login.php" class="conan-btn conan-btn-login">登入</a>
+      <a href="01-register.php" class="conan-btn conan-btn-register">註冊</a>
     </div>
   </header>
 
   <main id="top">
-    <section class="dora-hero" aria-labelledby="hero-title">
-      <img class="dora-hero-bg" src="0.jpg" alt="" width="2544" height="1456" decoding="async" />
-      <div class="dora-hero-inner">
-        <h1 id="hero-title">歡迎來到帝丹小學</h1>
-        <p class="dora-hero-lead">學生管理系統製作練習 — 少年偵探團也用表單與資料庫，記錄每一位同學的資料</p>
-        <a class="dora-cta" href="#features">瞭解更多</a>
+    <section class="conan-hero" aria-labelledby="hero-title">
+      <img class="conan-hero-bg" src="magnific_3012340186.jpeg" alt="" width="2544" height="1456" decoding="async" />
+      <div class="conan-hero-inner">
+        <p class="conan-hero-tag">Milky Way Detective</p>
+        <h1 id="hero-title">真相，只有一個</h1>
+        <p class="conan-hero-lead">學生管理系統製作練習 — 在米花町偵辦室裡，用表單與 PDO 留下無懈可擊的紀錄</p>
+        <a class="conan-cta" href="#features">進入辦案現場</a>
       </div>
     </section>
 
-    <section id="features" class="dora-section" aria-labelledby="features-title">
-      <h2 id="features-title" class="dora-section-title">校園特色</h2>
-      <div class="dora-feature-grid">
-        <article class="dora-feature-card">
-          <span class="dora-feature-icon" aria-hidden="true">🔍</span>
-          <h3>新生登記簿</h3>
-          <p>建立註冊表單，以 POST 送出帳號與個人資料（會員註冊）。</p>
+    <section id="features" class="conan-section" aria-labelledby="features-title">
+      <h2 id="features-title" class="conan-section-title">辦案機能</h2>
+      <p class="conan-section-desc">雖然是學生管理系統，但請確保學生人數不要越來越少。</p>
+      <div class="conan-feature-grid">
+        <article class="conan-feature-card">
+          <span class="conan-feature-label">會員註冊</span>
+          <h3>嫌疑犯名冊</h3>
+          <p>請確實填寫身分，這將成為你完美的「不在場證明」。</p>
+          <a href="01-register.php" class="conan-feature-link">建立表單 →</a>
         </article>
-        <article class="dora-feature-card">
-          <span class="dora-feature-icon" aria-hidden="true">📋</span>
-          <h3>證物送鑑</h3>
-          <p>API 接收表單，將資料 INSERT 至 members 資料表。</p>
+        <article class="conan-feature-card">
+          <span class="conan-feature-label">API 寫入</span>
+          <h3>移送法辦／監獄資料庫</h3>
+          <p>資料一送出，直接 INSERT 鎖進檔案室，絕對不留痕跡。</p>
+          <a href="02-api_register.php" class="conan-feature-link">開啟 API →</a>
         </article>
-        <article class="dora-feature-card">
-          <span class="dora-feature-icon" aria-hidden="true">🔌</span>
-          <h3>資料庫搜查</h3>
-          <p>PDO 連線 school，練習查詢、新增、更新、刪除。</p>
+        <article class="conan-feature-card">
+          <span class="conan-feature-label">PDO 連線</span>
+          <h3>沉睡的小五郎</h3>
+          <p>幕後默默運作的實力派。連線失敗？就射麻醉針重試。</p>
+          <a href="../s01-pdo.html" class="conan-feature-link">複習 PDO →</a>
         </article>
-        <article class="dora-feature-card">
-          <span class="dora-feature-icon" aria-hidden="true">🔐</span>
-          <h3>身分驗證</h3>
-          <p>登入比對 members 帳密，成功或失敗導向不同頁面。</p>
+        <article class="conan-feature-card">
+          <span class="conan-feature-label">登入驗證</span>
+          <h3>身分對質</h3>
+          <p>比對 members 帳密，通過才准進入安全屋，否則退回現場。</p>
+          <a href="../s03-login.php" class="conan-feature-link">登入練習 →</a>
         </article>
-        <article class="dora-feature-card">
-          <span class="dora-feature-icon" aria-hidden="true">🗃️</span>
-          <h3>檔案櫃結構</h3>
-          <p>members 欄位：account、password、tel、birthday、email。</p>
+        <article class="conan-feature-card">
+          <span class="conan-feature-label">資料表</span>
+          <h3>機密檔案櫃</h3>
+          <p>
+            members：<code>account</code>、<code>password</code>、<code>tel</code>、<code>birthday</code>、<code>email</code>。
+          </p>
         </article>
-        <article class="dora-feature-card">
-          <span class="dora-feature-icon" aria-hidden="true">📚</span>
+        <article class="conan-feature-card">
+          <span class="conan-feature-label">對照筆記</span>
           <h3>辦案手冊</h3>
-          <p>回到 PHP 課程索引，複習 s01～s03 筆記單元。</p>
+          <p>回到 PHP 課程索引，翻閱 s01～s03 卷宗。</p>
+          <a href="../index.html" class="conan-feature-link">PHP 索引 →</a>
         </article>
       </div>
     </section>
 
-    <section id="news" class="dora-section" aria-labelledby="news-title">
-      <h2 id="news-title" class="dora-section-title">最新消息</h2>
-      <div class="dora-news-panel">
-        <ul class="dora-news-list">
+    <section id="news" class="conan-section" aria-labelledby="news-title">
+      <h2 id="news-title" class="conan-section-title">米花町最新事件簿</h2>
+      <div class="conan-news-panel">
+        <ul class="conan-news-list">
           <li>
-            <span class="dora-news-icon" aria-hidden="true">🔔</span>
-            <span class="dora-news-text">【校務】單元一：01-register.php 註冊表單開放練習</span>
-            <time class="dora-news-date" datetime="2026-05-19">2026-05-19</time>
+            <span class="conan-news-icon" aria-hidden="true">🔔</span>
+            <span class="conan-news-text">重大進度：01-register.php 嫌疑犯名冊（表單）已開放</span>
+            <time class="conan-news-date" datetime="2026-05-19">2026-05-19</time>
           </li>
           <li>
-            <span class="dora-news-icon" aria-hidden="true">📬</span>
-            <span class="dora-news-text">【教務】02-api_register.php 已可接收 POST</span>
-            <time class="dora-news-date" datetime="2026-05-19">2026-05-19</time>
+            <span class="conan-news-icon" aria-hidden="true">📬</span>
+            <span class="conan-news-text">02-api_register.php 已可接收 POST，移送檔案室</span>
+            <time class="conan-news-date" datetime="2026-05-19">2026-05-19</time>
           </li>
           <li>
-            <span class="dora-news-icon" aria-hidden="true">🎒</span>
-            <span class="dora-news-text">【提醒】請先匯入 school 資料庫與 members 資料表</span>
-            <time class="dora-news-date" datetime="2026-05-18">2026-05-18</time>
+            <span class="conan-news-icon" aria-hidden="true">🎒</span>
+            <span class="conan-news-text">提醒：請先匯入 school 資料庫與 members 資料表</span>
+            <time class="conan-news-date" datetime="2026-05-18">2026-05-18</time>
           </li>
           <li>
-            <span class="dora-news-icon" aria-hidden="true">🕵️</span>
-            <span class="dora-news-text">【補習】PDO 請對照 s01-pdo 筆記複習</span>
-            <time class="dora-news-date" datetime="2026-05-18">2026-05-18</time>
+            <span class="conan-news-icon" aria-hidden="true">🕵️</span>
+            <span class="conan-news-text">沉睡的小五郎：PDO 請對照 s01-pdo 筆記</span>
+            <time class="conan-news-date" datetime="2026-05-18">2026-05-18</time>
           </li>
           <li>
-            <span class="dora-news-icon" aria-hidden="true">✨</span>
-            <span class="dora-news-text">【登入】驗證練習請使用 s03-login.php</span>
-            <time class="dora-news-date" datetime="2026-05-17">2026-05-17</time>
+            <span class="conan-news-icon" aria-hidden="true">✨</span>
+            <span class="conan-news-text">身分對質練習：s03-login.php</span>
+            <time class="conan-news-date" datetime="2026-05-17">2026-05-17</time>
           </li>
         </ul>
       </div>
     </section>
   </main>
 
-  <footer id="contact" class="dora-site-footer">
-    <h2 class="dora-footer-title">帝丹小學</h2>
-    <nav class="dora-footer-nav" aria-label="頁尾連結">
+  <footer id="contact" class="conan-site-footer">
+    <h2 class="conan-footer-title">米花町偵探學園</h2>
+    <nav class="conan-footer-nav" aria-label="頁尾連結">
       <a href="01-register.php">註冊練習</a>
       <a href="../s02-register.php">註冊筆記</a>
       <a href="../s03-login.php">登入筆記</a>
       <a href="../index.html">PHP 課程索引</a>
     </nav>
-    <ul class="dora-contact-list">
-      <li><span aria-hidden="true">📍</span> 東京都米花町 · 帝丹小學資訊教室</li>
-      <li><span aria-hidden="true">📞</span> 學務系統：localhost / school</li>
-      <li><span aria-hidden="true">✉️</span> 註冊 API：02-api_register.php</li>
+    <ul class="conan-contact-list">
+      <li><span aria-hidden="true">📍</span> 米花町 · 偵辦室練習專區（school）</li>
+      <li><span aria-hidden="true">📞</span> 資料庫：localhost / school</li>
+      <li><span aria-hidden="true">✉️</span> 移送 API：02-api_register.php</li>
     </ul>
-    <div class="dora-footer-bottom">
-      <p class="dora-copy">&copy; 2026 努比的全端筆記 · 學生管理系統製作練習</p>
-      <p class="dora-footer-meta">
+    <div class="conan-footer-bottom">
+      <p class="conan-copy">&copy; 2026 努比的全端筆記 · 真相只有一個</p>
+      <p class="conan-footer-meta">
         <a href="../index.html">回到筆記首頁</a>
         <span aria-hidden="true">|</span>
         <a href="#top">回到頂部</a>

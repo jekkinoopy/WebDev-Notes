@@ -1,112 +1,131 @@
-/* 結構對照校園參考版型；帝丹小學／柯南風配色（深藍＋領結紅） */
+/* 米花町偵探學園 — Milky Way Detective（冷調偵辦 × 警示紅） */
+:root {
+  --conan-dark: #1e293b;
+  --conan-navy: #2a4365;
+  --conan-crimson: #dc2626;
+  --conan-bg: #f4f5f7;
+  --conan-card-bg: #ffffff;
+  --conan-border: #e2e8f0;
+  --conan-muted: #64748b;
+  --conan-shadow: rgba(30, 41, 59, 0.08);
+  /* Hero 高度：改這個數字即可（以下方為基底往上加高，例：380px → 480px） */
+  --conan-hero-height: 600px;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-.conan-school,
-.dora-school {
-  --dora-blue: #4a7fc1;
-  --dora-blue-deep: #2e5a9e;
-  --dora-blue-dark: #0f2d5c;
-  --dora-white: #ffffff;
-  --dora-red: #c41e3a;
-  --dora-blush: #e8eef5;
-  --dora-cream: #f4f1ea;
-  --dora-cream-panel: #faf6ee;
-  --dora-yellow-btn: #f0c75e;
-  --dora-ink: #1a1a1a;
-  --dora-shadow: rgba(15, 45, 92, 0.12);
+.conan-school {
   margin: 0;
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-  color: var(--dora-ink);
-  background: var(--dora-cream);
+  color: var(--conan-dark);
+  background-color: var(--conan-bg);
   line-height: 1.6;
 }
 
-/* —— 頂部（參考：Logo + 選單 + 登入／註冊） —— */
-.dora-topbar {
+/* 頂部導覽 */
+.conan-topbar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--dora-blue-dark);
+  padding: 0.85rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 2px solid var(--conan-dark);
+  backdrop-filter: blur(8px);
 }
 
-.dora-logo {
-  font-size: 1.15rem;
+.conan-logo {
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--dora-white);
+  letter-spacing: 0.04em;
+  color: var(--conan-dark);
   text-decoration: none;
 }
 
-.dora-nav {
+.conan-logo:hover {
+  color: var(--conan-crimson);
+}
+
+.conan-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem 1.25rem;
 }
 
-.dora-nav a {
-  color: var(--dora-white);
+.conan-nav a {
+  color: var(--conan-navy);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 500;
 }
 
-.dora-nav a:hover {
-  color: var(--dora-cream);
+.conan-nav a:hover {
+  color: var(--conan-crimson);
 }
 
-.dora-auth {
+.conan-auth {
   display: flex;
   gap: 0.5rem;
 }
 
-.dora-btn {
+.conan-btn {
   display: inline-block;
   padding: 0.4rem 1rem;
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 0.88rem;
   font-weight: 600;
   text-decoration: none;
-  transition: filter 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.dora-btn-login {
-  color: var(--dora-ink);
-  background: var(--dora-yellow-btn);
-  border: 2px solid var(--dora-cream);
+.conan-btn-login {
+  background-color: transparent;
+  color: var(--conan-dark);
+  border: 1px solid var(--conan-dark);
 }
 
-.dora-btn-register {
-  color: var(--dora-white);
-  background: var(--dora-red);
+.conan-btn-login:hover {
+  background-color: var(--conan-dark);
+  color: #fff;
 }
 
-.dora-btn:hover {
-  filter: brightness(1.05);
-  transform: translateY(-1px);
+.conan-btn-register {
+  background-color: var(--conan-crimson);
+  color: #fff;
+  border: 1px solid var(--conan-crimson);
 }
 
-/* —— Hero（參考：置中標題 + 副標 + CTA） —— */
-.dora-hero {
+.conan-btn-register:hover {
+  background-color: #b91c1c;
+  border-color: #b91c1c;
+}
+
+/* Hero：高度由 --conan-hero-height 控制，圖片自底部往上裁切／延伸 */
+.conan-hero {
   position: relative;
-  padding: 0;
-  background-color: var(--dora-cream);
-  line-height: 0;
+  height: var(--conan-hero-height);
+  min-height: var(--conan-hero-height);
+  overflow: hidden;
+  background-color: var(--conan-dark);
 }
 
-.dora-hero-bg {
+.conan-hero-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  vertical-align: top;
+  object-fit: cover;
+  object-position: bottom center;
 }
 
-.dora-hero-inner {
+.conan-hero-inner {
   position: absolute;
   inset: 0;
   display: flex;
@@ -114,178 +133,233 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   line-height: 1.6;
 }
 
-.dora-hero-inner::before {
+.conan-hero-inner::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(244, 241, 234, 0.5) 0%,
-    rgba(244, 241, 234, 0.25) 45%,
-    rgba(244, 241, 234, 0.65) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(30, 41, 59, 0.72) 0%,
+      rgba(30, 41, 59, 0.45) 50%,
+      rgba(30, 41, 59, 0.78) 100%);
   pointer-events: none;
 }
 
-.dora-hero-inner h1,
-.dora-hero-inner .dora-hero-lead,
-.dora-hero-inner .dora-cta {
+.conan-hero-tag,
+.conan-hero-inner h1,
+.conan-hero-lead,
+.conan-hero-inner .conan-cta {
   position: relative;
   z-index: 1;
 }
 
-.dora-hero-inner h1 {
-  margin: 0 0 0.75rem;
-  font-size: clamp(1.6rem, 5vw, 2.2rem);
-  font-weight: 700;
-  color: var(--dora-ink);
-  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.85);
-}
-
-.dora-hero-inner .dora-hero-lead {
-  margin: 0 auto 1.5rem;
-  max-width: 36rem;
-  font-size: 1.05rem;
-  opacity: 0.95;
-  text-shadow: 0 1px 8px rgba(255, 255, 255, 0.8);
-}
-
-.dora-cta {
-  display: inline-block;
-  padding: 0.65rem 1.75rem;
-  border-radius: 8px;
+.conan-hero-tag {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--dora-white);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.conan-hero-inner h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.06em;
+}
+
+.conan-hero-lead {
+  margin: 0 auto 1.5rem;
+  max-width: 32rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.conan-cta {
+  display: inline-block;
+  padding: 0.7rem 1.85rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
   text-decoration: none;
-  background: var(--dora-red);
-  box-shadow: 0 4px 12px rgba(229, 57, 53, 0.3);
+  background: var(--conan-crimson);
+  border: 1px solid var(--conan-crimson);
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35);
 }
 
-.dora-cta:hover {
-  filter: brightness(1.08);
+.conan-cta:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
 }
 
-/* —— 區塊標題（參考：置中 + 底線） —— */
-.dora-section {
+/* 區塊 */
+.conan-section {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2.5rem 1.25rem;
+  padding: 2.75rem 1.25rem;
 }
 
-.dora-section-title {
-  margin: 0 0 1.75rem;
+.conan-section-title {
+  margin: 0 0 0.5rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 700;
+  color: var(--conan-dark);
+  letter-spacing: 0.08em;
 }
 
-.dora-section-title::after {
+.conan-section-title::after {
   content: "";
   display: block;
-  width: 3rem;
-  height: 4px;
-  margin: 0.5rem auto 0;
-  border-radius: 2px;
-  background: var(--dora-red);
+  width: 2.5rem;
+  height: 3px;
+  margin: 0.6rem auto 0;
+  background: var(--conan-crimson);
 }
 
-/* —— 校園特色 3×2（參考：白卡片 + 圖示 + 橘標題） —— */
-.dora-feature-grid {
+.conan-section-desc {
+  margin: 0 0 1.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--conan-muted);
+  font-style: italic;
+}
+
+/* 辦案機能卡片 */
+.conan-feature-grid {
   display: grid;
   gap: 1.25rem;
   grid-template-columns: repeat(3, 1fr);
 }
 
-.dora-feature-card {
-  padding: 1.25rem;
-  background: var(--dora-white);
-  border-radius: 12px;
-  border: 1px solid rgba(118, 194, 243, 0.5);
-  box-shadow: 0 4px 14px var(--dora-shadow);
+.conan-feature-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: var(--conan-card-bg);
+  border: 1px solid var(--conan-border);
+  border-left: 4px solid var(--conan-dark);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px var(--conan-shadow);
+  transition: box-shadow 0.2s ease, border-left-color 0.2s ease;
 }
 
-.dora-feature-icon {
-  font-size: 1.75rem;
-  display: block;
-  margin-bottom: 0.5rem;
+.conan-feature-card:hover {
+  box-shadow: 0 6px 20px var(--conan-shadow);
+  border-left-color: var(--conan-crimson);
 }
 
-.dora-feature-card h3 {
+.conan-feature-label {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--conan-muted);
+}
+
+.conan-feature-card h3 {
   margin: 0 0 0.5rem;
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--dora-red);
+  color: var(--conan-navy);
 }
 
-.dora-feature-card p {
-  margin: 0;
+.conan-feature-card p {
+  flex: 1;
+  margin: 0 0 0.75rem;
   font-size: 0.88rem;
   line-height: 1.55;
-  opacity: 0.88;
+  color: var(--conan-muted);
 }
 
-/* —— 最新消息（參考：淺黃底列表） —— */
-.dora-news-panel {
-  background: var(--dora-cream-panel);
-  border: 1px solid rgba(118, 194, 243, 0.45);
-  border-radius: 12px;
+.conan-feature-card code {
+  font-size: 0.85em;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  background: var(--conan-bg);
+  color: var(--conan-dark);
+}
+
+.conan-feature-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--conan-crimson);
+  text-decoration: none;
+}
+
+.conan-feature-link:hover {
+  text-decoration: underline;
+}
+
+/* 事件簿 */
+.conan-news-panel {
+  background: var(--conan-card-bg);
+  border: 1px solid var(--conan-border);
+  border-top: 3px solid var(--conan-crimson);
+  border-radius: 4px;
   overflow: hidden;
 }
 
-.dora-news-list {
+.conan-news-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.dora-news-list li {
+.conan-news-list li {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 0.75rem 1rem;
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid rgba(118, 194, 243, 0.35);
+  border-bottom: 1px solid var(--conan-border);
 }
 
-.dora-news-list li:last-child {
+.conan-news-list li:last-child {
   border-bottom: none;
 }
 
-.dora-news-icon {
-  font-size: 1.2rem;
+.conan-news-icon {
+  font-size: 1.15rem;
 }
 
-.dora-news-text {
+.conan-news-text {
   font-size: 0.92rem;
-  color: var(--dora-blue-dark);
   font-weight: 500;
+  color: var(--conan-dark);
 }
 
-.dora-news-date {
-  font-size: 0.8rem;
-  opacity: 0.65;
+.conan-news-date {
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--conan-muted);
   white-space: nowrap;
 }
 
-/* —— Footer（參考：深色底 + 校名 + 連結列 + 聯絡三行 + 版權列） —— */
-.dora-site-footer {
+/* Footer */
+.conan-site-footer {
   padding: 2rem 1.5rem 1rem;
-  background: var(--dora-blue-dark);
-  color: var(--dora-white);
+  background: var(--conan-dark);
+  color: #fff;
   text-align: center;
 }
 
-.dora-footer-title {
+.conan-footer-title {
   margin: 0 0 1rem;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
-.dora-footer-nav {
+.conan-footer-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -293,67 +367,67 @@
   margin-bottom: 1.25rem;
 }
 
-.dora-footer-nav a {
-  color: var(--dora-yellow-btn);
-  font-weight: 600;
+.conan-footer-nav a {
+  color: #f8fafc;
+  font-weight: 500;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
-.dora-footer-nav a:hover {
-  text-decoration: underline;
+.conan-footer-nav a:hover {
+  color: var(--conan-crimson);
 }
 
-.dora-contact-list {
+.conan-contact-list {
   list-style: none;
   margin: 0 0 1.25rem;
   padding: 0;
-  font-size: 0.88rem;
-  line-height: 1.8;
-  opacity: 0.95;
+  font-size: 0.86rem;
+  line-height: 1.85;
+  opacity: 0.9;
 }
 
-.dora-contact-list li {
+.conan-contact-list li {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
 }
 
-.dora-footer-bottom {
+.conan-footer-bottom {
   padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.8rem;
   opacity: 0.85;
 }
 
-.dora-copy {
+.conan-copy {
   margin: 0 0 0.35rem;
 }
 
-.dora-footer-meta {
+.conan-footer-meta {
   margin: 0;
 }
 
-.dora-footer-meta a {
-  color: var(--dora-white);
+.conan-footer-meta a {
+  color: #fff;
   text-decoration: none;
 }
 
-.dora-footer-meta a:hover {
-  color: var(--dora-cream);
+.conan-footer-meta a:hover {
+  color: var(--conan-crimson);
 }
 
 @media (max-width: 900px) {
-  .dora-feature-grid {
+  .conan-feature-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .dora-topbar {
+  .conan-topbar {
     justify-content: center;
   }
 
-  .dora-nav {
+  .conan-nav {
     order: 3;
     width: 100%;
     justify-content: center;
@@ -361,15 +435,15 @@
 }
 
 @media (max-width: 560px) {
-  .dora-feature-grid {
+  .conan-feature-grid {
     grid-template-columns: 1fr;
   }
 
-  .dora-news-list li {
+  .conan-news-list li {
     grid-template-columns: auto 1fr;
   }
 
-  .dora-news-date {
+  .conan-news-date {
     grid-column: 2;
     justify-self: start;
   }
