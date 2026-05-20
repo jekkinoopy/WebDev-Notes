@@ -10,6 +10,7 @@
   --conan-shadow: rgba(30, 41, 59, 0.08);
   /* Hero 高度：改這個數字即可（以下方為基底往上加高，例：380px → 480px） */
   --conan-hero-height: 600px;
+  --conan-content-max: 1200px;
   font-size: 20px;
 }
 
@@ -202,7 +203,7 @@
 
 /* 區塊 */
 .conan-section {
-  max-width: 1100px;
+  max-width: var(--conan-content-max);
   margin: 0 auto;
   padding: 2.75rem 1.25rem;
 }
@@ -624,7 +625,7 @@
 
 /* 辦案筆記（case-notes.html） */
 .conan-notes-main {
-  max-width: 720px;
+  max-width: var(--conan-content-max);
   margin: 0 auto;
   padding: 2rem 1.25rem 2.5rem;
 }
