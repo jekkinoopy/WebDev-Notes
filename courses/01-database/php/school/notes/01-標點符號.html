@@ -40,7 +40,9 @@
         <p id="notes-disclaimer-title" class="conan-notes-disclaimer-title">
           <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> 偵辦警語
         </p>
-        <p>以下內容<strong>大部分為 AI 整理</strong>；在本人複習驗證之前，<strong>正確性不予保證</strong>。請以偵探之眼謹慎偵查、交叉比對，勿將本筆記直接當成定案證據。符號條目若已親自確認，右上角會加蓋藍色矩形章「<strong>鑑識成功</strong>」。</p>
+        <p>以下內容<strong>大部分為 AI
+            整理</strong>；在本人複習驗證之前，<strong>正確性不予保證</strong>。請以偵探之眼謹慎偵查、交叉比對，勿將本筆記直接當成定案證據。符號條目若已親自確認，右上角會加蓋藍色矩形章「<strong>鑑識成功</strong>」。
+        </p>
       </aside>
       <p class="conan-notes-intro">在 PHP 與 SQL
         的世界裡，這些標點符號就是我們偵辦案件時的「核心密碼與破案規則」。在後端主機執行時，哪怕只是解錯一個符號或漏掉一條線索，整個系統就會直接發出致命警報（Fatal Error），導致破案失敗。</p>
@@ -62,105 +64,106 @@
 
         <div class="conan-notes-list-wrap">
           <ol class="conan-notes-list conan-notes-list--reviewed">
-          <li class="conan-notes-item conan-notes-item--ok">
-            <span class="conan-notes-stamp" aria-label="鑑識成功，已確認">
-              <span class="conan-notes-stamp-plate">
-                <span class="conan-notes-stamp-text">鑑識成功</span>
+            <li class="conan-notes-item conan-notes-item--ok">
+              <span class="conan-notes-stamp" aria-label="鑑識成功，已確認">
+                <span class="conan-notes-stamp-plate">
+                  <span class="conan-notes-stamp-text">鑑識成功</span>
+                </span>
               </span>
-            </span>
-            <p class="conan-notes-symbol"><code>"</code>（雙引號）</p>
-            <p><strong>唯一專門用途：</strong>框住字串，並啟動內部變數解析。</p>
-            <p><strong>鑑識報告：</strong>最高統治者，它統治了整行程式碼（從 insert into 一路到最尾巴）。只要用雙引號包起來的SQL字串，主機在讀取時，如果發現裡面藏著
-              <code>$</code>
-              變數，就會自動把變數拆開、將裡面的資料翻譯出來。
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 小拇指 右1</p>
-            <div class="conan-notes-code">
-              <p class="conan-notes-code-label"><i class="fa-solid fa-code" aria-hidden="true"></i> 程式碼筆記</p>
-              <pre class="conan-notes-code-block"><code>//$sql = "INSERT INTO ...VALUES (...)";
+              <p class="conan-notes-symbol"><code>"</code>（雙引號）</p>
+              <p><strong>唯一專門用途：</strong>框住字串，並啟動內部變數解析。</p>
+              <p><strong>鑑識報告：</strong>最高統治者，它統治了整行程式碼（從 insert into 一路到最尾巴）。只要用雙引號包起來的SQL字串，主機在讀取時，如果發現裡面藏著
+                <code>$</code>
+                變數，就會自動把變數拆開、將裡面的資料翻譯出來。
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 小拇指 右1</p>
+              <div class="conan-notes-code">
+                <p class="conan-notes-code-label"><i class="fa-solid fa-code" aria-hidden="true"></i> 程式碼筆記</p>
+                <pre class="conan-notes-code-block"><code>//$sql = "INSERT INTO ...VALUES (...)";
 //雙引號"必須一路包到底，直到最末端)";</code></pre>
-            </div>
-          </li>
+              </div>
+            </li>
           </ol>
           <ol class="conan-notes-list conan-notes-list--pending">
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>$</code>（錢字號 / Dollar Sign）</p>
-            <p><strong>唯一專門用途：</strong>宣告變數。</p>
-            <p><strong>鑑識報告：</strong>這是 PHP 變數的專屬身分證。在 PHP 裡面，只要看到這個符號，就代表後面那個字是一個「用來裝資料的特製箱子」。不管是
-              <code>$pdo</code>（連線箱）、<code>$sql</code>（字條箱），還是系統自帶的 <code>$_POST</code>（表單大包裹），開頭一定必加 <code>$</code>。
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 Shift + 左 食指 4</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>.</code>（點號）</p>
-            <p><strong>唯一專門用途：</strong>字串連接符（Concatenation）。</p>
-            <p><strong>鑑識報告：</strong>在 PHP 裡，點號是用來把兩個字串（或是字串與變數）硬生生串在一起的專屬膠帶。</p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 無名指 下滑 1</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>()</code>（小括號）</p>
-            <p><strong>唯一專門用途：</strong>執行動作（函式）的發動開關。</p>
-            <p><strong>鑑識報告：</strong>只要看到英文單字後面緊貼著一對小括號 <code>()</code>，這個單字百分之百是一個「動作」（例如
-              <code>print_r()</code>、<code>exec()</code>）。小括號就是啟動按鈕，並且負責把執行需要的原料塞在括號裡面。
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 無名指 9 與 右 小拇指 0</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>[]</code>（中括號）</p>
-            <p><strong>唯一專門用途：</strong>陣列（Array）的指定鑰匙。</p>
-            <p><strong>鑑識報告：</strong>當你手上拿著一個大包裹箱子（陣列）時，你不能直接把整箱倒出來，你必須用中括號指定裡面的名字。例如
-              <code>$_POST['account']</code>，這對中括號就是專門用來綁架 <code>'account'</code> 這個標籤的。
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 P右1 與 P右2</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>{}</code>（大括號）</p>
-            <p><strong>唯一專門用途：</strong>在雙引號的大字串裡，把變數精準框起來。</p>
-            <p><strong>鑑識報告：</strong>像在寫 SQL 那串長長的雙引號 <code>""</code> 字串時，裡面密密麻麻都是字。如果直接寫
-              <code>$sql = "VALUES ($_POST['account'])"</code>，電腦會分不清楚哪裡是字、哪裡是變數。這時候用 <code>{}</code> 把
-              <code>{$_POST['account']}</code> 緊緊包住，就是專門跟電腦劃清界線：「報告！大括號中間包著的這隻是一隻完整的 PHP 麥克風，請先把它裡面的字傳過來，不要跟外面的字搞混！」
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 小拇指 P右1 與 P右2</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>;</code>（分號）</p>
-            <p><strong>唯一專門用途：</strong>程式碼的句點。</p>
-            <p><strong>鑑識報告：</strong>這是你設定的嚴格規範！PHP 的每一行指令結束，一律要按下這個分號
-              <code>;</code>。這是在跟主機講：「這一個動作我做完了，你可以看下一行了。」少寫一個，整頁直接當機。
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 L右2</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>=</code>（等號）</p>
-            <p><strong>唯一專門用途：</strong>賦值運算子（Assignment）。</p>
-            <p><strong>鑑識報告：</strong>在 PHP 裡面，這不是數學的等於！它是「把右邊的線索塞進左邊箱子」的動作。例如
-              <code>$sql = "SELECT..."</code>，就是把右邊那串長長的字條，通通塞進左邊的 <code>$sql</code> 箱子裡裝好。
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 0右2</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>//</code>（單行註解）</p>
-            <p><strong>唯一專門用途：</strong>寫給人看的單行筆記。</p>
-            <p><strong>鑑識報告：</strong>這是給偵探自己看的機密備忘錄。在 PHP 裡面，只要看到
-              <code>//</code>，後面那一整行的文字主機就會完全裝作沒看到、直接跳過不執行。專門用來記錄當下的辦案思維或步驟說明。
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 食指 M右3 下滑 1</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>/* */</code>（多行註解）</p>
-            <p><strong>唯一專門用途：</strong>寫給人看的大範圍多行筆記。</p>
-            <p><strong>鑑識報告：</strong>當筆記太長、跨了好幾行時，單行註解就不夠用了。用 <code>/*</code> 當作起點，<code>*/</code>
-              當作終點，中間包住的所有代碼和文字都會被主機冷凍封印。除了寫大筆記，也很適合用來暫時隱藏一大段懷疑有 Bug 的程式碼。</p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 中指 8，搭配 右 食指 M右3 下滑 1</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>-&gt;</code>（物件箭頭 / Object Operator）</p>
-            <p><strong>唯一專門用途：</strong>呼叫物件內部的動作或變數。</p>
-            <p><strong>鑑識報告：</strong>這是一個指向目標的指揮棒。當我們用 <code>$pdo</code> 連上資料庫之後，<code>$pdo</code> 就變成了一個功能強大的特製物件。這時候用
-              <code>-&gt;prepare()</code>，就是用箭頭指著它大喊：「請發動你裡面的預處理動作！」它是啟動連線物件核心功能的專屬鑰匙。
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 0右1，接 左 小拇指 Shift + 右 無名指 M右2 下滑 1</p>
-          </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>$</code>（錢字號 / Dollar Sign）</p>
+              <p><strong>唯一專門用途：</strong>宣告變數。</p>
+              <p><strong>鑑識報告：</strong>這是 PHP 變數的專屬身分證。在 PHP 裡面，只要看到這個符號，就代表後面那個字是一個「用來裝資料的特製箱子」。不管是
+                <code>$pdo</code>（連線箱）、<code>$sql</code>（字條箱），還是系統自帶的 <code>$_POST</code>（表單大包裹），開頭一定必加 <code>$</code>。
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 Shift + 左 食指 4</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>.</code>（點號）</p>
+              <p><strong>唯一專門用途：</strong>字串連接符（Concatenation）。</p>
+              <p><strong>鑑識報告：</strong>在 PHP 裡，點號是用來把兩個字串（或是字串與變數）硬生生串在一起的專屬膠帶。</p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 無名指 下滑 1</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>()</code>（小括號）</p>
+              <p><strong>唯一專門用途：</strong>執行動作（函式）的發動開關。</p>
+              <p><strong>鑑識報告：</strong>只要看到英文單字後面緊貼著一對小括號 <code>()</code>，這個單字百分之百是一個「動作」（例如
+                <code>print_r()</code>、<code>exec()</code>）。小括號就是啟動按鈕，並且負責把執行需要的原料塞在括號裡面。
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 無名指 9 與 右 小拇指 0</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>[]</code>（中括號）</p>
+              <p><strong>唯一專門用途：</strong>陣列（Array）的指定鑰匙。</p>
+              <p><strong>鑑識報告：</strong>當你手上拿著一個大包裹箱子（陣列）時，你不能直接把整箱倒出來，你必須用中括號指定裡面的名字。例如
+                <code>$_POST['account']</code>，這對中括號就是專門用來綁架 <code>'account'</code> 這個標籤的。
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 P右1 與 P右2</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>{}</code>（大括號）</p>
+              <p><strong>唯一專門用途：</strong>在雙引號的大字串裡，把變數精準框起來。</p>
+              <p><strong>鑑識報告：</strong>像在寫 SQL 那串長長的雙引號 <code>""</code> 字串時，裡面密密麻麻都是字。如果直接寫
+                <code>$sql = "VALUES ($_POST['account'])"</code>，電腦會分不清楚哪裡是字、哪裡是變數。這時候用 <code>{}</code> 把
+                <code>{$_POST['account']}</code> 緊緊包住，就是專門跟電腦劃清界線：「報告！大括號中間包著的這隻是一隻完整的 PHP 麥克風，請先把它裡面的字傳過來，不要跟外面的字搞混！」
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 小拇指 P右1 與 P右2</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>;</code>（分號）</p>
+              <p><strong>唯一專門用途：</strong>程式碼的句點。</p>
+              <p><strong>鑑識報告：</strong>這是你設定的嚴格規範！PHP 的每一行指令結束，一律要按下這個分號
+                <code>;</code>。這是在跟主機講：「這一個動作我做完了，你可以看下一行了。」少寫一個，整頁直接當機。
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 L右2</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>=</code>（等號）</p>
+              <p><strong>唯一專門用途：</strong>賦值運算子（Assignment）。</p>
+              <p><strong>鑑識報告：</strong>在 PHP 裡面，這不是數學的等於！它是「把右邊的線索塞進左邊箱子」的動作。例如
+                <code>$sql = "SELECT..."</code>，就是把右邊那串長長的字條，通通塞進左邊的 <code>$sql</code> 箱子裡裝好。
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 0右2</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>//</code>（單行註解）</p>
+              <p><strong>唯一專門用途：</strong>寫給人看的單行筆記。</p>
+              <p><strong>鑑識報告：</strong>這是給偵探自己看的機密備忘錄。在 PHP 裡面，只要看到
+                <code>//</code>，後面那一整行的文字主機就會完全裝作沒看到、直接跳過不執行。專門用來記錄當下的辦案思維或步驟說明。
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 食指 M右3 下滑 1</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>/* */</code>（多行註解）</p>
+              <p><strong>唯一專門用途：</strong>寫給人看的大範圍多行筆記。</p>
+              <p><strong>鑑識報告：</strong>當筆記太長、跨了好幾行時，單行註解就不夠用了。用 <code>/*</code> 當作起點，<code>*/</code>
+                當作終點，中間包住的所有代碼和文字都會被主機冷凍封印。除了寫大筆記，也很適合用來暫時隱藏一大段懷疑有 Bug 的程式碼。</p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 中指 8，搭配 右 食指 M右3 下滑 1</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>-&gt;</code>（物件箭頭 / Object Operator）</p>
+              <p><strong>唯一專門用途：</strong>呼叫物件內部的動作或變數。</p>
+              <p><strong>鑑識報告：</strong>這是一個指向目標的指揮棒。當我們用 <code>$pdo</code> 連上資料庫之後，<code>$pdo</code>
+                就變成了一個功能強大的特製物件。這時候用
+                <code>-&gt;prepare()</code>，就是用箭頭指著它大喊：「請發動你裡面的預處理動作！」它是啟動連線物件核心功能的專屬鑰匙。
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 0右1，接 左 小拇指 Shift + 右 無名指 M右2 下滑 1</p>
+            </li>
           </ol>
         </div>
       </section>
@@ -174,62 +177,64 @@
         <div class="conan-notes-list-wrap">
           <ol class="conan-notes-list conan-notes-list--reviewed"></ol>
           <ol class="conan-notes-list conan-notes-list--pending">
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>`</code>（反單引號 / Backtick）</p>
-            <p><strong>唯一專門用途：</strong>包覆資料表名稱與欄位名稱。</p>
-            <p><strong>鑑識報告：</strong>只要在 SQL 指令裡面提到資料庫裡的表格名稱（例如 <code>`members`</code>）或是欄位名稱（例如
-              <code>`account`</code>、<code>`password`</code>），一律要用這對反單引號包起來。這是為了跟電腦防呆。萬一你取的名字剛好跟 SQL 的內建指令（例如
-              <code>name</code> 或 <code>date</code>）撞名，加了反單引號，資料庫就會知道：「喔！這純粹是努比自己寫的欄位名稱，不是我的指令。」
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 1左1</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>.</code>（點號）</p>
-            <p><strong>唯一專門用途：</strong>資料表與欄位的「階層串接」。</p>
-            <p><strong>鑑識報告：</strong>在 SQL 裡，點號的作用是「從屬關係」，用來精準指定 <code>`表名`.`欄位名`</code>，明確指出這個線索是屬於哪一個檔案夾的。</p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 無名指 下滑 1</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>'</code>（標準單引號）</p>
-            <p><strong>唯一專門用途：</strong>框住純文字的「值」。</p>
-            <p><strong>鑑識報告：</strong>當你要塞進資料庫的資料是「純文字、字串、日期」時，在 SQL
-              語法裡必須用單引號包起來。例如：<code>'{$_POST['account']}'</code>。外層這一對單引號，是專門寫給資料庫看的。</p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 右1</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>()</code>（小括號）</p>
-            <p><strong>唯一專門用途：</strong>SQL 的對齊桶。</p>
-            <p><strong>鑑識報告：</strong>當它寫在 SQL 的 <code>VALUES</code> 後面時，則是專門用來把資料群組起來、像拉鍊一樣一對一對齊欄位用的。</p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 無名指 9 與 右 小拇指 0</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>;</code>（分號）</p>
-            <p><strong>唯一專門用途：</strong>語句結尾。</p>
-            <p><strong>鑑識報告：</strong>這是 SQL 結案的法槌，每執行完一整行指令，結尾必加分號，代表這條線索審查完畢。</p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 L右2</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>*</code>（星號 / All）</p>
-            <p><strong>唯一專門用途：</strong>選擇所有的資料直欄。</p>
-            <p><strong>鑑識報告：</strong>這是 SQL 偵辦時的萬能搜索令。當你寫下 <code>SELECT *</code>
-              時，就是命令資料庫：「不必篩選！把這張表格裡面所有的欄位、所有的祕密，通通攤開給我看！」在進行地毯式搜索時非常方便。</p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 中指 8</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>,</code>（逗號）</p>
-            <p><strong>唯一專門用途：</strong>多個欄位或值的「分隔符號」。</p>
-            <p><strong>鑑識報告：</strong>這是排隊時的排雷分界線。不論是在 <code>SELECT</code> 後面列出好幾個要抓取的欄位，還是在 <code>VALUES</code>
-              後面依序塞入好幾筆資料，欄位與欄位之間一律要用逗號隔開，主機才知道這是不同的線索。注意：最後一個欄位的後面絕對不能加逗號，否則會直接結案失敗。</p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 中指 K右下方 下滑 1</p>
-          </li>
-          <li class="conan-notes-item">
-            <p class="conan-notes-symbol"><code>--</code>（SQL 單行註解）</p>
-            <p><strong>唯一專門用途：</strong>寫在 SQL 語句內部的單行註解（注意後面必加空格）。</p>
-            <p><strong>鑑識報告：</strong>這是專屬於資料庫法庭的隱形藥水。在編寫 SQL 指令時，只要加上
-              <code>--</code>（後面要記得留一個空格），後方那一整行的字就會被資料庫當作隱形空氣，完全不執行。專門用來在複雜的 SQL 語法中，幫特定欄位或條件加上極簡的中文解釋筆記。
-            </p>
-            <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 0右1 連按兩次</p>
-          </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>`</code>（反單引號 / Backtick）</p>
+              <p><strong>唯一專門用途：</strong>包覆資料表名稱與欄位名稱。</p>
+              <p><strong>鑑識報告：</strong>只要在 SQL 指令裡面提到資料庫裡的表格名稱（例如 <code>`members`</code>）或是欄位名稱（例如
+                <code>`account`</code>、<code>`password`</code>），一律要用這對反單引號包起來。這是為了跟電腦防呆。萬一你取的名字剛好跟 SQL 的內建指令（例如
+                <code>name</code> 或 <code>date</code>）撞名，加了反單引號，資料庫就會知道：「喔！這純粹是努比自己寫的欄位名稱，不是我的指令。」
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 1左1</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>.</code>（點號）</p>
+              <p><strong>唯一專門用途：</strong>資料表與欄位的「階層串接」。</p>
+              <p><strong>鑑識報告：</strong>在 SQL 裡，點號的作用是「從屬關係」，用來精準指定 <code>`表名`.`欄位名`</code>，明確指出這個線索是屬於哪一個檔案夾的。</p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 無名指 下滑 1</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>'</code>（單引號）</p>
+              <p><strong>唯一專門用途：</strong>框住純文字的「值」。</p>
+              <p>
+                <strong>鑑識報告：</strong>它是寫給資料庫看的，用來宣告「等一下塞進這格的名字是一串文字」。例如：<code>'{$_POST['account']}'</code>。因為雙引號才是老大，所以這個單引號
+                ' ' 必須乖乖被包在雙引號的肚子裡面。
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 右1</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>()</code>（小括號）</p>
+              <p><strong>唯一專門用途：</strong>SQL 的對齊桶。</p>
+              <p><strong>鑑識報告：</strong>當它寫在 SQL 的 <code>VALUES</code> 後面時，則是專門用來把資料群組起來、像拉鍊一樣一對一對齊欄位用的。</p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 無名指 9 與 右 小拇指 0</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>;</code>（分號）</p>
+              <p><strong>唯一專門用途：</strong>語句結尾。</p>
+              <p><strong>鑑識報告：</strong>這是 SQL 結案的法槌，每執行完一整行指令，結尾必加分號，代表這條線索審查完畢。</p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 L右2</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>*</code>（星號 / All）</p>
+              <p><strong>唯一專門用途：</strong>選擇所有的資料直欄。</p>
+              <p><strong>鑑識報告：</strong>這是 SQL 偵辦時的萬能搜索令。當你寫下 <code>SELECT *</code>
+                時，就是命令資料庫：「不必篩選！把這張表格裡面所有的欄位、所有的祕密，通通攤開給我看！」在進行地毯式搜索時非常方便。</p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左 小拇指 Shift + 右 中指 8</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>,</code>（逗號）</p>
+              <p><strong>唯一專門用途：</strong>多個欄位或值的「分隔符號」。</p>
+              <p><strong>鑑識報告：</strong>這是排隊時的排雷分界線。不論是在 <code>SELECT</code> 後面列出好幾個要抓取的欄位，還是在 <code>VALUES</code>
+                後面依序塞入好幾筆資料，欄位與欄位之間一律要用逗號隔開，主機才知道這是不同的線索。注意：最後一個欄位的後面絕對不能加逗號，否則會直接結案失敗。</p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 中指 K右下方 下滑 1</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><code>--</code>（SQL 單行註解）</p>
+              <p><strong>唯一專門用途：</strong>寫在 SQL 語句內部的單行註解（注意後面必加空格）。</p>
+              <p><strong>鑑識報告：</strong>這是專屬於資料庫法庭的隱形藥水。在編寫 SQL 指令時，只要加上
+                <code>--</code>（後面要記得留一個空格），後方那一整行的字就會被資料庫當作隱形空氣，完全不執行。專門用來在複雜的 SQL 語法中，幫特定欄位或條件加上極簡的中文解釋筆記。
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 0右1 連按兩次</p>
+            </li>
           </ol>
         </div>
       </section>

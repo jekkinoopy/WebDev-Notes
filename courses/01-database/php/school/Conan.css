@@ -718,8 +718,8 @@
 
 .conan-notes-item {
   counter-increment: conan-note;
-  margin-bottom: 1.15rem;
-  padding: 1rem 1rem 1rem 2.75rem;
+  margin-bottom: 0.85rem;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
   position: relative;
   overflow: visible;
   background: var(--conan-bg);
@@ -730,8 +730,8 @@
 .conan-notes-item::before {
   content: counter(conan-note);
   position: absolute;
-  left: 0.85rem;
-  top: 1rem;
+  left: 0.75rem;
+  top: 0.8rem;
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--conan-crimson);
@@ -838,19 +838,19 @@
   background: color-mix(in srgb, #22c55e 18%, #fff);
 }
 
-.conan-notes-item p {
-  margin: 0 0 0.5rem;
+.conan-notes-item > p {
+  margin: 0 0 0.3rem;
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--conan-dark);
 }
 
-.conan-notes-item p:last-child {
+.conan-notes-item > :last-child {
   margin-bottom: 0;
 }
 
 .conan-notes-symbol {
-  margin-bottom: 0.35rem !important;
+  margin-bottom: 0.2rem !important;
   font-weight: 600;
 }
 
@@ -871,29 +871,28 @@
 }
 
 /* 鍵位指法：柯南主題紅（--conan-crimson）強調 */
-.conan-notes-item .conan-notes-keyboard,
-.conan-notes-item .conan-notes-fingering {
-  margin: 0.55rem 0 0;
-  padding: 0.5rem 0.65rem 0.5rem 0.85rem;
-  font-size: 0.9rem;
-  line-height: 1.55;
+.conan-notes-item > .conan-notes-keyboard,
+.conan-notes-item > .conan-notes-fingering {
+  margin: 0.35rem 0 0;
+  padding: 0.35rem 0.55rem 0.35rem 0.7rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
   font-weight: 600;
   color: var(--conan-crimson);
-  background: rgba(220, 38, 38, 0.1);
   background: color-mix(in srgb, var(--conan-crimson) 12%, var(--conan-card-bg));
   border-left: 4px solid var(--conan-crimson);
   border-radius: 0 4px 4px 0;
 }
 
-.conan-notes-item .conan-notes-keyboard strong,
-.conan-notes-item .conan-notes-fingering strong {
+.conan-notes-item > .conan-notes-keyboard strong,
+.conan-notes-item > .conan-notes-fingering strong {
   color: var(--conan-crimson);
 }
 
 /* 程式碼筆記（選填，練習時自行補上） */
-.conan-notes-item .conan-notes-code {
-  margin: 0.55rem 0 0;
-  padding: 0.65rem 0.75rem 0.7rem;
+.conan-notes-item > .conan-notes-code {
+  margin: 0.35rem 0 0;
+  padding: 0.5rem 0.6rem 0.55rem;
   background: color-mix(in srgb, var(--conan-navy) 6%, var(--conan-card-bg));
   border: 1px solid color-mix(in srgb, var(--conan-navy) 18%, transparent);
   border-radius: 6px;
@@ -903,7 +902,7 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  margin: 0 0 0.45rem;
+  margin: 0 0 0.3rem;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.02em;
