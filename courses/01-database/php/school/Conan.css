@@ -1,0 +1,787 @@
+/* 米花町偵探學園 — Milky Way Detective（冷調偵辦 × 警示紅） */
+:root {
+  --conan-dark: #1e293b;
+  --conan-navy: #2a4365;
+  --conan-crimson: #dc2626;
+  --conan-bg: #f4f5f7;
+  --conan-card-bg: #ffffff;
+  --conan-border: #e2e8f0;
+  --conan-muted: #64748b;
+  --conan-shadow: rgba(30, 41, 59, 0.08);
+  /* Hero 高度：改這個數字即可（以下方為基底往上加高，例：380px → 480px） */
+  --conan-hero-height: 600px;
+  --conan-content-max: 1200px;
+  font-size: 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.conan-school {
+  margin: 0;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  color: var(--conan-dark);
+  background-color: var(--conan-bg);
+  line-height: 1.6;
+}
+
+/* 頂部導覽 */
+.conan-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  padding: 0.85rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 2px solid var(--conan-dark);
+  backdrop-filter: blur(8px);
+}
+
+.conan-logo {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--conan-dark);
+  text-decoration: none;
+}
+
+.conan-logo:hover {
+  color: var(--conan-crimson);
+}
+
+.conan-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+.conan-nav a {
+  color: var(--conan-navy);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.conan-nav a:hover {
+  color: var(--conan-crimson);
+}
+
+.conan-auth {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.conan-btn {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.conan-btn-login {
+  background-color: transparent;
+  color: var(--conan-dark);
+  border: 1px solid var(--conan-dark);
+}
+
+.conan-btn-login:hover {
+  background-color: var(--conan-dark);
+  color: #fff;
+}
+
+.conan-btn-register {
+  background-color: var(--conan-crimson);
+  color: #fff;
+  border: 1px solid var(--conan-crimson);
+}
+
+.conan-btn-register:hover {
+  background-color: #b91c1c;
+  border-color: #b91c1c;
+}
+
+/* Hero：高度由 --conan-hero-height 控制，圖片自底部往上裁切／延伸 */
+.conan-hero {
+  position: relative;
+  height: var(--conan-hero-height);
+  min-height: var(--conan-hero-height);
+  overflow: hidden;
+  background-color: var(--conan-dark);
+}
+
+.conan-hero-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: bottom center;
+}
+
+.conan-hero-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  line-height: 1.6;
+}
+
+.conan-hero-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(30, 41, 59, 0.72) 0%,
+      rgba(30, 41, 59, 0.45) 50%,
+      rgba(30, 41, 59, 0.78) 100%);
+  pointer-events: none;
+}
+
+.conan-hero-tag,
+.conan-hero-inner h1,
+.conan-hero-lead,
+.conan-hero-inner .conan-cta {
+  position: relative;
+  z-index: 1;
+}
+
+.conan-hero-tag {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.conan-hero-inner h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.conan-hero-lead {
+  margin: 0 auto 1.5rem;
+  max-width: 32rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.conan-cta {
+  display: inline-block;
+  padding: 0.7rem 1.85rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+  text-decoration: none;
+  background: var(--conan-crimson);
+  border: 1px solid var(--conan-crimson);
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35);
+}
+
+.conan-cta:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+}
+
+/* 區塊 */
+.conan-section {
+  max-width: var(--conan-content-max);
+  margin: 0 auto;
+  padding: 2.75rem 1.25rem;
+}
+
+.conan-section-title {
+  margin: 0 0 0.5rem;
+  text-align: center;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--conan-dark);
+  letter-spacing: 0.08em;
+}
+
+.conan-section-title::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  margin: 0.6rem auto 0;
+  background: var(--conan-crimson);
+}
+
+.conan-section-desc {
+  margin: 0 0 1.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--conan-muted);
+  font-style: italic;
+}
+
+/* 辦案機能卡片 */
+.conan-feature-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.conan-feature-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  padding-top: 2rem;
+  background: var(--conan-card-bg);
+  border: 1px solid var(--conan-border);
+  border-left: 4px solid var(--conan-dark);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px var(--conan-shadow);
+  transition: box-shadow 0.2s ease, border-left-color 0.2s ease;
+}
+
+.conan-badge {
+  position: absolute;
+  top: 0.65rem;
+  right: -1.2rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  border-radius: 3px;
+  white-space: nowrap;
+  transform: rotate(45deg);
+}
+
+.conan-badge.badge-danger {
+  color: #fff;
+  background: var(--conan-dark);
+  /* border: 1px solid #b91c1c; */
+  box-shadow: 0 1px 4px rgba(220, 38, 38, 0.35);
+  font-size: 0.85rem;
+}
+
+.conan-feature-card:hover {
+  box-shadow: 0 6px 20px var(--conan-shadow);
+  border-left-color: var(--conan-crimson);
+}
+
+.conan-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.65rem;
+  font-size: 1.1rem;
+  color: var(--conan-crimson);
+  background: rgba(220, 38, 38, 0.08);
+  border-radius: 4px;
+}
+
+.conan-feature-link .fa-solid {
+  font-size: 0.75em;
+  margin-left: 0.15em;
+}
+
+.conan-cta .fa-solid {
+  margin-right: 0.35em;
+}
+
+.conan-feature-label {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--conan-muted);
+}
+
+.conan-feature-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--conan-navy);
+}
+
+.conan-feature-card p {
+  flex: 1;
+  margin: 0 0 0.75rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--conan-muted);
+}
+
+.conan-feature-card code {
+  font-size: 0.85em;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  background: var(--conan-bg);
+  color: var(--conan-dark);
+}
+
+.conan-feature-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--conan-crimson);
+  text-decoration: none;
+}
+
+.conan-feature-link:hover {
+  text-decoration: underline;
+}
+
+/* 事件簿 */
+.conan-news-panel {
+  background: var(--conan-card-bg);
+  border: 1px solid var(--conan-border);
+  border-top: 3px solid var(--conan-crimson);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.conan-news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.conan-news-list li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--conan-border);
+}
+
+.conan-news-list li:last-child {
+  border-bottom: none;
+}
+
+.conan-news-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  font-size: 1rem;
+  color: var(--conan-crimson);
+}
+
+.conan-contact-list .fa-solid {
+  flex-shrink: 0;
+  width: 1.1em;
+  color: #fca5a5;
+}
+
+.conan-news-text {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--conan-dark);
+}
+
+.conan-news-date {
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--conan-muted);
+  white-space: nowrap;
+}
+
+/* Footer */
+.conan-site-footer {
+  padding: 2rem 1.5rem 1rem;
+  background: var(--conan-dark);
+  color: #fff;
+  text-align: center;
+}
+
+.conan-footer-title {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.conan-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.conan-footer-nav a {
+  color: #f8fafc;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+
+.conan-footer-nav a:hover {
+  color: var(--conan-crimson);
+}
+
+.conan-contact-list {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-size: 0.86rem;
+  line-height: 1.85;
+  opacity: 0.9;
+}
+
+.conan-contact-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.conan-footer-bottom {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.conan-copy {
+  margin: 0 0 0.35rem;
+}
+
+.conan-footer-meta {
+  margin: 0;
+}
+
+.conan-footer-meta a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.conan-footer-meta a:hover {
+  color: var(--conan-crimson);
+}
+
+/* 表單頁（01-register 等） */
+.conan-page-main {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 2.5rem;
+}
+
+.conan-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--conan-navy);
+  text-decoration: none;
+}
+
+.conan-form-label .fa-solid,
+.conan-form-field label .fa-solid {
+  margin-right: 0.35em;
+  color: var(--conan-crimson);
+  font-size: 0.9em;
+}
+
+.conan-form-actions .fa-solid {
+  margin-right: 0.35em;
+}
+
+.conan-back-link:hover {
+  color: var(--conan-crimson);
+}
+
+.conan-form-card {
+  background: var(--conan-card-bg);
+  border: 1px solid var(--conan-border);
+  border-left: 4px solid var(--conan-crimson);
+  border-radius: 4px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  box-shadow: 0 4px 20px var(--conan-shadow);
+}
+
+.conan-form-label {
+  display: block;
+  margin: 0 0 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--conan-muted);
+}
+
+.conan-form-card h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--conan-dark);
+}
+
+.conan-form-sub {
+  margin: 0 0 1.5rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--conan-muted);
+  font-style: italic;
+}
+
+.conan-form-field {
+  margin-bottom: 1rem;
+}
+
+.conan-form-field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--conan-navy);
+}
+
+.conan-form-field input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--conan-border);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--conan-bg);
+  color: var(--conan-dark);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.conan-form-field input:focus {
+  outline: none;
+  border-color: var(--conan-navy);
+  box-shadow: 0 0 0 2px rgba(42, 67, 101, 0.18);
+}
+
+.conan-form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.conan-form-actions button {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.conan-form-actions button[type="submit"] {
+  background: var(--conan-crimson);
+  color: #fff;
+  border: 1px solid var(--conan-crimson);
+}
+
+.conan-form-actions button[type="submit"]:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+}
+
+.conan-form-actions button[type="reset"] {
+  background: transparent;
+  color: var(--conan-dark);
+  border: 1px solid var(--conan-dark);
+}
+
+.conan-form-actions button[type="reset"]:hover {
+  background: var(--conan-dark);
+  color: #fff;
+}
+
+.conan-btn-register[aria-current="page"] {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+.conan-nav a[aria-current="page"] {
+  color: var(--conan-crimson);
+  font-weight: 600;
+}
+
+/* 辦案筆記（case-notes.html） */
+.conan-notes-main {
+  max-width: var(--conan-content-max);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 2.5rem;
+}
+
+.conan-notes-dossier {
+  background: var(--conan-card-bg);
+  border: 1px solid var(--conan-border);
+  border-left: 4px solid var(--conan-navy);
+  border-radius: 4px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  box-shadow: 0 4px 20px var(--conan-shadow);
+}
+
+.conan-notes-dossier h1 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--conan-dark);
+}
+
+.conan-notes-intro {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--conan-muted);
+}
+
+.conan-notes-intro:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.conan-notes-faction {
+  margin-bottom: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--conan-border);
+}
+
+.conan-notes-faction:last-child {
+  margin-bottom: 0;
+}
+
+.conan-notes-faction-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--conan-navy);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.conan-notes-faction-title .fa-php {
+  color: #777bb4;
+}
+
+.conan-notes-faction-title .fa-database {
+  color: var(--conan-crimson);
+}
+
+.conan-notes-faction-desc {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--conan-muted);
+}
+
+.conan-notes-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: conan-note;
+}
+
+.conan-notes-item {
+  counter-increment: conan-note;
+  margin-bottom: 1.15rem;
+  padding: 1rem 1rem 1rem 2.75rem;
+  position: relative;
+  background: var(--conan-bg);
+  border: 1px solid var(--conan-border);
+  border-radius: 4px;
+}
+
+.conan-notes-item::before {
+  content: counter(conan-note);
+  position: absolute;
+  left: 0.85rem;
+  top: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--conan-crimson);
+}
+
+.conan-notes-item:last-child {
+  margin-bottom: 0;
+}
+
+.conan-notes-item p {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--conan-dark);
+}
+
+.conan-notes-item p:last-child {
+  margin-bottom: 0;
+}
+
+.conan-notes-symbol {
+  margin-bottom: 0.35rem !important;
+  font-weight: 600;
+}
+
+.conan-notes-symbol code {
+  font-size: 1.05em;
+  padding: 0.1em 0.4em;
+  background: #fff;
+  border: 1px solid var(--conan-border);
+  color: var(--conan-crimson);
+}
+
+.conan-notes-item code {
+  font-size: 0.88em;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  background: #fff;
+  color: var(--conan-navy);
+}
+
+@media (max-width: 900px) {
+  .conan-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .conan-topbar {
+    justify-content: center;
+  }
+
+  .conan-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .conan-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .conan-news-list li {
+    grid-template-columns: auto 1fr;
+  }
+
+  .conan-news-date {
+    grid-column: 2;
+    justify-self: start;
+  }
+}

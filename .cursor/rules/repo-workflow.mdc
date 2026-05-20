@@ -1,0 +1,37 @@
+---
+description: 本 repo 協作慣例（時區、還原、索引、HTML 筆記）
+globs: "*"
+alwaysApply: true
+---
+
+# WebDev-Notes 協作慣例
+
+## 時區與「昨天／今天」
+
+- 以**使用者所在地（預設台灣 UTC+8）**理解「昨天、今天、剛剛」。
+- **不可**只憑 `git log` 的 commit 日期就認定「昨天」並 `reset`。
+- 使用者說「還原到昨天／弄壞前」時：先 `git log` / `reflog` 列出候選 commit，**確認要回到哪一個 SHA** 再動手；未 push 時以**本地 HEAD／reflog** 為準。
+
+## Git 還原
+
+- 禁止未確認就 `git reset --hard`。
+- 還原後若本地落後遠端，**提醒勿盲目 `git pull`**（會拉回不要的提交）；若要改遠端須使用者同意後再 `push --force`。
+
+## PHP 課程索引 `courses/01-database/php/index.html`
+
+- **新筆記卡片一律加在 `notes-grid` 最後**（既有單元之後），不要插在最前面。
+
+## PHP 筆記轉 `.html`
+
+- 依 `01-basic.html` 等既有靜態頁做法轉出 `.html`。
+- 建好後：**`index.html`、導覽、站內相關連結一律改連 `.html`**；並在 `assets/js/note-lesson-nav.js` 的 `PHP_LESSON_STATIC_HTML` 登記該課 `id`。
+- **不得**擅自替使用者決定「不必做 .html」；使用者明確要就做。
+
+## 筆記內容
+
+- 【學習重點】**不要**加「下一步：請進入 xxx」；頁底 `note-lesson-nav` 已負責上下則。
+- 需求區塊沿用 repo 慣例：**【題目需求】**（`ques-section`），勿自創【學習段落】除非使用者指定。
+
+## 決策
+
+- 有 repo 慣例就照做；**使用者明確要求**的優先於助理自判「不必」。

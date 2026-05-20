@@ -38,7 +38,7 @@ $code = <<<'EOD'
 // 【程式碼練習】
 for ($i = 1; $i <= 5; $i++) {
     for ($j = 1; $j <= $i; $j++) {
-        echo "<img src='images/09-1.png' style='width:30px'>";
+        echo "<img src='images/09-1.png' style='width:30px;display:inline-block'>";
     }
     echo "<br>";
 }
@@ -69,7 +69,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
                 <?php
                 for ($i = 1; $i <= 5; $i++) {
                     for ($j = 1; $j <= $i; $j++) {
-                        echo "<img src='images/09-1.png' style='width:30px'>";
+                        echo "<img src='images/09-1.png' style='width:30px;display:inline-block'>";
                     }
                     echo "<br>";
                 }
@@ -82,20 +82,20 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             <h3 class="note-subtitle">正三角形 (金字塔)</h3>
             <div class="ques-section">
                 <strong class="is-bracket-heading">【題目需求】</strong>
-                <p>邏輯：先印空格，再印金幣。</p>
+                <p>邏輯：左側留白要對齊「金幣寬度」（底下範例用 30px）；每列包在 <code>nowrap</code> 裡，避免最底層金幣多時被擠成兩行。</p>
             </div>
             <?php
 $code = <<<'EOD'
 // 【程式碼練習】
+$coinW = 30;
 $totalRows = 5;
 for ($i = 1; $i <= $totalRows; $i++) {
-    for ($j = 1; $j <= ($totalRows - $i); $j++) {
-        echo "&nbsp;&nbsp;&nbsp;";
-    }
+    $leftPad = ($totalRows - $i) * $coinW;
+    echo '<span style="display:block;white-space:nowrap;padding-left:' . $leftPad . 'px">';
     for ($k = 1; $k <= (2 * $i - 1); $k++) {
-        echo "<img src='images/09-1.png' style='width:30px; vertical-align: middle;'>";
+        echo "<img src='images/09-1.png' style=\"width:{$coinW}px;display:inline-block;vertical-align:middle;\">";
     }
-    echo "<br>";
+    echo '</span>';
 }
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
@@ -122,15 +122,15 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
             <div class="code-section">
                 <span class="section-label is-bracket-heading">【執行結果】</span><br>
                 <?php
+                $coinW = 30;
                 $totalRows = 5;
                 for ($i = 1; $i <= $totalRows; $i++) {
-                    for ($j = 1; $j <= ($totalRows - $i); $j++) {
-                        echo "&nbsp;&nbsp;&nbsp;";
-                    }
+                    $leftPad = ($totalRows - $i) * $coinW;
+                    echo '<span style="display:block;white-space:nowrap;padding-left:' . $leftPad . 'px">';
                     for ($k = 1; $k <= (2 * $i - 1); $k++) {
-                        echo "<img src='images/09-1.png' style='width:30px; vertical-align: middle;'>";
+                        echo "<img src='images/09-1.png' style=\"width:{$coinW}px;display:inline-block;vertical-align:middle;\">";
                     }
-                    echo "<br>";
+                    echo '</span>';
                 }
                 ?>
             </div>
