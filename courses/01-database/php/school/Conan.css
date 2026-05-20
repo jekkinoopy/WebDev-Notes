@@ -10,6 +10,7 @@
   --conan-shadow: rgba(30, 41, 59, 0.08);
   /* Hero 高度：改這個數字即可（以下方為基底往上加高，例：380px → 480px） */
   --conan-hero-height: 600px;
+  font-size: 20px;
 }
 
 *,
@@ -170,7 +171,8 @@
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   font-weight: 700;
   color: #fff;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 .conan-hero-lead {
@@ -255,7 +257,7 @@
 .conan-badge {
   position: absolute;
   top: 0.65rem;
-  right: 0.65rem;
+  right: -1.2rem;
   padding: 0.2rem 0.55rem;
   font-size: 0.68rem;
   font-weight: 700;
@@ -263,13 +265,15 @@
   line-height: 1.35;
   border-radius: 3px;
   white-space: nowrap;
+  transform: rotate(45deg);
 }
 
 .conan-badge.badge-danger {
   color: #fff;
-  background: var(--conan-crimson);
-  border: 1px solid #b91c1c;
+  background: var(--conan-dark);
+  /* border: 1px solid #b91c1c; */
   box-shadow: 0 1px 4px rgba(220, 38, 38, 0.35);
+  font-size: 0.85rem;
 }
 
 .conan-feature-card:hover {
