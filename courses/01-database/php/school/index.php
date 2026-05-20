@@ -24,10 +24,11 @@ $pageTitle = '米花町偵探學園｜學生管理系統製作練習';
     </section>
 
     <section id="features" class="conan-section" aria-labelledby="features-title">
-      <h2 id="features-title" class="conan-section-title">辦案機能</h2>
-      <p class="conan-section-desc">雖然是學生管理系統，但請確保學生人數不要越來越少。</p>
+      <h2 id="features-title" class="conan-section-title">大腦的命案現場</h2>
+      <p class="conan-section-desc">雖然是學生管理系統，但請確保學生還有存活。</p>
       <div class="conan-feature-grid">
         <article class="conan-feature-card">
+          <div class="conan-badge badge-danger">頭腦撞牆</div>
           <span class="conan-feature-icon" aria-hidden="true"><i class="fa-solid fa-user-plus"></i></span>
           <span class="conan-feature-label">會員註冊</span>
           <h3>嫌疑犯名冊</h3>
@@ -35,6 +36,7 @@ $pageTitle = '米花町偵探學園｜學生管理系統製作練習';
           <a href="01-register.php" class="conan-feature-link">建立表單 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </article>
         <article class="conan-feature-card">
+          <div class="conan-badge badge-danger">意識迷茫</div>
           <span class="conan-feature-icon" aria-hidden="true"><i class="fa-solid fa-gavel"></i></span>
           <span class="conan-feature-label">API 寫入</span>
           <h3>移送法辦／監獄資料庫</h3>
@@ -42,6 +44,7 @@ $pageTitle = '米花町偵探學園｜學生管理系統製作練習';
           <a href="02-api_register.php" class="conan-feature-link">開啟 API <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </article>
         <article class="conan-feature-card">
+          <div class="conan-badge badge-danger">智商火葬</div>
           <span class="conan-feature-icon" aria-hidden="true"><i class="fa-solid fa-plug"></i></span>
           <span class="conan-feature-label">PDO 連線</span>
           <h3>沉睡的小五郎</h3>
@@ -49,6 +52,7 @@ $pageTitle = '米花町偵探學園｜學生管理系統製作練習';
           <a href="../s01-pdo.html" class="conan-feature-link">複習 PDO <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </article>
         <article class="conan-feature-card">
+          <div class="conan-badge badge-danger">批欸取批</div>
           <span class="conan-feature-icon" aria-hidden="true"><i class="fa-solid fa-user-check"></i></span>
           <span class="conan-feature-label">登入驗證</span>
           <h3>身分對質</h3>
@@ -56,6 +60,7 @@ $pageTitle = '米花町偵探學園｜學生管理系統製作練習';
           <a href="../s03-login.php" class="conan-feature-link">登入練習 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </article>
         <article class="conan-feature-card">
+          <div class="conan-badge badge-danger">看到頭暈</div>
           <span class="conan-feature-icon" aria-hidden="true"><i class="fa-solid fa-folder-tree"></i></span>
           <span class="conan-feature-label">資料表</span>
           <h3>機密檔案櫃</h3>
@@ -64,6 +69,7 @@ $pageTitle = '米花町偵探學園｜學生管理系統製作練習';
           </p>
         </article>
         <article class="conan-feature-card">
+          <div class="conan-badge badge-danger">老師救命</div>
           <span class="conan-feature-icon" aria-hidden="true"><i class="fa-solid fa-book"></i></span>
           <span class="conan-feature-label">對照筆記</span>
           <h3>辦案手冊</h3>

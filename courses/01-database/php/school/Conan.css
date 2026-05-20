@@ -239,15 +239,37 @@
 }
 
 .conan-feature-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
+  padding-top: 2rem;
   background: var(--conan-card-bg);
   border: 1px solid var(--conan-border);
   border-left: 4px solid var(--conan-dark);
   border-radius: 4px;
   box-shadow: 0 2px 8px var(--conan-shadow);
   transition: box-shadow 0.2s ease, border-left-color 0.2s ease;
+}
+
+.conan-badge {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.conan-badge.badge-danger {
+  color: #fff;
+  background: var(--conan-crimson);
+  border: 1px solid #b91c1c;
+  box-shadow: 0 1px 4px rgba(220, 38, 38, 0.35);
 }
 
 .conan-feature-card:hover {
