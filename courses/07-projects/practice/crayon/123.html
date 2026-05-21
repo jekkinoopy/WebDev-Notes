@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>野原家減肥管理中心 | Nohara Fitness Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================================================
+           1. 核心設計規範 (Design Tokens)
+           ========================================================================== */
+        :root {
+            --crayon-red: #ff7068;
+            --crayon-yellow: #f0db56;
+            --crayon-blue: #59adf7;
+            --crayon-green: #69f279;
+            --crayon-black: #111111;
+            --crayon-skin: #FFF0D4;
+            --bg-soft: #F4F9F9;
+            --card-white: #FFFFFF;
+            --font-main: 'Noto Sans TC', sans-serif;
+            --hard-shadow: 6px 6px 0px var(--crayon-black);
+            --base-border: 3px solid var(--crayon-black);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-soft);
+            font-family: var(--font-main);
+            color: var(--crayon-black);
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+           2. 頂部導航 / 標頭 (Header)
+           ========================================================================== */
+        .app-header {
+            background-color: var(--crayon-yellow);
+            border: var(--base-border);
+            border-radius: 20px;
+            padding: 25px 35px;
+            box-shadow: var(--hard-shadow);
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-header::after {
+            content: '☁️';
+            position: absolute;
+            font-size: 3rem;
+            right: 150px;
+            top: 10px;
+            opacity: 0.3;
+        }
+
+        .brand h1 {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand p {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--crayon-blue);
+            margin-top: 5px;
+        }
+
+        .status-badge {
+            background-color: var(--crayon-red);
+            color: white;
+            border: var(--base-border);
+            border-radius: 30px;
+            padding: 8px 18px;
+            font-weight: 900;
+            font-size: 0.9rem;
+            transform: rotate(2deg);
+        }
+
+        /* ==========================================================================
+           3. 主佈局網格 (Main Layout)
+           ========================================================================== */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1.1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* 全寬區塊 */
+        .full-width-section {
+            margin-bottom: 30px;
+        }
+
+        /* 卡片通用樣式 */
+        .center-card {
+            background: var(--card-white);
+            border: var(--base-border);
+            border-radius: 24px;
+            box-shadow: var(--hard-shadow);
+            padding: 30px;
+            position: relative;
+        }
+
+        .card-title-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            border-bottom: 3px dashed var(--crayon-black);
+            padding-bottom: 12px;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+        }
+
+        .card-title-bar h2 {
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        /* ==========================================================================
+           4. 模組 A：BMI 數據監測中心 (GET / POST)
+           ========================================================================== */
+        .bmi-box-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .bmi-sub-card {
+            background-color: var(--card-white);
+            border: 3px solid var(--crayon-black);
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .bmi-sub-card.get-style {
+            box-shadow: 4px 4px 0 var(--crayon-yellow);
+        }
+
+        .bmi-sub-card.post-style {
+            box-shadow: 4px 4px 0 var(--crayon-blue);
+        }
+
+        .bmi-sub-card h3 {
+            font-size: 1.1rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            z-index: 2;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 10px 10px 38px;
+            border: 2px solid var(--crayon-black);
+            border-radius: 10px;
+            background-color: var(--crayon-skin);
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            background-color: white;
+            border-color: var(--crayon-blue);
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--crayon-black);
+            border-radius: 30px;
+            font-family: var(--font-main);
+            font-weight: 900;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.1s;
+            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .action-btn:active {
+            transform: translateY(2px);
+        }
+
+        .btn-yellow {
+            background-color: var(--crayon-yellow);
+        }
+
+        .btn-blue {
+            background-color: var(--crayon-blue);
+            color: white;
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        .btn-red {
+            background-color: var(--crayon-red);
+            color: white;
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        /* ==========================================================================
+           5. 模組 B：飲食控制紀錄
+           ========================================================================== */
+        .diet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .diet-item {
+            background-color: var(--bg-soft);
+            border: 2px solid var(--crayon-black);
+            border-radius: 12px;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .diet-info .time-tag {
+            font-size: 0.75rem;
+            background-color: var(--crayon-black);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .diet-info .food-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .diet-status {
+            font-size: 0.85rem;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 2px solid var(--crayon-black);
+        }
+
+        .status-pass {
+            background-color: var(--crayon-green);
+            color: white;
+        }
+
+        .status-fail {
+            background-color: var(--crayon-red);
+            color: white;
+        }
+
+        /* ==========================================================================
+           6. 模組 C：向日葵班週運動行事曆 (Calendar)
+           ========================================================================== */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+        }
+
+        .calendar-day {
+            background: var(--card-white);
+            border: 2px solid var(--crayon-black);
+            border-radius: 14px;
+            padding: 12px 8px;
+            text-align: center;
+            min-height: 110px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .calendar-day.today {
+            background-color: #E6F7FF;
+            border-color: var(--crayon-blue);
+            box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.2);
+        }
+
+        .day-name {
+            font-size: 0.85rem;
+            font-weight: 900;
+            color: #777;
+            margin-bottom: 6px;
+        }
+
+        .calendar-day.today .day-name {
+            color: var(--crayon-blue);
+        }
+
+        .event-dot {
+            font-size: 1.2rem;
+            margin: 4px 0;
+        }
+
+        .event-text {
+            font-size: 0.75rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--crayon-black);
+            background: #FFF3E0;
+            border-radius: 6px;
+            padding: 2px;
+        }
+
+        /* 底部激勵語錄欄 */
+        .motivation-footer {
+            background-color: var(--crayon-skin);
+            border: var(--base-border);
+            border-radius: 16px;
+            padding: 15px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="app-header">
+            <div class="brand">
+                <h1>🍑 野原家減肥管理中心</h1>
+                <p>Nohara Diet & Fitness Management Dashboard</p>
+            </div>
+            <div class="status-badge">
+                ⚡ 執行目標：消滅三層肉
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+
+            <section class="center-card">
+                <div class="card-title-bar">
+                    <span class="card-icon">⚖️</span>
+                    <h2>BMI 數據測量站</h2>
+                </div>
+
+                <div class="bmi-box-wrapper">
+                    <div class="bmi-sub-card get-style">
+                        <h3>自我安慰模式 (GET)</h3>
+                        <form action="result.php" method="get">
+                            <div class="form-group">
+                                <span class="input-icon">📏</span>
+                                <input type="number" name="height" placeholder="名義身高 (cm)" step="0.1" required>
+                            </div>
+                            <div class="form-group">
+                                <span class="input-icon">🐷</span>
+                                <input type="number" name="weight" placeholder="樂觀體重 (kg)" step="0.1" required>
+                            </div>
+                            <button type="submit" class="action-btn btn-yellow">動感光波送出</button>
+                        </form>
+                    </div>
+
+                    <div class="bmi-sub-card post-style">
+                        <h3>廣志無情監測 (POST)</h3>
+                        <form action="result.php" method="post">
+                            <div class="form-group">
+                                <span class="input-icon">📏</span>
+                                <input type="number" name="height" placeholder="真實身高 (cm)" step="0.1" required>
+                            </div>
+                            <div class="form-group">
+                                <span class="input-icon">🍻</span>
+                                <input type="number" name="weight" placeholder="偷吃宵夜體重 (kg)" step="0.1" required>
+                            </div>
+                            <button type="submit" class="action-btn btn-blue">大原所長備查</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="center-card">
+                <div class="card-title-bar">
+                    <span class="card-icon">🍱</span>
+                    <h2>當日飲食控制紀錄</h2>
+                </div>
+
+                <div class="diet-list">
+                    <div class="diet-item">
+                        <div class="diet-info">
+                            <span class="time-tag">早餐</span>
+                            <span class="food-name">水煮雞胸肉 + 無糖豆漿</span>
+                        </div>
+                        <div class="diet-status status-pass">安全 🟢</div>
+                    </div>
+
+                    <div class="diet-item">
+                        <div class="diet-info">
+                            <span class="time-tag">午餐</span>
+                            <span class="food-name">美冴特製蒟蒻蔬菜高麗菜絲</span>
+                        </div>
+                        <div class="diet-status status-pass">安全 🟢</div>
+                    </div>
+
+                    <div class="diet-item">
+                        <div class="diet-info">
+                            <span class="time-tag">點心</span>
+                            <span class="food-name">偷吃小新的小熊巧克力餅乾</span>
+                        </div>
+                        <div class="diet-status status-fail">超標 🔴</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="full-width-section">
+            <section class="center-card">
+                <div class="card-title-bar">
+                    <span class="card-icon">📅</span>
+                    <h2>向日葵班運動特訓行事曆</h2>
+                </div>
+
+                <div class="calendar-grid">
+                    <div class="calendar-day">
+                        <span class="day-name">週一</span>
+                        <span class="event-dot">🧘‍♀️</span>
+                        <span class="event-text">美冴式瑜珈</span>
+                    </div>
+                    <div class="calendar-day">
+                        <span class="day-name">週二</span>
+                        <span class="event-dot">🏃‍♂️</span>
+                        <span class="event-text">追小白接力</span>
+                    </div>
+                    <div class="calendar-day today">
+                        <span class="day-name">週三 (今天)</span>
+                        <span class="event-dot">🥊</span>
+                        <span class="event-text">動感拳擊 HIIT</span>
+                    </div>
+                    <div class="calendar-day">
+                        <span class="day-name">週四</span>
+                        <span class="event-dot">🧹</span>
+                        <span class="event-text">家庭大掃除</span>
+                    </div>
+                    <div class="calendar-day">
+                        <span class="day-name">週五</span>
+                        <span class="event-dot">🏊‍♂️</span>
+                        <span class="event-text">雙葉特訓游</span>
+                    </div>
+                    <div class="calendar-day">
+                        <span class="day-name">週六</span>
+                        <span class="event-dot">🚶‍♀️</span>
+                        <span class="event-text">百貨特價散步</span>
+                    </div>
+                    <div class="calendar-day">
+                        <span class="day-name">週日</span>
+                        <span class="event-dot">🛌</span>
+                        <span class="event-text">偷偷躺平修復</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="motivation-footer">
+            📢 系統提示：小新說媽媽肚子上的三層肉已經沒救了，請今天務必完成動感拳擊特訓！
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
