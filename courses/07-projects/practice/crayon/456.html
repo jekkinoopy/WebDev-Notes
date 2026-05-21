@@ -2,711 +2,231 @@
 <html lang="zh-TW">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>春日部防衛隊・全面減肥管理中心計畫</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* 🎨 蠟筆小新不規則幾何美學與漫畫風配色 */
-        :root {
-            --bg-green: #dfebd5;
-            /* 小新睡衣經典嫩綠底色 */
-            --shinnosuke-red: #ff3838;
-            /* 小新上衣紅 */
-            --action-yellow: #fcd800;
-            /* 動感光波黃 / 小新短褲黃 */
-            --kindergarten-blue: #3ba3ff;
-            /* 雙葉幼稚園制服藍 */
-            --buriburi-pink: #ff94c2;
-            /* 肥嘟嘟左衛門粉紅 */
-            --ink-black: #1a1a1a;
-            /* 漫畫粗邊框線條顏色 */
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Comic Sans MS', "Chalkboard SE", "Microsoft JhengHei", sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-green);
-            color: var(--ink-black);
-            overflow-x: hidden;
-            position: relative;
-            padding-bottom: 60px;
-        }
-
-        /* 🌀 背景不規則幾何圖形裝飾（小新睡衣幾何圖案生動重現） */
-        .bg-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .shape-triangle {
-            position: absolute;
-            top: 8%;
-            left: 4%;
-            width: 0;
-            height: 0;
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-bottom: 45px solid var(--shinnosuke-red);
-            transform: rotate(14deg);
-        }
-
-        .shape-square {
-            position: absolute;
-            top: 15%;
-            right: 5%;
-            width: 40px;
-            height: 40px;
-            background-color: var(--action-yellow);
-            transform: rotate(-22deg);
-        }
-
-        .shape-circle {
-            position: absolute;
-            top: 45%;
-            left: 2%;
-            width: 45px;
-            height: 45px;
-            background-color: var(--kindergarten-blue);
-            border-radius: 50%;
-        }
-
-        .shape-triangle2 {
-            position: absolute;
-            top: 65%;
-            right: 3%;
-            width: 0;
-            height: 0;
-            border-left: 30px solid transparent;
-            border-right: 30px solid transparent;
-            border-bottom: 50px solid var(--buriburi-pink);
-            transform: rotate(45deg);
-        }
-
-        /* --- 頂部導覽列 --- */
-        nav {
-            background-color: #ffffff;
-            padding: 18px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 5px solid var(--ink-black);
-            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.05);
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 900;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--ink-black);
-            font-weight: bold;
-            font-size: 1rem;
-            padding: 8px 16px;
-            border: 3px solid transparent;
-            border-radius: 12px;
-            transition: 0.1s;
-        }
-
-        .nav-links a:hover {
-            background-color: var(--action-yellow);
-            border-color: var(--ink-black);
-        }
-
-        /* --- 主標題區塊 --- */
-        header {
-            text-align: center;
-            padding: 50px 20px 30px 20px;
-        }
-
-        header h1 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            display: inline-block;
-            position: relative;
-        }
-
-        header h1::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 100%;
-            height: 8px;
-            background-color: var(--action-yellow);
-            z-index: -1;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #4a4a4a;
-        }
-
-        /* 主容器 */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* ==================== 1. BMI 核心區塊（完全對齊小新文案） ==================== */
-        .cards-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-            margin-bottom: 50px;
-        }
-
-        .card {
-            background: #ffffff;
-            border: 5px solid var(--ink-black);
-            border-radius: 25px;
-            box-shadow: 10px 10px 0px var(--ink-black);
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* 卡片頂部手繪感斜切色塊 */
-        .card-header-deco {
-            height: 20px;
-            width: 100%;
-            border-bottom: 4px solid var(--ink-black);
-        }
-
-        .card-get .card-header-deco {
-            background-color: var(--buriburi-pink);
-        }
-
-        .card-post .card-header-deco {
-            background-color: var(--kindergarten-blue);
-        }
-
-        .card-content {
-            padding: 30px;
-        }
-
-        .icon-top {
-            font-size: 3.5rem;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .card h2 {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            font-weight: 900;
-        }
-
-        .input-group {
-            position: relative;
-            margin-bottom: 22px;
-        }
-
-        .input-group i {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #555;
-            font-size: 1.2rem;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 14px 14px 14px 50px;
-            border: 4px solid var(--ink-black);
-            border-radius: 14px;
-            font-size: 1.05rem;
-            font-weight: bold;
-            outline: none;
-            background-color: #fffdf0;
-            /* 手感溫和底色 */
-        }
-
-        .input-group input:focus {
-            background-color: #ffffff;
-            border-color: var(--shinnosuke-red);
-        }
-
-        button {
-            width: 100%;
-            padding: 15px;
-            border: 4px solid var(--ink-black);
-            border-radius: 16px;
-            font-size: 1.2rem;
-            font-weight: 900;
-            cursor: pointer;
-            box-shadow: 0 5px 0 var(--ink-black);
-            transition: 0.1s;
-        }
-
-        button:active {
-            transform: translateY(5px);
-            box-shadow: 0 0px 0 var(--ink-black);
-        }
-
-        .card-get button {
-            background-color: var(--action-yellow);
-            color: var(--ink-black);
-        }
-
-        .card-post button {
-            background-color: var(--shinnosuke-red);
-            color: #ffffff;
-        }
-
-        /* ==================== 2. 運動行事曆（對齊心智圖內容） ==================== */
-        .section-box {
-            background: #ffffff;
-            border: 5px solid var(--ink-black);
-            border-radius: 25px;
-            box-shadow: 10px 10px 0px var(--ink-black);
-            padding: 35px;
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .day-card {
-            background-color: #ffffff;
-            border: 4px solid var(--ink-black);
-            border-radius: 18px;
-            padding: 20px;
-            position: relative;
-            background-color: #fffdf4;
-        }
-
-        .day-title {
-            font-weight: 900;
-            font-size: 1.2rem;
-            padding-bottom: 10px;
-            margin-bottom: 12px;
-            border-bottom: 3px dashed var(--ink-black);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .day-title small {
-            background-color: var(--kindergarten-blue);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            border: 2px solid var(--ink-black);
-        }
-
-        .day-card.rest {
-            background-color: #e2f7e9;
-        }
-
-        .day-card.rest .day-title small {
-            background-color: #2ecc71;
-        }
-
-        .exercise-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .exercise-tag {
-            background-color: #ffffff;
-            border: 2.5px solid var(--ink-black);
-            padding: 4px 10px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
-
-        /* ==================== 3. 飲食控制紀錄區（精緻重塑） ==================== */
-        .diet-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .diet-card {
-            background: #ffffff;
-            border: 4px solid var(--ink-black);
-            border-radius: 20px;
-            padding: 25px;
-            position: relative;
-        }
-
-        .diet-card::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            width: 30px;
-            height: 15px;
-            background: var(--action-yellow);
-            border: 3px solid var(--ink-black);
-            border-radius: 6px;
-        }
-
-        .diet-time {
-            font-size: 1.3rem;
-            font-weight: 900;
-            margin-bottom: 12px;
-            color: var(--shinnosuke-red);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .diet-desc {
-            font-size: 1rem;
-            font-weight: bold;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        /* ==================== 4. 頁尾區塊（精緻漫畫感） ==================== */
-        footer {
-            background-color: #ffffff;
-            border-top: 5px solid var(--ink-black);
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 60px;
-            position: relative;
-        }
-
-        footer::before {
-            content: "⚡ 嗶嗶嗶！動感光波—— ⚡";
-            position: absolute;
-            top: -18px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--action-yellow);
-            border: 4px solid var(--ink-black);
-            padding: 4px 20px;
-            border-radius: 30px;
-            font-weight: 900;
-            font-size: 0.95rem;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-size: 1.4rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-        }
-
-        .footer-note {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #666;
-        }
-
-        header h1 {
-            color: var(--buriburi-pink);
-        }
-
-        .tagline {
-            font-size: 1rem;
-            font-weight: bold;
-            margin: 8px 0;
-            color: #555;
-        }
-
-        .confidential {
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 0.85rem;
-            font-weight: 900;
-            padding: 6px 14px;
-            border: 3px solid var(--ink-black);
-            border-radius: 8px;
-            background: #fff;
-        }
-
-        .intro-panel {
-            background: #fff;
-            border: 5px solid var(--ink-black);
-            border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 30px;
-            box-shadow: 8px 8px 0 var(--ink-black);
-        }
-
-        .slide-label {
-            font-size: 0.8rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .protocol-note {
-            margin: 14px 0 18px;
-            padding: 12px;
-            background: #fffdf0;
-            border: 3px dashed var(--ink-black);
-            border-radius: 12px;
-            font-size: 0.9rem;
-            line-height: 1.55;
-            font-weight: bold;
-        }
-
-        .protocol-note code {
-            display: block;
-            margin: 6px 0;
-            font-family: Consolas, monospace;
-            font-size: 0.85rem;
-        }
-
-        .coach-tip {
-            margin-top: 18px;
-            padding: 14px;
-            background: var(--action-yellow);
-            border: 4px solid var(--ink-black);
-            border-radius: 12px;
-            font-weight: 900;
-        }
-
-        .benefit-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
-        }
-
-        .benefit-card {
-            background: #fffdf4;
-            border: 4px solid var(--ink-black);
-            border-radius: 14px;
-            padding: 16px;
-            font-weight: bold;
-        }
-
-        .benefit-card h3 {
-            margin-bottom: 6px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>春日部防衛隊・全面計畫</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="crayon-layout.css">
 </head>
 
-<body>
+<body class="crayon-school">
 
-    <div class="bg-shapes">
-        <div class="shape-triangle"></div>
-        <div class="shape-square"></div>
-        <div class="shape-circle"></div>
-        <div class="shape-triangle2"></div>
-    </div>
+  <div class="crayon-bg-shapes" aria-hidden="true">
+    <span class="crayon-shape crayon-shape--tri crayon-shape--1"></span>
+    <span class="crayon-shape crayon-shape--sq crayon-shape--2"></span>
+    <span class="crayon-shape crayon-shape--ci crayon-shape--3"></span>
+    <span class="crayon-shape crayon-shape--tri crayon-shape--4"></span>
+    <span class="crayon-shape crayon-shape--sq crayon-shape--5"></span>
+    <span class="crayon-shape crayon-shape--ci crayon-shape--6"></span>
+    <span class="crayon-shape crayon-shape--tri crayon-shape--7"></span>
+    <span class="crayon-shape crayon-shape--sq crayon-shape--8"></span>
+    <span class="crayon-shape crayon-shape--ci crayon-shape--9"></span>
+    <span class="crayon-shape crayon-shape--tri crayon-shape--10"></span>
+    <span class="crayon-shape crayon-shape--sq crayon-shape--11"></span>
+    <span class="crayon-shape crayon-shape--ci crayon-shape--12"></span>
+  </div>
 
-    <nav>
-        <div class="logo">🎒 春日部防衛隊・減重管理中心</div>
-        <ul class="nav-links">
-            <li><a href="#bmi-section">體重監測</a></li>
-            <li><a href="#workout-section">運動特訓</a></li>
-            <li><a href="#diet-section">飲食封印</a></li>
+  <header class="crayon-topbar">
+    <div class="crayon-topbar-inner">
+      <a class="crayon-logo" href="456.html">春日部防衛隊</a>
+      <nav class="crayon-nav-wrap" aria-label="頁內導覽">
+        <ul class="crayon-nav">
+          <li><a href="#bmi-section">體重監測</a></li>
+          <li><a href="#workout-section">運動特訓</a></li>
+          <li><a href="#diet-section">飲食封印</a></li>
         </ul>
-    </nav>
-
-    <header>
-        <h1>春日部防衛隊</h1>
-        <p class="subtitle">全面計畫</p>
-    </header>
-
-    <div class="container">
-
-        <section class="intro-panel" id="bmi-section">
-            <p class="slide-label">雙葉幼稚園・減肥小組</p>
-            <h2 class="section-title" style="margin-bottom:8px;">📏 核心功能：BMI 數據偵測</h2>
-            <p>利用 GET 與 POST 兩大傳輸武功，徹底揭穿野原一家的身材偽裝！</p>
-            <p style="margin-top:10px;font-weight:bold;">BMI 核心模組 · 資料傳輸協定：GET vs POST · 數據偽裝 vs 真實監控</p>
-        </section>
-
-        <div class="cards-wrapper">
-
-            <div class="card card-get">
-                <div class="card-header-deco"></div>
-                <div class="card-content">
-                    <div class="icon-top">🍑</div>
-                    <h2>🍑 美冴的自我安慰 (GET)</h2>
-                    <p class="protocol-note">資料直接顯現在網址列，就像美冴藏在壁櫥裡的零食一樣，一眼就會被發現！
-                        <code>GET /h04-bmi-1.php?height=160&amp;weight=52</code>
-                        #名義身高 #最近比較瘦的體重
-                    </p>
-                    <form action="#" method="get" onsubmit="return false;">
-                        <div class="input-group">
-                            <i class="fa-solid fa-ruler-vertical"></i>
-                            <input type="number" name="height" placeholder="請輸入名義上的身高 (cm)" step="0.1" required>
-                        </div>
-                        <div class="input-group">
-                            <i class="fa-solid fa-weight-scale"></i>
-                            <input type="number" name="weight" placeholder="請輸入最近比較瘦的體重 (kg)" step="0.1" required>
-                        </div>
-                        <button type="submit">動感光波，數值大公開！</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="card card-post">
-                <div class="card-header-deco"></div>
-                <div class="card-content">
-                    <div class="icon-top">👺</div>
-                    <h2>👺 廣志的真實監測 (POST)</h2>
-                    <p class="protocol-note">資料封裝在請求體中，隱密程度等同於廣志藏在襪子裡的私房錢！
-                        <code>POST /h04-bmi-1.php (Body: height=180&amp;weight=90)</code>
-                        #真實身高 #宵夜後的靈魂重量
-                    </p>
-                    <form action="#" method="post" onsubmit="return false;">
-                        <div class="input-group">
-                            <i class="fa-solid fa-ruler-vertical"></i>
-                            <input type="number" name="height" placeholder="請輸入真實的身高 (cm)" step="0.1" required>
-                        </div>
-                        <div class="input-group">
-                            <i class="fa-solid fa-weight-scale"></i>
-                            <input type="number" name="weight" placeholder="請輸入偷吃宵夜後的體重 (kg)" step="0.1" required>
-                        </div>
-                        <button type="submit">大原所長，請隱密過目！</button>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-        <p class="slide-label" style="padding:0 5px 20px;">野原家數據分析 · SLIDE 03 | 數據隱私等級 A++</p>
-
-        <div class="section-box" id="workout-section">
-            <p class="slide-label">春日部體能計畫 · WEEKLY WORKOUT PLANNER</p>
-            <h2 class="section-title">動感超人：一週運動特訓 (上)</h2>
-            <div class="calendar-grid">
-                <div class="day-card">
-                    <div class="day-title"><span>週一</span><small>推力</small></div>
-                    <div class="exercise-list"><span class="exercise-tag">坐姿推胸機</span><span
-                            class="exercise-tag">上斜推胸機</span><span class="exercise-tag">三頭下壓</span><span
-                            class="exercise-tag">健身車 20m</span></div>
-                </div>
-                <div class="day-card">
-                    <div class="day-title"><span>週二</span><small>下肢</small></div>
-                    <div class="exercise-list"><span class="exercise-tag">腿推機</span><span
-                            class="exercise-tag">腿部伸展</span><span class="exercise-tag">臀推機</span><span
-                            class="exercise-tag">羅馬椅</span></div>
-                </div>
-                <div class="day-card">
-                    <div class="day-title"><span>週三</span><small>有氧</small></div>
-                    <div class="exercise-list"><span class="exercise-tag">游泳 30min</span><span class="exercise-tag">跑步機
-                            30min</span><span class="exercise-tag">動感光波</span></div>
-                </div>
-                <div class="day-card">
-                    <div class="day-title"><span>週四</span><small>拉力</small></div>
-                    <div class="exercise-list"><span class="exercise-tag">滑輪下拉</span><span
-                            class="exercise-tag">坐姿划船</span><span class="exercise-tag">二頭彎舉</span><span
-                            class="exercise-tag">健身車 20m</span></div>
-                </div>
-            </div>
-            <p class="coach-tip">教練提醒：小新！不要在健身房跳大象舞！按照心智圖規劃，週一、二、四是重點力量訓練日。</p>
-        </div>
-
-        <div class="section-box">
-            <h2 class="section-title">動感超人：一週運動特訓 (下)</h2>
-            <div class="calendar-grid">
-                <div class="day-card">
-                    <div class="day-title"><span>週五</span><small>下肢</small></div>
-                    <div class="exercise-list"><span class="exercise-tag">腿部訓練</span><span
-                            class="exercise-tag">核心捲腹</span><span class="exercise-tag">臀部內收</span></div>
-                </div>
-                <div class="day-card">
-                    <div class="day-title"><span>週六</span><small>有氧</small></div>
-                    <div class="exercise-list"><span class="exercise-tag">游大跑大 30m</span><span
-                            class="exercise-tag">追逐小白</span></div>
-                </div>
-                <div class="day-card rest">
-                    <div class="day-title"><span>週日</span><small>休息</small></div>
-                    <div class="exercise-list"><span class="exercise-tag">吃巧克力餅乾</span><span
-                            class="exercise-tag">看動感超人轉播</span></div>
-                </div>
-            </div>
-            <div class="benefit-grid">
-                <div class="benefit-card">
-                    <h3>🏃 基礎代謝提升</h3>
-                    <p>透過每日 30 分鐘的有氧，穩定降低野原廣志的肚子贅肉。</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>💪 增肌計畫</h3>
-                    <p>強化三頭與背部，讓美冴提重物逛超市更輕鬆。</p>
-                </div>
-            </div>
-            <p class="slide-label" style="margin-top:16px;">春日部體能計畫 · SLIDE 05 | 核心訓練模組</p>
-        </div>
-
-        <div class="section-box" id="diet-section">
-            <h2 class="section-title">雙葉幼稚園：飲食控制紀錄</h2>
-            <div class="diet-grid">
-                <div class="diet-card">
-                    <div class="diet-time">Green Pepper</div>
-                    <div class="diet-desc"><strong>封印青椒計畫 (健康攝取)</strong><br>每日必須攝取 300g 綠色蔬菜。雖然小新很討厭，但這是防衛隊的命令！</div>
-                </div>
-                <div class="diet-card">
-                    <div class="diet-time">🍪</div>
-                    <div class="diet-desc"><strong>巧克力餅乾配額 (熱量控制)</strong><br>每日僅限兩片。嚴格禁止半夜偷吃美冴藏在櫃子最上層的限定口味。</div>
-                </div>
-                <div class="diet-card">
-                    <div class="diet-time">🍺</div>
-                    <div class="diet-desc"><strong>廣志的生啤酒禁令</strong><br>晚餐後的生啤酒改為無糖氣泡水。足臭指數下降，健康指數上升！</div>
-                </div>
-            </div>
-        </div>
-
+      </nav>
     </div>
+  </header>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">🎒 春日部防衛隊・減肥管理中心</div>
-            <p class="footer-note">「只要有心，連肥嘟嘟左衛門都能變身成動感超人！」
+  <main>
+    <section class="crayon-hero" aria-labelledby="hero-title">
+      <div class="crayon-hero-inner">
+        <h1 id="hero-title">春日部防衛隊</h1>
+        <p class="crayon-hero-sub">全面計畫</p>
+      </div>
+      <div class="crayon-hero-deco" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </section>
 
-            </p>
-            <p style="font-size: 0.8rem; color: #a0a0a0; margin-top: 15px;">© 2026 Noopy's Web Studio. 僅供 vocational
-                專案練習使用。</p>
+    <section class="crayon-section" id="bmi-section" aria-labelledby="bmi-title">
+      <div class="crayon-section-head">
+        <span class="crayon-section-num">01</span>
+        <div>
+          <h2 id="bmi-title" class="crayon-section-title">BMI 核心模組</h2>
+          <p class="crayon-section-desc">資料傳輸協定：GET vs POST · 數據偽裝 vs 真實監控</p>
         </div>
-    </footer>
+      </div>
+
+      <div class="crayon-banner">
+        <p class="crayon-kicker">核心功能</p>
+        <p><strong>📏 BMI 數據偵測</strong> — 利用 GET 與 POST 兩大傳輸武功，徹底揭穿野原一家的身材偽裝！</p>
+      </div>
+
+      <div class="crayon-card-grid">
+        <article class="crayon-card crayon-card--get">
+          <span class="crayon-sticker" aria-hidden="true">🍑</span>
+          <span class="crayon-badge">GET</span>
+          <h3>美冴的自我安慰 (GET)</h3>
+          <p class="crayon-protocol">資料直接顯現在網址列，就像美冴藏在壁櫥裡的零食一樣，一眼就會被發現！
+            <code>GET /h04-bmi-1.php?height=160&amp;weight=52</code>
+            #名義身高 #最近比較瘦的體重</p>
+          <form class="crayon-form" action="#" method="get" onsubmit="return false;">
+            <div class="input-group">
+              <i class="fa-solid fa-ruler-vertical" aria-hidden="true"></i>
+              <input type="number" name="height" placeholder="名義上的身高 (cm)" step="0.1" required>
+            </div>
+            <div class="input-group">
+              <i class="fa-solid fa-weight-scale" aria-hidden="true"></i>
+              <input type="number" name="weight" placeholder="最近比較瘦的體重 (kg)" step="0.1" required>
+            </div>
+            <button type="submit">動感光波，數值大公開！</button>
+          </form>
+        </article>
+
+        <article class="crayon-card crayon-card--post">
+          <span class="crayon-sticker" aria-hidden="true">👺</span>
+          <span class="crayon-badge">POST</span>
+          <h3>廣志的真實監測 (POST)</h3>
+          <p class="crayon-protocol">資料封裝在請求體中，隱密程度等同於廣志藏在襪子裡的私房錢！
+            <code>POST /h04-bmi-1.php (Body: height=180&amp;weight=90)</code>
+            #真實身高 #宵夜後的靈魂重量</p>
+          <form class="crayon-form" action="#" method="post" onsubmit="return false;">
+            <div class="input-group">
+              <i class="fa-solid fa-ruler-vertical" aria-hidden="true"></i>
+              <input type="number" name="height" placeholder="真實的身高 (cm)" step="0.1" required>
+            </div>
+            <div class="input-group">
+              <i class="fa-solid fa-weight-scale" aria-hidden="true"></i>
+              <input type="number" name="weight" placeholder="宵夜後的體重 (kg)" step="0.1" required>
+            </div>
+            <button type="submit">大原所長，請隱密過目！</button>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <section class="crayon-section" id="workout-section">
+      <div class="crayon-plate">
+        <div class="crayon-section-head">
+          <span class="crayon-section-num">02</span>
+          <div>
+            <h2 id="workout-up-title" class="crayon-section-title">動感超人：一週運動特訓 (上)</h2>
+          </div>
+        </div>
+        <div class="crayon-week-rail">
+          <div class="crayon-day" data-week="一">
+            <div class="crayon-day-head"><span>週一</span><small>推力</small></div>
+            <div class="crayon-tags">
+              <span class="crayon-tag">坐姿推胸機</span><span class="crayon-tag">上斜推胸機</span>
+              <span class="crayon-tag">三頭下壓</span><span class="crayon-tag">健身車 20m</span>
+            </div>
+          </div>
+          <div class="crayon-day" data-week="二">
+            <div class="crayon-day-head"><span>週二</span><small>下肢</small></div>
+            <div class="crayon-tags">
+              <span class="crayon-tag">腿推機</span><span class="crayon-tag">腿部伸展</span>
+              <span class="crayon-tag">臀推機</span><span class="crayon-tag">羅馬椅</span>
+            </div>
+          </div>
+          <div class="crayon-day" data-week="三">
+            <div class="crayon-day-head"><span>週三</span><small>有氧</small></div>
+            <div class="crayon-tags">
+              <span class="crayon-tag">游泳 30min</span><span class="crayon-tag">跑步機 30min</span>
+              <span class="crayon-tag">動感光波</span>
+            </div>
+          </div>
+          <div class="crayon-day" data-week="四">
+            <div class="crayon-day-head"><span>週四</span><small>拉力</small></div>
+            <div class="crayon-tags">
+              <span class="crayon-tag">滑輪下拉</span><span class="crayon-tag">坐姿划船</span>
+              <span class="crayon-tag">二頭彎舉</span><span class="crayon-tag">健身車 20m</span>
+            </div>
+          </div>
+        </div>
+        <p class="crayon-callout">教練提醒：小新！別霸占跑步機看動感超人，器材用完要歸位。按照心智圖規劃，週一、二、四是重點力量訓練日。</p>
+      </div>
+
+      <div class="crayon-plate">
+        <div class="crayon-section-head">
+          <span class="crayon-section-num">03</span>
+          <div>
+            <h2 class="crayon-section-title">動感超人：一週運動特訓 (下)</h2>
+          </div>
+        </div>
+        <div class="crayon-week-rail">
+          <div class="crayon-day" data-week="五">
+            <div class="crayon-day-head"><span>週五</span><small>下肢</small></div>
+            <div class="crayon-tags">
+              <span class="crayon-tag">腿部訓練</span><span class="crayon-tag">核心捲腹</span>
+              <span class="crayon-tag">臀部內收</span>
+            </div>
+          </div>
+          <div class="crayon-day" data-week="六">
+            <div class="crayon-day-head"><span>週六</span><small>有氧</small></div>
+            <div class="crayon-tags">
+              <span class="crayon-tag">游大跑大 30m</span><span class="crayon-tag">追逐小白</span>
+            </div>
+          </div>
+          <div class="crayon-day crayon-day--rest" data-week="日">
+            <div class="crayon-day-head"><span>週日</span><small>休息</small></div>
+            <div class="crayon-tags">
+              <span class="crayon-tag">吃巧克力餅乾</span><span class="crayon-tag">看動感超人轉播</span>
+            </div>
+          </div>
+        </div>
+        <div class="crayon-benefits">
+          <div class="crayon-benefit">
+            <span class="crayon-benefit-icon" aria-hidden="true">🏃</span>
+            <div>
+              <h3>基礎代謝提升</h3>
+              <p>透過每日 30 分鐘的有氧，穩定降低野原廣志的肚子贅肉。</p>
+            </div>
+          </div>
+          <div class="crayon-benefit">
+            <span class="crayon-benefit-icon" aria-hidden="true">💪</span>
+            <div>
+              <h3>增肌計畫</h3>
+              <p>強化三頭與背部，讓美冴提重物逛超市更輕鬆。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="crayon-section" id="diet-section" aria-labelledby="diet-title">
+      <div class="crayon-section-head">
+        <span class="crayon-section-num">04</span>
+        <div>
+          <h2 id="diet-title" class="crayon-section-title">雙葉幼稚園：飲食控制紀錄</h2>
+        </div>
+      </div>
+      <div class="crayon-diet-list">
+        <article class="crayon-diet">
+          <h4>Green Pepper · 封印青椒計畫</h4>
+          <p><strong>健康攝取：</strong>每日必須攝取 300g 綠色蔬菜。雖然小新很討厭，但這是防衛隊的命令！</p>
+        </article>
+        <article class="crayon-diet">
+          <h4>🍪 巧克力餅乾配額</h4>
+          <p><strong>熱量控制：</strong>每日僅限兩片。嚴格禁止半夜偷吃美冴藏在櫃子最上層的限定口味。</p>
+        </article>
+        <article class="crayon-diet">
+          <h4>🍺 廣志的生啤酒禁令</h4>
+          <p>晚餐後的生啤酒改為無糖氣泡水。足臭指數下降，健康指數上升！</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="crayon-footer">
+    <p class="crayon-footer-logo">春日部防衛隊・減肥管理中心</p>
+    <p class="crayon-footer-note">「只要有心，連肥嘟嘟左衛門都能變身成動感超人！」</p>
+    <p class="crayon-footer-copy">© 2026 Noopy's Web Studio · 僅供專案練習使用</p>
+  </footer>
 
 </body>
 
