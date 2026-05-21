@@ -34,7 +34,7 @@
 }
 
 .crayon-school {
-  --cx-scroll-pad: 5.75rem;
+  --cx-scroll-pad: 6.5rem;
   margin: 0;
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   font-size: 17px;
@@ -47,16 +47,17 @@
 
 .crayon-school main {
   display: block;
-  background: var(--cx-bg);
+  background: transparent;
 }
 
-/* 睡衣幾何背景：紅三角・黃方・綠圓，散亂分布＋描邊陰影 */
+/* 睡衣幾何背景：紅三角・黃方・綠圓（固定於視窗，不被色帶完全蓋住） */
 .crayon-bg-shapes {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  background: var(--cx-bg);
 }
 
 .crayon-shape {
@@ -190,104 +191,101 @@
   z-index: 1;
 }
 
-/* Hero：背景全寬，內文置中 */
+/* 頁首：保留你的眉標／標題／名言；僅導覽吸頂（無卡片） */
 .crayon-hero {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: clamp(2.25rem, 6vw, 3.5rem) clamp(1rem, 4vw, 2rem) clamp(2.5rem, 5vw, 3.25rem);
-  position: relative;
-  background: var(--cx-bg);
-  text-align: center;
+  padding: clamp(2rem, 6vw, 3.25rem) clamp(1rem, 4vw, 2rem) 0.5rem;
+  background: transparent;
+  text-align: left;
 }
 
 .crayon-hero-inner {
-  max-width: 40rem;
+  max-width: var(--cx-max);
   margin: 0 auto;
+}
+
+.crayon-hero-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--cx-hill-dark);
 }
 
 .crayon-hero h1 {
-  margin: 0 0 0.75rem;
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.65rem, 4.5vw, 2.35rem);
   font-weight: 900;
   line-height: 1.2;
-  color: var(--cx-ink);
   letter-spacing: 0.04em;
-}
-
-.crayon-hero-sub {
-  margin: 0 auto 1.1rem;
-  max-width: 26em;
-  font-size: clamp(1rem, 2.5vw, 1.15rem);
-  font-weight: 600;
-  line-height: 1.7;
   color: var(--cx-ink);
 }
 
-/* 吸頂導覽：無邊框、無陰影 */
-.crayon-hero-nav {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  margin: 0 auto;
-  padding: 0.65rem 0 0.15rem;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+.crayon-hero-lead {
+  margin: 0 0 1.15rem;
+  max-width: 32em;
+  font-size: clamp(0.95rem, 2.2vw, 1.08rem);
+  font-weight: 600;
+  line-height: 1.65;
+  color: var(--cx-muted);
 }
 
-.crayon-hero-chips {
+.crayon-hero-nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.65rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  gap: 0.45rem;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  margin: 0 calc(-1 * clamp(1rem, 4vw, 2rem));
+  padding: 0.7rem clamp(1rem, 4vw, 2rem);
+  background: color-mix(in srgb, var(--cx-bg) 72%, transparent);
+  border-bottom: 1px solid var(--cx-line);
+  backdrop-filter: blur(6px);
 }
 
-.crayon-hero-chip {
+.crayon-hero-link {
   display: inline-block;
-  padding: 0.55rem 1.1rem;
-  font-size: 0.88rem;
-  font-weight: 800;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 700;
   color: var(--cx-ink);
   text-decoration: none;
   border-radius: var(--cx-radius-pill);
-  border: none;
-  box-shadow: none;
-  transition: transform 0.12s ease, background 0.12s ease;
+  transition: background 0.12s ease, transform 0.12s ease;
 }
 
-.crayon-hero-chip--bmi {
+.crayon-hero-link--bmi {
   background: var(--cx-chip-bmi);
-  box-shadow: inset 0 3px 0 var(--cx-pink);
+  box-shadow: inset 0 2px 0 var(--cx-pink);
 }
 
-.crayon-hero-chip--workout {
+.crayon-hero-link--workout {
   background: var(--cx-chip-workout);
-  box-shadow: inset 0 3px 0 var(--cx-yellow);
+  box-shadow: inset 0 2px 0 var(--cx-yellow);
 }
 
-.crayon-hero-chip--diet {
+.crayon-hero-link--diet {
   background: var(--cx-chip-diet);
-  box-shadow: inset 0 3px 0 var(--cx-blue);
+  box-shadow: inset 0 2px 0 var(--cx-blue);
 }
 
-.crayon-hero-chip--bmi:hover {
+.crayon-hero-link--bmi:hover {
   background: color-mix(in srgb, var(--cx-pink) 14%, var(--cx-chip-bmi));
 }
 
-.crayon-hero-chip--workout:hover {
+.crayon-hero-link--workout:hover {
   background: color-mix(in srgb, var(--cx-yellow) 18%, var(--cx-chip-workout));
 }
 
-.crayon-hero-chip--diet:hover {
+.crayon-hero-link--diet:hover {
   background: color-mix(in srgb, var(--cx-blue) 14%, var(--cx-chip-diet));
 }
 
-.crayon-hero-chip:hover {
-  transform: translateY(-2px);
+.crayon-hero-link:hover {
+  transform: translateY(-1px);
 }
 
 /* 波浪：畫在本區塊頂部內，不往上蓋 Hero／導覽 */
@@ -302,25 +300,25 @@
 }
 
 .crayon-band--cream {
-  background-color: var(--cx-cream);
+  background-color: color-mix(in srgb, var(--cx-cream) 88%, transparent);
 }
 
 .crayon-band--soft {
-  background-color: var(--cx-soft);
+  background-color: color-mix(in srgb, var(--cx-soft) 88%, transparent);
 }
 
 .crayon-band--after-bg {
-  background-color: var(--cx-cream);
+  background-color: color-mix(in srgb, var(--cx-cream) 88%, transparent);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 72' preserveAspectRatio='none'%3E%3Crect width='1200' height='72' fill='%23e5f0d8'/%3E%3Cpath fill='%23fdfef9' d='M0 36C180 70 360 4 600 36 840 70 1020 12 1200 36V72H0z'/%3E%3C/svg%3E");
 }
 
 .crayon-band--after-cream {
-  background-color: var(--cx-soft);
+  background-color: color-mix(in srgb, var(--cx-soft) 88%, transparent);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 72' preserveAspectRatio='none'%3E%3Crect width='1200' height='72' fill='%23fdfef9'/%3E%3Cpath fill='%23f4f9ef' d='M0 50C200 12 400 68 600 30 800 4 1000 58 1200 26V72H0z'/%3E%3C/svg%3E");
 }
 
 .crayon-band--after-soft {
-  background-color: var(--cx-cream);
+  background-color: color-mix(in srgb, var(--cx-cream) 88%, transparent);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 72' preserveAspectRatio='none'%3E%3Crect width='1200' height='72' fill='%23f4f9ef'/%3E%3Cpath fill='%23fdfef9' d='M0 36C180 70 360 4 600 36 840 70 1020 12 1200 36V72H0z'/%3E%3C/svg%3E");
 }
 
