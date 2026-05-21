@@ -1,21 +1,21 @@
 /* 春日部防衛隊 — 柔和插畫風排版＋睡衣幾何背景 */
 :root {
-  --cx-ink: #1a1a1a;
-  --cx-muted: #4a5568;
+  --cx-ink: #2f3a34;
+  --cx-muted: #5c6b63;
   --cx-bg: #dfebd5;
   --cx-cream: #f7faf4;
   --cx-soft: #eef6e8;
-  --cx-hill: #5a9e62;
-  --cx-hill-dark: #3d7a48;
+  --cx-hill: #6a9f72;
+  --cx-hill-dark: #4f7d57;
   --cx-surface: rgba(255, 255, 255, 0.96);
   --cx-line: #c5d4bc;
-  --cx-red: #ff3838;
-  --cx-yellow: #ffdc00;
-  --cx-green: #5ec75a;
-  --cx-blue: #3ba3ff;
-  --cx-pink: #ff94c2;
-  --cx-shape-stroke: #3d3832;
-  --cx-shape-shadow: 5px 7px 0 rgba(86, 108, 94, 0.28);
+  --cx-red: #d97070;
+  --cx-yellow: #d4c36a;
+  --cx-green: #7aad76;
+  --cx-blue: #7aabcc;
+  --cx-pink: #dfa8b8;
+  --cx-shape-stroke: #4a4540;
+  --cx-shape-shadow: 4px 5px 0 rgba(86, 108, 94, 0.18);
   --cx-max: 1080px;
   --cx-radius: 1.35rem;
   --cx-radius-sm: 0.85rem;
@@ -219,7 +219,7 @@
 }
 
 .crayon-logo:hover {
-  color: var(--cx-red);
+  color: var(--cx-hill-dark);
 }
 
 .crayon-nav-wrap {
@@ -251,29 +251,37 @@
 }
 
 .crayon-nav li:nth-child(1) a {
-  box-shadow: inset 0 4px 0 var(--cx-pink), var(--cx-shadow);
+  box-shadow: inset 0 3px 0 var(--cx-pink), var(--cx-shadow-soft);
 }
 
 .crayon-nav li:nth-child(2) a {
-  box-shadow: inset 0 4px 0 var(--cx-yellow), var(--cx-shadow);
+  box-shadow: inset 0 3px 0 var(--cx-yellow), var(--cx-shadow-soft);
 }
 
 .crayon-nav li:nth-child(3) a {
-  box-shadow: inset 0 4px 0 var(--cx-blue), var(--cx-shadow);
+  box-shadow: inset 0 3px 0 var(--cx-blue), var(--cx-shadow-soft);
 }
 
-.crayon-nav a:hover {
-  background: var(--cx-yellow);
+.crayon-nav li:nth-child(1) a:hover {
+  background: color-mix(in srgb, var(--cx-pink) 24%, var(--cx-surface));
+  box-shadow: inset 0 3px 0 var(--cx-pink), var(--cx-shadow-soft);
   transform: translateY(-2px);
-  box-shadow: inset 0 4px 0 var(--cx-red), 0 6px 20px rgba(45, 55, 45, 0.12);
 }
 
-/* Hero：左文案 + 右圓形插畫區 + 直書標語 */
+.crayon-nav li:nth-child(2) a:hover {
+  background: color-mix(in srgb, var(--cx-yellow) 28%, var(--cx-surface));
+  box-shadow: inset 0 3px 0 var(--cx-yellow), var(--cx-shadow-soft);
+  transform: translateY(-2px);
+}
+
+.crayon-nav li:nth-child(3) a:hover {
+  background: color-mix(in srgb, var(--cx-blue) 24%, var(--cx-surface));
+  box-shadow: inset 0 3px 0 var(--cx-blue), var(--cx-shadow-soft);
+  transform: translateY(-2px);
+}
+
+/* Hero */
 .crayon-hero {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 1.25rem 2rem;
   max-width: var(--cx-max);
   margin: 0 auto;
   padding: clamp(2.25rem, 6vw, 3.5rem) clamp(1rem, 4vw, 2rem) 2.5rem;
@@ -282,7 +290,7 @@
 }
 
 .crayon-hero-inner {
-  max-width: 34rem;
+  max-width: 36rem;
 }
 
 .crayon-hero h1 {
@@ -290,90 +298,67 @@
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   font-weight: 900;
   line-height: 1.2;
-  color: var(--cx-pink);
-  letter-spacing: 0.02em;
+  color: var(--cx-ink);
+  letter-spacing: 0.04em;
 }
 
 .crayon-hero-sub {
-  margin: 0;
+  margin: 0 0 1.25rem;
   max-width: 22em;
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  font-weight: 700;
-  line-height: 1.65;
-  color: var(--cx-ink);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--cx-muted);
 }
 
-.crayon-hero-visual {
+.crayon-hero-chips {
   display: flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-
-.crayon-hero-orbit {
-  position: relative;
-  width: min(200px, 34vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fff 0%, color-mix(in srgb, var(--cx-soft) 80%, #fff) 55%, var(--cx-bg) 100%);
-  box-shadow: var(--cx-shadow);
-}
-
-.crayon-orbit-icon {
-  position: absolute;
-  display: grid;
-  place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  font-size: 1.35rem;
-  background: var(--cx-surface);
-  border-radius: 50%;
-  box-shadow: var(--cx-shadow-soft);
-}
-
-.crayon-orbit-icon--a {
-  top: 12%;
-  left: 10%;
-  transform: rotate(-8deg);
-}
-
-.crayon-orbit-icon--b {
-  top: 38%;
-  right: 6%;
-  transform: rotate(6deg);
-}
-
-.crayon-orbit-icon--c {
-  bottom: 10%;
-  left: 28%;
-  transform: rotate(-4deg);
-}
-
-.crayon-hero-vertical {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
   margin: 0;
-  writing-mode: vertical-rl;
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.35em;
-  color: color-mix(in srgb, var(--cx-ink) 70%, var(--cx-pink));
+  padding: 0;
 }
 
-.crayon-float {
-  position: absolute;
-  font-size: 1.1rem;
-  font-weight: 900;
-  color: color-mix(in srgb, var(--cx-yellow) 80%, var(--cx-ink));
-  opacity: 0.75;
-  pointer-events: none;
+.crayon-hero-chip {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--cx-ink);
+  text-decoration: none;
+  background: var(--cx-surface);
+  border-radius: var(--cx-radius-pill);
+  box-shadow: var(--cx-shadow-soft);
+  transition: transform 0.12s ease, background 0.12s ease;
 }
 
-.crayon-float--a {
-  top: 18%;
-  right: 12%;
+.crayon-hero-chip--bmi {
+  box-shadow: inset 0 3px 0 var(--cx-pink), var(--cx-shadow-soft);
 }
 
-.crayon-float--b {
-  bottom: 22%;
-  left: 8%;
+.crayon-hero-chip--workout {
+  box-shadow: inset 0 3px 0 var(--cx-yellow), var(--cx-shadow-soft);
+}
+
+.crayon-hero-chip--diet {
+  box-shadow: inset 0 3px 0 var(--cx-blue), var(--cx-shadow-soft);
+}
+
+.crayon-hero-chip--bmi:hover {
+  background: color-mix(in srgb, var(--cx-pink) 24%, var(--cx-surface));
+}
+
+.crayon-hero-chip--workout:hover {
+  background: color-mix(in srgb, var(--cx-yellow) 28%, var(--cx-surface));
+}
+
+.crayon-hero-chip--diet:hover {
+  background: color-mix(in srgb, var(--cx-blue) 24%, var(--cx-surface));
+}
+
+.crayon-hero-chip:hover {
+  transform: translateY(-2px);
 }
 
 /* 波浪區隔：畫在區塊 ::before，避免獨立 div 產生白縫 */
@@ -499,6 +484,7 @@
   right: 0;
   height: 8px;
   background: linear-gradient(90deg, var(--cx-pink), var(--cx-yellow), var(--cx-blue));
+  opacity: 0.85;
 }
 
 .crayon-kicker {
@@ -814,7 +800,7 @@
   font-weight: 700;
   color: var(--cx-ink);
   background: linear-gradient(90deg, color-mix(in srgb, var(--cx-yellow) 45%, #fff), transparent);
-  border-left: 5px solid var(--cx-red);
+  border-left: 5px solid var(--cx-pink);
   border-radius: var(--cx-radius-sm);
 }
 
@@ -983,8 +969,6 @@
 
 @media (max-width: 720px) {
   .crayon-hero {
-    grid-template-columns: 1fr;
-    justify-items: center;
     text-align: center;
   }
 
@@ -997,13 +981,8 @@
     margin-right: auto;
   }
 
-  .crayon-hero-visual {
-    flex-direction: column;
-  }
-
-  .crayon-hero-vertical {
-    writing-mode: horizontal-tb;
-    letter-spacing: 0.2em;
+  .crayon-hero-chips {
+    justify-content: center;
   }
 
   .crayon-topbar-row {
@@ -1017,10 +996,6 @@
 
   .crayon-nav {
     justify-content: center;
-  }
-
-  .crayon-float--a {
-    right: 6%;
   }
 
   .crayon-shape--1 { top: 4%; left: 6%; width: 72px; height: 62px; }
