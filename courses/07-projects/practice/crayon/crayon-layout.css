@@ -40,6 +40,11 @@
   position: relative;
 }
 
+.crayon-school main {
+  display: block;
+  background: var(--cx-bg);
+}
+
 /* 睡衣幾何背景：紅三角・黃方・綠圓，散亂分布＋描邊陰影 */
 .crayon-bg-shapes {
   position: fixed;
@@ -175,7 +180,6 @@
 .crayon-topbar,
 .crayon-hero,
 .crayon-section,
-.crayon-wave,
 .crayon-footer {
   position: relative;
   z-index: 1;
@@ -184,7 +188,7 @@
 /* 頂欄：左 Logo、右導覽（參考柔和插畫站） */
 .crayon-topbar {
   padding: 0.85rem clamp(1rem, 4vw, 2rem);
-  background: color-mix(in srgb, var(--cx-cream) 88%, transparent);
+  background: color-mix(in srgb, var(--cx-bg) 92%, var(--cx-cream));
   border-bottom: none;
   box-shadow: 0 2px 16px rgba(45, 55, 45, 0.05);
   backdrop-filter: blur(8px);
@@ -274,6 +278,7 @@
   margin: 0 auto;
   padding: clamp(2.25rem, 6vw, 3.5rem) clamp(1rem, 4vw, 2rem) 2.5rem;
   position: relative;
+  background: var(--cx-bg);
 }
 
 .crayon-hero-inner {
@@ -371,31 +376,10 @@
   left: 8%;
 }
 
-/* 波浪區隔 */
-.crayon-wave {
-  height: clamp(36px, 5vw, 56px);
-  margin-top: -1px;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-
-.crayon-wave--to-cream {
-  background-color: var(--cx-bg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 56' preserveAspectRatio='none'%3E%3Cpath fill='%23f7faf4' d='M0 28C180 56 360 0 600 28 840 56 1020 8 1200 28V56H0z'/%3E%3C/svg%3E");
-}
-
-.crayon-wave--to-soft {
-  background-color: var(--cx-cream);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 56' preserveAspectRatio='none'%3E%3Cpath fill='%23eef6e8' d='M0 40C200 8 400 56 600 24 800 0 1000 48 1200 20V56H0z'/%3E%3C/svg%3E");
-}
-
-.crayon-wave--to-hill {
-  background-color: var(--cx-cream);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 56' preserveAspectRatio='none'%3E%3Cpath fill='%235a9e62' d='M0 32C220 56 440 12 600 36 760 56 980 16 1200 40V56H0z'/%3E%3C/svg%3E");
-}
-
+/* 波浪區隔：畫在區塊 ::before，避免獨立 div 產生白縫 */
 .crayon-band {
-  padding-top: clamp(1.5rem, 4vw, 2.25rem);
+  --cx-wave-h: clamp(40px, 5vw, 56px);
+  padding-top: calc(clamp(1.5rem, 4vw, 2.25rem) + var(--cx-wave-h));
   padding-bottom: clamp(2rem, 5vw, 3rem);
 }
 
@@ -405,6 +389,51 @@
 
 .crayon-band--soft {
   background: var(--cx-soft);
+}
+
+.crayon-band[class*="--after"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(var(--cx-wave-h) + 4px);
+  transform: translateY(calc(-100% + 2px));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center bottom;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.crayon-band--after-bg::before {
+  background-color: var(--cx-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Crect width='1200' height='60' fill='%23dfebd5'/%3E%3Cpath fill='%23f7faf4' d='M0 30C180 58 360 2 600 30 840 58 1020 10 1200 30V60H0z'/%3E%3C/svg%3E");
+}
+
+.crayon-band--after-cream::before {
+  background-color: var(--cx-cream);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Crect width='1200' height='60' fill='%23f7faf4'/%3E%3Cpath fill='%23eef6e8' d='M0 42C200 10 400 58 600 26 800 2 1000 50 1200 22V60H0z'/%3E%3C/svg%3E");
+}
+
+.crayon-band--after-soft::before {
+  background-color: var(--cx-soft);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Crect width='1200' height='60' fill='%23eef6e8'/%3E%3Cpath fill='%23f7faf4' d='M0 30C180 58 360 2 600 30 840 58 1020 10 1200 30V60H0z'/%3E%3C/svg%3E");
+}
+
+.crayon-footer--after-cream::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(var(--cx-wave-h) + 4px);
+  transform: translateY(calc(-100% + 2px));
+  background-color: var(--cx-cream);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Crect width='1200' height='60' fill='%23f7faf4'/%3E%3Cpath fill='%235a9e62' d='M0 34C220 58 440 14 600 38 760 58 980 18 1200 42V60H0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
 }
 
 .crayon-section {
@@ -904,6 +933,7 @@
 
 /* 頁尾：草地小丘 */
 .crayon-footer {
+  --cx-wave-h: clamp(40px, 5vw, 56px);
   margin-top: 0;
   padding: 2.5rem clamp(1rem, 4vw, 2rem) 2.25rem;
   text-align: center;
