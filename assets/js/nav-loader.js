@@ -2,12 +2,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const navbar = document.querySelector(".navbar");
     if (!navbar) return;
 
-    // 取得當前頁面是否在子目錄 (判斷是否包含 courses)
-    const isSubPage = window.location.pathname.includes('/courses/');
+    // 是否在 courses 底下；依目錄深度回根目錄的 ../ 前綴（避免 /courses/courses/...）
+    const path = window.location.pathname.replace(/\\/g, "/");
+    const coursesMarker = "/courses/";
+    const coursesIdx = path.indexOf(coursesMarker);
+    const isSubPage = coursesIdx !== -1;
 
-    // 如果在子目錄，所有連結前面補 ../../ 
-    // 如果在首頁，連結前面什麼都不補
-    const prefix = isSubPage ? "../../../" : "";
+    function getRootPrefix() {
+        if (!isSubPage) return "";
+        const afterCourses = path.slice(coursesIdx + coursesMarker.length);
+        const dir = afterCourses.replace(/\/[^/]*$/, "");
+        const depth = dir ? dir.split("/").filter(Boolean).length : 0;
+        return "../".repeat(depth + 1);
+    }
+
+    const prefix = getRootPrefix();
 
     const disabledStyle = 'style="color: #bbb; cursor: not-allowed; pointer-events: none; opacity: 0.6;"';
 
