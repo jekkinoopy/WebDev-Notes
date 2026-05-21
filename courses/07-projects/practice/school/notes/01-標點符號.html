@@ -96,6 +96,20 @@
               </p>
               <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左手 小指 Shift + 右手 無名指與小指 上2</p>
             </li>
+            <li class="conan-notes-item conan-notes-item--ok">
+              <span class="conan-notes-stamp" aria-label="鑑識成功，已確認">
+                <span class="conan-notes-stamp-plate">
+                  <span class="conan-notes-stamp-text">鑑識成功</span>
+                </span>
+              </span>
+              <p class="conan-notes-symbol"><code>{}</code>大括號</p>
+              <p><strong>唯一專門用途：</strong>在雙引號的大字串裡，把變數精準框起來。</p>
+              <p><strong>鑑識報告：</strong>像在寫 SQL 那串長長的雙引號 <code>""</code> 字串時，裡面密密麻麻都是字。如果直接寫
+                <code>$sql = "VALUES ($_POST['account'])"</code>，電腦會分不清楚哪裡是字、哪裡是變數。這時候用 <code>{}</code> 把
+                <code>{$_POST['account']}</code> 緊緊包住，就是專門跟電腦劃清界線：「報告！大括號中間包著的這隻是一隻完整的 PHP 麥克風，請先把它裡面的字傳過來，不要跟外面的字搞混！」
+              </p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左手 小指 Shift + 右手 小指 上1 右1&amp;右2</p>
+            </li>
           </ol>
           <ol class="conan-notes-list conan-notes-list--pending">
             <li class="conan-notes-item">
@@ -104,7 +118,7 @@
               <p><strong>鑑識報告：</strong>這是 PHP 變數的專屬身分證。在 PHP 裡面，只要看到這個符號，就代表後面那個字是一個「用來裝資料的特製箱子」。不管是
                 <code>$pdo</code>（連線箱）、<code>$sql</code>（字條箱），還是系統自帶的 <code>$_POST</code>（表單大包裹），開頭一定必加 <code>$</code>。
               </p>
-              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 Shift + 左 食指 4</p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 Shift + 左 食指 上2</p>
             </li>
             <li class="conan-notes-item">
               <p class="conan-notes-symbol"><code>.</code>點號</p>
@@ -119,15 +133,6 @@
                 <code>$_POST['account']</code>，這對中括號就是專門用來綁架 <code>'account'</code> 這個標籤的。
               </p>
               <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右 小拇指 P右1 與 P右2</p>
-            </li>
-            <li class="conan-notes-item">
-              <p class="conan-notes-symbol"><code>{}</code>大括號</p>
-              <p><strong>唯一專門用途：</strong>在雙引號的大字串裡，把變數精準框起來。</p>
-              <p><strong>鑑識報告：</strong>像在寫 SQL 那串長長的雙引號 <code>""</code> 字串時，裡面密密麻麻都是字。如果直接寫
-                <code>$sql = "VALUES ($_POST['account'])"</code>，電腦會分不清楚哪裡是字、哪裡是變數。這時候用 <code>{}</code> 把
-                <code>{$_POST['account']}</code> 緊緊包住，就是專門跟電腦劃清界線：「報告！大括號中間包著的這隻是一隻完整的 PHP 麥克風，請先把它裡面的字傳過來，不要跟外面的字搞混！」
-              </p>
-              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左手 小指 Shift + 右手 小指 上1 右1&amp;右2</p>
             </li>
             <li class="conan-notes-item">
               <p class="conan-notes-symbol"><code>;</code>分號</p>
