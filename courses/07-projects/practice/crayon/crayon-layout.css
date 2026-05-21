@@ -221,17 +221,16 @@
   color: var(--cx-ink);
 }
 
-/* 捲動後吸頂：全頁唯一的區塊導覽 */
+/* 吸頂導覽：無邊框、無陰影 */
 .crayon-hero-nav {
   position: sticky;
   top: 0;
   z-index: 20;
   margin: 0 auto;
   padding: 0.65rem 0 0.15rem;
-  background: color-mix(in srgb, var(--cx-bg) 90%, var(--cx-surface));
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--cx-line);
-  box-shadow: 0 4px 16px rgba(45, 55, 45, 0.08);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .crayon-hero-chips {
@@ -252,52 +251,45 @@
   color: var(--cx-ink);
   text-decoration: none;
   border-radius: var(--cx-radius-pill);
-  border: 1px solid transparent;
-  box-shadow: var(--cx-shadow-soft);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.12s ease, background 0.12s ease;
 }
 
 .crayon-hero-chip--bmi {
   background: var(--cx-chip-bmi);
-  border-color: color-mix(in srgb, var(--cx-pink) 45%, var(--cx-line));
-  box-shadow: inset 0 4px 0 var(--cx-pink), var(--cx-shadow-soft);
+  box-shadow: inset 0 3px 0 var(--cx-pink);
 }
 
 .crayon-hero-chip--workout {
   background: var(--cx-chip-workout);
-  border-color: color-mix(in srgb, var(--cx-yellow) 50%, var(--cx-line));
-  box-shadow: inset 0 4px 0 var(--cx-yellow), var(--cx-shadow-soft);
+  box-shadow: inset 0 3px 0 var(--cx-yellow);
 }
 
 .crayon-hero-chip--diet {
   background: var(--cx-chip-diet);
-  border-color: color-mix(in srgb, var(--cx-blue) 45%, var(--cx-line));
-  box-shadow: inset 0 4px 0 var(--cx-blue), var(--cx-shadow-soft);
+  box-shadow: inset 0 3px 0 var(--cx-blue);
 }
 
 .crayon-hero-chip--bmi:hover {
-  background: color-mix(in srgb, var(--cx-pink) 18%, var(--cx-chip-bmi));
-  box-shadow: inset 0 4px 0 var(--cx-pink), 0 6px 18px rgba(45, 55, 45, 0.12);
+  background: color-mix(in srgb, var(--cx-pink) 14%, var(--cx-chip-bmi));
 }
 
 .crayon-hero-chip--workout:hover {
-  background: color-mix(in srgb, var(--cx-yellow) 22%, var(--cx-chip-workout));
-  box-shadow: inset 0 4px 0 var(--cx-yellow), 0 6px 18px rgba(45, 55, 45, 0.12);
+  background: color-mix(in srgb, var(--cx-yellow) 18%, var(--cx-chip-workout));
 }
 
 .crayon-hero-chip--diet:hover {
-  background: color-mix(in srgb, var(--cx-blue) 18%, var(--cx-chip-diet));
-  box-shadow: inset 0 4px 0 var(--cx-blue), 0 6px 18px rgba(45, 55, 45, 0.12);
+  background: color-mix(in srgb, var(--cx-blue) 14%, var(--cx-chip-diet));
 }
 
 .crayon-hero-chip:hover {
   transform: translateY(-2px);
 }
 
-/* 波浪區隔：畫在區塊 ::before，避免獨立 div 產生白縫 */
+/* 區塊底色：平直銜接，不用波浪 */
 .crayon-band {
-  --cx-wave-h: clamp(40px, 5vw, 56px);
-  padding-top: calc(clamp(1.5rem, 4vw, 2.25rem) + var(--cx-wave-h));
+  padding-top: clamp(1.75rem, 4vw, 2.5rem);
   padding-bottom: clamp(2rem, 5vw, 3rem);
 }
 
@@ -307,51 +299,6 @@
 
 .crayon-band--soft {
   background: var(--cx-soft);
-}
-
-.crayon-band[class*="--after"]::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: calc(var(--cx-wave-h) + 4px);
-  transform: translateY(calc(-100% + 2px));
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center bottom;
-  line-height: 0;
-  pointer-events: none;
-}
-
-.crayon-band--after-bg::before {
-  background-color: var(--cx-bg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Crect width='1200' height='60' fill='%23e5f0d8'/%3E%3Cpath fill='%23fdfef9' d='M0 30C180 58 360 2 600 30 840 58 1020 10 1200 30V60H0z'/%3E%3C/svg%3E");
-}
-
-.crayon-band--after-cream::before {
-  background-color: var(--cx-cream);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Crect width='1200' height='60' fill='%23fdfef9'/%3E%3Cpath fill='%23f4f9ef' d='M0 42C200 10 400 58 600 26 800 2 1000 50 1200 22V60H0z'/%3E%3C/svg%3E");
-}
-
-.crayon-band--after-soft::before {
-  background-color: var(--cx-soft);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Crect width='1200' height='60' fill='%23f4f9ef'/%3E%3Cpath fill='%23fdfef9' d='M0 30C180 58 360 2 600 30 840 58 1020 10 1200 30V60H0z'/%3E%3C/svg%3E");
-}
-
-.crayon-footer--after-cream::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: calc(var(--cx-wave-h) + 4px);
-  transform: translateY(calc(-100% + 2px));
-  background-color: var(--cx-cream);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Crect width='1200' height='60' fill='%23fdfef9'/%3E%3Cpath fill='%2372ad7a' d='M0 34C220 58 440 14 600 38 760 58 980 18 1200 42V60H0z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  pointer-events: none;
 }
 
 .crayon-section {
@@ -857,11 +804,16 @@
 
 /* 頁尾：草地小丘 */
 .crayon-footer {
-  --cx-wave-h: clamp(40px, 5vw, 56px);
   margin-top: 0;
   padding: 2.5rem clamp(1rem, 4vw, 2rem) 2.25rem;
   text-align: center;
-  background: linear-gradient(180deg, var(--cx-hill) 0%, var(--cx-hill-dark) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--cx-cream) 0%,
+    color-mix(in srgb, var(--cx-cream) 25%, var(--cx-hill)) 12%,
+    var(--cx-hill) 28%,
+    var(--cx-hill-dark) 100%
+  );
   color: #f4faf5;
   position: relative;
 }
