@@ -527,13 +527,15 @@
 
 .crayon-protocol code {
   display: block;
-  margin: 0.5rem 0 0.25rem;
-  padding: 0.4rem 0.5rem;
+  margin: 0.55rem 0 0;
+  padding: 0.45rem 0.55rem;
   font-family: ui-monospace, Consolas, monospace;
-  font-size: 0.8rem;
-  color: var(--cx-ink);
-  background: var(--cx-surface);
-  border-radius: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--cx-hill-dark);
+  word-break: break-word;
+  background: color-mix(in srgb, var(--cx-green) 12%, var(--cx-surface));
+  border-radius: var(--cx-radius-sm);
   border: none;
   box-shadow: inset 0 0 0 1px var(--cx-line);
 }
