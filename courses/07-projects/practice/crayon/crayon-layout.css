@@ -11,8 +11,11 @@
   --cx-line: #c5d4bc;
   --cx-red: #ff3838;
   --cx-yellow: #ffdc00;
+  --cx-green: #5ec75a;
   --cx-blue: #3ba3ff;
   --cx-pink: #ff94c2;
+  --cx-shape-stroke: #3d3832;
+  --cx-shape-shadow: 5px 7px 0 rgba(86, 108, 94, 0.28);
   --cx-max: 1080px;
   --cx-radius: 1.35rem;
   --cx-radius-sm: 0.85rem;
@@ -37,7 +40,7 @@
   position: relative;
 }
 
-/* 睡衣幾何背景（三角形／方形／圓形） */
+/* 睡衣幾何背景：紅三角・黃方・綠圓，散亂分布＋描邊陰影 */
 .crayon-bg-shapes {
   position: fixed;
   inset: 0;
@@ -48,127 +51,125 @@
 
 .crayon-shape {
   position: absolute;
-  opacity: 0.88;
+  opacity: 1;
 }
 
 .crayon-shape--tri {
-  width: 0;
-  height: 0;
-  border-style: solid;
+  background: var(--cx-red);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  filter:
+    drop-shadow(0 0 0 2.5px var(--cx-shape-stroke))
+    drop-shadow(var(--cx-shape-shadow));
 }
 
 .crayon-shape--sq {
-  border: none;
+  background: var(--cx-yellow);
+  border: 2.5px solid var(--cx-shape-stroke);
+  box-shadow: var(--cx-shape-shadow);
 }
 
 .crayon-shape--ci {
+  background: var(--cx-green);
+  border: 2.5px solid var(--cx-shape-stroke);
   border-radius: 50%;
-  border: none;
+  box-shadow: var(--cx-shape-shadow);
 }
 
-/* 睡衣印花：大塊幾何貼邊、彼此留空 */
+/* 隨機散開（非貼邊、非網格） */
 .crayon-shape--1 {
-  top: 2%;
-  left: 1%;
-  border-width: 0 50px 88px 50px;
-  border-color: transparent transparent var(--cx-red) transparent;
-  transform: rotate(12deg);
+  top: 6%;
+  left: 14%;
+  width: 88px;
+  height: 76px;
+  transform: rotate(18deg);
 }
 
 .crayon-shape--2 {
-  top: 1%;
-  right: 1%;
-  width: 100px;
-  height: 100px;
-  background: var(--cx-yellow);
-  transform: rotate(-16deg);
+  top: 4%;
+  right: 20%;
+  width: 92px;
+  height: 92px;
+  transform: rotate(-22deg);
 }
 
 .crayon-shape--3 {
-  top: 26%;
-  left: 1%;
-  width: 88px;
-  height: 88px;
-  background: var(--cx-blue);
+  top: 19%;
+  left: 52%;
+  width: 80px;
+  height: 80px;
+  transform: rotate(8deg);
 }
 
 .crayon-shape--4 {
-  top: 14%;
-  right: 1%;
-  border-width: 0 62px 108px 62px;
-  border-color: transparent transparent var(--cx-pink) transparent;
-  transform: rotate(-28deg);
+  top: 31%;
+  left: 9%;
+  width: 102px;
+  height: 88px;
+  transform: rotate(-35deg);
 }
 
 .crayon-shape--5 {
-  top: 54%;
-  left: 0;
-  width: 82px;
-  height: 82px;
-  background: var(--cx-yellow);
-  transform: rotate(6deg);
+  top: 38%;
+  right: 11%;
+  width: 86px;
+  height: 86px;
+  transform: rotate(14deg);
 }
 
 .crayon-shape--6 {
-  top: 48%;
-  right: 1%;
-  width: 118px;
-  height: 118px;
-  background: color-mix(in srgb, var(--cx-blue) 78%, #fff);
+  top: 52%;
+  left: 36%;
+  width: 96px;
+  height: 96px;
+  transform: rotate(-6deg);
 }
 
 .crayon-shape--7 {
-  top: 76%;
-  left: 2%;
-  border-width: 0 46px 82px 46px;
-  border-color: transparent transparent var(--cx-red) transparent;
-  transform: rotate(38deg);
+  top: 46%;
+  right: 38%;
+  width: 78px;
+  height: 68px;
+  transform: rotate(42deg);
 }
 
 .crayon-shape--8 {
-  top: 82%;
-  right: 0;
-  width: 92px;
-  height: 92px;
-  background: var(--cx-pink);
-  transform: rotate(-10deg);
+  top: 64%;
+  left: 12%;
+  width: 90px;
+  height: 90px;
+  transform: rotate(-12deg);
 }
 
 .crayon-shape--9 {
-  top: 66%;
-  left: 72%;
-  width: 68px;
-  height: 68px;
-  background: var(--cx-yellow);
-  opacity: 0.65;
+  top: 70%;
+  right: 22%;
+  width: 84px;
+  height: 84px;
+  transform: rotate(25deg);
 }
 
 .crayon-shape--10 {
-  top: 38%;
-  left: 78%;
-  border-width: 0 36px 62px 36px;
-  border-color: transparent transparent var(--cx-blue) transparent;
-  transform: rotate(-6deg);
-  opacity: 0.45;
+  top: 80%;
+  left: 44%;
+  width: 72px;
+  height: 62px;
+  transform: rotate(-18deg);
 }
 
 .crayon-shape--11 {
-  top: 88%;
-  left: 42%;
-  width: 64px;
-  height: 64px;
-  background: var(--cx-red);
-  transform: rotate(18deg);
-  opacity: 0.4;
+  top: 14%;
+  left: 76%;
+  width: 74px;
+  height: 74px;
+  transform: rotate(31deg);
 }
 
 .crayon-shape--12 {
-  top: 32%;
-  right: 38%;
-  width: 76px;
-  height: 76px;
-  background: var(--cx-pink);
-  opacity: 0.42;
+  top: 58%;
+  right: 6%;
+  width: 88px;
+  height: 88px;
+  transform: rotate(-28deg);
 }
 
 .crayon-topbar,
@@ -978,9 +979,12 @@
     right: 6%;
   }
 
-  .crayon-shape {
-    opacity: 0.65;
-  }
+  .crayon-shape--1 { top: 4%; left: 6%; width: 72px; height: 62px; }
+  .crayon-shape--2 { top: 3%; right: 8%; width: 76px; height: 76px; }
+  .crayon-shape--3 { top: 16%; left: 58%; width: 66px; height: 66px; }
+  .crayon-shape--7,
+  .crayon-shape--11,
+  .crayon-shape--12 { display: none; }
 
   .crayon-top-btn {
     right: 1rem;
