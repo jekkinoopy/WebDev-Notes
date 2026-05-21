@@ -181,41 +181,11 @@
   transform: rotate(-28deg);
 }
 
-.crayon-topbar,
 .crayon-hero,
 .crayon-section,
 .crayon-footer {
   position: relative;
   z-index: 1;
-}
-
-/* 頂欄：僅站名，區塊導覽留給 Hero 膠囊 */
-.crayon-topbar {
-  padding: 0.9rem clamp(1rem, 4vw, 2rem);
-  background: var(--cx-surface);
-  border-bottom: 1px solid var(--cx-line);
-  box-shadow: 0 4px 18px rgba(45, 55, 45, 0.07);
-}
-
-.crayon-topbar-inner {
-  max-width: var(--cx-max);
-  margin: 0 auto;
-  text-align: center;
-}
-
-.crayon-logo {
-  display: block;
-  width: fit-content;
-  margin: 0 auto;
-  font-size: 1.05rem;
-  font-weight: 900;
-  color: var(--cx-ink);
-  text-decoration: none;
-  letter-spacing: 0.06em;
-}
-
-.crayon-logo:hover {
-  color: var(--cx-hill-dark);
 }
 
 /* Hero */
@@ -243,12 +213,25 @@
 }
 
 .crayon-hero-sub {
-  margin: 0 auto 1.35rem;
+  margin: 0 auto 1.1rem;
   max-width: 26em;
   font-size: clamp(1rem, 2.5vw, 1.15rem);
   font-weight: 600;
   line-height: 1.7;
   color: var(--cx-ink);
+}
+
+/* 捲動後吸頂：全頁唯一的區塊導覽 */
+.crayon-hero-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin: 0 auto;
+  padding: 0.65rem 0 0.15rem;
+  background: color-mix(in srgb, var(--cx-bg) 90%, var(--cx-surface));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--cx-line);
+  box-shadow: 0 4px 16px rgba(45, 55, 45, 0.08);
 }
 
 .crayon-hero-chips {
