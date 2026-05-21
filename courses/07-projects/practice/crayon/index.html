@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【野原家特訓】美冴的 BMI 挑戰 - 努比的全端筆記</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note-code-window.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================================================
+           蠟筆小新風格 - 結構優化除錯版
+           ================================================ */
+        :root {
+            --crayon-red: #FF4136;
+            --crayon-yellow: #FFDC00;
+            --crayon-blue: #0074D9;
+            --crayon-skin: #FFDBAC;
+            --crayon-black: #111111;
+            --crayon-bg: #E0F7FA;
+        }
+
+        /* 僅針對內文與主題進行柔和覆蓋，不破壞大框架 */
+        body {
+            background-color: var(--crayon-bg) !important;
+            font-family: 'Noto Sans TC', sans-serif !important;
+        }
+
+        /* 頂部 Hero 區 */
+        .page-hero {
+            background: var(--crayon-yellow) !important;
+            border-bottom: 5px solid var(--crayon-black) !important;
+        }
+
+        .category-tag {
+            background-color: var(--crayon-red) !important;
+            color: var(--white) !important;
+            border: 3px solid var(--crayon-black) !important;
+            border-radius: 50px !important;
+            font-weight: 900 !important;
+        }
+
+        .note-title {
+            color: var(--crayon-black) !important;
+            text-shadow: 2px 2px 0 var(--white);
+        }
+
+        .hero-desc {
+            color: var(--crayon-blue) !important;
+            font-weight: 700;
+        }
+
+        /* 題目提示區 */
+        .ques-section {
+            background-color: #FFF3E0 !important;
+            border: 3px dashed var(--crayon-black) !important;
+            color: #E65100 !important;
+            border-radius: 12px !important;
+        }
+
+        /* ================================================
+           【核心修正】執行結果與卡片佈局
+           ================================================ */
+        .code-section {
+            width: 100%;
+            box-sizing: border-box;
+            padding-top: var(--spacing-lg);
+        }
+
+        /* 讓並排容器寬度百分之百，且置中換行 */
+        .cards-wrapper {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 24px !important;
+            justify-content: center !important;
+            width: 100% !important;
+            padding: 20px 0 !important;
+            box-sizing: border-box;
+        }
+
+        /* 卡片主體：修正被壓扁與高度不足的問題 */
+        .card {
+            background-color: var(--white) !important;
+            border-radius: 24px !important;
+            border: 4px solid var(--crayon-black) !important;
+            box-shadow: 6px 6px 0 var(--crayon-blue) !important;
+            width: 100% !important;
+            max-width: 320px !important;
+            /* 限制最大寬度防止撐變形 */
+            min-height: 350px !important;
+            /* 給予足夠的基本高度 */
+            overflow: visible !important;
+            /* 允許上方貼紙標籤微突出 */
+            transition: transform 0.2s ease;
+            box-sizing: border-box !important;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02) !important;
+            box-shadow: 8px 8px 0 var(--crayon-red) !important;
+        }
+
+        /* 卡片內襯：重設上下 padding 留出空間給大 Emoji */
+        .card-content {
+            padding: 45px 20px 25px 20px !important;
+            position: relative !important;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        /* 頂部貼紙 Icon 修正位置與層級 */
+        .icon-top {
+            width: 60px !important;
+            height: 60px !important;
+            background: var(--crayon-red) !important;
+            border: 4px solid var(--crayon-black) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            font-size: 1.8rem !important;
+            position: absolute !important;
+            top: -30px !important;
+            /* 剛好卡在邊界線上 */
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            z-index: 5 !important;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        /* 卡片標題：拿掉會造成偏心的居中變形 */
+        .card-content h2 {
+            font-size: 1.3rem !important;
+            font-weight: 900 !important;
+            text-align: center !important;
+            margin: 0 auto 25px auto !important;
+            color: var(--crayon-black) !important;
+            border-bottom: 3px solid var(--crayon-yellow) !important;
+            padding-bottom: 5px !important;
+            display: block !important;
+            width: fit-content;
+        }
+
+        /* 輸入框組群 */
+        .input-group {
+            position: relative !important;
+            margin-bottom: 16px !important;
+            width: 100% !important;
+            box-sizing: border-box;
+        }
+
+        /* 使用純文字 Emoji 貼在左側，不使用偽元素防跑版 */
+        .input-emoji {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* 隱藏原本的 fontawesome 圖示 */
+        .input-group i {
+            display: none !important;
+        }
+
+        /* 輸入框本體 */
+        .input-group input {
+            width: 100% !important;
+            padding: 12px 12px 12px 42px !important;
+            /* 留出左邊給 Emoji */
+            border: 3px solid var(--crayon-black) !important;
+            border-radius: 12px !important;
+            background-color: var(--crayon-skin) !important;
+            font-weight: 700 !important;
+            color: var(--crayon-black) !important;
+            font-size: 0.95rem !important;
+            box-sizing: border-box !important;
+        }
+
+        .input-group input:focus {
+            background-color: var(--white) !important;
+            border-color: var(--crayon-blue) !important;
+            outline: none;
+        }
+
+        /* 送出按鈕 */
+        button[type="submit"] {
+            width: 100% !important;
+            padding: 12px !important;
+            background: var(--crayon-blue) !important;
+            color: var(--crayon-yellow) !important;
+            border: 3px solid var(--crayon-black) !important;
+            border-radius: 30px !important;
+            font-size: 1.1rem !important;
+            font-weight: 900 !important;
+            text-shadow: 1px 1px 0 var(--crayon-black);
+            cursor: pointer;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 8px !important;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15) !important;
+            margin-top: 8px !important;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"]:hover {
+            background: var(--crayon-red) !important;
+            color: var(--white) !important;
+        }
+
+        button[type="submit"] i {
+            display: none !important;
+        }
+
+        /* 下方區塊 */
+        .learning-point-box {
+            background-color: var(--crayon-yellow) !important;
+            border: 4px solid var(--crayon-black) !important;
+            border-radius: 16px !important;
+        }
+
+        .note-reference-box {
+            border-left: 8px solid var(--crayon-red) !important;
+            background-color: #FFF3E0 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar"></nav>
+        <script src="../../../assets/js/nav-loader.js"></script>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-container">
+            <span class="category-tag">美冴特訓</span>
+            <h2 class="note-title">野原家 BMI 秘密監測站</h2>
+            <p class="hero-desc">媽媽說她只有 45 公斤...小新，把表單拿來！</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <div class="note-container">
+        <div class="note-card">
+            <h3 class="note-subtitle">美冴的肚子沒救了（？）計算題目</h3>
+            <div class="ques-section">
+                <strong class="is-bracket-heading">【特訓需求】</strong><br>
+                1. 建立一個連小白看了都會輸入身高和體重的表單畫面。<br>
+                2. 按下「開始處刑」按鈕後，在另一個頁面顯示結果。
+            </div>
+
+            <?php
+            $code = <<<'EOD'
+// 【程式碼練習】
+// 在此處實作美冴專用的 BMI 運算邏輯
+// 小心不要讓廣志看到媽媽的真實數據...
+EOD;
+            $codeLineCount = substr_count($code, "\n") + 1;
+            $codeGutter = implode("\n", range(1, $codeLineCount));
+            ?>
+            <div class="note-practice-sticky">
+                <div class="note-code-window" data-note-code-window
+                    data-code-line-count="<?php echo (int) $codeLineCount; ?>">
+                    <div class="note-code-window-toolbar">
+                        <div class="note-code-window-dots" aria-hidden="true">
+                            <span class="note-code-window-dot note-code-window-dot--red"></span>
+                            <span class="note-code-window-dot note-code-window-dot--yellow"></span>
+                            <span class="note-code-window-dot note-code-window-dot--green"></span>
+                        </div>
+                        <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="note-code-window-body">
+                        <div class="note-code-window-gutter">
+                            <?php echo htmlspecialchars($codeGutter, ENT_QUOTES, 'UTF-8'); ?>
+                        </div>
+                        <pre
+                            class="language-php"><code class="language-php"><?php echo htmlspecialchars($code, ENT_QUOTES, 'UTF-8'); ?></code></pre>
+                    </div>
+                </div>
+
+                <div class="code-section">
+                    <span class="section-label is-bracket-heading">【處刑結果】</span>
+
+                    <div class="cards-wrapper">
+
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="icon-top">🍑</div>
+                                <h2>美冴的自我安慰 (GET)</h2>
+
+                                <form action="h04-bmi-1.php" method="get">
+                                    <div class="input-group">
+                                        <span class="input-emoji">📏</span>
+                                        <input type="number" name="height" placeholder="名義上的身高 (cm)" step="0.1"
+                                            required>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <span class="input-emoji">🐷</span>
+                                        <input type="number" name="weight" placeholder="最近比較瘦的體重 (kg)" step="0.1"
+                                            required>
+                                    </div>
+
+                                    <button type="submit">⚡ 動感光波，送出！</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="icon-top">👺</div>
+                                <h2>廣志的真實監測 (POST)</h2>
+
+                                <form action="h04-bmi-1.php" method="post">
+                                    <div class="input-group">
+                                        <span class="input-emoji">📏</span>
+                                        <input type="number" name="height" placeholder="認真量的身高 (cm)" step="0.1"
+                                            required>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <span class="input-emoji">🍻</span>
+                                        <input type="number" name="weight" placeholder="偷吃宵夜後的體重 (kg)" step="0.1"
+                                            required>
+                                    </div>
+
+                                    <button type="submit">⚡ 大原所長，請過目！</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-point-box">
+                <p class="learning-point-title is-bracket-heading">【向日葵班學習重點】</p>
+                <ul class="custom-list">
+                    <li>關鍵函式：小白的狗食分量 = 體重 * ...喔不對。</li>
+                    <li>特別注意：美冴的體重是野原家的最高機密，語法寫錯會被媽媽揍！</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <aside class="note-reference-box" aria-label="延伸閱讀">
+            <h4 class="note-reference-title is-bracket-heading">【吉永老師的延伸閱讀】</h4>
+            <ul class="note-reference-list">
+                <li>
+                    <a href="https://mackliu.github.io/php-book/2021/09/19/basic-lesson-02/" target="_blank"
+                        rel="noopener noreferrer">[基礎課程] 教你如何控制廣志的薪水流程</a>
+                </li>
+                <li>
+                    <a href="https://github.com/mackliu/115-html/blob/main/06-BMI.php" target="_blank"
+                        rel="noopener noreferrer">115 HTML 課程：查看美冴的真實原始碼</a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
+    <script src="../../../assets/js/course-note-code-window.js"></script>
+    <div class="note-container note-lesson-nav-wrap">
+        <div id="note-lesson-nav-root" data-lesson-id="h04-bmi"></div>
+    </div>
+    <script src="../../../assets/js/note-lesson-nav.js"></script>
+</body>
+
+</html>
