@@ -190,10 +190,11 @@
   z-index: 1;
 }
 
-/* Hero */
+/* Hero：背景全寬，內文置中 */
 .crayon-hero {
-  max-width: var(--cx-max);
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   padding: clamp(2.25rem, 6vw, 3.5rem) clamp(1rem, 4vw, 2rem) clamp(2.5rem, 5vw, 3.25rem);
   position: relative;
   background: var(--cx-bg);
@@ -329,6 +330,25 @@
   padding-left: clamp(1rem, 4vw, 2rem);
   padding-right: clamp(1rem, 4vw, 2rem);
   scroll-margin-top: var(--cx-scroll-pad);
+}
+
+/* 色帶＋波浪全寬鋪滿，避免兩側斷層露出 main 底色 */
+.crayon-section.crayon-band {
+  max-width: none;
+  width: 100%;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
+.crayon-section.crayon-band > .crayon-section-head,
+.crayon-section.crayon-band > .crayon-banner,
+.crayon-section.crayon-band > .crayon-card-grid,
+.crayon-section.crayon-band > .crayon-diet-list,
+.crayon-section.crayon-band > .crayon-plate {
+  max-width: var(--cx-max);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+  box-sizing: border-box;
 }
 
 .crayon-section-head {
@@ -840,10 +860,12 @@
   mask-repeat: no-repeat;
 }
 
-/* 頁尾：純色直貼波浪底，不再另畫頂部 SVG */
+/* 頁尾：全寬純色，直貼飲食區波浪底 */
 .crayon-footer {
+  width: 100%;
   margin-top: -1px;
   padding: 2.5rem clamp(1rem, 4vw, 2rem) 2.25rem;
+  box-sizing: border-box;
   text-align: center;
   color: #f4faf5;
   position: relative;
