@@ -616,8 +616,7 @@
 }
 
 .crayon-day {
-  padding: 1rem 0.9rem 1.1rem;
-  padding-top: 1.1rem;
+  padding: 0.95rem 0.9rem 1.05rem;
   background: color-mix(in srgb, var(--cx-bg) 45%, #fff);
   border: none;
   border-radius: var(--cx-radius-sm);
@@ -646,51 +645,63 @@
   box-shadow: inset 0 4px 0 #3cb878, var(--cx-shadow);
 }
 
-.crayon-day::before {
-  content: attr(data-focus);
-  position: absolute;
-  top: 0.35rem;
-  right: 0.5rem;
-  max-width: 3.5em;
-  font-size: 1.05rem;
-  font-weight: 900;
-  line-height: 1.2;
-  text-align: right;
-  letter-spacing: 0.04em;
-  pointer-events: none;
-}
-
-.crayon-day--push::before {
-  color: color-mix(in srgb, var(--cx-pink) 55%, var(--cx-ink));
-}
-
-.crayon-day--pull::before {
-  color: color-mix(in srgb, var(--cx-blue) 55%, var(--cx-ink));
-}
-
-.crayon-day--legs::before {
-  color: color-mix(in srgb, var(--cx-yellow) 70%, var(--cx-ink));
-}
-
-.crayon-day--cardio::before {
-  color: color-mix(in srgb, var(--cx-blue) 45%, var(--cx-ink));
-}
-
-.crayon-day--rest::before {
-  color: color-mix(in srgb, #3cb878 50%, var(--cx-ink));
-}
-
 .crayon-day-head {
-  margin-bottom: 0.65rem;
-  padding-bottom: 0.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.5rem;
   border-bottom: 2px dotted var(--cx-line);
 }
 
-.crayon-day-head span {
-  display: block;
-  padding-right: 2.8em;
+.crayon-day-week {
   font-weight: 800;
   font-size: 0.95rem;
+  color: var(--cx-ink);
+  letter-spacing: 0.02em;
+}
+
+.crayon-day-focus {
+  flex-shrink: 0;
+  padding: 0.2rem 0.62rem 0.22rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.16em;
+  border-radius: var(--cx-radius-pill);
+  border: 1px solid transparent;
+  box-shadow: inset 0 2px 0 color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.crayon-day--push .crayon-day-focus {
+  color: color-mix(in srgb, var(--cx-pink) 75%, var(--cx-ink));
+  background: color-mix(in srgb, var(--cx-pink) 14%, #fff);
+  border-color: color-mix(in srgb, var(--cx-pink) 28%, var(--cx-line));
+}
+
+.crayon-day--pull .crayon-day-focus {
+  color: color-mix(in srgb, var(--cx-blue) 78%, var(--cx-ink));
+  background: color-mix(in srgb, var(--cx-blue) 14%, #fff);
+  border-color: color-mix(in srgb, var(--cx-blue) 28%, var(--cx-line));
+}
+
+.crayon-day--legs .crayon-day-focus {
+  color: color-mix(in srgb, var(--cx-yellow) 82%, var(--cx-ink));
+  background: color-mix(in srgb, var(--cx-yellow) 22%, #fff);
+  border-color: color-mix(in srgb, var(--cx-yellow) 35%, var(--cx-line));
+}
+
+.crayon-day--cardio .crayon-day-focus {
+  color: color-mix(in srgb, var(--cx-blue) 65%, var(--cx-hill-dark));
+  background: color-mix(in srgb, var(--cx-blue) 12%, var(--cx-chip-diet));
+  border-color: color-mix(in srgb, var(--cx-blue) 25%, var(--cx-line));
+}
+
+.crayon-day--rest .crayon-day-focus {
+  color: color-mix(in srgb, #3cb878 70%, var(--cx-ink));
+  background: color-mix(in srgb, #3cb878 16%, #fff);
+  border-color: color-mix(in srgb, #3cb878 30%, var(--cx-line));
 }
 
 .crayon-tags {
