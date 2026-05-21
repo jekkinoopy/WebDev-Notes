@@ -122,7 +122,8 @@
                 <code>$sql = "VALUES ($_POST['account'])"</code>，電腦會分不清楚哪裡是字、哪裡是變數。這時候用 <code>{}</code> 把
                 <code>{$_POST['account']}</code> 緊緊包住，就是專門跟電腦劃清界線：「報告！大括號中間包著的這隻是一隻完整的 PHP 麥克風，請先把它裡面的字傳過來，不要跟外面的字搞混！」
               </p>
-              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong><code>{</code>：左手 小指 Shift + 右手 無名指 上1右1；<code>}</code>：左手 小指 Shift + 右手 小指 上1右2</p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong><code>{</code>：左手 小指 Shift + 右手 無名指
+                上1右1；<code>}</code>：左手 小指 Shift + 右手 小指 上1右2</p>
             </li>
             <li class="conan-notes-item">
               <p class="conan-notes-symbol"><code>;</code>（分號）</p>
@@ -153,7 +154,8 @@
               <p><strong>唯一專門用途：</strong>寫給人看的大範圍多行筆記。</p>
               <p><strong>鑑識報告：</strong>當筆記太長、跨了好幾行時，單行註解就不夠用了。用 <code>/*</code> 當作起點，<code>*/</code>
                 當作終點，中間包住的所有代碼和文字都會被主機冷凍封印。除了寫大筆記，也很適合用來暫時隱藏一大段懷疑有 Bug 的程式碼。</p>
-              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong><code>/*</code>：右手 小指 下1原位，接 左手 小指 Shift + 右手 中指 上2原位；<code>*/</code>：左手 小指 Shift + 右手 中指 上2原位，接 右手 小指 下1原位</p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong><code>/*</code>：右手 小指 下1原位，接 左手 小指 Shift + 右手 中指
+                上2原位；<code>*/</code>：左手 小指 Shift + 右手 中指 上2原位，接 右手 小指 下1原位</p>
             </li>
             <li class="conan-notes-item">
               <p class="conan-notes-symbol"><code>-&gt;</code>（物件箭頭 / Object Operator）</p>
@@ -190,17 +192,22 @@
               </p>
               <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>右手 小指 右1</p>
             </li>
-          </ol>
-          <ol class="conan-notes-list conan-notes-list--pending">
-            <li class="conan-notes-item">
+            <li class="conan-notes-item conan-notes-item--ok">
+              <span class="conan-notes-stamp" aria-label="鑑識成功，已確認">
+                <span class="conan-notes-stamp-plate">
+                  <span class="conan-notes-stamp-text">鑑識成功</span>
+                </span>
+              </span>
               <p class="conan-notes-symbol"><code>`</code>（反單引號 / Backtick）</p>
               <p><strong>唯一專門用途：</strong>包覆資料表名稱與欄位名稱。</p>
               <p><strong>鑑識報告：</strong>只要在 SQL 指令裡面提到資料庫裡的表格名稱（例如 <code>`members`</code>）或是欄位名稱（例如
-                <code>`account`</code>、<code>`password`</code>），一律要用這對反單引號包起來。這是為了跟電腦防呆。萬一你取的名字剛好跟 SQL 的內建指令（例如
-                <code>name</code> 或 <code>date</code>）撞名，加了反單引號，資料庫就會知道：「喔！這純粹是努比自己寫的欄位名稱，不是我的指令。」
+                <code>`account`</code>、<code>`password`</code>），一律要用這對反單引號包起來。這是為了跟電腦防呆。避免取名剛好跟 SQL 的內建指令（例如
+                <code>name</code> 或 <code>date</code>）撞名。
               </p>
               <p class="conan-notes-keyboard"><strong>鍵位指法：</strong>左手 小指 上2左1</p>
             </li>
+          </ol>
+          <ol class="conan-notes-list conan-notes-list--pending">
             <li class="conan-notes-item">
               <p class="conan-notes-symbol"><code>.</code>（點號）</p>
               <p><strong>唯一專門用途：</strong>資料表與欄位的「階層串接」。</p>
@@ -211,7 +218,8 @@
               <p class="conan-notes-symbol"><code>()</code>（小括號）</p>
               <p><strong>唯一專門用途：</strong>SQL 的對齊桶。</p>
               <p><strong>鑑識報告：</strong>當它寫在 SQL 的 <code>VALUES</code> 後面時，則是專門用來把資料群組起來、像拉鍊一樣一對一對齊欄位用的。</p>
-              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong><code>(</code>：左手 小指 Shift + 右手 無名指 上2原位；<code>)</code>：左手 小指 Shift + 右手 小指 上2原位</p>
+              <p class="conan-notes-keyboard"><strong>鍵位指法：</strong><code>(</code>：左手 小指 Shift + 右手 無名指
+                上2原位；<code>)</code>：左手 小指 Shift + 右手 小指 上2原位</p>
             </li>
             <li class="conan-notes-item">
               <p class="conan-notes-symbol"><code>;</code>（分號）</p>
