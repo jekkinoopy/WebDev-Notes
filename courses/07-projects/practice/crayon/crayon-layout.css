@@ -1,18 +1,24 @@
-/* 春日部防衛隊 — 質感參考偵辦站，蠟筆睡衣幾何背景＋自有版面 */
+/* 春日部防衛隊 — 柔和插畫風排版＋睡衣幾何背景 */
 :root {
   --cx-ink: #1a1a1a;
   --cx-muted: #4a5568;
   --cx-bg: #dfebd5;
-  --cx-surface: rgba(255, 255, 255, 0.94);
+  --cx-cream: #f7faf4;
+  --cx-soft: #eef6e8;
+  --cx-hill: #5a9e62;
+  --cx-hill-dark: #3d7a48;
+  --cx-surface: rgba(255, 255, 255, 0.96);
   --cx-line: #c5d4bc;
   --cx-red: #ff3838;
   --cx-yellow: #ffdc00;
   --cx-blue: #3ba3ff;
   --cx-pink: #ff94c2;
   --cx-max: 1080px;
-  --cx-radius: 0;
-  --cx-radius-sm: 0;
-  --cx-shadow: 0 4px 18px rgba(45, 55, 45, 0.1);
+  --cx-radius: 1.35rem;
+  --cx-radius-sm: 0.85rem;
+  --cx-radius-pill: 999px;
+  --cx-shadow: 0 6px 22px rgba(45, 55, 45, 0.08);
+  --cx-shadow-soft: 0 4px 14px rgba(45, 55, 45, 0.06);
 }
 
 *,
@@ -168,18 +174,19 @@
 .crayon-topbar,
 .crayon-hero,
 .crayon-section,
+.crayon-wave,
 .crayon-footer {
   position: relative;
   z-index: 1;
 }
 
-/* 頂欄：Logo 置中，下方三等分導覽列 */
+/* 頂欄：左 Logo、右導覽（參考柔和插畫站） */
 .crayon-topbar {
-  padding: 1rem clamp(1rem, 4vw, 2rem) 1.1rem;
-  background: color-mix(in srgb, var(--cx-surface) 92%, transparent);
+  padding: 0.85rem clamp(1rem, 4vw, 2rem);
+  background: color-mix(in srgb, var(--cx-cream) 88%, transparent);
   border-bottom: none;
-  box-shadow: 0 2px 12px rgba(45, 55, 45, 0.06);
-  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 16px rgba(45, 55, 45, 0.05);
+  backdrop-filter: blur(8px);
 }
 
 .crayon-topbar-inner {
@@ -187,11 +194,19 @@
   margin: 0 auto;
 }
 
+.crayon-topbar-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+}
+
 .crayon-logo {
   display: block;
   width: fit-content;
-  margin: 0 auto 0.85rem;
-  font-size: 1.15rem;
+  margin: 0;
+  font-size: 1.05rem;
   font-weight: 900;
   color: var(--cx-ink);
   text-decoration: none;
@@ -203,14 +218,13 @@
 }
 
 .crayon-nav-wrap {
-  max-width: 36rem;
-  margin: 0 auto;
+  margin-left: auto;
 }
 
 .crayon-nav {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -218,16 +232,16 @@
 
 .crayon-nav a {
   display: block;
-  padding: 0.55rem 0.5rem;
-  font-size: 0.88rem;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.84rem;
   font-weight: 700;
   text-align: center;
   color: var(--cx-ink);
   text-decoration: none;
   background: var(--cx-surface);
   border: none;
-  border-radius: 0;
-  box-shadow: var(--cx-shadow);
+  border-radius: var(--cx-radius-pill);
+  box-shadow: var(--cx-shadow-soft);
   transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
 }
 
@@ -249,72 +263,145 @@
   box-shadow: inset 0 4px 0 var(--cx-red), 0 6px 20px rgba(45, 55, 45, 0.12);
 }
 
-/* Hero：左對齊 + 右側色塊裝飾（柯南是置中全幅） */
+/* Hero：左文案 + 右圓形插畫區 + 直書標語 */
 .crayon-hero {
   display: grid;
-  grid-template-columns: 1fr min(220px, 28vw);
-  align-items: stretch;
-  gap: 0;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1.25rem 2rem;
   max-width: var(--cx-max);
   margin: 0 auto;
-  padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem) 2rem;
+  padding: clamp(2.25rem, 6vw, 3.5rem) clamp(1rem, 4vw, 2rem) 2.5rem;
+  position: relative;
 }
 
 .crayon-hero-inner {
-  padding-right: 1.5rem;
+  max-width: 34rem;
 }
 
 .crayon-hero h1 {
-  margin: 0 0 0.35rem;
-  font-size: clamp(2rem, 6vw, 2.75rem);
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 6vw, 2.85rem);
   font-weight: 900;
-  line-height: 1.15;
+  line-height: 1.12;
   color: var(--cx-pink);
   letter-spacing: 0.02em;
 }
 
-.crayon-hero-sub {
-  margin: 0;
-  display: inline-block;
-  font-size: clamp(1.1rem, 3vw, 1.35rem);
-  font-weight: 700;
-  color: var(--cx-ink);
-  padding-bottom: 0.35rem;
-  border-bottom: 6px solid var(--cx-yellow);
+.crayon-hero-visual {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
-.crayon-hero-deco {
+.crayon-hero-orbit {
+  position: relative;
+  width: min(200px, 34vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff 0%, color-mix(in srgb, var(--cx-soft) 80%, #fff) 55%, var(--cx-bg) 100%);
+  box-shadow: var(--cx-shadow);
+}
+
+.crayon-orbit-icon {
+  position: absolute;
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  gap: 8px;
-  min-height: 140px;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.35rem;
+  background: var(--cx-surface);
+  border-radius: 50%;
+  box-shadow: var(--cx-shadow-soft);
 }
 
-.crayon-hero-deco span {
-  border-radius: 0;
-  border: none;
+.crayon-orbit-icon--a {
+  top: 12%;
+  left: 10%;
+  transform: rotate(-8deg);
 }
 
-.crayon-hero-deco span:nth-child(1) {
-  background: var(--cx-yellow);
-  transform: rotate(-3deg);
+.crayon-orbit-icon--b {
+  top: 38%;
+  right: 6%;
+  transform: rotate(6deg);
 }
 
-.crayon-hero-deco span:nth-child(2) {
-  background: var(--cx-blue);
-  transform: rotate(2deg);
+.crayon-orbit-icon--c {
+  bottom: 10%;
+  left: 28%;
+  transform: rotate(-4deg);
 }
 
-.crayon-hero-deco span:nth-child(3) {
-  background: var(--cx-pink);
-  transform: rotate(-2deg);
+.crayon-hero-vertical {
+  margin: 0;
+  writing-mode: vertical-rl;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.35em;
+  color: color-mix(in srgb, var(--cx-ink) 70%, var(--cx-pink));
 }
 
-/* 區塊：左側色條標題（柯南是置中底線） */
+.crayon-float {
+  position: absolute;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: color-mix(in srgb, var(--cx-yellow) 80%, var(--cx-ink));
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.crayon-float--a {
+  top: 18%;
+  right: 12%;
+}
+
+.crayon-float--b {
+  bottom: 22%;
+  left: 8%;
+}
+
+/* 波浪區隔 */
+.crayon-wave {
+  height: clamp(36px, 5vw, 56px);
+  margin-top: -1px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.crayon-wave--to-cream {
+  background-color: var(--cx-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 56' preserveAspectRatio='none'%3E%3Cpath fill='%23f7faf4' d='M0 28C180 56 360 0 600 28 840 56 1020 8 1200 28V56H0z'/%3E%3C/svg%3E");
+}
+
+.crayon-wave--to-soft {
+  background-color: var(--cx-cream);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 56' preserveAspectRatio='none'%3E%3Cpath fill='%23eef6e8' d='M0 40C200 8 400 56 600 24 800 0 1000 48 1200 20V56H0z'/%3E%3C/svg%3E");
+}
+
+.crayon-wave--to-hill {
+  background-color: var(--cx-cream);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 56' preserveAspectRatio='none'%3E%3Cpath fill='%235a9e62' d='M0 32C220 56 440 12 600 36 760 56 980 16 1200 40V56H0z'/%3E%3C/svg%3E");
+}
+
+.crayon-band {
+  padding-top: clamp(1.5rem, 4vw, 2.25rem);
+  padding-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.crayon-band--cream {
+  background: var(--cx-cream);
+}
+
+.crayon-band--soft {
+  background: var(--cx-soft);
+}
+
 .crayon-section {
   max-width: var(--cx-max);
   margin: 0 auto;
-  padding: 0 clamp(1rem, 4vw, 2rem) 2.75rem;
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
 }
 
 .crayon-section-head {
@@ -335,8 +422,8 @@
   color: var(--cx-ink);
   background: var(--cx-yellow);
   border: none;
-  border-radius: 0;
-  box-shadow: var(--cx-shadow);
+  border-radius: 50%;
+  box-shadow: var(--cx-shadow-soft);
   transform: rotate(-4deg);
 }
 
@@ -356,11 +443,11 @@
 
 .crayon-banner {
   margin-bottom: 1.35rem;
-  padding: 1rem 1.2rem 1rem 1.35rem;
+  padding: 1.15rem 1.35rem 1.15rem 1.5rem;
   background: var(--cx-surface);
   border: none;
   border-radius: var(--cx-radius);
-  box-shadow: var(--cx-shadow);
+  box-shadow: var(--cx-shadow-soft);
   position: relative;
   overflow: hidden;
 }
@@ -403,11 +490,11 @@
 
 .crayon-card {
   position: relative;
-  padding: 1.5rem 1.35rem 1.35rem;
+  padding: 1.65rem 1.45rem 1.45rem;
   background: var(--cx-surface);
   border: none;
-  border-radius: var(--cx-radius);
-  box-shadow: var(--cx-shadow);
+  border-radius: calc(var(--cx-radius) + 0.25rem);
+  box-shadow: var(--cx-shadow-soft);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -443,21 +530,21 @@
   font-size: 1.6rem;
   background: var(--cx-surface);
   border: none;
-  border-radius: 0;
-  box-shadow: var(--cx-shadow);
+  border-radius: 50%;
+  box-shadow: var(--cx-shadow-soft);
   transform: rotate(6deg);
 }
 
 .crayon-badge {
   display: inline-block;
   margin-bottom: 0.5rem;
-  padding: 0.2rem 0.6rem;
+  padding: 0.22rem 0.65rem;
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   color: #fff;
   background: var(--cx-muted);
-  border-radius: 0;
+  border-radius: var(--cx-radius-pill);
 }
 
 .crayon-card--get .crayon-badge {
@@ -482,7 +569,7 @@
   line-height: 1.55;
   color: var(--cx-muted);
   background: color-mix(in srgb, var(--cx-bg) 70%, #fff);
-  border-radius: 0;
+  border-radius: var(--cx-radius-sm);
   border: none;
   box-shadow: inset 0 0 0 1px var(--cx-line);
 }
@@ -541,9 +628,9 @@
   color: var(--cx-ink);
   background: var(--cx-yellow);
   border: none;
-  border-radius: 0;
+  border-radius: var(--cx-radius-pill);
   cursor: pointer;
-  box-shadow: var(--cx-shadow);
+  box-shadow: var(--cx-shadow-soft);
   transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
 }
 
@@ -558,12 +645,12 @@
 
 /* 運動：橫向週軌（柯南沒有這種） */
 .crayon-plate {
-  margin-bottom: 1.75rem;
-  padding: 1.35rem 1.2rem 1.5rem;
+  margin-bottom: 0;
+  padding: 1.5rem 1.35rem 1.65rem;
   background: var(--cx-surface);
   border: none;
-  border-radius: var(--cx-radius);
-  box-shadow: var(--cx-shadow);
+  border-radius: calc(var(--cx-radius) + 0.5rem);
+  box-shadow: var(--cx-shadow-soft);
 }
 
 .crayon-plate .crayon-section-head {
@@ -584,18 +671,19 @@
 
 .crayon-week-rail::-webkit-scrollbar-thumb {
   background: var(--cx-line);
-  border-radius: 0;
+  border-radius: var(--cx-radius-pill);
 }
 
 .crayon-day {
-  flex: 0 0 168px;
+  flex: 0 0 152px;
+  min-height: 228px;
   scroll-snap-align: start;
-  padding: 1rem 0.9rem 0.9rem;
-  padding-top: 1.15rem;
-  background: color-mix(in srgb, var(--cx-bg) 55%, #fff);
+  padding: 1.15rem 0.85rem 1.25rem;
+  padding-top: 1.25rem;
+  background: color-mix(in srgb, var(--cx-bg) 45%, #fff);
   border: none;
-  border-radius: 0;
-  box-shadow: var(--cx-shadow);
+  border-radius: 50% 50% 28% 28% / 42% 42% 22% 22%;
+  box-shadow: var(--cx-shadow-soft);
   position: relative;
 }
 
@@ -682,43 +770,45 @@
 
 .crayon-callout {
   margin-top: 1.1rem;
-  padding: 0.9rem 1rem;
+  padding: 1rem 1.1rem;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--cx-ink);
-  background: linear-gradient(90deg, color-mix(in srgb, var(--cx-yellow) 55%, #fff), transparent);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--cx-yellow) 45%, #fff), transparent);
   border-left: 5px solid var(--cx-red);
-  border-radius: 0;
+  border-radius: var(--cx-radius-sm);
 }
 
 .crayon-benefits {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   margin-top: 1.15rem;
 }
 
 .crayon-benefit {
   display: flex;
-  gap: 0.85rem;
-  align-items: flex-start;
-  padding: 1rem;
-  background: var(--cx-bg);
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.65rem;
+  padding: 1.25rem 1rem 1.35rem;
+  background: color-mix(in srgb, var(--cx-bg) 50%, #fff);
   border: none;
-  border-radius: 0;
-  box-shadow: var(--cx-shadow);
+  border-radius: 50% 50% 32% 32% / 38% 38% 24% 24%;
+  box-shadow: var(--cx-shadow-soft);
 }
 
 .crayon-benefit-icon {
   flex-shrink: 0;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 3rem;
+  height: 3rem;
   display: grid;
   place-items: center;
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   background: var(--cx-yellow);
   border: none;
-  border-radius: 0;
+  border-radius: 50%;
 }
 
 .crayon-benefit h3 {
@@ -732,38 +822,42 @@
   color: var(--cx-muted);
 }
 
-/* 飲食：直向清單 + 左色條（柯南是均分 grid） */
+/* 飲食：消息列表 + 圓形箭頭 */
 .crayon-diet-list {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
 .crayon-diet {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.35rem 1rem;
-  padding: 1.1rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem 1.2rem;
   background: var(--cx-surface);
   border: none;
-  border-radius: var(--cx-radius-sm);
-  box-shadow: var(--cx-shadow);
+  border-radius: var(--cx-radius);
+  box-shadow: var(--cx-shadow-soft);
 }
 
 .crayon-diet:nth-child(1) {
-  box-shadow: inset 5px 0 0 #6bc96f, var(--cx-shadow);
+  box-shadow: inset 5px 0 0 #6bc96f, var(--cx-shadow-soft);
 }
 
 .crayon-diet:nth-child(2) {
-  box-shadow: inset 5px 0 0 var(--cx-yellow), var(--cx-shadow);
+  box-shadow: inset 5px 0 0 var(--cx-yellow), var(--cx-shadow-soft);
 }
 
 .crayon-diet:nth-child(3) {
-  box-shadow: inset 5px 0 0 var(--cx-blue), var(--cx-shadow);
+  box-shadow: inset 5px 0 0 var(--cx-blue), var(--cx-shadow-soft);
+}
+
+.crayon-diet-body {
+  flex: 1;
+  min-width: 0;
 }
 
 .crayon-diet h4 {
-  grid-column: 1 / -1;
   margin: 0 0 0.15rem;
   font-size: 1rem;
   font-weight: 800;
@@ -771,18 +865,41 @@
 }
 
 .crayon-diet p {
-  grid-column: 1 / -1;
   margin: 0;
   font-size: 0.9rem;
   color: var(--cx-muted);
 }
 
+.crayon-diet-go {
+  flex-shrink: 0;
+  width: 2.35rem;
+  height: 2.35rem;
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  color: #fff;
+  background: var(--cx-red);
+  border-radius: 50%;
+  box-shadow: var(--cx-shadow-soft);
+}
+
+.crayon-diet:nth-child(2) .crayon-diet-go {
+  background: color-mix(in srgb, var(--cx-yellow) 85%, var(--cx-ink));
+  color: var(--cx-ink);
+}
+
+.crayon-diet:nth-child(3) .crayon-diet-go {
+  background: var(--cx-blue);
+}
+
+/* 頁尾：草地小丘 */
 .crayon-footer {
-  margin-top: 1rem;
-  padding: 2rem clamp(1rem, 4vw, 2rem);
+  margin-top: 0;
+  padding: 2.5rem clamp(1rem, 4vw, 2rem) 2.25rem;
   text-align: center;
-  background: var(--cx-ink);
-  color: #e8ecef;
+  background: linear-gradient(180deg, var(--cx-hill) 0%, var(--cx-hill-dark) 100%);
+  color: #f4faf5;
+  position: relative;
 }
 
 .crayon-footer-logo {
@@ -795,31 +912,77 @@
 .crayon-footer-note {
   margin: 0;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .crayon-footer-copy {
   margin: 0.75rem 0 0;
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.crayon-top-btn {
+  position: absolute;
+  right: clamp(1rem, 4vw, 2rem);
+  bottom: 1.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  background: var(--cx-yellow);
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(20, 50, 25, 0.25);
+  transition: transform 0.12s ease;
+}
+
+.crayon-top-btn:hover {
+  transform: translateY(-3px);
 }
 
 @media (max-width: 720px) {
   .crayon-hero {
     grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
   }
 
-  .crayon-hero-deco {
-    min-height: 72px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
+  .crayon-hero-inner {
+    max-width: none;
+  }
+
+  .crayon-hero-visual {
+    flex-direction: column;
+  }
+
+  .crayon-hero-vertical {
+    writing-mode: horizontal-tb;
+    letter-spacing: 0.2em;
+  }
+
+  .crayon-topbar-row {
+    justify-content: center;
+  }
+
+  .crayon-nav-wrap {
+    margin-left: 0;
+    width: 100%;
   }
 
   .crayon-nav {
-    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+
+  .crayon-float--a {
+    right: 6%;
   }
 
   .crayon-shape {
     opacity: 0.65;
+  }
+
+  .crayon-top-btn {
+    right: 1rem;
   }
 }
