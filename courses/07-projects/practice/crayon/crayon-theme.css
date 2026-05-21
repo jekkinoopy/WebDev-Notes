@@ -1,0 +1,211 @@
+/**
+ * 蠟筆小新專題頁主題（僅 body.page-crayon-bmi）
+ * 配色參考周邊商品：奶油白、暖米、粉彩點綴；不動 course-note 版面寬度。
+ */
+body.page-crayon-bmi {
+  --crayon-red: #e85d4a;
+  --crayon-yellow: #f5e6a8;
+  --crayon-blue: #7eb8da;
+  --crayon-mint: #b8e0d2;
+  --crayon-lavender: #d4c4e8;
+  --crayon-skin: #ffdbac;
+  --crayon-ink: #3d3832;
+  --crayon-bg: #f4efe6;
+  --crayon-bg-soft: #fdfbf7;
+  --crayon-surface: #ffffff;
+  --crayon-peach: #fff8f2;
+
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background-color: var(--crayon-bg);
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% -8%, rgba(255, 252, 248, 0.95), transparent 70%),
+    linear-gradient(180deg, var(--crayon-bg-soft) 0%, var(--crayon-bg) 48%, #ebe4d8 100%);
+}
+
+body.page-crayon-bmi .page-hero {
+  background: linear-gradient(165deg, #fffdf9 0%, #faf3e8 42%, #f3e6d4 100%);
+  border-bottom: 4px solid var(--crayon-ink);
+}
+
+body.page-crayon-bmi .category-tag {
+  background-color: var(--crayon-red);
+  color: var(--white, #fff);
+  border: 3px solid var(--crayon-ink);
+  border-radius: 50px;
+  font-weight: 900;
+}
+
+body.page-crayon-bmi .note-title {
+  color: var(--crayon-ink);
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.85);
+}
+
+body.page-crayon-bmi .hero-desc {
+  color: #5a7a94;
+  font-weight: 700;
+}
+
+body.page-crayon-bmi .ques-section {
+  background-color: var(--crayon-peach);
+  border: 3px dashed color-mix(in srgb, var(--crayon-ink) 35%, #d4c4b0);
+  color: #8b5e3c;
+  border-radius: 12px;
+}
+
+body.page-crayon-bmi .note-card {
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 4px 18px rgba(61, 56, 50, 0.06);
+}
+
+body.page-crayon-bmi .learning-point-box {
+  background: linear-gradient(135deg, #fff9ed 0%, var(--crayon-yellow) 100%);
+  border: 4px solid var(--crayon-ink);
+  border-radius: 16px;
+}
+
+body.page-crayon-bmi .note-reference-box,
+body.page-crayon-bmi .note-container > .note-reference-box {
+  border-left: 8px solid var(--crayon-red);
+  background-color: var(--crayon-peach);
+}
+
+/* --- 表單卡片區（寬度與 h04-bmi 並排邏輯一致）--- */
+body.page-crayon-bmi .code-section {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: var(--spacing-lg, 1.5rem);
+}
+
+body.page-crayon-bmi .cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+body.page-crayon-bmi .card {
+  background-color: var(--crayon-surface);
+  border-radius: 24px;
+  border: 4px solid var(--crayon-ink);
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--crayon-blue) 55%, transparent);
+  width: 100%;
+  max-width: 320px;
+  min-height: 350px;
+  overflow: visible;
+  transition: transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+body.page-crayon-bmi .card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--crayon-red) 50%, transparent);
+}
+
+body.page-crayon-bmi .card-content {
+  padding: 45px 20px 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body.page-crayon-bmi .icon-top {
+  width: 60px;
+  height: 60px;
+  background: var(--crayon-red);
+  border: 4px solid var(--crayon-ink);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  box-shadow: 3px 3px 0 rgba(61, 56, 50, 0.12);
+}
+
+body.page-crayon-bmi .card-content h2 {
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 0 auto 25px;
+  color: var(--crayon-ink);
+  border-bottom: 3px solid var(--crayon-yellow);
+  padding-bottom: 5px;
+  display: block;
+  width: fit-content;
+}
+
+body.page-crayon-bmi .input-group {
+  position: relative;
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.page-crayon-bmi .input-emoji {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  z-index: 3;
+  pointer-events: none;
+}
+
+body.page-crayon-bmi .input-group i {
+  display: none;
+}
+
+body.page-crayon-bmi .input-group input {
+  width: 100%;
+  padding: 12px 12px 12px 42px;
+  border: 3px solid var(--crayon-ink);
+  border-radius: 12px;
+  background-color: var(--crayon-skin);
+  font-weight: 700;
+  color: var(--crayon-ink);
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+body.page-crayon-bmi .input-group input:focus {
+  background-color: var(--crayon-surface);
+  border-color: var(--crayon-blue);
+  outline: none;
+}
+
+body.page-crayon-bmi button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: var(--crayon-blue);
+  color: #fffef5;
+  border: 3px solid var(--crayon-ink);
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  text-shadow: 1px 1px 0 var(--crayon-ink);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 4px 4px 0 rgba(61, 56, 50, 0.12);
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+
+body.page-crayon-bmi button[type="submit"]:hover {
+  background: var(--crayon-red);
+  color: #fff;
+}
+
+body.page-crayon-bmi button[type="submit"] i {
+  display: none;
+}
