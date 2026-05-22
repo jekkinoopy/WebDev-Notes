@@ -1012,6 +1012,84 @@
   margin-top: 0.35rem;
 }
 
+/* 辦案筆記內頁：上一則／下一則 */
+.conan-notes-nav-wrap {
+  margin-top: 1.75rem;
+  padding-top: 0.25rem;
+}
+
+.conan-notes-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  width: 100%;
+}
+
+.conan-notes-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: min(48%, 22rem);
+  box-sizing: border-box;
+  padding: 0.6rem 1rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--conan-navy);
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid var(--conan-border);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px var(--conan-shadow);
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.conan-notes-nav-link:hover {
+  color: var(--conan-crimson);
+  background: #fff;
+  box-shadow: 0 4px 14px var(--conan-shadow);
+  transform: translateY(-1px);
+}
+
+.conan-notes-nav-link:focus-visible {
+  outline: 2px solid var(--conan-crimson);
+  outline-offset: 2px;
+}
+
+.conan-notes-nav-link--prev {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.conan-notes-nav-link--next {
+  justify-content: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.conan-notes-nav-chevron {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--conan-crimson);
+}
+
+@media (max-width: 560px) {
+  .conan-notes-nav-link {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .conan-notes-nav-link--next {
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 900px) {
   .conan-feature-grid {
     grid-template-columns: repeat(2, 1fr);
