@@ -20,9 +20,9 @@
   --cx-shape-stroke: #4a4540;
   --cx-shape-shadow: 4px 5px 0 rgba(86, 108, 94, 0.2);
   --cx-max: 1080px;
-  --cx-radius: 1.35rem;
-  --cx-radius-sm: 0.85rem;
-  --cx-radius-pill: 999px;
+  --cx-radius: 0;
+  --cx-radius-sm: 0;
+  --cx-radius-pill: 0;
   --cx-shadow: 0 8px 24px rgba(45, 55, 45, 0.1);
   --cx-shadow-soft: 0 3px 12px rgba(45, 55, 45, 0.08);
 }
@@ -104,8 +104,8 @@
 }
 
 .crayon-shape--3 {
-  top: 20%;
-  left: 78%;
+  top: 11%;
+  left: 64%;
   width: 80px;
   height: 80px;
   transform: rotate(8deg);
@@ -366,7 +366,7 @@
   color: var(--cx-ink);
   background: var(--cx-yellow);
   border: none;
-  border-radius: 50%;
+  border-radius: 0;
   box-shadow: var(--cx-shadow-soft);
   transform: rotate(-4deg);
 }
@@ -438,7 +438,7 @@
   padding: 1.65rem 1.45rem 1.45rem;
   background: var(--cx-surface);
   border: none;
-  border-radius: calc(var(--cx-radius) + 0.25rem);
+  border-radius: 0;
   box-shadow: var(--cx-shadow-soft);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -475,7 +475,7 @@
   font-size: 1.6rem;
   background: var(--cx-surface);
   border: none;
-  border-radius: 50%;
+  border-radius: 0;
   box-shadow: var(--cx-shadow-soft);
   transform: rotate(6deg);
 }
@@ -596,7 +596,7 @@
   padding: 1.5rem 1.35rem 1.65rem;
   background: var(--cx-surface);
   border: 1px solid var(--cx-line);
-  border-radius: calc(var(--cx-radius) + 0.5rem);
+  border-radius: 0;
   box-shadow: var(--cx-shadow);
 }
 
@@ -758,7 +758,7 @@
   font-size: 1.4rem;
   background: var(--cx-yellow);
   border: none;
-  border-radius: 50%;
+  border-radius: 0;
 }
 
 .crayon-benefit h3 {
@@ -829,7 +829,7 @@
   font-size: 0.75rem;
   color: #fff;
   background: var(--cx-red);
-  border-radius: 50%;
+  border-radius: 0;
   box-shadow: var(--cx-shadow-soft);
 }
 
@@ -908,7 +908,7 @@
   font-size: 1.2rem;
   text-decoration: none;
   background: var(--cx-yellow);
-  border-radius: 50%;
+  border-radius: 0;
   box-shadow: 0 4px 14px rgba(20, 50, 25, 0.25);
   transition: transform 0.12s ease;
 }
@@ -924,7 +924,7 @@
 
   .crayon-shape--1 { top: 4%; left: 6%; width: 72px; height: 62px; }
   .crayon-shape--2 { top: 3%; right: 8%; width: 76px; height: 76px; }
-  .crayon-shape--3 { top: 16%; left: 58%; width: 66px; height: 66px; }
+  .crayon-shape--3 { top: 9%; left: 50%; width: 66px; height: 66px; }
   .crayon-shape--7,
   .crayon-shape--11,
   .crayon-shape--12 { display: none; }

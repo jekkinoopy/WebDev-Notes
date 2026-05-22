@@ -31,7 +31,7 @@ body.page-crayon-bmi .category-tag {
   background-color: var(--crayon-red);
   color: var(--white, #fff);
   border: 3px solid var(--crayon-ink);
-  border-radius: 50px;
+  border-radius: 0;
   font-weight: 900;
 }
 
@@ -49,7 +49,7 @@ body.page-crayon-bmi .ques-section {
   background-color: var(--crayon-peach);
   border: 3px dashed color-mix(in srgb, var(--crayon-ink) 35%, #d4c4b0);
   color: #8b5e3c;
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 body.page-crayon-bmi .note-card {
@@ -60,7 +60,7 @@ body.page-crayon-bmi .note-card {
 body.page-crayon-bmi .learning-point-box {
   background: linear-gradient(135deg, #fff9ed 0%, var(--crayon-yellow) 100%);
   border: 4px solid var(--crayon-ink);
-  border-radius: 16px;
+  border-radius: 0;
 }
 
 body.page-crayon-bmi .note-reference-box,
@@ -88,7 +88,7 @@ body.page-crayon-bmi .cards-wrapper {
 
 body.page-crayon-bmi .card {
   background-color: var(--crayon-surface);
-  border-radius: 24px;
+  border-radius: 0;
   border: 4px solid var(--crayon-ink);
   box-shadow: 6px 6px 0 color-mix(in srgb, var(--crayon-blue) 55%, transparent);
   width: 100%;
@@ -117,7 +117,7 @@ body.page-crayon-bmi .icon-top {
   height: 60px;
   background: var(--crayon-red);
   border: 4px solid var(--crayon-ink);
-  border-radius: 50%;
+  border-radius: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,7 +167,7 @@ body.page-crayon-bmi .input-group input {
   width: 100%;
   padding: 12px 12px 12px 42px;
   border: 3px solid var(--crayon-ink);
-  border-radius: 12px;
+  border-radius: 0;
   background-color: var(--crayon-skin);
   font-weight: 700;
   color: var(--crayon-ink);
@@ -187,7 +187,7 @@ body.page-crayon-bmi button[type="submit"] {
   background: var(--crayon-blue);
   color: #fffef5;
   border: 3px solid var(--crayon-ink);
-  border-radius: 30px;
+  border-radius: 0;
   font-size: 1.1rem;
   font-weight: 900;
   text-shadow: 1px 1px 0 var(--crayon-ink);
