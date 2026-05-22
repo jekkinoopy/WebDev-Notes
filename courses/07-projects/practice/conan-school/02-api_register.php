@@ -17,9 +17,9 @@ $sql = "insert into `members`(`account`,`password`,`email`,`tel`,`birthday`) val
     '{$_POST['password']}',
     '{$_POST['email']}',
     '{$_POST['tel']}',
-    '{$_POST['birthday']}'
-    )";
+    '{$_POST['birthday']}')";
     // $sql = "INSERT INTO ...VALUES (...)";
     // 雙引號"必須一路包到底，直到最末端)";
-    
+    $pdo->exec($sql);
+    // 執行sql指令
 ?>

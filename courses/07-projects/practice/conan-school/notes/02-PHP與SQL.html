@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>02 PHP 與 SQL｜辦案筆記｜米花町偵探學園</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../Conan.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body class="conan-school">
+  <header class="conan-topbar">
+    <a class="conan-logo" href="../index.html">米花町偵探學園</a>
+    <nav class="conan-nav" aria-label="主選單">
+      <a href="../index.html#top">關於我們</a>
+      <a href="../index.html#features">辦案機能</a>
+      <a href="../index.html#news">事件簿</a>
+      <a href="index.html">辦案筆記</a>
+      <a href="../index.html#contact">聯絡方式</a>
+    </nav>
+    <div class="conan-auth">
+      <a href="../../../../01-database/php/s03-login.php" class="conan-btn conan-btn-login">登入</a>
+      <a href="../01-register.html" class="conan-btn conan-btn-register">註冊</a>
+    </div>
+  </header>
+
+  <main class="conan-notes-main" id="top">
+    <a class="conan-back-link" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> 辦案筆記目錄</a>
+    <a class="conan-back-link conan-back-link-secondary" href="../index.html"><i class="fa-solid fa-house"
+        aria-hidden="true"></i> 返回偵辦室</a>
+    <article class="conan-notes-dossier">
+      <p class="conan-form-label"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> 偵探編號 02</p>
+      <h1>誰是 PHP？誰是 SQL？</h1>
+      <aside class="conan-notes-disclaimer" aria-labelledby="notes-disclaimer-title">
+        <p id="notes-disclaimer-title" class="conan-notes-disclaimer-title">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> 偵辦警語
+        </p>
+        <p>以下內容<strong>大部分為 AI
+            整理</strong>；在本人複習驗證之前，<strong>正確性不予保證</strong>。請以偵探之眼謹慎偵查、交叉比對，勿將本筆記直接當成定案證據。</p>
+      </aside>
+      <p class="conan-notes-intro">在 <code>02-api_register.php</code> 這類註冊 API 裡，同一行畫面常同時出現
+        <code>$pdo</code>、<code>-&gt;exec()</code> 與夾在括號裡的 <code>$sql</code>。乍看全寫在一起，其實是兩種身分：<strong>PHP
+          負責動手</strong>，<strong>SQL 是被打包送出的指令</strong>。</p>
+
+      <section class="conan-notes-faction" aria-labelledby="identity-list-title">
+        <h2 id="identity-list-title" class="conan-notes-faction-title">
+          <i class="fa-solid fa-user-group" aria-hidden="true"></i> 身分鑑定：執行者與指令內容
+        </h2>
+
+        <div class="conan-notes-list-wrap">
+          <ol class="conan-notes-list conan-notes-list--pending">
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><strong>1. 誰是 PHP？</strong>（執行者）</p>
+              <p><strong>範圍：</strong><code>$pdo</code>、<code>-&gt;</code>、<code>exec( ... )</code> 還有結尾的分號
+                <code>;</code>。</p>
+              <p><strong>怎麼認：</strong></p>
+              <ul class="conan-notes-bullets">
+                <li>只要看到字首有錢字號 <code>$</code>（變數），它就是 PHP。</li>
+                <li>只要看見用來呼叫動作的箭頭 <code>-&gt;</code>，它就是 PHP。</li>
+                <li>這裡的 <code>exec()</code> 是 PHP 內建的函式（動作）。</li>
+              </ul>
+              <p><strong>職責：</strong>它是坐在電腦裡的「執行官」，負責發動命令。</p>
+            </li>
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><strong>2. 誰是 SQL？</strong>（被執行的指令內容）</p>
+              <p><strong>範圍：</strong>夾在括號肚子裡的 <code>$sql</code>。</p>
+              <p><strong>怎麼認：</strong></p>
+              <ul class="conan-notes-bullets">
+                <li>雖然 <code>$sql</code> 貼著 PHP 的變數標籤（<code>$</code>），但它箱子裡面裝的核心內容，是你上一段寫的
+                  <code>"insert into members..."</code> 那串英文。</li>
+                <li>只要內容是 <code>insert into</code>、<code>select</code>、<code>delete</code> 這種跟資料庫溝通的語法，它在本質上就是
+                  SQL 指令。</li>
+              </ul>
+              <p><strong>職責：</strong>它是被打包好的「信件內容」，自己不會動，必須躺在 PHP 的 <code>exec()</code> 肚子裡，被 PHP 發射去資料庫。</p>
+            </li>
+          </ol>
+        </div>
+
+        <p class="conan-notes-legend" role="note">
+          <i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <strong>一秒區分結論</strong><br>
+          PHP 是動詞與工具（例如：<code>$pdo-&gt;exec()</code> ➜ PHP 負責動手執行）。<br>
+          SQL 是名詞與原料（例如：<code>$sql</code> ➜ 被執行的 SQL 指令字條）。
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <footer id="contact" class="conan-site-footer">
+    <h2 class="conan-footer-title">米花町偵探學園</h2>
+    <nav class="conan-footer-nav" aria-label="頁尾連結">
+      <a href="../01-register.html">註冊練習</a>
+      <a href="index.html">辦案筆記</a>
+      <a href="../../../../01-database/php/s02-register.php">註冊筆記</a>
+      <a href="../../../../01-database/php/s03-login.php">登入筆記</a>
+      <a href="../../../../01-database/php/index.html">PHP 課程索引</a>
+    </nav>
+    <ul class="conan-contact-list">
+      <li>
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        米花町 · 偵辦室練習專區（conan-school）
+      </li>
+      <li>
+        <i class="fa-solid fa-server" aria-hidden="true"></i>
+        資料庫：localhost / school
+      </li>
+      <li>
+        <i class="fa-solid fa-file-export" aria-hidden="true"></i>
+        移送 API：02-api_register.php
+      </li>
+    </ul>
+    <div class="conan-footer-bottom">
+      <p class="conan-copy">&copy; 2026 努比的全端筆記 · 真相只有一個</p>
+      <p class="conan-footer-meta">
+        <a href="../../../../01-database/php/index.html">回到筆記首頁</a>
+        <span aria-hidden="true">|</span>
+        <a href="#top">回到頂部</a>
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>
