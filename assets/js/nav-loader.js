@@ -71,7 +71,9 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "專案實務",
             links: [
                 { name: "乙級檢定", url: "courses/07-projects/index.html", isFinished: false },
-                { name: "實作專案", url: "courses/07-projects/practice/index.html", isFinished: true }
+                { name: "實作專案", url: "courses/07-projects/practice/index.html", isFinished: true },
+                { name: "米花町偵探學園", url: "courses/07-projects/practice/conan-school/index.html", isFinished: true },
+                { name: "野原家減肥中心", url: "courses/07-projects/practice/crayon/index.html", isFinished: true }
             ]
         }
     ];

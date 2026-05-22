@@ -476,6 +476,11 @@ section {
     font-size: 2.5rem;
 }
 
+.card-icon .fa-solid {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
 .card-badge {
     display: inline-block;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);

@@ -4,151 +4,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【野原家特訓】美冴的 BMI 挑戰 - 努比的全端筆記</title>
-    <link rel="stylesheet" href="../../../../assets/css/main.css">
-    <link rel="stylesheet" href="../../../../assets/css/course-note.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-one-dark.min.css">
-    <link rel="stylesheet" href="../../../../assets/css/course-note-code-window.css">
-    <link rel="stylesheet" href="crayon-theme.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700;900&display=swap" rel="stylesheet">
+    <title>野原家減肥管理中心・全面計畫</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="crayon-layout.css">
 </head>
 
-<body class="page-crayon-bmi">
-    <header class="header">
-        <nav class="navbar"></nav>
-        <script src="../../../../assets/js/nav-loader.js"></script>
-    </header>
+<body class="crayon-school">
 
-    <section class="page-hero">
-        <div class="hero-container">
-            <span class="category-tag">美冴特訓</span>
-            <h2 class="note-title">野原家 BMI 秘密監測站</h2>
-            <p class="hero-desc">媽媽說她只有 45 公斤...小新，把表單拿來！</p>
-            <div class="hero-divider"></div>
-        </div>
-    </section>
+    <div class="crayon-bg-shapes" aria-hidden="true">
+        <span class="crayon-shape crayon-shape--tri crayon-shape--1"></span>
+        <span class="crayon-shape crayon-shape--sq crayon-shape--2"></span>
+        <span class="crayon-shape crayon-shape--ci crayon-shape--3"></span>
+        <span class="crayon-shape crayon-shape--tri crayon-shape--4"></span>
+        <span class="crayon-shape crayon-shape--sq crayon-shape--5"></span>
+        <span class="crayon-shape crayon-shape--ci crayon-shape--6"></span>
+        <span class="crayon-shape crayon-shape--tri crayon-shape--7"></span>
+        <span class="crayon-shape crayon-shape--sq crayon-shape--8"></span>
+        <span class="crayon-shape crayon-shape--ci crayon-shape--9"></span>
+        <span class="crayon-shape crayon-shape--tri crayon-shape--10"></span>
+        <span class="crayon-shape crayon-shape--sq crayon-shape--11"></span>
+        <span class="crayon-shape crayon-shape--ci crayon-shape--12"></span>
+    </div>
 
-    <div class="note-container">
-        <div class="note-card">
-            <h3 class="note-subtitle">美冴的肚子沒救了（？）計算題目</h3>
-            <div class="ques-section">
-                <strong class="is-bracket-heading">【特訓需求】</strong><br>
-                1. 建立一個連小白看了都會輸入身高和體重的表單畫面。<br>
-                2. 按下「開始處刑」按鈕後，在另一個頁面顯示結果。
+    <main>
+        <section class="crayon-hero" aria-labelledby="hero-title">
+            <div class="crayon-hero-inner">
+                <p class="crayon-hero-eyebrow">全面計畫 · 野原家特訓總部</p>
+                <h1 id="hero-title">野原家減肥管理中心</h1>
+                <p class="crayon-hero-lead">只要有心，連肥嘟嘟左衛門都能變身成動感超人！</p>
+                <nav class="crayon-hero-nav" aria-label="頁內導覽">
+                    <a class="crayon-hero-link crayon-hero-link--bmi" href="#bmi-section">體重監測</a>
+                    <a class="crayon-hero-link crayon-hero-link--workout" href="#workout-section">運動特訓</a>
+                    <a class="crayon-hero-link crayon-hero-link--diet" href="#diet-section">飲食封印</a>
+                </nav>
             </div>
-
-            <div class="note-practice-sticky">
-                <div class="note-code-window" data-note-code-window data-code-line-count="3">
-                    <div class="note-code-window-toolbar">
-                        <div class="note-code-window-dots" aria-hidden="true">
-                            <span class="note-code-window-dot note-code-window-dot--red"></span>
-                            <span class="note-code-window-dot note-code-window-dot--yellow"></span>
-                            <span class="note-code-window-dot note-code-window-dot--green"></span>
-                        </div>
-                        <button type="button" class="note-code-window-copy" aria-label="複製程式碼" title="複製">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="note-code-window-body">
-                        <div class="note-code-window-gutter">1
-2
-3</div>
-                        <pre class="language-php"><code class="language-php">// 【程式碼練習】
-// 在此處實作表單與 BMI 運算邏輯</code></pre>
-                    </div>
-                </div>
-
-                <div class="code-section">
-                    <span class="section-label is-bracket-heading">【處刑結果】</span>
-
-                    <div class="cards-wrapper">
-
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="icon-top">🍑</div>
-                                <h2>美冴的自我安慰 (GET)</h2>
-
-                                <form action="#" method="get" onsubmit="return false;">
-                                    <div class="input-group">
-                                        <span class="input-emoji">📏</span>
-                                        <input type="number" name="height" placeholder="名義上的身高 (cm)" step="0.1"
-                                            required>
-                                    </div>
-
-                                    <div class="input-group">
-                                        <span class="input-emoji">🐷</span>
-                                        <input type="number" name="weight" placeholder="最近比較瘦的體重 (kg)" step="0.1"
-                                            required>
-                                    </div>
-
-                                    <button type="submit">⚡ 動感光波，送出！</button>
-                                </form>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="icon-top">👺</div>
-                                <h2>廣志的真實監測 (POST)</h2>
-
-                                <form action="#" method="post" onsubmit="return false;">
-                                    <div class="input-group">
-                                        <span class="input-emoji">📏</span>
-                                        <input type="number" name="height" placeholder="認真量的身高 (cm)" step="0.1"
-                                            required>
-                                    </div>
-
-                                    <div class="input-group">
-                                        <span class="input-emoji">🍻</span>
-                                        <input type="number" name="weight" placeholder="偷吃宵夜後的體重 (kg)" step="0.1"
-                                            required>
-                                    </div>
-
-                                    <button type="submit">⚡ 大原所長，請過目！</button>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
+        </section>
+        <section class="crayon-section crayon-band crayon-band--cream crayon-band--after-bg" id="bmi-section"
+            aria-labelledby="bmi-title">
+            <div class="crayon-section-head">
+                <span class="crayon-section-num">01</span>
+                <div>
+                    <h2 id="bmi-title" class="crayon-section-title">春日部真實身材照妖鏡</h2>
+                    <p class="crayon-section-desc">不管是自我安慰的幻想，還是面對現實的慘叫，今天都要做個了斷！</p>
                 </div>
             </div>
 
-            <div class="learning-point-box">
-                <p class="learning-point-title is-bracket-heading">【向日葵班學習重點】</p>
-                <ul class="custom-list">
-                    <li>關鍵函式：小白的狗食分量 = 體重 * ...喔不對。</li>
-                    <li>特別注意：美冴的體重是野原家的最高機密，語法寫錯會被媽媽揍！</li>
-                </ul>
+            <div class="crayon-banner">
+                <p class="crayon-kicker">管理中心公告</p>
+                <p><strong>📏 核心警報</strong> — 嚴格禁止私自修改體重計數字！動感超人正在看著野原一家的肚子肉肉！</p>
             </div>
 
-        </div>
+            <div class="crayon-card-grid">
+                <article class="crayon-card crayon-card--get">
+                    <span class="crayon-sticker" aria-hidden="true">🍑</span>
+                    <span class="crayon-badge">美冴專用</span>
+                    <h3>美冴的自我安慰檢測</h3>
+                    <p class="crayon-protocol">
+                        此欄位具有極高隱私危機！就像美冴藏在壁櫥裡的百貨公司私房錢和偷買的減肥巧克力，稍微不注意就會被全家人發現！<br>
+                        <code>#名義上的大美人 #上個禮拜比較瘦的幻覺</code>
+                    </p>
+                    <form class="crayon-form" action="#" method="get" onsubmit="return false;">
+                        <div class="input-group">
+                            <i class="fa-solid fa-ruler-vertical" aria-hidden="true"></i>
+                            <input type="number" name="height" placeholder="理想中二十歲時的身高 (cm)" step="0.1" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fa-solid fa-weight-scale" aria-hidden="true"></i>
+                            <input type="number" name="weight" placeholder="扣掉衣服跟贅肉的體重 (kg)" step="0.1" required>
+                        </div>
+                        <button type="submit">動感光波，數值大公開！</button>
+                    </form>
+                </article>
 
-        <aside class="note-reference-box" aria-label="延伸閱讀">
-            <h4 class="note-reference-title is-bracket-heading">【吉永老師的延伸閱讀】</h4>
-            <ul class="note-reference-list">
-                <li>
-                    <a href="https://mackliu.github.io/php-book/2021/09/19/basic-lesson-02/" target="_blank"
-                        rel="noopener noreferrer">[基礎課程] 教你如何控制廣志的薪水流程</a>
-                </li>
-                <li>
-                    <a href="https://github.com/mackliu/115-html/blob/main/06-BMI.php" target="_blank"
-                        rel="noopener noreferrer">115 HTML 課程：查看美冴的真實原始碼</a>
-                </li>
-            </ul>
-        </aside>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
-    <script src="../../../../assets/js/course-note-code-window.js"></script>
-    <div class="note-container note-lesson-nav-wrap">
-        <div id="note-lesson-nav-root" data-lesson-id="h04-bmi"></div>
-    </div>
-    <script src="../../../../assets/js/note-lesson-nav.js"></script>
+                <article class="crayon-card crayon-card--post">
+                    <span class="crayon-sticker" aria-hidden="true">👺</span>
+                    <span class="crayon-badge">廣志監密</span>
+                    <h3>廣志的真實防線監測</h3>
+                    <p class="crayon-protocol">
+                        此處防守極度嚴密！防護等級等同於廣志藏在臭鞋底下的私房錢。就算是美冴拿著平底鍋大吼威脅，也絕對不輕易外流！<br>
+                        <code>#宿醉後的真實身高 #深夜偷偷吃完宵夜的靈魂重量</code>
+                    </p>
+                    <form class="crayon-form" action="#" method="post" onsubmit="return false;">
+                        <div class="input-group">
+                            <i class="fa-solid fa-ruler-vertical" aria-hidden="true"></i>
+                            <input type="number" name="height" placeholder="健康檢查量出來的真實身高 (cm)" step="0.1" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fa-solid fa-weight-scale" aria-hidden="true"></i>
+                            <input type="number" name="weight" placeholder="居酒屋應酬後的無情體重 (kg)" step="0.1" required>
+                        </div>
+                        <button type="submit">大原所長，請隱密過目！</button>
+                    </form>
+                </article>
+            </div>
+        </section>
+
+        <section class="crayon-section crayon-band crayon-band--soft crayon-band--after-cream" id="workout-section"
+            aria-labelledby="workout-title">
+            <div class="crayon-plate">
+                <div class="crayon-section-head">
+                    <span class="crayon-section-num">02</span>
+                    <div>
+                        <h2 id="workout-title" class="crayon-section-title">動感超人：一週魔鬼特訓</h2>
+                        <p class="crayon-section-desc">雙葉幼稚園向日葵班與野原家專屬課表</p>
+                    </div>
+                </div>
+                <div class="crayon-week-rail">
+                    <div class="crayon-day crayon-day--push">
+                        <div class="crayon-day-head">
+                            <span class="crayon-day-week">週一</span>
+                            <span class="crayon-day-focus">推力</span>
+                        </div>
+                        <div class="crayon-tags">
+                            <span class="crayon-tag">坐姿推胸機</span><span class="crayon-tag">上斜推胸機</span>
+                            <span class="crayon-tag">三頭下壓</span><span class="crayon-tag">健身車 20m</span>
+                        </div>
+                    </div>
+                    <div class="crayon-day crayon-day--legs">
+                        <div class="crayon-day-head">
+                            <span class="crayon-day-week">週二</span>
+                            <span class="crayon-day-focus">下肢</span>
+                        </div>
+                        <div class="crayon-tags">
+                            <span class="crayon-tag">腿推機</span><span class="crayon-tag">腿部伸展</span>
+                            <span class="crayon-tag">臀推機</span><span class="crayon-tag">羅馬椅</span>
+                        </div>
+                    </div>
+                    <div class="crayon-day crayon-day--cardio">
+                        <div class="crayon-day-head">
+                            <span class="crayon-day-week">週三</span>
+                            <span class="crayon-day-focus">有氧</span>
+                        </div>
+                        <div class="crayon-tags">
+                            <span class="crayon-tag">游泳 30min</span><span class="crayon-tag">春日部公園慢跑</span>
+                            <span class="crayon-tag">發射動感光波</span>
+                        </div>
+                    </div>
+                    <div class="crayon-day crayon-day--pull">
+                        <div class="crayon-day-head">
+                            <span class="crayon-day-week">週四</span>
+                            <span class="crayon-day-focus">拉力</span>
+                        </div>
+                        <div class="crayon-tags">
+                            <span class="crayon-tag">滑輪下拉</span><span class="crayon-tag">坐姿划船</span>
+                            <span class="crayon-tag">二頭彎舉</span><span class="crayon-tag">健身車 20m</span>
+                        </div>
+                    </div>
+                    <div class="crayon-day crayon-day--legs">
+                        <div class="crayon-day-head">
+                            <span class="crayon-day-week">週五</span>
+                            <span class="crayon-day-focus">下肢</span>
+                        </div>
+                        <div class="crayon-tags">
+                            <span class="crayon-tag">腿部訓練</span><span class="crayon-tag">核心捲腹</span>
+                            <span class="crayon-tag">臀部內收</span>
+                        </div>
+                    </div>
+                    <div class="crayon-day crayon-day--cardio">
+                        <div class="crayon-day-head">
+                            <span class="crayon-day-week">週六</span>
+                            <span class="crayon-day-focus">有氧</span>
+                        </div>
+                        <div class="crayon-tags">
+                            <span class="crayon-tag">全力左右橫移 30m</span><span class="crayon-tag">陪小白散步追逐</span>
+                        </div>
+                    </div>
+                    <div class="crayon-day crayon-day--rest">
+                        <div class="crayon-day-head">
+                            <span class="crayon-day-week">週日</span>
+                            <span class="crayon-day-focus">放鬆</span>
+                        </div>
+                        <div class="crayon-tags">
+                            <span class="crayon-tag">限量巧克力餅乾</span><span class="crayon-tag">看動感超人最新轉播</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="crayon-callout">吉永老師提醒：小新！在春日部公園慢跑的時候要看前面，不可以一邊跑一邊偷看漂亮的大姐姐！健身房器材用完要自己擦乾淨，週一、二、四是向日葵班的重點爆發期！
+                </p>
+                <div class="crayon-benefits">
+                    <div class="crayon-benefit">
+                        <span class="crayon-benefit-icon" aria-hidden="true">🏃</span>
+                        <div>
+                            <h3>擺脫萬年肚腩</h3>
+                            <p>透過每日 30 分鐘的有氧大作戰，誓死消滅野原廣志的居酒屋啤酒肚與沉重腳臭感。</p>
+                        </div>
+                    </div>
+                    <div class="crayon-benefit">
+                        <span class="crayon-benefit-icon" aria-hidden="true">💪</span>
+                        <div>
+                            <h3>超級主婦增肌</h3>
+                            <p>精準鍛鍊手臂與背部肌肉，讓美冴在春日部百貨大特價提重物、抓小新屁股時更充滿爆發力。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="crayon-section crayon-band crayon-band--cream crayon-band--after-soft" id="diet-section"
+            aria-labelledby="diet-title">
+            <div class="crayon-section-head">
+                <span class="crayon-section-num">03</span>
+                <div>
+                    <h2 id="diet-title" class="crayon-section-title">皇家特訓：飲食極限封印</h2>
+                    <p class="crayon-section-desc">為了對抗高熱量惡勢力，春日部防衛隊所制定的最高級餐桌鐵則！</p>
+                </div>
+            </div>
+            <div class="crayon-diet-list">
+                <article class="crayon-diet">
+                    <div class="crayon-diet-body">
+                        <h4>🚫 終極對決・惡魔青椒封印計畫</h4>
+                        <p><strong>綠色正義：</strong>每日必須吃完 300g 的綠色蔬菜。雖然小新極度討厭、千方百計想挑掉，但這是防衛隊的最高榮譽，一口都不准剩！</p>
+                    </div>
+                    <span class="crayon-diet-go" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                </article>
+                <article class="crayon-diet">
+                    <div class="crayon-diet-body">
+                        <h4>🍪 巧克力餅乾的嚴格配額制</h4>
+                        <p><strong>防衛隊底線：</strong>每天最多只能吃兩片！絕對禁止趁美冴去跟隔壁大嬸長談時，偷偷搬椅子去拿藏在廚房最高層櫃子裡的隱藏版口味。</p>
+                    </div>
+                    <span class="crayon-diet-go" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                </article>
+                <article class="crayon-diet">
+                    <div class="crayon-diet-body">
+                        <h4>🍺 廣志的深夜居酒屋生啤酒禁令</h4>
+                        <p><strong>痛風大作戰：</strong>下班後的安慰生啤酒一律改為無糖氣泡水。足臭指數下降，健康指數上升！</p>
+                    </div>
+                    <span class="crayon-diet-go" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="crayon-footer">
+        <a class="crayon-top-btn" href="#hero-title" aria-label="回到頁首"><span aria-hidden="true">⬆️</span></a>
+        <p class="crayon-footer-logo">野原家減肥管理中心</p>
+        <p class="crayon-footer-note">照妖鏡 · 魔鬼特訓 · 飲食封印 — 野原一家的健康作戰指揮部。</p>
+        <p class="crayon-footer-copy">© 2026 Noopy's Web Studio · 僅供專案練習使用</p>
+    </footer>
+
 </body>
 
 </html>
