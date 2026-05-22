@@ -615,7 +615,28 @@
   color: #fff;
 }
 
-.conan-btn-register[aria-current="page"] {
+.conan-form-foot {
+  margin: 1.15rem 0 0;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--conan-muted, #5a6a7a);
+  border-top: 1px dashed var(--conan-border);
+}
+
+.conan-form-foot a {
+  color: var(--conan-navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.conan-form-foot a:hover {
+  color: var(--conan-crimson);
+  text-decoration: underline;
+}
+
+.conan-btn-register[aria-current="page"],
+.conan-btn-login[aria-current="page"] {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
 }
 

@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>嫌疑犯名冊｜米花町偵探學園</title>
+  <title>身分對質登錄｜米花町偵探學園</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="Conan.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,43 +23,33 @@
       <a href="index.html#contact">聯絡方式</a>
     </nav>
     <div class="conan-auth">
-      <a href="03-login.php" class="conan-btn conan-btn-login">登入</a>
-      <a href="01-register.html" class="conan-btn conan-btn-register" aria-current="page">註冊</a>
+      <a href="03-login.php" class="conan-btn conan-btn-login" aria-current="page">登入</a>
+      <a href="01-register.html" class="conan-btn conan-btn-register">註冊</a>
     </div>
   </header>
 
   <main class="conan-page-main">
     <a class="conan-back-link" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> 返回偵辦室</a>
     <article class="conan-form-card">
-      <p class="conan-form-label"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> 會員註冊</p>
-      <h1>嫌疑犯名冊</h1>
-      <p class="conan-form-sub">請確實填寫身分，這將成為你完美的「不在場證明」。</p>
-      <form action="02-api_register.php" method="post">
+      <p class="conan-form-label"><i class="fa-solid fa-user-check" aria-hidden="true"></i> 會員登入</p>
+      <h1>身分對質登錄</h1>
+      <p class="conan-form-sub">請出示帳號與密碼，接受偵辦室驗證。帳密不符者，恕不發放破案許可。</p>
+      <form action="04-api_login.php" method="post">
         <div class="conan-form-field">
           <label for="account"><i class="fa-solid fa-user" aria-hidden="true"></i> 帳號</label>
           <input type="text" id="account" name="account" placeholder="請輸入帳號" required autocomplete="username" />
         </div>
         <div class="conan-form-field">
           <label for="password"><i class="fa-solid fa-lock" aria-hidden="true"></i> 密碼</label>
-          <input type="password" id="password" name="password" placeholder="請輸入密碼" required autocomplete="new-password" />
-        </div>
-        <div class="conan-form-field">
-          <label for="email"><i class="fa-solid fa-envelope" aria-hidden="true"></i> 信箱</label>
-          <input type="email" id="email" name="email" placeholder="請輸入信箱" required autocomplete="email" />
-        </div>
-        <div class="conan-form-field">
-          <label for="tel"><i class="fa-solid fa-phone" aria-hidden="true"></i> 電話</label>
-          <input type="tel" id="tel" name="tel" placeholder="請輸入電話" required autocomplete="tel" />
-        </div>
-        <div class="conan-form-field">
-          <label for="birthday"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i> 生日</label>
-          <input type="date" id="birthday" name="birthday" required />
+          <input type="password" id="password" name="password" placeholder="請輸入密碼" required autocomplete="current-password" />
         </div>
         <div class="conan-form-actions">
-          <button type="submit"><i class="fa-solid fa-gavel" aria-hidden="true"></i> 移送法辦</button>
-          <button type="reset"><i class="fa-solid fa-eraser" aria-hidden="true"></i> 清空紀錄</button>
+          <button type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> 強制偵訊</button>
         </div>
       </form>
+      <p class="conan-form-foot">
+        尚未登記嫌疑犯名冊？<a href="01-register.html">前往註冊</a>
+      </p>
     </article>
   </main>
 
@@ -83,7 +73,7 @@
       </li>
       <li>
         <i class="fa-solid fa-file-export" aria-hidden="true"></i>
-        移送 API：02-api_register.php
+        移送 API：04-api_login.php
       </li>
     </ul>
     <div class="conan-footer-bottom">
