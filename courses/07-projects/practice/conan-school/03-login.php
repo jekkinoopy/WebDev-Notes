@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>身分對質登錄｜米花町偵探學園</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="Conan.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,7 +31,6 @@
     <a class="conan-back-link" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> 返回偵辦室</a>
     <article class="conan-form-card">
       <p class="conan-form-label"><i class="fa-solid fa-user-check" aria-hidden="true"></i> 會員登入</p>
-      <h1>身分對質登錄</h1>
       <p class="conan-form-sub">請出示帳號與密碼，接受偵辦室驗證。帳密不符者，恕不發放破案許可。</p>
       <form action="04-api_login.php" method="post">
         <div class="conan-form-field">
@@ -44,7 +42,6 @@
           <input type="password" id="password" name="password" placeholder="請輸入密碼" required autocomplete="current-password" />
         </div>
         <div class="conan-form-actions">
-          <button type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> 強制偵訊</button>
         </div>
       </form>
       <p class="conan-form-foot">
@@ -57,6 +54,7 @@
     <h2 class="conan-footer-title">米花町偵探學園</h2>
     <nav class="conan-footer-nav" aria-label="頁尾連結">
       <a href="01-register.html">註冊練習</a>
+      <a href="03-login.php">登入練習</a>
       <a href="case-notes.html">辦案筆記</a>
       <a href="../../../01-database/php/s02-register.php">註冊筆記</a>
       <a href="../../../01-database/php/s03-login.php">登入筆記</a>
