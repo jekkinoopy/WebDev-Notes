@@ -206,30 +206,77 @@
   margin: 0 auto;
 }
 
-.crayon-hero-eyebrow {
-  margin: 0 0 0.5rem;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  color: var(--cx-hill-dark);
+.crayon-hero-head {
+  max-width: 38em;
+  margin-bottom: 0.15rem;
 }
 
-.crayon-hero h1 {
-  margin: 0 0 0.65rem;
-  font-size: clamp(1.65rem, 4.5vw, 2.35rem);
-  font-weight: 900;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
+.crayon-hero-eyebrow {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: none;
   color: var(--cx-ink);
+  background: var(--cx-yellow);
+  border: 2.5px solid var(--cx-shape-stroke);
+  box-shadow: 3px 3px 0 var(--cx-shape-shadow);
+}
+
+.crayon-hero-title {
+  margin: 0 0 1.1rem;
+  padding: 0 0 0.75rem;
+  font-size: clamp(2rem, 6.2vw, 3.15rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: 0.03em;
+  color: var(--cx-ink);
+  border-bottom: 4px solid var(--cx-shape-stroke);
+  text-shadow:
+    2px 2px 0 #fff,
+    4px 4px 0 var(--cx-shape-shadow);
+}
+
+.crayon-hero-title::after {
+  content: "";
+  display: block;
+  width: min(12rem, 55%);
+  height: 6px;
+  margin-top: 0.65rem;
+  background: linear-gradient(
+    90deg,
+    var(--cx-red) 0 33%,
+    var(--cx-yellow) 33% 66%,
+    var(--cx-green) 66% 100%
+  );
+  border: 2px solid var(--cx-shape-stroke);
+  box-shadow: 2px 2px 0 var(--cx-shape-shadow);
 }
 
 .crayon-hero-lead {
-  margin: 0 0 1.15rem;
-  max-width: 32em;
-  font-size: clamp(0.95rem, 2.2vw, 1.08rem);
-  font-weight: 600;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0 0 1.25rem;
+  max-width: 30em;
+  padding: 0.9rem 1rem;
+  font-size: clamp(1rem, 2.35vw, 1.12rem);
+  font-weight: 700;
   line-height: 1.65;
-  color: var(--cx-muted);
+  color: var(--cx-ink);
+  background: var(--cx-cream);
+  border: 2.5px solid var(--cx-shape-stroke);
+  border-left: 8px solid var(--cx-red);
+  box-shadow: 4px 4px 0 var(--cx-shape-shadow);
+}
+
+.crayon-hero-lead .fa-bolt {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  font-size: 1.15rem;
+  color: var(--cx-blue);
 }
 
 .crayon-hero-nav {
@@ -474,10 +521,23 @@
   place-items: center;
   font-size: 1.6rem;
   background: var(--cx-surface);
-  border: none;
+  border: 2.5px solid var(--cx-shape-stroke);
   border-radius: 0;
-  box-shadow: var(--cx-shadow-soft);
+  box-shadow: var(--cx-shape-shadow);
   transform: rotate(6deg);
+}
+
+.crayon-sticker .fa-solid {
+  font-size: 1.35rem;
+  color: var(--cx-ink);
+}
+
+.crayon-card--get .crayon-sticker .fa-solid {
+  color: var(--cx-pink);
+}
+
+.crayon-card--post .crayon-sticker .fa-solid {
+  color: var(--cx-blue);
 }
 
 .crayon-badge {
@@ -757,8 +817,24 @@
   place-items: center;
   font-size: 1.4rem;
   background: var(--cx-yellow);
-  border: none;
+  border: 2.5px solid var(--cx-shape-stroke);
   border-radius: 0;
+  box-shadow: 2px 2px 0 var(--cx-shape-shadow);
+}
+
+.crayon-benefit-icon .fa-solid {
+  font-size: 1.25rem;
+  color: var(--cx-ink);
+}
+
+.crayon-banner strong .fa-solid {
+  margin-right: 0.35rem;
+  color: var(--cx-red);
+}
+
+.crayon-diet h4 .fa-solid {
+  margin-right: 0.4rem;
+  color: var(--cx-hill-dark);
 }
 
 .crayon-benefit h3 {
