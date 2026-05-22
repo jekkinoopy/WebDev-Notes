@@ -990,10 +990,12 @@
 .conan-notes-index-list a {
   color: var(--conan-navy);
   font-weight: 600;
+  text-decoration: none;
 }
 
 .conan-notes-index-list a:hover {
   color: var(--conan-crimson);
+  text-decoration: none;
 }
 
 /* 與全站 nav 未完成連結一致（#bbb + 不可點） */

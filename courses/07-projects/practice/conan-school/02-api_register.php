@@ -21,5 +21,7 @@ $sql = "insert into `members`(`account`,`password`,`email`,`tel`,`birthday`) val
     // $sql = "INSERT INTO ...VALUES (...)";
     // 雙引號"必須一路包到底，直到最末端)";
     $pdo->exec($sql);
-    // 執行sql指令
+    // 呼叫物件內部的動作或變數-> exec()執行$sql裡面打包的SQL語法指令;
+    header("location:03-login.php");
+    //檔案被打包送出時，走在最前面的那個區塊
 ?>

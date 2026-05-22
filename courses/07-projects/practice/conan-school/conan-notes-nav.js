@@ -32,8 +32,6 @@
           '"><span class="conan-notes-nav-chevron" aria-hidden="true">‹</span><span class="conan-notes-nav-text">' +
           SERIES +
           " " +
-          String(cur).padStart(2, "0") +
-          " " +
           prev.title +
           "</span></a>"
       );
@@ -54,8 +52,6 @@
           next.href +
           '"><span class="conan-notes-nav-text">' +
           SERIES +
-          " " +
-          String(cur + 2).padStart(2, "0") +
           " " +
           next.title +
           '</span><span class="conan-notes-nav-chevron" aria-hidden="true">›</span></a>'
