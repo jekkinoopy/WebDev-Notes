@@ -896,17 +896,23 @@
   font-size: 0.75rem;
   color: #fff;
   background: var(--cx-red);
+  border: 2.5px solid var(--cx-shape-stroke);
   border-radius: 0;
-  box-shadow: var(--cx-shadow-soft);
+  box-shadow: 2px 2px 0 var(--cx-shape-shadow);
+}
+
+.crayon-diet-go .fa-solid {
+  color: inherit;
 }
 
 .crayon-diet:nth-child(2) .crayon-diet-go {
-  background: color-mix(in srgb, var(--cx-yellow) 85%, var(--cx-ink));
+  background: var(--cx-yellow);
   color: var(--cx-ink);
 }
 
 .crayon-diet:nth-child(3) .crayon-diet-go {
   background: var(--cx-blue);
+  color: #fff;
 }
 
 /* 飲食區底：波浪綠帶（與奶油底同一 section，避免 footer 交界白縫） */
