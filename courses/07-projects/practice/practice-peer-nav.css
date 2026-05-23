@@ -1,0 +1,87 @@
+/* 實作專區：頁尾「其他練習專區」互相連結 */
+.practice-peer-nav {
+  margin: 0 0 1.15rem;
+  padding: 0.85rem 1rem 0.9rem;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+.practice-peer-nav__title {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.practice-peer-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.practice-peer-nav__list a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.practice-peer-nav__list a:hover {
+  text-decoration: underline;
+}
+
+/* 柯南站：深底頁尾 */
+.conan-site-footer .practice-peer-nav {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.conan-site-footer .practice-peer-nav__title,
+.conan-site-footer .practice-peer-nav__list a {
+  color: #f8fafc;
+}
+
+.conan-site-footer .practice-peer-nav__list a:hover {
+  color: var(--conan-crimson, #dc2626);
+}
+
+/* 蠟筆站：綠底頁尾 */
+.crayon-footer .practice-peer-nav {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.crayon-footer .practice-peer-nav__title {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.crayon-footer .practice-peer-nav__list a {
+  color: var(--cx-yellow, #e8cc5c);
+}
+
+.crayon-footer .practice-peer-nav__list a:hover {
+  color: #fff;
+}
+
+/* 實作專案列表頁 */
+.footer .practice-peer-nav {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.footer .practice-peer-nav__title {
+  color: #64748b;
+}
+
+.footer .practice-peer-nav__list a {
+  color: #334155;
+}
+
+.footer .practice-peer-nav__list a:hover {
+  color: #0f172a;
+}

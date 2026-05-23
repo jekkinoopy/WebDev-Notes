@@ -48,6 +48,8 @@
 
 **新 SQL 一講：**複製版型 → `note-lesson-nav.js` 的 `CHAIN_SQL` 加一筆 → 頁底 `#note-lesson-nav-root` 設 `data-lesson-scope="sql"` + `data-lesson-id` → 列表頁加連結。
 
+**柯南辦案筆記一則（`conan-school/notes/`）：**須同時維護 **`notes/NN-….html`**、**`notes/index.html` 目錄 `<li>`**、**`conan-notes-nav.js` 的 `CHAIN`**；內頁 `#conan-notes-nav-root` + `data-note-id`。改 peer-nav／頁尾／更名時勿用舊版 index 蓋掉既有條目；收工對照磁碟上 `notes/*.html` 與 `CHAIN` 筆數。細則見 `.cursor/rules/repo-workflow.mdc`「柯南辦案筆記」。
+
 ## 〈變更〉（append 最下方，日期標題）
 
 ### YYYY-MM-DD
@@ -121,6 +123,10 @@
 ### 2026-05-13（CSS margin-padding／協作）
 - 需求：釐清「勿還原已刪」僅指**當次改動範圍內**使用者拿掉的規則，勿寫成全專案通案；精簡〈變更〉避免長篇頁面快照。
 - 範圍：只動 `CURSOR-HANDOFF.md`（「未要求勿更動」一句 + 本則〈變更〉）。
+
+### 2026-05-20
+- 需求：柯南筆記 03 曾出現「目錄無第三條、檔案不在工作區、但 `CHAIN` 仍有 03」——屬助理改 peer-nav／頁尾時未三處同步；寫入規範防再發。
+- 範圍：`.cursor/rules/repo-workflow.mdc`（柯南辦案筆記一節）；`CURSOR-HANDOFF.md`（換機段 + 本則〈變更〉）。
 
 ---
 

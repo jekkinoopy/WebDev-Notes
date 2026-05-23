@@ -75,6 +75,7 @@
         移送 API：04-api_login.php
       </li>
     </ul>
+    <div data-practice-peer-nav data-current="conan" data-base="../"></div>
     <div class="conan-footer-bottom">
       <p class="conan-copy">&copy; 2026 努比的全端筆記 · 真相只有一個</p>
       <p class="conan-footer-meta">
@@ -84,6 +85,7 @@
       </p>
     </div>
   </footer>
+  <script src="../practice-peer-nav.js"></script>
 </body>
 
 </html>

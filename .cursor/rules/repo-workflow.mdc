@@ -32,6 +32,21 @@ alwaysApply: true
 - 【學習重點】**不要**加「下一步：請進入 xxx」；頁底 `note-lesson-nav` 已負責上下則。
 - 需求區塊沿用 repo 慣例：**【題目需求】**（`ques-section`），勿自創【學習段落】除非使用者指定。
 
+## 柯南辦案筆記 `courses/07-projects/practice/conan-school/notes/`
+
+改動由**助理**完成時，須自責維持下列 **三處一致**（勿假設使用者手動刪檔）：
+
+| 必須同步 | 路徑 |
+|----------|------|
+| 筆記檔 | `notes/NN-標題.html` |
+| 目錄條目 | `notes/index.html` 的 `<ol class="conan-notes-index-list">` |
+| 上下則 | `conan-school/conan-notes-nav.js` 的 `CHAIN` |
+
+- **新增**一則：三處都加；內頁要有 `#conan-notes-nav-root` + `data-note-id`（與 `CHAIN[].id` 一致）。
+- **刪除**一則：三處都刪，勿只改 `CHAIN` 或只刪 `.html`。
+- **改 `notes/index.html`、頁尾、peer-nav、路徑更名**等批次作業時：改完用 `notes/*.html` 實際檔名對照目錄與 `CHAIN`；**禁止**用舊版 `index.html` 覆寫而漏掉已存在的條目。
+- **收工前自檢**：`CHAIN` 每一筆的 `href` 在磁碟上都要存在；目錄 `<li>` 筆數須與 `CHAIN` 相同。
+
 ## 決策
 
 - 有 repo 慣例就照做；**使用者明確要求**的優先於助理自判「不必」。
