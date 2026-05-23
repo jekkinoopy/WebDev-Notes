@@ -44,7 +44,26 @@
         <p>以下內容<strong>大部分為 AI
             整理</strong>；在本人複習驗證之前，<strong>正確性不予保證</strong>。請以偵探之眼謹慎偵查、交叉比對，勿將本筆記直接當成定案證據。</p>
       </aside>
-      <p class="conan-notes-intro">在米花町的資料庫法庭中，我們處理表單資料時，主要分為兩個完全不同的偵辦方向。一個是「<strong>建立新線索</strong>」，另一個是「<strong>核對既有證詞</strong>」：</p>
+
+      <section class="conan-notes-faction" aria-labelledby="lifecycle-title">
+        <h2 id="lifecycle-title" class="conan-notes-faction-title">
+          <i class="fa-solid fa-door-open" aria-hidden="true"></i> 偵辦核心：每一頁都是全新出貨
+        </h2>
+        <div class="conan-notes-list-wrap">
+          <ol class="conan-notes-list conan-notes-list--pending">
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><strong>生命週期</strong></p>
+              <ul class="conan-notes-bullets">
+                <li>每一次切換到新檔案，對伺服器來說都是<strong>獨立且全新的出貨</strong>；主機不會記得上一頁發生過什麼。</li>
+                <li>因此每一支 PHP 都要在最前面親自 <code>include "db_conn.php";</code>（或同等寫法），重新開啟資料庫大門，拿到 <code>$pdo</code>。</li>
+              </ul>
+              <p>門打開之後，才進入下面兩種完全不同的偵辦方向。</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <p class="conan-notes-intro">在米花町的資料庫法庭中，處理表單資料時，主要分為兩個方向。一個是「<strong>建立新線索</strong>」，另一個是「<strong>核對既有證詞</strong>」：</p>
 
       <section class="conan-notes-faction" aria-labelledby="register-action-title">
         <h2 id="register-action-title" class="conan-notes-faction-title">

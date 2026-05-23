@@ -5,6 +5,7 @@
     { id: "01-標點符號", href: "01-標點符號.html", title: "標點符號" },
     { id: "02-PHP與SQL", href: "02-PHP與SQL.html", title: "PHP 與 SQL" },
     { id: "03-後端核心動作鑑識", href: "03-後端核心動作鑑識.html", title: "後端核心動作鑑識" },
+    { id: "04-後台動態插頁與inc", href: "04-後台動態插頁與inc.html", title: "後台動態插頁與 ?inc" },
   ];
 
   var INDEX_HREF = "index.html";
