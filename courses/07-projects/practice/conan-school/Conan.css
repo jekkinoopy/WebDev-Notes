@@ -71,6 +71,15 @@
   color: var(--conan-crimson);
 }
 
+.conan-nav-peer {
+  color: var(--conan-stamp);
+  font-weight: 600;
+}
+
+.conan-nav-peer:hover {
+  color: var(--conan-crimson);
+}
+
 .conan-auth {
   display: flex;
   gap: 0.5rem;

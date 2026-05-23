@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>02 PHP 與 SQL｜辦案筆記｜米花町偵探學園</title>
+  <title>03 後端核心動作鑑識｜辦案筆記｜米花町偵探學園</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="../Conan.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,6 +22,7 @@
       <a href="../index.html#news">事件簿</a>
       <a href="index.html">辦案筆記</a>
       <a href="../index.html#contact">聯絡方式</a>
+      <a class="conan-nav-peer" href="../../crayon/index.html">春日部體重管理之壘</a>
     </nav>
     <div class="conan-auth">
       <a href="../03-login.php" class="conan-btn conan-btn-login">登入</a>
@@ -34,8 +35,8 @@
     <a class="conan-back-link conan-back-link-secondary" href="../index.html"><i class="fa-solid fa-house"
         aria-hidden="true"></i> 返回偵辦室</a>
     <article class="conan-notes-dossier">
-      <p class="conan-form-label"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> 偵探編號 02</p>
-      <h1>誰是 PHP？誰是 SQL？</h1>
+      <p class="conan-form-label"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> 偵探編號 03</p>
+      <h1>後端核心動作鑑識</h1>
       <aside class="conan-notes-disclaimer" aria-labelledby="notes-disclaimer-title">
         <p id="notes-disclaimer-title" class="conan-notes-disclaimer-title">
           <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> 偵辦警語
@@ -43,53 +44,65 @@
         <p>以下內容<strong>大部分為 AI
             整理</strong>；在本人複習驗證之前，<strong>正確性不予保證</strong>。請以偵探之眼謹慎偵查、交叉比對，勿將本筆記直接當成定案證據。</p>
       </aside>
-      <p class="conan-notes-intro">在 <code>02-api_register.php</code> 這類註冊 API 裡，同一行畫面常同時出現
-        <code>$pdo</code>、<code>-&gt;exec()</code> 與夾在括號裡的 <code>$sql</code>。乍看全寫在一起，其實是兩種身分：<strong>PHP
-          負責動手</strong>，<strong>SQL 是被打包送出的指令</strong>。</p>
+      <p class="conan-notes-intro">在米花町的資料庫法庭中，我們處理表單資料時，主要分為兩個完全不同的偵辦方向。一個是「<strong>建立新線索</strong>」，另一個是「<strong>核對既有證詞</strong>」：</p>
 
-      <section class="conan-notes-faction" aria-labelledby="identity-list-title">
-        <h2 id="identity-list-title" class="conan-notes-faction-title">
-          <i class="fa-solid fa-user-group" aria-hidden="true"></i> 身分鑑定：執行者與指令內容
+      <section class="conan-notes-faction" aria-labelledby="register-action-title">
+        <h2 id="register-action-title" class="conan-notes-faction-title">
+          <i class="fa-solid fa-user-plus" aria-hidden="true"></i> 1. 嫌疑犯註冊（<a href="../02-api_register.php"><code>02-api_register.php</code></a>）
         </h2>
+        <p class="conan-notes-faction-desc"><strong>偵辦動作：</strong>「插進資料庫（新增）」</p>
 
         <div class="conan-notes-list-wrap">
           <ol class="conan-notes-list conan-notes-list--pending">
             <li class="conan-notes-item">
-              <p class="conan-notes-symbol"><strong>1. 誰是 PHP？</strong>（執行者）</p>
-              <p><strong>範圍：</strong><code>$pdo</code>、<code>-&gt;</code>、<code>exec( ... )</code> 還有結尾的分號
-                <code>;</code>。</p>
-              <p><strong>怎麼認：</strong></p>
+              <p class="conan-notes-symbol"><strong>大腦思路</strong></p>
               <ul class="conan-notes-bullets">
-                <li>只要看到字首有錢字號 <code>$</code>（變數），它就是 PHP。</li>
-                <li>只要看見用來呼叫動作的箭頭 <code>-&gt;</code>，它就是 PHP。</li>
-                <li>這裡的 <code>exec()</code> 是 PHP 內建的函式（動作）。</li>
+                <li>使用者是第一次來，資料庫裡面根本沒有這個人的資料。</li>
+                <li>打開資料庫後，要把他填的帳密「塞進去（INSERT）」，在 <code>members</code> 資料表裡建立一筆全新的歷史紀錄。</li>
               </ul>
-              <p><strong>職責：</strong>它是坐在電腦裡的「執行官」，負責發動命令。</p>
-            </li>
-            <li class="conan-notes-item">
-              <p class="conan-notes-symbol"><strong>2. 誰是 SQL？</strong>（被執行的指令內容）</p>
-              <p><strong>範圍：</strong>夾在括號肚子裡的 <code>$sql</code>。</p>
-              <p><strong>怎麼認：</strong></p>
-              <ul class="conan-notes-bullets">
-                <li>雖然 <code>$sql</code> 貼著 PHP 的變數標籤（<code>$</code>），但它箱子裡面裝的核心內容，是你上一段寫的
-                  <code>"insert into members..."</code> 那串英文。</li>
-                <li>只要內容是 <code>insert into</code>、<code>select</code>、<code>delete</code> 這種跟資料庫溝通的語法，它在本質上就是
-                  SQL 指令。</li>
-              </ul>
-              <p><strong>職責：</strong>它是被打包好的「信件內容」，自己不會動，必須躺在 PHP 的 <code>exec()</code> 肚子裡，被 PHP 發射去資料庫。</p>
+              <div class="conan-notes-code">
+                <p class="conan-notes-code-label"><i class="fa-solid fa-database" aria-hidden="true"></i> 破案 SQL 範例</p>
+                <pre class="conan-notes-code-block"><code>INSERT INTO `members` (`members`.`account`, `members`.`password`) -- 指定資料表與欄位（表名欄位加反單引號、用點串接）
+VALUES ('{$_POST['account']}', '{$_POST['password']}'); -- 填入對齊的純文字值（外層加單引號、變數加大括號、結尾加分號）</code></pre>
+              </div>
             </li>
           </ol>
         </div>
-
-        <p class="conan-notes-legend" role="note">
-          <i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <strong>一秒區分結論</strong><br>
-          PHP 是動詞與工具（例如：<code>$pdo-&gt;exec()</code> ➜ PHP 負責動手執行）。<br>
-          SQL 是名詞與原料（例如：<code>$sql</code> ➜ 被執行的 SQL 指令字條）。
-        </p>
       </section>
 
+      <section class="conan-notes-faction" aria-labelledby="login-action-title">
+        <h2 id="login-action-title" class="conan-notes-faction-title">
+          <i class="fa-solid fa-user-check" aria-hidden="true"></i> 2. 核心身分登入（<a href="../03-login.php"><code>04-api_login.php</code></a>）
+        </h2>
+        <p class="conan-notes-faction-desc"><strong>偵辦動作：</strong>「核對資料庫（查詢）」</p>
+
+        <div class="conan-notes-list-wrap">
+          <ol class="conan-notes-list conan-notes-list--pending">
+            <li class="conan-notes-item">
+              <p class="conan-notes-symbol"><strong>大腦思路</strong></p>
+              <ul class="conan-notes-bullets">
+                <li>這時候資料庫裡面已經有之前註冊好的資料了。</li>
+                <li>打開資料庫，不是要塞新東西，而是要把他現在輸入的帳密，拿去跟裡面已經存在的資料「對對看、數數看（SELECT COUNT）」，看能不能對得到人。</li>
+              </ul>
+              <div class="conan-notes-code">
+                <p class="conan-notes-code-label"><i class="fa-solid fa-database" aria-hidden="true"></i> 破案 SQL 範例</p>
+                <pre class="conan-notes-code-block"><code>SELECT COUNT(*) -- 統計符合條件的資料總筆數（右手小拇指 shift + 中指 8）
+FROM `members` -- 從指定的資料表搜尋（表名欄位加反單引號）
+WHERE `members`.`account` = '{$_POST['account']}' AND `members`.`password` = '{$_POST['password']}'; -- 篩選符合帳密的線索（用點串接、結尾加分號）</code></pre>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <p class="conan-notes-legend" role="note">
+        <i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <strong>一秒區分結論</strong><br>
+        註冊 ➜ <code>INSERT</code>，資料庫裡還沒這個人，要「塞進去」。<br>
+        登入 ➜ <code>SELECT COUNT(*)</code>，資料庫裡已有紀錄，要「對對看有沒有這一筆」。
+      </p>
+
       <div class="conan-notes-nav-wrap">
-        <div id="conan-notes-nav-root" data-note-id="02-PHP與SQL"></div>
+        <div id="conan-notes-nav-root" data-note-id="03-後端核心動作鑑識"></div>
       </div>
     </article>
   </main>
@@ -117,7 +130,7 @@
       </li>
       <li>
         <i class="fa-solid fa-file-export" aria-hidden="true"></i>
-        移送 API：02-api_register.php
+        移送 API：02-api_register.php · 04-api_login.php
       </li>
     </ul>
     <div class="conan-footer-bottom">

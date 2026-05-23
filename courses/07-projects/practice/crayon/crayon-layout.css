@@ -308,6 +308,15 @@
   background: color-mix(in srgb, var(--cx-blue) 14%, var(--cx-chip-diet));
 }
 
+.crayon-hero-link--peer {
+  background: color-mix(in srgb, var(--cx-hill) 18%, #fff);
+  box-shadow: inset 0 2px 0 var(--cx-hill);
+}
+
+.crayon-hero-link--peer:hover {
+  background: color-mix(in srgb, var(--cx-hill) 28%, #fff);
+}
+
 .crayon-hero-link:hover {
   transform: translateY(-1px);
 }
@@ -882,19 +891,7 @@
   background: var(--cx-surface);
   border: none;
   border-radius: var(--cx-radius);
-  box-shadow: var(--cx-shadow-soft);
-}
-
-.crayon-diet:nth-child(1) {
-  box-shadow: inset 5px 0 0 #6bc96f, var(--cx-shadow-soft);
-}
-
-.crayon-diet:nth-child(2) {
-  box-shadow: inset 5px 0 0 var(--cx-yellow), var(--cx-shadow-soft);
-}
-
-.crayon-diet:nth-child(3) {
-  box-shadow: inset 5px 0 0 var(--cx-blue), var(--cx-shadow-soft);
+  box-shadow: inset 5px 0 0 var(--cx-hill), var(--cx-shadow-soft);
 }
 
 .crayon-diet-body {
@@ -906,7 +903,7 @@
   margin: 0 0 0.15rem;
   font-size: 1rem;
   font-weight: 800;
-  color: var(--cx-red);
+  color: var(--cx-hill-dark);
 }
 
 .crayon-diet p {
@@ -923,7 +920,7 @@
   place-items: center;
   font-size: 0.75rem;
   color: #fff;
-  background: var(--cx-red);
+  background: var(--cx-hill);
   border: 2.5px solid var(--cx-shape-stroke);
   border-radius: 0;
   box-shadow: 2px 2px 0 var(--cx-shape-shadow);
@@ -931,16 +928,6 @@
 
 .crayon-diet-go .fa-solid {
   color: inherit;
-}
-
-.crayon-diet:nth-child(2) .crayon-diet-go {
-  background: var(--cx-yellow);
-  color: var(--cx-ink);
-}
-
-.crayon-diet:nth-child(3) .crayon-diet-go {
-  background: var(--cx-blue);
-  color: #fff;
 }
 
 /* 飲食區底：波浪綠帶（與奶油底同一 section，避免 footer 交界白縫） */
@@ -984,6 +971,27 @@
   font-size: 1rem;
   font-weight: 800;
   color: var(--cx-yellow);
+}
+
+.crayon-footer-peers {
+  margin: 0 0 0.55rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.crayon-footer-peers a {
+  color: var(--cx-yellow);
+  text-decoration: none;
+}
+
+.crayon-footer-peers a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.crayon-footer-peers span {
+  margin: 0 0.35rem;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .crayon-footer-note {
