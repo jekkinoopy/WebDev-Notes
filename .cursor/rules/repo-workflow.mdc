@@ -47,6 +47,11 @@ alwaysApply: true
 - **改 `notes/index.html`、頁尾、peer-nav、路徑更名**等批次作業時：改完用 `notes/*.html` 實際檔名對照目錄與 `CHAIN`；**禁止**用舊版 `index.html` 覆寫而漏掉已存在的條目。
 - **收工前自檢**：`CHAIN` 每一筆的 `href` 在磁碟上都要存在；目錄 `<li>` 筆數須與 `CHAIN` 相同。
 
+## 獨立專案搬移
+
+- 專案搬出本 repo（如 `conan-school`）時，將 **`docs/portable-collab-rules/`** 整包複製到新專案根目錄（含 `.cursor/rules`、`CURSOR-HANDOFF.project.md` → 更名 `CURSOR-HANDOFF.md` 並改專案名）。
+- 搬移後助理仍須遵守該專案內的辦案筆記三處同步等規則。
+
 ## 決策
 
 - 有 repo 慣例就照做；**使用者明確要求**的優先於助理自判「不必」。

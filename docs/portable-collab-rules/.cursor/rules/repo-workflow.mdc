@@ -1,0 +1,48 @@
+---
+description: 獨立專案協作慣例（由 WebDev-Notes 可攜包；搬移專案時一併複製）
+globs: "*"
+alwaysApply: true
+---
+
+# 協作慣例（獨立專案）
+
+> 自 [WebDev-Notes/docs/portable-collab-rules](https://github.com/jekkinoopy/WebDev-Notes/tree/main/docs/portable-collab-rules) 複製。專案專用路徑請在 `CURSOR-HANDOFF.md` 與下方「辦案筆記」一節對齊。
+
+## 時區與「昨天／今天」
+
+- 以**使用者所在地（預設台灣 UTC+8）**理解「昨天、今天、剛剛」。
+- **不可**只憑 `git log` 的 commit 日期就認定「昨天」並 `reset`。
+- 使用者說「還原到昨天／弄壞前」時：先 `git log` / `reflog` 列出候選 commit，**確認要回到哪一個 SHA** 再動手；未 push 時以**本地 HEAD／reflog** 為準。
+
+## Git 還原
+
+- 禁止未確認就 `git reset --hard`。
+- 還原後若本地落後遠端，**提醒勿盲目 `git pull`**（會拉回不要的提交）；若要改遠端須使用者同意後再 `push --force`。
+
+## 未要求勿更動
+
+- **只動使用者點名的檔**；勿順手改未點名檔案。
+- 使用者**已刪除**的區塊／樣式，未經當句需求明寫**不得擅自加回**。
+
+## 辦案筆記（柯南式 `notes/` — 路徑依本專案調整）
+
+改動由**助理**完成時，須自責維持 **三處一致**（勿假設使用者手動刪檔）：
+
+| 必須同步 | 路徑（conan-school 範例） |
+|----------|---------------------------|
+| 筆記檔 | `notes/NN-標題.html` |
+| 目錄條目 | `notes/index.html` 的 `<ol class="conan-notes-index-list">` |
+| 上下則 | 專案根 `conan-notes-nav.js` 的 `CHAIN` |
+
+- **新增**一則：三處都加；內頁要有 `#conan-notes-nav-root` + `data-note-id`（與 `CHAIN[].id` 一致）。
+- **刪除**一則：三處都刪。
+- **改目錄、頁尾、peer-nav、更名**後：用 `notes/*.html` 對照目錄與 `CHAIN`；**禁止**用舊版 `index.html` 覆寫而漏條目。
+
+## 筆記內容（辦案筆記／讀者可見區）
+
+- 讀者正文只寫**知識與題目**；協作說明、聊天口吻、製作後設**勿寫進 HTML**。
+- 辦案筆記頁底已有 `conan-notes-nav` 時，**不要**在正文加「下一步：請進入 xxx」。
+
+## 決策
+
+- 有 repo 慣例就照做；**使用者明確要求**的優先於助理自判「不必」。

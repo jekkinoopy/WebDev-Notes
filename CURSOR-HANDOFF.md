@@ -50,6 +50,8 @@
 
 **柯南辦案筆記一則（`conan-school/notes/`）：**須同時維護 **`notes/NN-….html`**、**`notes/index.html` 目錄 `<li>`**、**`conan-notes-nav.js` 的 `CHAIN`**；內頁 `#conan-notes-nav-root` + `data-note-id`。改 peer-nav／頁尾／更名時勿用舊版 index 蓋掉既有條目；收工對照磁碟上 `notes/*.html` 與 `CHAIN` 筆數。細則見 `.cursor/rules/repo-workflow.mdc`「柯南辦案筆記」。
 
+**專案搬出本 repo：**複製 [`docs/portable-collab-rules/`](docs/portable-collab-rules/README.md) 至新專案根目錄（含 Cursor 規則與 `CURSOR-HANDOFF` 模板）。例：獨立 [conan-school](https://github.com/jekkinoopy/conan-school)。
+
 ## 〈變更〉（append 最下方，日期標題）
 
 ### YYYY-MM-DD
@@ -127,6 +129,10 @@
 ### 2026-05-20
 - 需求：柯南筆記 03 曾出現「目錄無第三條、檔案不在工作區、但 `CHAIN` 仍有 03」——屬助理改 peer-nav／頁尾時未三處同步；寫入規範防再發。
 - 範圍：`.cursor/rules/repo-workflow.mdc`（柯南辦案筆記一節）；`CURSOR-HANDOFF.md`（換機段 + 本則〈變更〉）。
+
+### 2026-05-24
+- 需求：搬離 WebDev-Notes 的專案也要帶協作規範；新增可攜規則包。
+- 範圍：`docs/portable-collab-rules/`；`repo-workflow.mdc`（獨立專案搬移）；`CURSOR-HANDOFF.md`（本則）。
 
 ---
 
