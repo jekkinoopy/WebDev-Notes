@@ -4,7 +4,7 @@
  */
 (function () {
   var PEERS = [
-    { key: 'conan', label: '米花町入學登記', path: 'conan-school/index.html' },
+    { key: 'conan', label: '米花町入學登記', path: 'https://jekkinoopy.github.io/conan-school/' },
     { key: 'crayon', label: '春日部保健室', path: 'crayon/index.html' },
     { key: 'hub', label: '實作專案索引', path: 'index.html' }
   ];
@@ -35,7 +35,11 @@
     if (peer.key === current) return;
     var li = document.createElement('li');
     var a = document.createElement('a');
-    a.href = base + peer.path;
+    a.href = /^https?:\/\//i.test(peer.path) ? peer.path : base + peer.path;
+    if (/^https?:\/\//i.test(peer.path)) {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    }
     a.textContent = peer.label;
     li.appendChild(a);
     list.appendChild(li);
