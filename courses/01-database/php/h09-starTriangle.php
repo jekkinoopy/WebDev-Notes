@@ -42,15 +42,7 @@
             <?php
 $code = <<<'EOD'
 // 【程式碼練習】
-// 給定正整數 n，印出 n 行正三角形星星
-
-function printTriangle($n)
-{
-    // 在此實作
-}
-
-$n = 5;
-printTriangle($n);
+// 在此實作正三角形星星
 
 EOD;
 $codeLineCount = substr_count($code, "\n") + 1;
@@ -80,10 +72,7 @@ $codeGutter = implode("\n", range(1, $codeLineCount));
 
                 <div class="code-section">
                     <span class="section-label is-bracket-heading">【執行結果】</span>
-                    <?php
-                    // 【程式碼練習】完成上方函式後，在此呼叫並顯示結果
-
-                    ?>
+                    <?php ?>
                 </div>
             </div>
         </div>
