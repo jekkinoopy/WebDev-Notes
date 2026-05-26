@@ -76,6 +76,7 @@
     { id: "s03-login", title: "簡易登入系統" },
     { id: "s03-api_login", title: "登入表單接收（API）" },
     { id: "s03-login-success", title: "登入成功頁" },
+    { id: "h09-starTriangle", title: "函式：星星正三角形" },
   ];
 
   var SERIES_PHP = "[基礎課程]";
