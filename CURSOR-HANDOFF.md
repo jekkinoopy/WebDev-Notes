@@ -8,7 +8,7 @@
 1. 看〈變更〉最新日期。  
 2. 動筆記／講義前對母版：`courses/01-database/php/01-basic.html` 或 `01-basic.php`、`assets/css/course-note.css`。若該**課程模組**需要講義專用、且不宜塞進共用 `course-note.css` 的補充樣式：**路徑模板**為 `assets/css/course-note-{領域}.css`——`{領域}` 須與**該組講義所在之課程子資料夾名稱**完全一致（含大小寫；實際檔名不要出現 `{}`）。例：`courses/03-layout/css/` → `course-note-css.css`；`courses/01-database/php/` → `course-note-php.css`；`courses/01-database/SQL/` → `course-note-SQL.css`。與 `course-note.css` 併用，由各講義頁 `<link>`；**勿**在 `courses/.../` 課程資料夾另放一份同等用途的散落檔。（助理解讀需求時，亦可用 `$` 表示同一占位，例如寫成 `course-note-$.css`，將 `$` 換成**與資料夾同名**之領域字串即可。）**程式窗**（Carbon／macOS 風外框、行號欄、複製鈕、與 Prism 搭配）：共用 `assets/css/course-note-code-window.css` + `assets/js/course-note-code-window.js`；HTML 仍用 class `note-code-window`（檔名前綴 `course-note-` 與 DOM class 不必同名）。  
 3. **只動使用者點名的檔**；勿順手改 `assets/js/note-lesson-nav.js` 等共用檔。  
-4. 協作規則有變 → 在〈變更〉**加一則**（勿刪舊的）。
+4. 協作規則有變 → **先通讀** `repo-workflow.mdc` 與本檔「課中」是否已有同題條文，**合併改原條**（見該檔「改協作規範」）；〈變更〉**加一則**（勿刪舊的）。使用者只說「改規範」時**勿順手改** `courses/**`。
 
 ## 未要求勿更動（協作邊界）
 
@@ -27,16 +27,13 @@
 使用者丟題 → 你拆結構（幾張 card、分不分頁）→ **程式區先留白** → 使用者練完再補：**程式整理、【執行結果】、【學習重點】**。  
 一頁≤**四**個重點；檔名 **序號+英文**（SQL 同 PHP，例 `01-expense-ledger`）。**SQL 筆記為純 `.html`**（不必經 PHP）。
 
-**PHP 新增練習（死線，見 `.cursor/rules/repo-workflow.mdc`「練習單元」）：**  
-- 檔案用 **`.php`**，範本 **`h04-bmi.php` / `h01-string.php`**；`index` 連 **`.php`**。  
-- **禁止**代寫完整程式、**禁止**在【執行結果】預印答案、**禁止**順手再建含解答的 `.html`。  
-- 「轉 `.html` 講義」僅在使用者**明確要求**或該單元本來就是講義示範時才做。
+**PHP 練習／講義、禁止代寫、筆記勿堆疊：** 見 `.cursor/rules/repo-workflow.mdc`（練習單元、筆記內容）。
 
 **DOM：**`note-practice-sticky` 只包程式窗+執行結果；**學習重點**在外、仍在同張 `note-card`。**延伸閱讀 `aside`** 勿塞進 card 內層。少 `</div>` 會卡死下一張 card。
 
 **SQL 總覽卡片（`courses/01-database/SQL/index.html`）**：每張卡的說明 `<p>` 只寫**該頁筆記在講什麼**（主題、步驟、涵蓋的 SQL 概念）。勿寫**製作／後設**文字（檔名怎麼取、頁面分幾段、有無示意圖連結等）——那些給協作者看，不算讀者簡介。
 
-**筆記正文語氣（全課程通用）：**`hero`、各 `note-card` 內（含【題目需求】【執行結果】【學習重點】）、`aside` 等**讀者會看到的文字**，只寫**知識與題目本身**（定義、規格、範例圖說、連結）。**禁止**寫入：對話口吻、帶讀頁面的導覽（例：「對照下方…」「此處用灰底白底對照」）、協作或製作後設（例：為何這樣排版、給助理的備註、聊天裡的取捨說明）。助理的說明留在**回覆聊天**，不要貼進 repo 筆記。**已納入版控的講義用 CSS 檔**，其註解亦同：只保留技術上必要短註，勿寫路徑說明、檔案用途給協作者看的一長段。
+**筆記正文語氣（全課程通用）：**`hero`、各 `note-card` 內（含【題目需求】【執行結果】【學習重點】）、`aside` 等**讀者會看到的文字**，只寫**知識與題目本身**（定義、規格、範例圖說、連結）；**改前先讀全文、合併重複句**，勿在舊文下堆「補充／更新」段。**禁止**寫入：對話口吻、帶讀頁面的導覽、協作或製作後設。助理的說明留在**回覆聊天**；講義用 CSS 註解只保留必要短註。
 
 **程式窗行號欄（`.note-code-window-gutter`）**：樣式含 `white-space: pre`。若把行號打成多行且第二行起帶 **HTML 縮排空格**，空白會算進 gutter 寬度，出現左側大片空白、行號與程式碼被擠到中右。**多行行號請每行行首緊貼數字、勿前置空白**（或 gutter 只用單行）；Prettier 等可能自動破壞——必要時對該段加 `<!-- prettier-ignore -->`。
 
@@ -53,7 +50,7 @@
 
 **新 SQL 一講：**複製版型 → `note-lesson-nav.js` 的 `CHAIN_SQL` 加一筆 → 頁底 `#note-lesson-nav-root` 設 `data-lesson-scope="sql"` + `data-lesson-id` → 列表頁加連結。
 
-**柯南辦案筆記一則（`conan-school/notes/`）：**須同時維護 **`notes/NN-….html`**、**`notes/index.html` 目錄 `<li>`**、**`conan-notes-nav.js` 的 `CHAIN`**；內頁 `#conan-notes-nav-root` + `data-note-id`。改 peer-nav／頁尾／更名時勿用舊版 index 蓋掉既有條目；收工對照磁碟上 `notes/*.html` 與 `CHAIN` 筆數。細則見 `.cursor/rules/repo-workflow.mdc`「柯南辦案筆記」。
+**柯南辦案筆記：** 已搬至 [jekkinoopy/conan-school](https://github.com/jekkinoopy/conan-school)；本 repo **勿**在 `courses/07-projects/practice/conan-school/` 維護筆記。細則見 `repo-workflow.mdc`「conan-school」。
 
 **專案搬出本 repo：**複製 [`docs/portable-collab-rules/`](docs/portable-collab-rules/README.md) 至新專案根目錄（含 Cursor 規則與 `CURSOR-HANDOFF` 模板）。例：獨立 [conan-school](https://github.com/jekkinoopy/conan-school)。
 
@@ -138,6 +135,10 @@
 ### 2026-05-24
 - 需求：搬離 WebDev-Notes 的專案也要帶協作規範；新增可攜規則包。
 - 範圍：`docs/portable-collab-rules/`；`repo-workflow.mdc`（獨立專案搬移）；`CURSOR-HANDOFF.md`（本則）。
+
+### 2026-05-26
+- 需求：改規範須先通讀合併、禁止只往下堆；改規範不得順手改講義。
+- 範圍：`.cursor/rules/repo-workflow.mdc`（改協作規範、筆記內容）；`CURSOR-HANDOFF.md`（開工第 4 點、柯南一句、本則）；`docs/portable-collab-rules/.cursor/rules/repo-workflow.mdc`（同步）。
 
 ---
 
