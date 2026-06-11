@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             title: "動態技術",
             links: [
-                { name: "JavaScript", url: "#", isFinished: false },
+                { name: "JavaScript", url: "courses/02-dynamic/javascript/index.html", isFinished: true },
                 { name: "jQuery", url: "#", isFinished: false },
                 { name: "Ajax 應用", url: "#", isFinished: false }
             ]
