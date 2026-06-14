@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>題組一 - 乙級技能檢定實戰 - 努比的全端筆記</title>
+  <link rel="stylesheet" href="../../../../assets/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar"></nav>
+    <script src="../../../../assets/js/nav-loader.js"></script>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="breadcrumb" style="padding:1rem 0 0; margin-bottom:0.5rem; font-size:0.9rem;">
+        <a href="../index.html" style="color:var(--primary); text-decoration:none;">乙級實戰</a> / 題組一
+      </p>
+      <h2 class="hero-title">題組一</h2>
+      <p class="hero-subtitle">切版、資料表、Controller、CRUD、前台功能</p>
+    </div>
+  </section>
+
+  <section class="notes-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>步驟列表</h2>
+        <p>依序完成各步驟</p>
+      </div>
+
+      <div class="notes-grid">
+
+        <!-- 步驟 1 -->
+        <article class="note-card">
+          <div class="card-header">
+            <span class="card-icon" aria-hidden="true"><i class="fa-solid fa-folder-tree"></i></span>
+            <span class="card-badge">步驟 1</span>
+          </div>
+          <div class="card-content">
+            <h3>切版、建置前後台畫面</h3>
+            <p>目錄規劃、素材更名、用 <code>include</code> 拆分頁面框架，以 <code>switch-case</code> 控制動態載入。</p>
+            <div class="tag-list">
+              <span class="tag">目錄結構</span>
+              <span class="tag">include</span>
+              <span class="tag">switch-case</span>
+            </div>
+          </div>
+          <a href="01-setup.html" class="card-link">
+            查看筆記 <span class="arrow">→</span>
+          </a>
+        </article>
+
+        <!-- 步驟 2 -->
+        <article class="note-card" style="opacity: 0.45; pointer-events: none;">
+          <div class="card-header">
+            <span class="card-icon" aria-hidden="true"><i class="fa-solid fa-table"></i></span>
+            <span class="card-badge">步驟 2</span>
+          </div>
+          <div class="card-content">
+            <h3>建立資料表</h3>
+            <p>設計資料庫 Schema，建立各功能所需的資料表。</p>
+            <div class="tag-list">
+              <span class="tag">MySQL</span>
+              <span class="tag">Schema</span>
+            </div>
+          </div>
+          <a href="02-database.html" class="card-link card-link--wip">查看筆記</a>
+        </article>
+
+        <!-- 步驟 3 -->
+        <article class="note-card" style="opacity: 0.45; pointer-events: none;">
+          <div class="card-header">
+            <span class="card-icon" aria-hidden="true"><i class="fa-solid fa-gears"></i></span>
+            <span class="card-badge">步驟 3</span>
+          </div>
+          <div class="card-content">
+            <h3>建立 Controller 及共用函式檔</h3>
+            <p>建立 Controller 類別檔與共用函式，統一管理資料庫連線與共用邏輯。</p>
+            <div class="tag-list">
+              <span class="tag">Controller</span>
+              <span class="tag">PDO</span>
+            </div>
+          </div>
+          <a href="03-controller.html" class="card-link card-link--wip">查看筆記</a>
+        </article>
+
+        <!-- 步驟 4 -->
+        <article class="note-card" style="opacity: 0.45; pointer-events: none;">
+          <div class="card-header">
+            <span class="card-icon" aria-hidden="true"><i class="fa-solid fa-eye"></i></span>
+            <span class="card-badge">步驟 4</span>
+          </div>
+          <div class="card-content">
+            <h3>製作訪客計數器及頁尾版權文字</h3>
+            <p>前台訪客人次計數與頁尾版權文字的動態顯示。</p>
+            <div class="tag-list">
+              <span class="tag">訪客計數</span>
+              <span class="tag">前台</span>
+            </div>
+          </div>
+          <a href="04-counter.html" class="card-link card-link--wip">查看筆記</a>
+        </article>
+
+        <!-- 步驟 5 -->
+        <article class="note-card" style="opacity: 0.45; pointer-events: none;">
+          <div class="card-header">
+            <span class="card-icon" aria-hidden="true"><i class="fa-solid fa-list"></i></span>
+            <span class="card-badge">步驟 5</span>
+          </div>
+          <div class="card-content">
+            <h3>整理後台選單連結</h3>
+            <p>後台導覽選單各功能連結整理，讓 <code>?do=xxx</code> 正確對應各子頁。</p>
+            <div class="tag-list">
+              <span class="tag">後台</span>
+              <span class="tag">選單</span>
+            </div>
+          </div>
+          <a href="05-menu.html" class="card-link card-link--wip">查看筆記</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>題組一</h4>
+          <p>乙級技能檢定實戰</p>
+        </div>
+        <div class="footer-section">
+          <h4>快速連結</h4>
+          <ul>
+            <li><a href="../index.html">回到乙級實戰</a></li>
+            <li><a href="../../../../index.html">主首頁</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 努比的全端筆記 - 乙級技能檢定實戰</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/script.js"></script>
+</body>
+
+</html>
