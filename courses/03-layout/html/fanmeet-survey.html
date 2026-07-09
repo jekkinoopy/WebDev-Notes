@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>見面會應援調查表單 - 努比的全端筆記</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
+    <link rel="stylesheet" href="../../../assets/css/course-note.css" />
+    <style>
+        /* 水晶男孩 SECHSKIES／YELLOWKIES 官方應援色：黃色
+           參考：YG 官方 FB「노란 풍선」、YELLOW NOTE 演唱會、球形黃色應援燈 */
+        :root {
+            --primary: #f5c400;
+            --primary-light: #ffe566;
+            --primary-dark: #c9a000;
+            --yk-cream: #fffdf0;
+            --yk-ink: #3d3200;
+            --yk-shadow: rgba(201, 160, 0, 0.18);
+        }
+
+        body {
+            background: linear-gradient(180deg, var(--yk-cream) 0%, #fff9d6 40%, var(--gray-50) 100%);
+        }
+
+        .page-hero .category-tag {
+            background: var(--primary-light);
+            color: var(--yk-ink);
+        }
+
+        .page-hero .note-title,
+        .page-hero .hero-desc {
+            color: var(--yk-ink);
+        }
+
+        .page-hero .hero-divider {
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        form {
+            width: 90%;
+            max-width: 900px;
+            min-width: min(800px, 100%);
+            margin: 2rem auto;
+            padding: 2rem;
+            background: transparent;
+            border-radius: 12px;
+        }
+
+        .sechskies-form p {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .form-title h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            display: inline-block;
+            position: relative;
+            padding: 0 30px;
+            letter-spacing: 5px;
+        }
+
+        .form-title h1::after,
+        .form-title h1::before {
+            content: "💛";
+            margin: 8px;
+        }
+
+        .form-title p {
+            font-size: 1rem;
+            color: var(--yk-ink);
+            margin-top: 10px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .form-title .subtitle-en {
+            font-size: 0.85rem;
+            color: var(--primary-dark);
+            letter-spacing: 4px;
+            margin-top: 6px;
+        }
+
+        .main-label {
+            display: block;
+            font-weight: 700;
+            color: var(--yk-ink);
+            margin: 0;
+        }
+
+        .hint-text {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        .sechskies-form input[type="text"],
+        .sechskies-form input[type="url"],
+        .sechskies-form input[type="tel"],
+        .sechskies-form input[type="email"],
+        .sechskies-form input[type="password"],
+        .sechskies-form input[type="date"],
+        .sechskies-form input[type="number"],
+        .sechskies-form input[type="time"],
+        .sechskies-form input[type="datetime-local"],
+        .sechskies-form select,
+        .sechskies-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1.5px solid var(--primary-dark);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: var(--yk-ink);
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 30px;
+            background: transparent;
+            accent-color: var(--primary);
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 10px;
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--primary-dark);
+            margin-top: -5px;
+        }
+
+        input[type="file"] {
+            border-radius: 20px;
+            cursor: pointer;
+            padding: 8px;
+            border: 2px dashed var(--primary-dark);
+            background: #fff;
+        }
+
+        input[type="file"]::file-selector-button {
+            background: white;
+            color: var(--primary-dark);
+            border: 1px solid var(--primary-dark);
+            border-radius: 15px;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background: var(--primary);
+            color: var(--yk-ink);
+        }
+
+        .submit {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        input[type="submit"] {
+            flex: 1;
+            background-color: var(--primary) !important;
+            color: var(--yk-ink) !important;
+            border: 2px solid var(--primary-dark) !important;
+            padding: 15px !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: var(--primary-dark) !important;
+            color: #fff !important;
+            border-color: var(--primary-dark) !important;
+        }
+
+        input[type="reset"] {
+            flex: 1;
+            background-color: #fff !important;
+            color: var(--primary-dark) !important;
+            border: 2px solid var(--primary-dark) !important;
+            padding: 15px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="reset"]:hover {
+            background-color: var(--danger) !important;
+            border-color: var(--danger) !important;
+            color: #fff !important;
+        }
+
+        fieldset {
+            border: 2px solid var(--primary);
+            background-color: rgba(255, 255, 255, 0.65);
+            border-radius: 50px;
+            padding: 3rem 4rem;
+            margin: 3rem 0;
+            box-shadow: 0 8px 24px var(--yk-shadow);
+        }
+
+        legend {
+            font-weight: 900;
+            color: var(--primary-dark);
+            padding: 0 15px;
+            font-size: 1.2rem;
+            border-left: 5px solid var(--primary);
+            border-right: 5px solid var(--primary);
+            margin: auto;
+        }
+
+        .option-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .option-row.grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px 10px;
+        }
+
+        .option-row.grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 10px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto !important;
+            margin: 0 !important;
+            accent-color: var(--primary-dark);
+        }
+
+        .sechskies-form p,
+        .sechskies-form fieldset>div,
+        .sechskies-form fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+
+        .sechskies-form input:focus,
+        .sechskies-form select:focus,
+        .sechskies-form textarea:focus {
+            outline: none;
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 3px rgba(245, 196, 0, 0.35);
+            border-radius: 20px;
+        }
+
+        input[type="time"]::-webkit-calendar-picker-indicator,
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            filter: invert(72%) sepia(85%) saturate(600%) hue-rotate(5deg) brightness(98%) contrast(95%);
+        }
+
+        .yellow-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--yk-ink);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                width: 95%;
+                min-width: unset;
+                padding: 1rem;
+            }
+
+            fieldset {
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+
+            .option-row.grid-3,
+            .option-row.grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .submit {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar"></nav>
+        <script src="../../../assets/js/nav-loader.js"></script>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-container">
+            <span class="category-tag">HTML/CSS 實戰</span>
+            <h2 class="note-title">見面會應援調查表單</h2>
+            <p class="hero-desc">以水晶男孩 YELLOWKIES 官方應援色為主題，實作 fieldset 分組、多種 input 類型與 CSS 自定義樣式。</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <div class="ex">
+        <div class="note-card">
+            <div class="note-content">
+                <form action="" class="sechskies-form">
+                    <div class="form-title">
+                        <h1>見面會應援調查</h1>
+                        <p>水晶男孩 SECHSKIES · YELLOWKIES</p>
+                        <p class="subtitle-en">2016 SECHSKIES CONCERT「YELLOW NOTE」風格延伸</p>
+                        <span class="yellow-badge">官方應援色：黃色 💛 · 應援物：黃色球形手燈／氣球</span>
+                    </div>
+
+                    <fieldset>
+                        <legend>💛 第一階段：YELLOWKIES 身分驗證</legend>
+                        <div>
+                            <label class="main-label" for="nickname">應援小黃（暱稱）</label>
+                            <p class="hint-text">成員們稱呼粉絲為「노랭이／小黃」——請填寫你的 YELLOWKIES 暱稱</p>
+                            <input type="text" id="nickname" name="nickname" placeholder="例：노랭이_台北場">
+                        </div>
+                        <div>
+                            <label class="main-label" for="email">聯絡信箱</label>
+                            <input type="email" id="email" name="email" placeholder="yellowkies@mail.com">
+                        </div>
+                        <div>
+                            <label class="main-label" for="tel">聯絡電話（週邊與座位通知）</label>
+                            <input type="tel" id="tel" name="tel" placeholder="0912-345-678">
+                        </div>
+                        <div>
+                            <label class="main-label" for="fan_since">入坑日期</label>
+                            <input type="date" id="fan_since" name="fan_since">
+                        </div>
+                        <div>
+                            <label class="main-label">是否為 YELLOWKIES 官方會員</label>
+                            <div class="option-row">
+                                <label class="option-item"><input type="radio" name="official_member" value="yes"> 是，已加入官方粉絲俱樂部</label>
+                                <label class="option-item"><input type="radio" name="official_member" value="no"> 尚未，但準備入會</label>
+                                <label class="option-item"><input type="radio" name="official_member" value="legacy"> 90 年代 DSF 時期老粉</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>🎤 第二階段：見面會應援調查</legend>
+                        <div>
+                            <label class="main-label">本命成員（可複選）</label>
+                            <div class="option-row">
+                                <label class="option-item"><input type="checkbox" name="bias" value="eun"> 殷志源 은지원</label>
+                                <label class="option-item"><input type="checkbox" name="bias" value="lee"> 李宰鎮 이재진</label>
+                                <label class="option-item"><input type="checkbox" name="bias" value="kim"> 金在德 김재덕</label>
+                                <label class="option-item"><input type="checkbox" name="bias" value="kang"> 姜成勳 강성훈</label>
+                                <label class="option-item"><input type="checkbox" name="bias" value="jang"> 張水院 장수원</label>
+                                <label class="option-item"><input type="checkbox" name="bias" value="ko"> 高志鎔 고지용</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="main-label" for="event_datetime">最希望舉辦見面會的日期與時間</label>
+                            <input type="datetime-local" id="event_datetime" name="event_datetime">
+                        </div>
+
+                        <div>
+                            <label class="main-label" for="venue">希望舉辦城市／場館</label>
+                            <select id="venue" name="venue">
+                                <option value="">請選擇場館</option>
+                                <optgroup label="韓國">
+                                    <option value="olympic">首爾 奧林匹克公園體操競技場</option>
+                                    <option value="gocheok">首爾 高尺天空巨蛋</option>
+                                    <option value="bexco">釜山 BEXCO</option>
+                                </optgroup>
+                                <optgroup label="海外">
+                                    <option value="taipei">台北</option>
+                                    <option value="hongkong">香港</option>
+                                    <option value="tokyo">東京</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="main-label" for="song">最期待現場聽到的歌曲</label>
+                            <select id="song" name="song">
+                                <option value="">請選擇歌曲</option>
+                                <optgroup label="復活經典">
+                                    <option value="three_words">THREE WORDS（세 단어）</option>
+                                    <option value="something_special">SOMETHING SPECIAL</option>
+                                    <option value="all_for_you">ALL FOR YOU</option>
+                                </optgroup>
+                                <optgroup label="《學園別曲》">
+                                    <option value="school_anthem">學園別曲（학원별곡）</option>
+                                    <option value="couple">Couple（커플）</option>
+                                    <option value="pom_saeng">男兒之路（폼생폼사）</option>
+                                </optgroup>
+                                <optgroup label="抒情必點">
+                                    <option value="prayer">祈禱（기도）</option>
+                                    <option value="remember_me">請記得好嗎（기억해줄래）</option>
+                                    <option value="celebrate_tonight">Celebrate Tonight</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="main-label">最期待的見面會環節</label>
+                            <div class="option-row grid-3">
+                                <label class="option-item"><input type="radio" name="event_poll" value="dance"> 隨機舞蹈挑戰</label>
+                                <label class="option-item"><input type="radio" name="event_poll" value="crystal"> 黑白水晶對抗賽</label>
+                                <label class="option-item"><input type="radio" name="event_poll" value="capsule"> 時光膠囊對話</label>
+                                <label class="option-item"><input type="radio" name="event_poll" value="unplugged"> 抒情版 Unplugged</label>
+                                <label class="option-item"><input type="radio" name="event_poll" value="yellow_note"> Yellow Note 心願投稿</label>
+                                <label class="option-item"><input type="radio" name="event_poll" value="balloon"> 黃色氣球海大合唱</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="main-label" for="ticket_count">預計購買票券張數</label>
+                            <input type="number" id="ticket_count" name="ticket_count" min="1" max="10" placeholder="1">
+                        </div>
+
+                        <div>
+                            <label class="main-label">應援道具準備（可複選）</label>
+                            <div class="option-row grid-2">
+                                <label class="option-item"><input type="checkbox" name="gear" value="lightstick"> 黃色球形手燈</label>
+                                <label class="option-item"><input type="checkbox" name="gear" value="balloon"> 黃色氣球</label>
+                                <label class="option-item"><input type="checkbox" name="gear" value="banner"> 手幅／橫幅</label>
+                                <label class="option-item"><input type="checkbox" name="gear" value="raincoat"> 黃色雨衣（復古應援）</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>📂 第三階段：應援證明與提交</legend>
+                        <div>
+                            <label class="main-label" for="fan_story">入坑故事或想對成員說的話</label>
+                            <textarea id="fan_story" name="fan_story" rows="8" placeholder="分享你因為哪個舞台、哪首歌成為 YELLOWKIES……"></textarea>
+                        </div>
+                        <div>
+                            <label class="main-label" for="proof">上傳你的小黃應援證物（PDF／圖片）</label>
+                            <p class="hint-text">演唱會票根、應援燈、手幅照片、專輯收藏等</p>
+                            <input type="file" id="proof" name="proof" accept="image/*,.pdf">
+                        </div>
+                        <div>
+                            <label class="main-label" for="hype_level">見面會期待指數</label>
+                            <input type="range" id="hype_level" name="hype_level" min="0" max="100" value="100">
+                        </div>
+                        <div>
+                            <label class="main-label" for="yellow_shade">你的應援黃色調（官方應援色延伸）</label>
+                            <input type="color" id="yellow_shade" name="yellow_shade" value="#f5c400"
+                                style="height: 40px; width: 80px; padding: 0; border: 2px solid var(--primary-dark); border-radius: 8px;">
+                        </div>
+                        <div>
+                            <label class="main-label" for="recommend_url">必推入坑連結（不能只有我先淪陷）</label>
+                            <input type="url" id="recommend_url" name="recommend_url" placeholder="https://youtube.com/...">
+                        </div>
+                    </fieldset>
+
+                    <div class="submit">
+                        <input type="reset" value="重置表單">
+                        <input type="submit" value="送出應援申請 💛">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+﻿<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BELLO! 登入 Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root { --mn-yellow:#f3da60; --mn-blue:#4277eb; --mn-black:#333; --mn-gray:#9ca3af; --mn-white:#fff; --radius-mn:25px }
+    body { font-family:'Noto Sans TC',sans-serif; margin:0; min-height:100vh; background:#fefce8; }
+    .page-wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;}
+    .login-card{width:100%; max-width:420px; background:#fff; border:10px solid #d1d5db; border-radius:30px; box-shadow:0 20px 0 rgba(0,0,0,.08); overflow:hidden;}
+    .login-header{background:#111827; color:#f3da60; padding:30px; text-align:center;}
+    .login-header h1{margin:0;font-size:2rem;letter-spacing:2px;font-weight:900;}
+    .login-header p{margin:.5rem 0 0;color:#f8fafc; opacity:.8;}
+    .login-body{padding:28px;}
+    .form-label{font-weight:900;color:var(--mn-blue);}
+    .form-control{border:3px solid var(--mn-blue); border-radius:14px; background:#fefce8; padding:.95rem 1rem;}
+    .btn-submit{width:100%; padding:14px; background:var(--mn-yellow); color:var(--mn-black); border:4px solid var(--mn-black); border-radius:50px; font-weight:900;}
+    .footer-note{padding:20px 28px 28px; text-align:center; color:var(--mn-blue); font-weight:700;}
+    .center-view{display:none;}
+    .visible{display:block;}
+    .center-header{background:var(--mn-blue); color:#fff; padding:16px 20px; border-bottom:8px solid var(--mn-yellow); display:flex; justify-content:space-between; align-items:center;}
+    .welcome-card{background:var(--mn-yellow); border:5px solid var(--mn-black); border-radius:var(--radius-mn); padding:36px; text-align:center; position:relative; margin:28px;}
+    .welcome-card img{position:absolute; top:-50px; left:25%; transform:translateX(-50%); width:140px;}
+    .decorative-line{height:10px; background:repeating-linear-gradient(45deg,var(--mn-blue),var(--mn-blue) 10px,var(--mn-yellow) 10px,var(--mn-yellow) 20px); margin:24px 0; border-radius:50px;}
+    .mini-card{background:#fff; border-radius:20px; border:4px solid var(--mn-blue); box-shadow:8px 8px 0 var(--mn-blue); padding:20px;}
+  </style>
+</head>
+<body>
+  <main id="loginView" class="page-wrap visible">
+    <div class="login-card">
+      <div class="login-header">
+        <h1>BELLO! 登入</h1>
+        <p>香蕉萬歲！一起去冒險吧 🍌</p>
+      </div>
+      <form class="login-body" id="loginForm">
+        <div class="mb-4">
+          <label class="form-label" for="username">帳號 (Minion ID)</label>
+          <input id="username" class="form-control" type="text" placeholder="請輸入帳號" required>
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="password">密碼 (Banana Password)</label>
+          <input id="password" class="form-control" type="password" placeholder="請輸入密碼" required>
+        </div>
+        <button class="btn btn-submit" type="submit">POOPAYE! (登入)</button>
+      </form>
+      <div class="footer-note">還沒加入小小兵？ <a href="#">立即加入</a></div>
+    </div>
+  </main>
+
+  <main id="centerView" class="center-view">
+    <div class="center-header">
+      <div style="font-weight:900; display:flex; align-items:center; gap:10px;">🍌 MINION CENTER</div>
+      <button id="logoutBtn" class="btn btn-warning">POOPAYE! (登出)</button>
+    </div>
+    <div class="page-wrap" style="flex-direction:column; align-items:stretch; padding-top:0;">
+      <div class="welcome-card">
+        <img src="courses/01-database/php/images/h08-1.png" alt="minion">
+        <h2 style="margin-top:90px;">Bello! 訪客小小兵</h2>
+        <p>香蕉準備好了，今天也要開心地搗蛋喔！</p>
+      </div>
+      <div class="container px-0">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="mini-card">
+              <div style="display:flex;align-items:center;gap:12px;color:var(--mn-blue);margin-bottom:10px;"><i class="fa-solid fa-id-badge fa-2x"></i><div style="font-weight:900">小小兵資訊</div></div>
+              <div style="background:#eff6ff;padding:10px;border-radius:10px;display:flex;justify-content:space-between;margin-bottom:8px;"><div style="font-weight:700;color:var(--mn-blue)">代號</div><div style="font-weight:900">訪客小小兵</div></div>
+              <div style="background:#eff6ff;padding:10px;border-radius:10px;display:flex;justify-content:space-between;"><div style="font-weight:700;color:var(--mn-blue)">香蕉等級</div><div style="font-weight:900">🍌 專業搗蛋家</div></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mini-card">
+              <div style="display:flex;align-items:center;gap:12px;color:var(--mn-blue);margin-bottom:10px;"><i class="fa-solid fa-rocket fa-2x"></i><div style="font-weight:900">今日任務</div></div>
+              <div style="color:#444;line-height:1.6;">今天的任務是：找到三個香蕉並成功捉弄格魯。</div>
+              <a href="#" class="btn btn-warning mt-3" style="font-weight:900;border:3px solid var(--mn-black);">領取任務</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mini-card">
+              <div style="display:flex;align-items:center;gap:12px;color:var(--mn-blue);margin-bottom:10px;"><i class="fa-solid fa-star fa-2x"></i><div style="font-weight:900">香蕉收藏</div></div>
+              <div style="color:#444;line-height:1.6;">查看你儲存在實驗室裡的秘密收藏品與香蕉貼紙。</div>
+              <a href="#" class="btn btn-warning mt-3" style="font-weight:900;border:3px solid var(--mn-black);">查看收藏</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer style="text-align:center;padding:28px;font-weight:900;color:var(--mn-blue);">BANANA! © 2026 小小兵中心 · 搗蛋無罪 🍌</footer>
+    </div>
+  </main>
+
+  <script>
+    const loginView = document.getElementById('loginView');
+    const centerView = document.getElementById('centerView');
+    const loginForm = document.getElementById('loginForm');
+    const logoutBtn = document.getElementById('logoutBtn');
+    function showLogin(){ loginView.classList.add('visible'); centerView.classList.remove('visible'); }
+    function showCenter(){ loginView.classList.remove('visible'); centerView.classList.add('visible'); }
+    loginForm.addEventListener('submit', function(e){ e.preventDefault(); showCenter(); });
+    logoutBtn.addEventListener('click', function(){ showLogin(); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>見面會應援調查表 - HAPPY SUWON DAY 2026</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
+    <link rel="stylesheet" href="../../../assets/css/course-note.css" />
+    <style>
+        /* 우리의 여름 : HAPPY SUWON DAY 2026 — 藍白夏日見面會風格 */
+        :root {
+            --summer-sky: #7eb8e8;
+            --summer-sky-light: #d4ebfa;
+            --summer-sky-pale: #eef7fd;
+            --summer-blue: #4a90c4;
+            --summer-blue-deep: #2e6b96;
+            --summer-ink: #1a3a52;
+            --summer-white: #ffffff;
+            --summer-shadow: rgba(74, 144, 196, 0.14);
+            --summer-glow: rgba(126, 184, 232, 0.45);
+            --primary: var(--summer-sky);
+            --primary-light: var(--summer-sky-light);
+            --primary-dark: var(--summer-blue-deep);
+        }
+
+        body {
+            background: linear-gradient(165deg, #f8fcff 0%, var(--summer-sky-pale) 35%, #e3f2fb 70%, #f5faff 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 淡淡夏日裝飾（不影響操作） */
+        .summer-deco {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .summer-deco::before {
+            content: "";
+            position: absolute;
+            top: -120px;
+            right: -80px;
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(126, 184, 232, 0.25);
+            border-radius: 50%;
+        }
+
+        .summer-deco::after {
+            content: "";
+            position: absolute;
+            bottom: 60px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(126, 184, 232, 0.18);
+            border-radius: 50%;
+        }
+
+        .deco-star {
+            position: absolute;
+            color: rgba(126, 184, 232, 0.35);
+            font-size: 0.75rem;
+            line-height: 1;
+        }
+
+        .deco-star--1 { top: 12%; left: 8%; font-size: 1rem; }
+        .deco-star--2 { top: 22%; right: 12%; }
+        .deco-star--3 { top: 48%; left: 4%; }
+        .deco-star--4 { bottom: 28%; right: 6%; font-size: 0.9rem; }
+        .deco-star--5 { top: 8%; left: 42%; }
+
+        .deco-bird {
+            position: absolute;
+            opacity: 0.2;
+            color: var(--summer-blue);
+        }
+
+        .deco-bird--1 { top: 18%; right: 22%; width: 36px; height: 36px; }
+        .deco-bird--2 { bottom: 22%; left: 14%; width: 28px; height: 28px; transform: scaleX(-1); }
+
+        .header,
+        .page-hero,
+        .ex {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero {
+            background: linear-gradient(135deg, #f8fcff 0%, var(--summer-sky-light) 50%, #e8f4fc 100%) !important;
+            border-bottom: 1px solid rgba(126, 184, 232, 0.3);
+        }
+
+        .page-hero .category-tag {
+            background: rgba(255, 255, 255, 0.85);
+            color: var(--summer-blue-deep);
+            border: 1px solid var(--summer-sky);
+        }
+
+        .page-hero .note-title {
+            color: var(--summer-ink);
+            letter-spacing: 0.12em;
+        }
+
+        .page-hero .hero-desc {
+            color: var(--summer-blue-deep);
+            max-width: 42rem;
+            margin-inline: auto;
+        }
+
+        .page-hero .hero-divider {
+            background: linear-gradient(90deg, transparent, var(--summer-sky), transparent);
+            height: 1px;
+        }
+
+        .ex .note-card {
+            background: transparent;
+            box-shadow: none;
+            border: none;
+        }
+
+        .form-shell {
+            width: min(900px, 94%);
+            margin: 2rem auto 3rem;
+            padding: 2.5rem 3rem 3rem;
+            background: var(--summer-white);
+            border: 1px solid var(--summer-sky-light);
+            border-radius: 28px;
+            box-shadow: 0 16px 48px var(--summer-shadow), 0 2px 8px rgba(126, 184, 232, 0.08);
+        }
+
+        .summer-form p {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .event-poster {
+            margin: 0 auto 2rem;
+            max-width: 520px;
+            text-align: center;
+        }
+
+        .event-poster img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            border: 1px solid var(--summer-sky-light);
+            box-shadow: 0 10px 28px var(--summer-shadow);
+        }
+
+        .event-poster figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.82rem;
+            color: var(--summer-blue-deep);
+            letter-spacing: 0.06em;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--summer-sky-light);
+            position: relative;
+        }
+
+        .form-title::before,
+        .form-title::after {
+            content: "✦";
+            position: absolute;
+            bottom: -0.55rem;
+            color: var(--summer-sky);
+            font-size: 0.85rem;
+            background: var(--summer-white);
+            padding: 0 0.5rem;
+        }
+
+        .form-title::before { left: 28%; }
+        .form-title::after { right: 28%; }
+
+        .form-title h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--summer-blue-deep);
+            letter-spacing: 0.2em;
+            margin: 0;
+        }
+
+        .form-title .subtitle-ko {
+            font-size: 1rem;
+            color: var(--summer-blue);
+            margin-top: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+        }
+
+        .form-title .subtitle-desc {
+            font-size: 0.92rem;
+            color: var(--summer-ink);
+            margin-top: 0.85rem;
+            line-height: 1.7;
+            max-width: 36rem;
+            margin-inline: auto;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .main-label {
+            display: block;
+            font-weight: 700;
+            color: var(--summer-ink);
+            margin: 0;
+        }
+
+        .hint-text {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        .summer-form input[type="text"],
+        .summer-form input[type="url"],
+        .summer-form input[type="tel"],
+        .summer-form input[type="email"],
+        .summer-form input[type="date"],
+        .summer-form input[type="number"],
+        .summer-form input[type="datetime-local"],
+        .summer-form select,
+        .summer-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--summer-sky);
+            border-radius: 16px;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+            background-color: #fafdff;
+            color: var(--summer-ink);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 30px;
+            background: transparent;
+            accent-color: var(--summer-blue);
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 8px;
+            background: linear-gradient(90deg, var(--summer-sky-light), var(--summer-sky));
+            border-radius: 4px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--summer-blue);
+            margin-top: -6px;
+            box-shadow: 0 2px 6px var(--summer-shadow);
+        }
+
+        input[type="file"] {
+            border-radius: 16px;
+            cursor: pointer;
+            padding: 10px;
+            border: 1.5px dashed var(--summer-sky);
+            background: #fafdff;
+        }
+
+        input[type="file"]::file-selector-button {
+            background: #fff;
+            color: var(--summer-blue-deep);
+            border: 1px solid var(--summer-sky);
+            border-radius: 12px;
+            padding: 6px 14px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background: var(--summer-sky-light);
+        }
+
+        .submit {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        input[type="submit"] {
+            flex: 1;
+            background: linear-gradient(135deg, var(--summer-sky) 0%, var(--summer-blue) 100%) !important;
+            color: #fff !important;
+            border: none !important;
+            padding: 15px !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            cursor: pointer;
+            transition: opacity 0.25s, transform 0.2s;
+            box-shadow: 0 6px 20px var(--summer-shadow);
+        }
+
+        input[type="submit"]:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+
+        input[type="reset"] {
+            flex: 1;
+            background-color: #fff !important;
+            color: var(--summer-blue-deep) !important;
+            border: 2px solid var(--summer-blue) !important;
+            padding: 15px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            cursor: pointer;
+            transition: background 0.25s;
+        }
+
+        input[type="reset"]:hover {
+            background-color: var(--summer-sky-pale) !important;
+        }
+
+        fieldset {
+            border: 1px solid var(--summer-sky-light);
+            background: rgba(250, 253, 255, 0.7);
+            border-radius: 24px;
+            padding: 2.5rem 3rem;
+            margin: 2.5rem 0;
+        }
+
+        legend {
+            font-weight: 800;
+            color: var(--summer-blue-deep);
+            padding: 0 14px;
+            font-size: 1.05rem;
+            letter-spacing: 0.06em;
+        }
+
+        .option-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            gap: 10px 16px;
+        }
+
+        .option-row.grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px 10px;
+        }
+
+        .option-row.grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 10px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto !important;
+            margin: 0 !important;
+            accent-color: var(--summer-blue);
+        }
+
+        .summer-form fieldset>div {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 1.25rem;
+        }
+
+        .summer-form input:focus,
+        .summer-form select:focus,
+        .summer-form textarea:focus {
+            outline: none;
+            border-color: var(--summer-blue) !important;
+            box-shadow: 0 0 0 4px var(--summer-glow);
+        }
+
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            filter: invert(55%) sepia(30%) saturate(800%) hue-rotate(175deg) brightness(95%);
+        }
+
+        .color-input-wrap input[type="color"] {
+            height: 42px;
+            width: 84px;
+            padding: 2px;
+            border: 1.5px solid var(--summer-sky);
+            border-radius: 10px;
+            cursor: pointer;
+            background: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .form-shell {
+                padding: 1.5rem 1.25rem 2rem;
+                border-radius: 20px;
+            }
+
+            fieldset {
+                padding: 1.5rem 1.25rem;
+                border-radius: 18px;
+            }
+
+            .form-title h1 {
+                font-size: 1.6rem;
+                letter-spacing: 0.1em;
+            }
+
+            .option-row.grid-3,
+            .option-row.grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .submit {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="summer-deco" aria-hidden="true">
+        <span class="deco-star deco-star--1">✦</span>
+        <span class="deco-star deco-star--2">☆</span>
+        <span class="deco-star deco-star--3">✦</span>
+        <span class="deco-star deco-star--4">☆</span>
+        <span class="deco-star deco-star--5">·</span>
+        <svg class="deco-bird deco-bird--1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M2 14c4-6 10-8 18-6-4 2-6 5-8 8-2-2-5-3-10-2z" />
+            <path d="M20 8v4M18 10h4" stroke-linecap="round" />
+        </svg>
+        <svg class="deco-bird deco-bird--2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M2 14c4-6 10-8 18-6-4 2-6 5-8 8-2-2-5-3-10-2z" />
+        </svg>
+    </div>
+
+    <header class="header">
+        <nav class="navbar"></nav>
+        <script src="../../../assets/js/nav-loader.js"></script>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-container">
+            <span class="category-tag">HTML/CSS 實戰</span>
+            <h2 class="note-title">見面會應援調查表</h2>
+            <p class="hero-desc">以張水院生日派對《我們的夏天》為主題，整理粉絲參與、應援偏好與活動期待。</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <div class="ex">
+        <div class="note-card">
+            <div class="note-content">
+                <div class="form-shell">
+                    <form action="" class="summer-form">
+                        <figure class="event-poster">
+                            <img src="images/260709-su-won-fanmeet.jpg"
+                                alt="張水院生日派對 우리의 여름 : HAPPY SUWON DAY 2026 — 2026.07.18 (SAT) 5PM">
+                            <figcaption>우리의 여름 · 2026. 07. 18 (SAT) 5PM · BIRTHDAY PARTY</figcaption>
+                        </figure>
+
+                        <div class="form-title">
+                            <h1>見面會應援調查表</h1>
+                            <p class="subtitle-ko">우리의 여름 : HAPPY SUWON DAY 2026</p>
+                            <p class="subtitle-desc">以張水院生日派對《我們的夏天》為主題，整理粉絲參與、應援偏好與活動期待。</p>
+                        </div>
+
+                        <fieldset>
+                            <legend>第一階段｜參與者基本資料</legend>
+                            <div>
+                                <label class="main-label" for="nickname">參與暱稱</label>
+                                <input type="text" id="nickname" name="nickname" placeholder="例：夏日수원이_2026">
+                            </div>
+                            <div>
+                                <label class="main-label" for="email">聯絡信箱</label>
+                                <input type="email" id="email" name="email" placeholder="summer@mail.com">
+                            </div>
+                            <div>
+                                <label class="main-label" for="tel">聯絡電話</label>
+                                <input type="tel" id="tel" name="tel" placeholder="0912-345-678">
+                            </div>
+                            <div>
+                                <label class="main-label" for="join_date">預計參加日期</label>
+                                <input type="date" id="join_date" name="join_date">
+                            </div>
+                            <div>
+                                <label class="main-label">參與身分</label>
+                                <div class="option-row">
+                                    <label class="option-item"><input type="radio" name="role" value="onsite"> 現場參加</label>
+                                    <label class="option-item"><input type="radio" name="role" value="online"> 線上應援</label>
+                                    <label class="option-item"><input type="radio" name="role" value="both"> 現場＋線上</label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>第二階段｜見面會偏好調查</legend>
+                            <div>
+                                <label class="main-label">想參與的環節（可複選）</label>
+                                <div class="option-row grid-2">
+                                    <label class="option-item"><input type="checkbox" name="activity" value="greeting"> 夏日問候時間</label>
+                                    <label class="option-item"><input type="checkbox" name="activity" value="quiz"> 水院知識小測驗</label>
+                                    <label class="option-item"><input type="checkbox" name="activity" value="song"> 清唱環節</label>
+                                    <label class="option-item"><input type="checkbox" name="activity" value="photo"> 合影／拍立得</label>
+                                    <label class="option-item"><input type="checkbox" name="activity" value="letter"> 粉絲信朗讀</label>
+                                    <label class="option-item"><input type="checkbox" name="activity" value="cake"> 生日蛋糕許願</label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="main-label" for="event_datetime">希望安排的時段</label>
+                                <input type="datetime-local" id="event_datetime" name="event_datetime">
+                            </div>
+                            <div>
+                                <label class="main-label" for="venue">活動區域偏好</label>
+                                <select id="venue" name="venue">
+                                    <option value="">請選擇區域</option>
+                                    <optgroup label="室內">
+                                        <option value="hall_a">主舞台區 A</option>
+                                        <option value="hall_b">互動沙龍區 B</option>
+                                    </optgroup>
+                                    <optgroup label="戶外夏日">
+                                        <option value="garden">花園露台區</option>
+                                        <option value="lawn">草地野餐區</option>
+                                        <option value="poolside">池畔午後區</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="main-label" for="song">最想聽到的曲目</label>
+                                <select id="song" name="song">
+                                    <option value="">請選擇歌曲</option>
+                                    <optgroup label="夏日氛圍">
+                                        <option value="summer_breeze">夏日微風（여름 바람）</option>
+                                        <option value="our_summer">我們的夏天（우리의 여름）</option>
+                                        <option value="blue_note">Blue Note 抒情版</option>
+                                    </optgroup>
+                                    <optgroup label="張水院代表曲">
+                                        <option value="couple">Couple（커플）</option>
+                                        <option value="remember">請記得好嗎（기억해줄래）</option>
+                                        <option value="prayer">祈禱（기도）</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="main-label">最期待的見面會形式</label>
+                                <div class="option-row grid-3">
+                                    <label class="option-item"><input type="radio" name="event_style" value="talk"> 輕鬆談話</label>
+                                    <label class="option-item"><input type="radio" name="event_style" value="acoustic"> 不插電演出</label>
+                                    <label class="option-item"><input type="radio" name="event_style" value="game"> 夏日遊戲</label>
+                                    <label class="option-item"><input type="radio" name="event_style" value="wish"> 心願紙飛機</label>
+                                    <label class="option-item"><input type="radio" name="event_style" value="sign"> 簽名環節</label>
+                                    <label class="option-item"><input type="radio" name="event_style" value="group"> 大合照</label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="main-label" for="ticket_count">同行人數（含本人）</label>
+                                <input type="number" id="ticket_count" name="ticket_count" min="1" max="6" placeholder="1">
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>第三階段｜應援想法與期待</legend>
+                            <div>
+                                <label class="main-label" for="fan_message">給水院的夏日祝福</label>
+                                <textarea id="fan_message" name="fan_message" rows="8"
+                                    placeholder="寫下你想在 HAPPY SUWON DAY 2026 對張水院說的話……"></textarea>
+                            </div>
+                            <div>
+                                <label class="main-label" for="proof">上傳應援素材（圖片／PDF）</label>
+                                <p class="hint-text">手幅草圖、應援配色參考、票根或周邊照片</p>
+                                <input type="file" id="proof" name="proof" accept="image/*,.pdf">
+                            </div>
+                            <div>
+                                <label class="main-label" for="hype_level">對見面會的期待程度</label>
+                                <input type="range" id="hype_level" name="hype_level" min="0" max="100" value="90">
+                            </div>
+                            <div class="color-input-wrap">
+                                <label class="main-label" for="summer_color">你的夏日應援色</label>
+                                <input type="color" id="summer_color" name="summer_color" value="#7eb8e8">
+                            </div>
+                            <div>
+                                <label class="main-label" for="recommend_url">推薦給同好的入坑連結</label>
+                                <input type="url" id="recommend_url" name="recommend_url" placeholder="https://youtube.com/...">
+                            </div>
+                        </fieldset>
+
+                        <div class="submit">
+                            <input type="reset" value="重置表單">
+                            <input type="submit" value="送出應援調查 ✦">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
