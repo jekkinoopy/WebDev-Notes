@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>履歷表 - 努比的全端筆記</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/course-note.css">
+    <style>
+        body.hr-resume-page {
+            background: var(--gray-50);
+        }
+
+        .hr-resume-wrap {
+            max-width: 900px;
+            margin: 2rem auto 3rem;
+            padding: 0 1rem;
+        }
+
+        .resume-container {
+            width: 100%;
+            background-color: #fff;
+            border: 2px solid var(--primary-light);
+            border-radius: 24px;
+            box-shadow: 0 12px 32px rgba(60, 96, 143, 0.12);
+            padding: 2.5rem;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .resume-container::after {
+            content: "✦";
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-size: 1.25rem;
+            color: var(--primary);
+            opacity: 0.6;
+        }
+
+        table.header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px dashed var(--primary-light);
+        }
+
+        .avatar-td {
+            width: 160px;
+            vertical-align: middle;
+            padding-bottom: 1.5rem;
+        }
+
+        .avatar-frame {
+            width: 140px;
+            height: 140px;
+            background-color: var(--gray-100);
+            border: 3px solid var(--primary);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 4px 5px 0 var(--primary-light);
+        }
+
+        .avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info-td {
+            vertical-align: middle;
+            padding-left: 1.75rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .info-td h1 {
+            margin: 0 0 0.75rem;
+            font-size: 2.4rem;
+            color: var(--primary-dark);
+            letter-spacing: 0.15em;
+        }
+
+        .info-p {
+            margin: 0.35rem 0;
+            font-size: 1rem;
+            display: inline-block;
+            margin-right: 1.25rem;
+            color: var(--gray-700);
+        }
+
+        .info-empty {
+            color: var(--gray-400);
+        }
+
+        table.main-content-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 1.25rem;
+        }
+
+        .section-title-td {
+            width: 25%;
+            vertical-align: top;
+            padding-right: 1rem;
+            padding-top: 0.35rem;
+        }
+
+        .title-badge {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 0.65rem 0.85rem;
+            border-radius: 14px;
+            display: block;
+            text-align: center;
+            box-shadow: 2px 3px 0 rgba(86, 204, 242, 0.35);
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .section-content-td {
+            width: 75%;
+            background: linear-gradient(135deg, #fff 0%, var(--gray-50) 100%);
+            border: 1.5px solid var(--primary-light);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(60, 96, 143, 0.06);
+        }
+
+        .inner-item-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .inner-item-tr {
+            border-bottom: 1px dashed var(--primary-light);
+        }
+
+        .inner-item-tr:last-child {
+            border-bottom: none;
+        }
+
+        .job-title-td {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1.02rem;
+            padding: 0.75rem 0;
+            vertical-align: top;
+            width: 45%;
+        }
+
+        .job-detail-td {
+            padding: 0.75rem 0;
+            vertical-align: top;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            width: 55%;
+            color: var(--gray-700);
+        }
+
+        .time-tag {
+            color: var(--gray-600);
+            background-color: #fff;
+            padding: 0.2rem 0.65rem;
+            border-radius: 8px;
+            border: 1px solid var(--primary-light);
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+
+        .time-tag--empty {
+            color: var(--gray-400);
+            border-style: dashed;
+        }
+
+        .skill-container {
+            padding: 0.25rem 0;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background-color: #fff;
+            border: 1.5px solid var(--primary-light);
+            color: var(--gray-700);
+            padding: 0.35rem 0.85rem;
+            border-radius: 12px;
+            margin: 0.35rem;
+            font-size: 0.88rem;
+        }
+
+        .skill-group-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 0.65rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .job-sub {
+            font-size: 0.9rem;
+            font-weight: normal;
+            color: var(--gray-600);
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 1.5rem 1.25rem;
+            }
+
+            table.header-table,
+            table.header-table tr,
+            table.main-content-table,
+            table.main-content-table tr {
+                display: block;
+                width: 100%;
+            }
+
+            .avatar-td,
+            .info-td,
+            .section-title-td,
+            .section-content-td {
+                display: block;
+                width: 100%;
+                padding-left: 0;
+            }
+
+            .avatar-td {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .avatar-frame {
+                margin-inline: auto;
+            }
+
+            .section-title-td {
+                margin-bottom: 0.5rem;
+            }
+
+            .inner-item-tr {
+                display: block;
+                padding-bottom: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .job-title-td,
+            .job-detail-td {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="hr-resume-page">
+    <header class="header">
+        <nav class="navbar"></nav>
+        <script src="../../../assets/js/nav-loader.js"></script>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-container">
+            <span class="category-tag">HTML 表格排版</span>
+            <h2 class="note-title">人力資源履歷表</h2>
+            <p class="hero-desc">以 table 巢狀結構排版個人履歷，練習職前訓練、工作經歷、學歷與技能區塊。</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <div class="hr-resume-wrap">
+        <div class="resume-container">
+            <table class="header-table">
+                <tr>
+                    <td class="avatar-td">
+                        <div class="avatar-frame">
+                            <img src="images/noopyhead.png" alt="Noopy 履歷相片">
+                        </div>
+                    </td>
+                    <td class="info-td">
+                        <h1>Noopy（努比）</h1>
+                        <div>
+                            <p class="info-p"><b>性別：</b><span class="info-empty">　</span></p>
+                            <p class="info-p"><b>通訊縣市：</b><span class="info-empty">　</span></p>
+                        </div>
+                        <div style="margin-top: 4px;">
+                            <p class="info-p"><b>電話：</b><span class="info-empty">　</span></p>
+                            <p class="info-p"><b>電子郵件：</b><span class="info-empty">　</span></p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="main-content-table">
+                <tr>
+                    <td class="section-title-td">
+                        <span class="title-badge">職前訓練</span>
+                    </td>
+                    <td class="section-content-td">
+                        <table class="inner-item-table">
+                            <tr class="inner-item-tr">
+                                <td class="job-title-td">
+                                    全端網頁開發與AI應用<br>(泰山)第01期
+                                </td>
+                                <td class="job-detail-td">
+                                    <span class="time-tag">2026-04-09 ～ 2026-09-23</span><br>
+                                    勞動力發展署北基宜花金馬分署
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="section-title-td">
+                        <span class="title-badge">工作經歷</span>
+                    </td>
+                    <td class="section-content-td">
+                        <table class="inner-item-table">
+                            <tr class="inner-item-tr">
+                                <td class="job-title-td">
+                                    <span class="info-empty">　</span><br>
+                                    <span class="job-sub">職稱：UI/UX 設計</span>
+                                </td>
+                                <td class="job-detail-td">
+                                    <span class="time-tag time-tag--empty">　</span><br>
+                                    <b>工作說明：</b>Web／App 介面設計；制定 Design System 與工程師溝通協作。
+                                </td>
+                            </tr>
+                            <tr class="inner-item-tr">
+                                <td class="job-title-td">
+                                    <span class="info-empty">　</span><br>
+                                    <span class="job-sub">職稱：Freelance 接案設計</span>
+                                </td>
+                                <td class="job-detail-td">
+                                    <span class="time-tag time-tag--empty">　</span><br>
+                                    <b>工作說明：</b>承接品牌識別、商業廣告；由視覺設計轉型介面設計，累積跨領域實務。
+                                </td>
+                            </tr>
+                            <tr class="inner-item-tr">
+                                <td class="job-title-td">
+                                    <span class="info-empty">　</span><br>
+                                    <span class="job-sub">職稱：品牌視覺設計</span>
+                                </td>
+                                <td class="job-detail-td">
+                                    <span class="time-tag time-tag--empty">　</span><br>
+                                    <b>工作說明：</b>商品拍攝、精修合成；DM、Banner、印刷品與包裝設計；網頁視覺優化、影音剪輯與後製。
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="section-title-td">
+                        <span class="title-badge">教育背景</span>
+                    </td>
+                    <td class="section-content-td">
+                        <table class="inner-item-table">
+                            <tr class="inner-item-tr">
+                                <td class="job-title-td">
+                                    國立台中教育大學<br>
+                                    <span class="job-sub">科學教育與應用學系</span>
+                                </td>
+                                <td class="job-detail-td">
+                                    <span class="time-tag time-tag--empty">　</span><br>
+                                    學歷順位：最高學歷
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="section-title-td">
+                        <span class="title-badge">專業技能</span>
+                    </td>
+                    <td class="section-content-td">
+                        <div class="skill-container">
+                            <div style="margin-bottom: 12px; font-size: 1rem;">
+                                <b>語文能力：</b>國語（精通）／ 英語／ 韓語／ 日語
+                            </div>
+
+                            <div class="skill-group-title">平面設計</div>
+                            <span class="skill-tag">Adobe Illustrator</span>
+                            <span class="skill-tag">Adobe Photoshop</span>
+                            <span class="skill-tag">Adobe InDesign</span>
+
+                            <div class="skill-group-title">插畫</div>
+                            <span class="skill-tag">Procreate</span>
+
+                            <div class="skill-group-title">UI/UX</div>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Adobe XD</span>
+
+                            <div class="skill-group-title">網頁與全端</div>
+                            <span class="skill-tag">HTML / CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">全端網頁開發與AI應用</span>
+
+                            <div class="skill-group-title">多媒體</div>
+                            <span class="skill-tag">Premiere</span>
+                            <span class="skill-tag">After Effects</span>
+
+                            <div class="skill-group-title">辦公應用</div>
+                            <span class="skill-tag">Microsoft Word</span>
+                            <span class="skill-tag">Microsoft Excel</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
