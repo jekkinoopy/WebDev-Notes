@@ -1,0 +1,167 @@
+/**
+ * records/records.css
+ * 只負責把 Bootstrap 元件套上 Crayon 專案（crayon-layout.css）的配色，
+ * 不重寫 Bootstrap Table / Form / Button / Alert 的結構，只覆寫顏色相關的
+ * CSS 變數與少數屬性。變數皆取自 ../crayon-layout.css 的 :root。
+ */
+
+.records-page {
+  min-height: 100vh;
+  background: var(--cx-bg);
+}
+
+.records-page > .container {
+  position: relative;
+  z-index: 1;
+  padding: 1.75rem clamp(1rem, 4vw, 2rem) 2rem;
+  background: var(--cx-surface);
+  border: 1px solid var(--cx-line);
+  border-radius: var(--cx-radius-sm);
+  box-shadow: var(--cx-shadow-soft);
+}
+
+/* Navbar */
+.records-page .navbar.bg-primary {
+  background-color: var(--cx-hill) !important;
+  border-bottom: 3px solid var(--cx-shape-stroke);
+  box-shadow: var(--cx-shadow-soft);
+}
+
+.records-page .navbar-brand {
+  color: var(--cx-yellow) !important;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.records-page .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 600;
+}
+
+.records-page .navbar-nav .nav-link:hover,
+.records-page .navbar-nav .nav-link:focus {
+  color: #fff !important;
+}
+
+.records-page .navbar-nav .nav-link.active {
+  color: var(--cx-yellow) !important;
+  text-decoration: underline;
+  text-decoration-color: var(--cx-yellow);
+  text-underline-offset: 4px;
+}
+
+/* Table */
+.records-page .table {
+  --bs-table-color: var(--cx-ink);
+  --bs-table-bg: var(--cx-surface);
+  --bs-table-border-color: var(--cx-line);
+  --bs-table-striped-bg: color-mix(in srgb, var(--cx-bg) 45%, var(--cx-surface));
+  --bs-table-striped-color: var(--cx-ink);
+  --bs-table-hover-bg: color-mix(in srgb, var(--cx-yellow) 16%, var(--cx-surface));
+  --bs-table-hover-color: var(--cx-ink);
+}
+
+.records-page thead.table-dark {
+  --bs-table-color: var(--cx-cream);
+  --bs-table-bg: var(--cx-ink);
+  --bs-table-border-color: var(--cx-shape-stroke);
+}
+
+/* Badges */
+.records-page .badge.text-bg-primary {
+  background-color: var(--cx-blue) !important;
+  color: var(--cx-ink) !important;
+}
+
+.records-page .badge.text-bg-success {
+  background-color: var(--cx-green) !important;
+  color: var(--cx-ink) !important;
+}
+
+.records-page .badge.text-bg-warning {
+  background-color: var(--cx-yellow) !important;
+  color: var(--cx-ink) !important;
+}
+
+.records-page .badge.text-bg-danger {
+  background-color: var(--cx-red) !important;
+  color: #fff !important;
+}
+
+/* Buttons */
+.records-page .btn-primary {
+  --bs-btn-color: var(--cx-ink);
+  --bs-btn-bg: var(--cx-blue);
+  --bs-btn-border-color: var(--cx-blue);
+  --bs-btn-hover-color: var(--cx-ink);
+  --bs-btn-hover-bg: color-mix(in srgb, var(--cx-blue) 82%, var(--cx-ink));
+  --bs-btn-hover-border-color: color-mix(in srgb, var(--cx-blue) 82%, var(--cx-ink));
+  --bs-btn-active-color: var(--cx-ink);
+  --bs-btn-active-bg: color-mix(in srgb, var(--cx-blue) 72%, var(--cx-ink));
+  --bs-btn-active-border-color: color-mix(in srgb, var(--cx-blue) 72%, var(--cx-ink));
+}
+
+.records-page .btn-success {
+  --bs-btn-color: var(--cx-ink);
+  --bs-btn-bg: var(--cx-green);
+  --bs-btn-border-color: var(--cx-green);
+  --bs-btn-hover-color: var(--cx-ink);
+  --bs-btn-hover-bg: color-mix(in srgb, var(--cx-green) 82%, var(--cx-ink));
+  --bs-btn-hover-border-color: color-mix(in srgb, var(--cx-green) 82%, var(--cx-ink));
+  --bs-btn-active-color: var(--cx-ink);
+  --bs-btn-active-bg: color-mix(in srgb, var(--cx-green) 72%, var(--cx-ink));
+  --bs-btn-active-border-color: color-mix(in srgb, var(--cx-green) 72%, var(--cx-ink));
+}
+
+.records-page .btn-warning {
+  --bs-btn-color: var(--cx-ink);
+  --bs-btn-bg: var(--cx-yellow);
+  --bs-btn-border-color: var(--cx-yellow);
+  --bs-btn-hover-color: var(--cx-ink);
+  --bs-btn-hover-bg: color-mix(in srgb, var(--cx-yellow) 82%, var(--cx-ink));
+  --bs-btn-hover-border-color: color-mix(in srgb, var(--cx-yellow) 82%, var(--cx-ink));
+  --bs-btn-active-color: var(--cx-ink);
+  --bs-btn-active-bg: color-mix(in srgb, var(--cx-yellow) 72%, var(--cx-ink));
+  --bs-btn-active-border-color: color-mix(in srgb, var(--cx-yellow) 72%, var(--cx-ink));
+}
+
+.records-page .btn-danger {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--cx-red);
+  --bs-btn-border-color: var(--cx-red);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: color-mix(in srgb, var(--cx-red) 82%, var(--cx-ink));
+  --bs-btn-hover-border-color: color-mix(in srgb, var(--cx-red) 82%, var(--cx-ink));
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: color-mix(in srgb, var(--cx-red) 72%, var(--cx-ink));
+  --bs-btn-active-border-color: color-mix(in srgb, var(--cx-red) 72%, var(--cx-ink));
+}
+
+.records-page .btn-secondary {
+  --bs-btn-bg: var(--cx-muted);
+  --bs-btn-border-color: var(--cx-muted);
+  --bs-btn-hover-bg: color-mix(in srgb, var(--cx-muted) 82%, var(--cx-ink));
+  --bs-btn-hover-border-color: color-mix(in srgb, var(--cx-muted) 82%, var(--cx-ink));
+  --bs-btn-active-bg: color-mix(in srgb, var(--cx-muted) 72%, var(--cx-ink));
+  --bs-btn-active-border-color: color-mix(in srgb, var(--cx-muted) 72%, var(--cx-ink));
+}
+
+/* Alerts */
+.records-page .alert-success {
+  --bs-alert-color: color-mix(in srgb, var(--cx-green) 55%, var(--cx-ink));
+  --bs-alert-bg: color-mix(in srgb, var(--cx-green) 18%, var(--cx-surface));
+  --bs-alert-border-color: color-mix(in srgb, var(--cx-green) 40%, var(--cx-line));
+}
+
+.records-page .alert-danger {
+  --bs-alert-color: color-mix(in srgb, var(--cx-red) 55%, var(--cx-ink));
+  --bs-alert-bg: color-mix(in srgb, var(--cx-red) 16%, var(--cx-surface));
+  --bs-alert-border-color: color-mix(in srgb, var(--cx-red) 40%, var(--cx-line));
+}
+
+/* Form focus */
+.records-page .form-control:focus,
+.records-page .form-select:focus {
+  border-color: var(--cx-blue);
+  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--cx-blue) 25%, transparent);
+}
