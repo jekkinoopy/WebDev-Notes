@@ -43,14 +43,88 @@
                     </p>
                 </div>
                 <nav class="crayon-hero-nav" aria-label="頁內導覽">
+                    <a class="crayon-hero-link crayon-hero-link--bmi" href="#tasks-section">健康任務管理</a>
                     <a class="crayon-hero-link crayon-hero-link--bmi" href="#bmi-section">體重監測</a>
                     <a class="crayon-hero-link crayon-hero-link--workout" href="#workout-section">運動特訓</a>
                     <a class="crayon-hero-link crayon-hero-link--diet" href="#diet-section">飲食封印</a>
-                    <a class="crayon-hero-link crayon-hero-link--bmi" href="#tasks-section">健康任務管理</a>
                 </nav>
             </div>
         </section>
-        <section class="crayon-section crayon-band crayon-band--cream crayon-band--after-bg" id="bmi-section"
+        <section class="crayon-section crayon-band crayon-band--cream crayon-band--after-bg" id="tasks-section"
+            aria-labelledby="tasks-title">
+            <div class="crayon-section-inner">
+                <div class="crayon-section-head">
+                    <div>
+                        <h2 id="tasks-title" class="crayon-section-title">野原家健康任務管理・主控制台</h2>
+                        <p class="crayon-section-desc">全家人的健康 KPI 任務清單，支援新增、修改、刪除（僅為畫面模擬，未串接資料庫）。</p>
+                    </div>
+                </div>
+
+                <div class="crayon-plate">
+                    <div id="taskAlertPlaceholder"></div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <p class="mb-0 text-muted small">共 3 筆任務</p>
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#taskCreateModal">＋ 新增任務</button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover align-middle bg-white">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">成員</th>
+                                    <th scope="col">分類</th>
+                                    <th scope="col">健康任務</th>
+                                    <th scope="col">狀態</th>
+                                    <th scope="col">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>美冴</td>
+                                    <td>飲食管理</td>
+                                    <td>巧克力餅乾配額監控</td>
+                                    <td><span class="badge text-bg-success">進行中</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
+                                            data-bs-target="#taskEditModal1">修改</button>
+                                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#taskDeleteModal1">刪除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>廣志</td>
+                                    <td>運動特訓</td>
+                                    <td>居酒屋後夜跑 30 分鐘</td>
+                                    <td><span class="badge text-bg-warning text-dark">待處理</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
+                                            data-bs-target="#taskEditModal2">修改</button>
+                                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#taskDeleteModal2">刪除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>小新</td>
+                                    <td>飲食管理</td>
+                                    <td>青椒攝取任務</td>
+                                    <td><span class="badge text-bg-primary">已完成</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
+                                            data-bs-target="#taskEditModal3">修改</button>
+                                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#taskDeleteModal3">刪除</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="crayon-section crayon-band crayon-band--soft crayon-band--after-cream" id="bmi-section"
             aria-labelledby="bmi-title">
             <div class="crayon-section-inner">
                 <div class="crayon-section-head">
@@ -94,7 +168,7 @@
                         <span class="crayon-badge">廣志監密</span>
                         <h3>廣志的真實防線監測</h3>
                         <p class="crayon-protocol">
-                            此處防守極度嚴密！防護等級等同於廣志藏在臭鞋底下的私房錢。<br>就算是美冴拿著平底鍋大吼威脅，也絕對不輕易外流！<br>
+                            此處防守極度嚴密！防護等級等同於廣志藏在鞋底下的私房錢。<br>就算是美冴拿著平底鍋大吼威脅，也絕對不輕易外流！<br>
                             <code>#宿醉後的真實身高 #深夜偷偷吃完宵夜的靈魂重量</code>
                         </p>
                         <form class="crayon-form" action="#" method="post" onsubmit="return false;">
@@ -113,7 +187,7 @@
             </div>
         </section>
 
-        <section class="crayon-section crayon-band crayon-band--soft crayon-band--after-cream" id="workout-section"
+        <section class="crayon-section crayon-band crayon-band--cream crayon-band--after-soft" id="workout-section"
             aria-labelledby="workout-title">
             <div class="crayon-section-inner">
                 <div class="crayon-section-head">
@@ -203,7 +277,7 @@
                                     class="fa-solid fa-person-running"></i></span>
                             <div>
                                 <h3>擺脫萬年肚腩</h3>
-                                <p>透過每日 30 分鐘的有氧大作戰，<br>誓死消滅野原廣志的居酒屋啤酒肚與沉重腳臭感。</p>
+                                <p>透過每日 30 分鐘的有氧大作戰，<br>誓死消滅野原廣志的居酒屋啤酒肚。</p>
                             </div>
                         </div>
                         <div class="crayon-benefit">
@@ -219,7 +293,7 @@
             </div>
         </section>
 
-        <section class="crayon-section crayon-band crayon-band--cream crayon-band--after-soft" id="diet-section"
+        <section class="crayon-section crayon-band crayon-band--soft crayon-band--after-cream" id="diet-section"
             aria-labelledby="diet-title">
             <div class="crayon-section-inner">
                 <div class="crayon-section-head">
@@ -255,84 +329,7 @@
             </div>
         </section>
 
-        <section class="crayon-section crayon-band crayon-band--soft crayon-band--after-cream" id="tasks-section"
-            aria-labelledby="tasks-title">
-            <div class="crayon-section-inner">
-                <div class="crayon-section-head">
-                    <span class="crayon-section-num">04</span>
-                    <div>
-                        <h2 id="tasks-title" class="crayon-section-title">野原家健康任務管理</h2>
-                        <p class="crayon-section-desc">全家人的健康 KPI 任務清單，支援新增、修改、刪除（僅為畫面模擬，未串接資料庫）。</p>
-                    </div>
-                </div>
-
-                <div class="crayon-plate">
-                    <div id="taskAlertPlaceholder"></div>
-
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <p class="mb-0 text-muted small">共 3 筆任務</p>
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                            data-bs-target="#taskCreateModal">＋ 新增任務</button>
-                    </div>
-
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover align-middle bg-white">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col">編號</th>
-                                    <th scope="col">成員</th>
-                                    <th scope="col">分類</th>
-                                    <th scope="col">健康任務</th>
-                                    <th scope="col">狀態</th>
-                                    <th scope="col">操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>美冴</td>
-                                    <td>飲食管理</td>
-                                    <td>巧克力餅乾配額監控</td>
-                                    <td><span class="badge text-bg-success">進行中</span></td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
-                                            data-bs-target="#taskEditModal1">修改</button>
-                                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#taskDeleteModal1">刪除</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>廣志</td>
-                                    <td>運動特訓</td>
-                                    <td>居酒屋後夜跑 30 分鐘</td>
-                                    <td><span class="badge text-bg-warning text-dark">待處理</span></td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
-                                            data-bs-target="#taskEditModal2">修改</button>
-                                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#taskDeleteModal2">刪除</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>小新</td>
-                                    <td>飲食管理</td>
-                                    <td>青椒攝取任務</td>
-                                    <td><span class="badge text-bg-primary">已完成</span></td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
-                                            data-bs-target="#taskEditModal3">修改</button>
-                                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#taskDeleteModal3">刪除</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Create：新增任務 Modal（Bootstrap Modal + Form） -->
+        <!-- Create：新增任務 Modal（Bootstrap Modal + Form） -->
                 <div class="modal fade" id="taskCreateModal" tabindex="-1" aria-labelledby="taskCreateModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -595,8 +592,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
     </main>
 
     <footer class="crayon-footer">
