@@ -675,7 +675,7 @@
 }
 
 .crayon-day {
-  padding: 0.95rem 0.9rem 1.05rem;
+  padding: 1rem;
   background: color-mix(in srgb, var(--cx-bg) 45%, #fff);
   border: none;
   border-radius: var(--cx-radius-sm);
